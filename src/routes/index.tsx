@@ -232,7 +232,7 @@ function Index() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-6xl px-6 pb-48 md:px-12 md:pb-80">
+      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12 md:pb-80">
         <div className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 md:gap-x-10 md:gap-y-20">
           {visible.map((design, i) => (
             <button
@@ -251,7 +251,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-forest px-6 py-48 md:px-12 md:py-80">
+      <section className="bg-forest px-6 py-24 md:px-12 md:py-80">
         <div className="mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream md:text-[58px]">
@@ -261,29 +261,33 @@ function Index() {
             Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
             we fix it free. No receipts argued, no questions asked.
           </p>
-          <p className="mt-16 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
+          <p className="mt-10 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-48 md:px-12 md:py-80">
+      <section className="bg-cream px-6 py-24 md:px-12 md:py-80">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-[40px] text-forest md:text-[54px]">From our clients</h2>
           <p className="mt-4 text-[13px] font-light text-muted-foreground">Real sets, real words.</p>
-          <div className="mt-16 grid gap-14 md:grid-cols-3 md:gap-10">
-            {["Sarah M.", "Ana R.", "Jill T."].map((name, i) => (
-              <div key={name}>
-                <Placeholder tone={toneAt(i + 2)} />
+          <div className="mt-12 grid gap-14 md:grid-cols-3 md:gap-10">
+            {CLIENT_QUOTES.map((quote, i) => (
+              <div key={quote.name}>
+                <Placeholder
+                  tone={toneAt(i + 2)}
+                  src={nailLibraryAsset.url}
+                  alt={`Nail set by Belleva Nails for ${quote.name}`}
+                />
                 <p className="mt-6 font-display text-[22px] italic leading-relaxed text-forest">
-                  [client quote goes here]
+                  {quote.text}
                 </p>
-                <p className="mt-3 text-xs text-muted-foreground">{name}</p>
+                <p className="mt-3 text-xs text-muted-foreground">{quote.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-hairline bg-background px-6 py-40 md:px-12 md:py-56">
+      <footer className="border-t border-hairline bg-background px-6 py-24 md:px-12 md:py-56">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>
