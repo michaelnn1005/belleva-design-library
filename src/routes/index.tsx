@@ -92,13 +92,24 @@ function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
+  const [heroPassed, setHeroPassed] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setShowBar(window.scrollY > 420);
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero ? hero.offsetHeight - 20 : window.innerHeight - 20;
+      setHeroPassed(window.scrollY > threshold);
+      setShowBar(window.scrollY > 420);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const scrollToLibrary = () => {
+    filterRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     if (!selected) return;
@@ -117,38 +128,88 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-30 bg-background">
+      <header
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          heroPassed ? "bg-background" : "bg-transparent"
+        }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
-          <span className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</span>
+          <span
+            className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${
+              heroPassed ? "text-forest" : "text-background"
+            }`}
+          >
+            BELLEVA
+          </span>
           <a
             href={BOOKING_URL}
-            className="rounded-full border border-gold px-5 py-2 text-xs text-gold transition-colors hover:bg-cream"
+            className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${
+              heroPassed
+                ? "border-gold text-gold hover:bg-cream"
+                : "border-background/70 text-background hover:bg-background/15"
+            }`}
           >
             Book
           </a>
         </div>
       </header>
 
-      <section className="pt-40 md:pt-72">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h1 className="font-display text-[54px] leading-[1.05] text-forest md:text-[86px]">
+      <section
+        id="hero"
+        className="relative h-svh w-full overflow-hidden bg-forest"
+      >
+        <img
+          src={heroInkVeilAsset.url}
+          alt="Ink Veil nail design by Belleva Nails"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "center 65%" }}
+          loading="eager"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgba(20,30,25,0.30)" }}
+        />
+
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[24vh] text-center md:pt-[28vh]">
+          <h1 className="font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
             Find your next set.
           </h1>
-          <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-background/90">
             Real designs, made in our studio. Book the one you love.
           </p>
         </div>
-        <div className="relative mt-12 w-full overflow-hidden md:mt-16">
-          <img
-            src={heroInkVeilAsset.url}
-            alt="Ink Veil nail design by Belleva Nails"
-            className="aspect-[4/5] w-full object-cover object-center md:aspect-[3/2]"
-            loading="eager"
-          />
-        </div>
+
+        <button
+          onClick={scrollToLibrary}
+          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-background/90 transition-opacity hover:opacity-70"
+          aria-label="Scroll to design library"
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em]">
+            Browse the library
+          </span>
+          <div className="flex flex-col items-center">
+            <div className="h-10 w-px bg-background/60" />
+            <svg
+              width="8"
+              height="5"
+              viewBox="0 0 8 5"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 1l3 3 3-3"
+                stroke="currentColor"
+                strokeWidth="1"
+              />
+            </svg>
+          </div>
+        </button>
       </section>
 
-      <div className="mx-auto max-w-6xl overflow-x-auto px-6 pb-32 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div
+        ref={filterRef}
+        className="mx-auto max-w-6xl overflow-x-auto px-6 pb-32 pt-20 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
         <div className="flex w-max gap-3">
           {FILTERS.map((chip) => {
             const active = chip === filter;
