@@ -183,15 +183,15 @@ function Index() {
           style={{ backgroundColor: "rgba(20,30,25,0.45)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[8vh] text-center md:pt-[10vh]">
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[23vh] text-center md:pt-[25vh]">
           <p className="text-[11px] uppercase tracking-[2px] text-background/90">
             THE DESIGN LIBRARY — DENTON, TX
           </p>
-          <h1 className="mt-5 font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
+          <h1 className="mt-4 font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
             Find your
             <br className="md:hidden" /> next set.
           </h1>
-          <p className="mx-auto mt-6 max-w-[280px] text-[13px] font-light leading-relaxed text-background/90 md:max-w-md">
+          <p className="mx-auto mt-6 max-w-[260px] text-[13px] font-light leading-relaxed text-background/90 md:max-w-md">
             Real designs, made in our studio. Book the one you love.
           </p>
         </div>
