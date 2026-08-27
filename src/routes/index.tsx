@@ -183,7 +183,7 @@ function Index() {
           style={{ backgroundColor: "rgba(20,30,25,0.45)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[23vh] text-center md:pt-[25vh]">
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[16vh] text-center md:pt-[18vh]">
           <p className="text-[11px] uppercase tracking-[2px] text-background/90">
             THE DESIGN LIBRARY — DENTON, TX
           </p>
