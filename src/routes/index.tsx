@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import {
   BOOKING_URL,
   DESIGNS,
-  FILTERS,
+  OCCASION_FILTERS,
+  SERVICE_FILTERS,
   matchesFilter,
   toneAt,
   type Design,
@@ -225,25 +226,59 @@ function Index() {
 
       <div
         ref={filterRef}
-        className="mx-auto max-w-6xl overflow-x-auto px-6 pb-32 pt-20 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mx-auto max-w-6xl px-6 pb-32 pt-20 md:px-12"
       >
-        <div className="flex w-max gap-3">
-          {FILTERS.map((chip) => {
-            const active = chip === filter;
-            return (
-              <button
-                key={chip}
-                onClick={() => setFilter(chip)}
-                className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
-                  active
-                    ? "border-transparent bg-forest text-cream"
-                    : "border-hairline text-muted-foreground hover:border-gold"
-                }`}
-              >
-                {chip}
-              </button>
-            );
-          })}
+        <div className="space-y-3">
+          <div>
+            <p className="mb-3 text-[10px] uppercase tracking-[2px] text-gold">
+              OCCASION
+            </p>
+            <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex w-max gap-3">
+                {OCCASION_FILTERS.map((chip) => {
+                  const active = chip === filter;
+                  return (
+                    <button
+                      key={chip}
+                      onClick={() => setFilter(chip)}
+                      className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
+                        active
+                          ? "border-transparent bg-forest text-cream"
+                          : "border-hairline text-muted-foreground hover:border-gold"
+                      }`}
+                    >
+                      {chip}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="mb-3 text-[10px] uppercase tracking-[2px] text-gold">
+              SERVICE
+            </p>
+            <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex w-max gap-3">
+                {SERVICE_FILTERS.map((chip) => {
+                  const active = chip === filter;
+                  return (
+                    <button
+                      key={chip}
+                      onClick={() => setFilter(chip)}
+                      className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
+                        active
+                          ? "border-transparent bg-forest text-cream"
+                          : "border-hairline text-muted-foreground hover:border-gold"
+                      }`}
+                    >
+                      {chip}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

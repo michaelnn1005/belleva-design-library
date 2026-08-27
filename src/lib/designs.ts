@@ -7,20 +7,23 @@ export type Design = {
   price: number;
 };
 
-export const FILTERS = [
+export const OCCASION_FILTERS = [
   "All",
   "Wedding",
   "Everyday",
   "Date night",
   "Holiday",
+] as const;
+
+export const SERVICE_FILTERS = [
   "Gel-X",
   "Builder gel",
   "Dipping",
   "Acrylic",
-  "French",
-  "Chrome",
-  "Minimal",
+  "Regular gel",
 ] as const;
+
+export const FILTERS = [...OCCASION_FILTERS, ...SERVICE_FILTERS] as const;
 
 export const DESIGNS: Design[] = [
   { id: "linen-bloom", name: "Linen Bloom", collection: "SIGNATURE SET", service: "Gel-X", tags: ["Wedding", "French"], price: 70 },
