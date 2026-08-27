@@ -125,10 +125,10 @@ function Index() {
               <button
                 key={chip}
                 onClick={() => setFilter(chip)}
-                className={`whitespace-nowrap rounded-full px-5 py-2 text-xs transition-colors ${
+                className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
                   active
-                    ? "bg-forest text-cream"
-                    : "border border-hairline text-muted-foreground hover:border-gold"
+                    ? "border-transparent bg-forest text-cream"
+                    : "border-hairline text-muted-foreground hover:border-gold"
                 }`}
               >
                 {chip}
