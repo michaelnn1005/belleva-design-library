@@ -158,3 +158,32 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@utility fade-up {
+  opacity: 0;
+  transition: opacity 1.1s ease;
+}
+
+@utility fade-in-visible {
+  opacity: 1;
+}
