@@ -49,21 +49,40 @@ function useFadeIn() {
   return { ref, visible };
 }
 
-function Placeholder({ tone, className = "" }: { tone: string; className?: string }) {
+function Placeholder({
+  tone,
+  src,
+  alt = "",
+  className = "",
+}: {
+  tone: string;
+  src?: string;
+  alt?: string;
+  className?: "";
+}) {
   const { ref, visible } = useFadeIn();
   const light = tone !== "#3A5A4A";
   return (
     <div
       ref={ref}
-      className={`fade-up ${visible ? "fade-in-visible" : ""} flex aspect-[4/5] items-center justify-center rounded-[10px] ${className}`}
-      style={{ backgroundColor: tone }}
+      className={`fade-up ${visible ? "fade-in-visible" : ""} relative aspect-[4/5] overflow-hidden rounded-[10px] ${className}`}
+      style={{ backgroundColor: src ? undefined : tone }}
     >
-      <span
-        className="eyebrow"
-        style={{ color: light ? "#8A7340" : "#F5F0E8" }}
-      >
-        Photo
-      </span>
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover object-center"
+          loading="lazy"
+        />
+      ) : (
+        <span
+          className="eyebrow absolute inset-0 flex items-center justify-center"
+          style={{ color: light ? "#8A7340" : "#F5F0E8" }}
+        >
+          Photo
+        </span>
+      )}
     </div>
   );
 }
