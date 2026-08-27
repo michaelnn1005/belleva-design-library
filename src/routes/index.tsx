@@ -192,7 +192,11 @@ function Index() {
             <br className="md:hidden" /> next set.
           </h1>
           <p className="mx-auto mt-6 max-w-[240px] text-[13px] font-light leading-relaxed text-background/90 md:max-w-md">
-            Real designs, made in our salon. Book the one you love.
+            Real designs, made
+            <br className="md:hidden" />
+            in our salon. Book
+            <br className="md:hidden" />
+            the one you love.
           </p>
         </div>
 
