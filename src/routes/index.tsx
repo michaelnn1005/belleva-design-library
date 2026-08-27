@@ -58,7 +58,7 @@ function Placeholder({
   tone: string;
   src?: string;
   alt?: string;
-  className?: "";
+  className?: string;
 }) {
   const { ref, visible } = useFadeIn();
   const light = tone !== "#3A5A4A";
