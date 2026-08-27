@@ -8,8 +8,7 @@ import {
   toneAt,
   type Design,
 } from "@/lib/designs";
-import inkVeilAsset from "@/assets/ink-veil.png.asset.json";
-import heroInkVeilAsset from "@/assets/hero-ink-veil.png.asset.json";
+import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
