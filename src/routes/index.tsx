@@ -180,7 +180,7 @@ function Index() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(20,30,25,0.38)" }}
+          style={{ backgroundColor: "rgba(20,30,25,0.45)" }}
         />
 
         <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[8vh] text-center md:pt-[10vh]">
