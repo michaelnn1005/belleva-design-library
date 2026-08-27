@@ -166,7 +166,7 @@ function Index() {
               onClick={() => setSelected(design)}
               className="text-left"
             >
-              <Placeholder tone={toneAt(i)} />
+              <Placeholder tone={toneAt(i)} src={inkVeilAsset.url} alt={design.name} />
               <p className="eyebrow mt-5">{design.collection}</p>
               <h2 className="mt-2 font-display text-[22px] text-forest">{design.name}</h2>
               <p className="mt-1 text-xs text-muted-foreground">
