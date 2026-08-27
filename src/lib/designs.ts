@@ -45,3 +45,7 @@ export function matchesFilter(design: Design, filter: string) {
   if (filter === "All") return true;
   return design.service === filter || design.tags.includes(filter);
 }
+
+export function toneAt(index: number): string {
+  return PLACEHOLDER_TONES[index % PLACEHOLDER_TONES.length] ?? "#EAE4D8";
+}

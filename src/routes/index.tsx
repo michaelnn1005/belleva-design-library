@@ -4,8 +4,8 @@ import {
   BOOKING_URL,
   DESIGNS,
   FILTERS,
-  PLACEHOLDER_TONES,
   matchesFilter,
+  toneAt,
   type Design,
 } from "@/lib/designs";
 
@@ -146,7 +146,7 @@ function Index() {
               onClick={() => setSelected(design)}
               className="text-left"
             >
-              <Placeholder tone={PLACEHOLDER_TONES[i % PLACEHOLDER_TONES.length]} />
+              <Placeholder tone={toneAt(i)} />
               <p className="eyebrow mt-5">{design.collection}</p>
               <h2 className="mt-2 font-display text-[18px] text-forest">{design.name}</h2>
               <p className="mt-1 text-xs text-muted-foreground">
@@ -178,7 +178,7 @@ function Index() {
           <div className="mt-16 grid gap-14 md:grid-cols-3 md:gap-10">
             {["Sarah M.", "Ana R.", "Jill T."].map((name, i) => (
               <div key={name}>
-                <Placeholder tone={PLACEHOLDER_TONES[(i + 2) % PLACEHOLDER_TONES.length]} />
+                <Placeholder tone={toneAt(i + 2)} />
                 <p className="mt-6 font-display text-[18px] italic leading-relaxed text-forest">
                   [client quote goes here]
                 </p>
@@ -239,11 +239,7 @@ function Index() {
             </button>
             <div className="mt-10">
               <Placeholder
-                tone={
-                  PLACEHOLDER_TONES[
-                    DESIGNS.findIndex((d) => d.id === selected.id) % PLACEHOLDER_TONES.length
-                  ]
-                }
+                tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
               />
             </div>
             <p className="eyebrow mt-8">{selected.collection}</p>
