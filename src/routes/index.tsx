@@ -109,6 +109,7 @@ function Index() {
   const [showBar, setShowBar] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
+  const { ref: visionRef, visible: visionVisible } = useFadeIn();
 
   useEffect(() => {
     const onScroll = () => {
@@ -334,6 +335,23 @@ function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
+        <div
+          ref={visionRef}
+          className={`fade-up ${visionVisible ? "fade-in-visible" : ""} mx-auto flex max-w-3xl flex-col items-center text-center`}
+        >
+          <p className="text-[10px] uppercase tracking-[2px] text-gold">
+            THE BELLEVA VISION
+          </p>
+          <p className="mt-8 max-w-[320px] font-display text-[26px] italic leading-relaxed text-cream">
+            You spend your days caring for everyone else. Here, someone cares for you.
+          </p>
+          <p className="mt-10 text-[11px] uppercase tracking-[2px] text-cream">
+            BELLEVA — DENTON, TX
+          </p>
         </div>
       </section>
 
