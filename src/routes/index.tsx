@@ -260,6 +260,8 @@ function Index() {
             <div className="mt-10">
               <Placeholder
                 tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
+                src={inkVeilAsset.url}
+                alt={selected.name}
               />
             </div>
             <p className="eyebrow mt-8">{selected.collection}</p>
