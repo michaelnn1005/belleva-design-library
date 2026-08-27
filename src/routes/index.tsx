@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import {
   BOOKING_URL,
   DESIGNS,
-  FILTERS,
+  OCCASION_FILTERS,
+  SERVICE_FILTERS,
   matchesFilter,
   toneAt,
   type Design,
