@@ -39,7 +39,7 @@ export const DESIGNS: Design[] = [
 
 export const BOOKING_URL = "https://bellevanail.com/booking";
 
-export const PLACEHOLDER_TONES = ["#EAE4D8", "#3A5A4A", "#E3DACB", "#EFEAE0"];
+export const PLACEHOLDER_TONES: readonly [string, string, string, string] = ["#EAE4D8", "#3A5A4A", "#E3DACB", "#EFEAE0"];
 
 export function matchesFilter(design: Design, filter: string) {
   if (filter === "All") return true;
