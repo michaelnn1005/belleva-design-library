@@ -108,7 +108,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-3xl px-6 pb-16 pt-20 text-center md:pb-24 md:pt-36">
+      <section className="mx-auto max-w-3xl px-6 pb-32 pt-40 text-center md:pb-48 md:pt-72">
         <h1 className="font-display text-[44px] leading-[1.1] text-forest md:text-[72px]">
           Find your next set.
         </h1>
@@ -117,7 +117,7 @@ function Index() {
         </p>
       </section>
 
-      <div className="mx-auto max-w-6xl overflow-x-auto px-6 pb-16 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="mx-auto max-w-6xl overflow-x-auto px-6 pb-32 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex w-max gap-3">
           {FILTERS.map((chip) => {
             const active = chip === filter;
@@ -138,7 +138,7 @@ function Index() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12 md:pb-40">
+      <section className="mx-auto max-w-6xl px-6 pb-48 md:px-12 md:pb-80">
         <div className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 md:gap-x-10 md:gap-y-20">
           {visible.map((design, i) => (
             <button
@@ -157,7 +157,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-forest px-6 py-24 md:px-12 md:py-40">
+      <section className="bg-forest px-6 py-48 md:px-12 md:py-80">
         <div className="mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[32px] leading-[1.2] text-cream md:text-[48px]">
@@ -171,7 +171,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-24 md:px-12 md:py-40">
+      <section className="bg-cream px-6 py-48 md:px-12 md:py-80">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-[32px] text-forest md:text-[44px]">From our clients</h2>
           <p className="mt-4 text-[15px] text-muted-foreground">Real sets, real words.</p>
@@ -189,7 +189,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-hairline bg-background px-6 py-20 md:px-12 md:py-28">
+      <footer className="border-t border-hairline bg-background px-6 py-40 md:px-12 md:py-56">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>
