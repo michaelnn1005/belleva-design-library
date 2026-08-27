@@ -166,11 +166,14 @@ function Index() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(20,30,25,0.30)" }}
+          style={{ backgroundColor: "rgba(20,30,25,0.38)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[24vh] text-center md:pt-[28vh]">
-          <h1 className="font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[8vh] text-center md:pt-[10vh]">
+          <p className="text-[11px] uppercase tracking-[2px] text-background/90">
+            THE DESIGN LIBRARY — DENTON, TX
+          </p>
+          <h1 className="mt-5 font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
             Find your next set.
           </h1>
           <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-background/90">
