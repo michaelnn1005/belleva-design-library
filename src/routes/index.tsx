@@ -109,6 +109,7 @@ function Index() {
   const [showBar, setShowBar] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
+  const { ref: visionRef, visible: visionVisible } = useFadeIn();
 
   useEffect(() => {
     const onScroll = () => {
@@ -339,7 +340,8 @@ function Index() {
 
       <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
         <div
-          className="fade-up mx-auto flex max-w-3xl flex-col items-center text-center"
+          ref={visionRef}
+          className={`fade-up ${visionVisible ? "fade-in-visible" : ""} mx-auto flex max-w-3xl flex-col items-center text-center`}
         >
           <p className="text-[10px] uppercase tracking-[2px] text-gold">
             THE BELLEVA VISION
