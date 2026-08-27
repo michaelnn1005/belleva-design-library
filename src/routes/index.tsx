@@ -9,6 +9,7 @@ import {
   type Design,
 } from "@/lib/designs";
 import inkVeilAsset from "@/assets/ink-veil.png.asset.json";
+import heroInkVeilAsset from "@/assets/hero-ink-veil.png.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
@@ -128,13 +129,23 @@ function Index() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-3xl px-6 pb-32 pt-40 text-center md:pb-48 md:pt-72">
-        <h1 className="font-display text-[54px] leading-[1.05] text-forest md:text-[86px]">
-          Find your next set.
-        </h1>
-        <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-muted-foreground">
-          Real designs, made in our studio. Book the one you love.
-        </p>
+      <section className="pt-40 md:pt-72">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h1 className="font-display text-[54px] leading-[1.05] text-forest md:text-[86px]">
+            Find your next set.
+          </h1>
+          <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-muted-foreground">
+            Real designs, made in our studio. Book the one you love.
+          </p>
+        </div>
+        <div className="relative mt-12 w-full overflow-hidden md:mt-16">
+          <img
+            src={heroInkVeilAsset.url}
+            alt="Ink Veil nail design by Belleva Nails"
+            className="aspect-[4/5] w-full object-cover object-center md:aspect-[3/2]"
+            loading="eager"
+          />
+        </div>
       </section>
 
       <div className="mx-auto max-w-6xl overflow-x-auto px-6 pb-32 md:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
