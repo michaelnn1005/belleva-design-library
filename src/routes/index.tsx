@@ -158,10 +158,10 @@ function Index() {
         className="relative h-svh w-full overflow-hidden bg-forest"
       >
         <img
-          src={heroInkVeilAsset.url}
+          src={nailLibraryAsset.url}
           alt="Ink Veil nail design by Belleva Nails"
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "center 65%" }}
+          style={{ objectPosition: "center 55%" }}
           loading="eager"
         />
         <div
@@ -237,7 +237,7 @@ function Index() {
               onClick={() => setSelected(design)}
               className="text-left"
             >
-              <Placeholder tone={toneAt(i)} src={inkVeilAsset.url} alt={design.name} />
+              <Placeholder tone={toneAt(i)} src={nailLibraryAsset.url} alt={design.name} />
               <p className="eyebrow mt-5">{design.collection}</p>
               <h2 className="mt-2 font-display text-[22px] text-forest">{design.name}</h2>
               <p className="mt-1 text-xs text-muted-foreground">
@@ -331,7 +331,7 @@ function Index() {
             <div className="mt-10">
               <Placeholder
                 tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
-                src={inkVeilAsset.url}
+                src={nailLibraryAsset.url}
                 alt={selected.name}
               />
             </div>
