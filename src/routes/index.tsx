@@ -49,6 +49,21 @@ function useFadeIn() {
   return { ref, visible };
 }
 
+const CLIENT_QUOTES: { name: string; text: string }[] = [
+  {
+    name: "Sarah M.",
+    text: "Three weeks in and not a single chip. I've never had a set last like this.",
+  },
+  {
+    name: "Ana R.",
+    text: "They treated my nails like a design project, not an appointment slot.",
+  },
+  {
+    name: "Jill T.",
+    text: "Calm studio, honest pricing, and the cleanest linework I've seen in Denton.",
+  },
+];
+
 function Placeholder({
   tone,
   src,
