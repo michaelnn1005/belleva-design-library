@@ -160,7 +160,7 @@ function Index() {
         <img
           src={nailLibraryAsset.url}
           alt="Ink Veil nail design by Belleva Nails"
-          className="absolute inset-0 h-full w-full object-cover object-[center_55%] md:object-[center_78%]"
+          className="absolute inset-0 h-full w-full object-cover object-[center_55%] md:object-[center_82%]"
           loading="eager"
         />
         <div
