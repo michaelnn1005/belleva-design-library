@@ -160,8 +160,7 @@ function Index() {
         <img
           src={nailLibraryAsset.url}
           alt="Ink Veil nail design by Belleva Nails"
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "center 55%" }}
+          className="absolute inset-0 h-full w-full object-cover object-[center_55%] md:object-[center_78%]"
           loading="eager"
         />
         <div
@@ -174,16 +173,17 @@ function Index() {
             THE DESIGN LIBRARY — DENTON, TX
           </p>
           <h1 className="mt-5 font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
-            Find your next set.
+            Find your
+            <br className="md:hidden" /> next set.
           </h1>
-          <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-background/90">
+          <p className="mx-auto mt-6 max-w-[280px] text-[13px] font-light leading-relaxed text-background/90 md:max-w-md">
             Real designs, made in our studio. Book the one you love.
           </p>
         </div>
 
         <button
           onClick={scrollToLibrary}
-          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-background/90 transition-opacity hover:opacity-70"
+          className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-background/90 transition-opacity hover:opacity-70 md:bottom-10"
           aria-label="Scroll to design library"
         >
           <span className="text-[10px] uppercase tracking-[0.2em]">
