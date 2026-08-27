@@ -109,10 +109,10 @@ function Index() {
       </header>
 
       <section className="mx-auto max-w-3xl px-6 pb-32 pt-40 text-center md:pb-48 md:pt-72">
-        <h1 className="font-display text-[44px] leading-[1.1] text-forest md:text-[72px]">
+        <h1 className="font-display text-[54px] leading-[1.05] text-forest md:text-[86px]">
           Find your next set.
         </h1>
-        <p className="mx-auto mt-8 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+        <p className="mx-auto mt-8 max-w-md text-[13px] font-light leading-relaxed text-muted-foreground">
           Real designs, made in our studio. Book the one you love.
         </p>
       </section>
@@ -148,7 +148,7 @@ function Index() {
             >
               <Placeholder tone={toneAt(i)} />
               <p className="eyebrow mt-5">{design.collection}</p>
-              <h2 className="mt-2 font-display text-[18px] text-forest">{design.name}</h2>
+              <h2 className="mt-2 font-display text-[22px] text-forest">{design.name}</h2>
               <p className="mt-1 text-xs text-muted-foreground">
                 {design.service} · from ${design.price}
               </p>
@@ -160,10 +160,10 @@ function Index() {
       <section className="bg-forest px-6 py-48 md:px-12 md:py-80">
         <div className="mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
-          <h2 className="mt-8 max-w-2xl font-display text-[32px] leading-[1.2] text-cream md:text-[48px]">
+          <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream md:text-[58px]">
             The industry standard is a 7-day guarantee. Cute. Ours is 14.
           </h2>
-          <p className="mt-8 max-w-[560px] text-[15px] leading-relaxed text-cream/80">
+          <p className="mt-8 max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
             Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
             we fix it free. No receipts argued, no questions asked.
           </p>
@@ -173,13 +173,13 @@ function Index() {
 
       <section className="bg-cream px-6 py-48 md:px-12 md:py-80">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-[32px] text-forest md:text-[44px]">From our clients</h2>
-          <p className="mt-4 text-[15px] text-muted-foreground">Real sets, real words.</p>
+          <h2 className="font-display text-[40px] text-forest md:text-[54px]">From our clients</h2>
+          <p className="mt-4 text-[13px] font-light text-muted-foreground">Real sets, real words.</p>
           <div className="mt-16 grid gap-14 md:grid-cols-3 md:gap-10">
             {["Sarah M.", "Ana R.", "Jill T."].map((name, i) => (
               <div key={name}>
                 <Placeholder tone={toneAt(i + 2)} />
-                <p className="mt-6 font-display text-[18px] italic leading-relaxed text-forest">
+                <p className="mt-6 font-display text-[22px] italic leading-relaxed text-forest">
                   [client quote goes here]
                 </p>
                 <p className="mt-3 text-xs text-muted-foreground">{name}</p>
@@ -243,8 +243,8 @@ function Index() {
               />
             </div>
             <p className="eyebrow mt-8">{selected.collection}</p>
-            <h2 className="mt-3 font-display text-[32px] text-forest">{selected.name}</h2>
-            <p className="mt-2 text-[13px] text-muted-foreground">
+            <h2 className="mt-3 font-display text-[40px] text-forest">{selected.name}</h2>
+            <p className="mt-2 text-[13px] font-light text-muted-foreground">
               {selected.service} · from ${selected.price}
             </p>
             <a
