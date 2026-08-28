@@ -624,25 +624,48 @@ function Index() {
 
       <VisionReveal />
 
-      <footer className="border-t border-hairline bg-background px-6 py-24 md:px-12 md:py-56">
+      <footer className="border-t border-[#E5DFD3] bg-background px-6 pt-20 pb-12 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>
             <div className="mt-8 space-y-2 text-[13px] leading-relaxed text-muted-foreground">
-              <p>2200 W University Dr, Ste 180, Denton, TX 76201</p>
-              <p>(940) 514-1808</p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=2200%20W%20University%20Dr%2C%20Ste%20180%2C%20Denton%2C%20TX%2076201"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-colors hover:text-forest"
+              >
+                2200 W University Dr, Ste 180, Denton, TX 76201
+              </a>
+              <a href="tel:+19405141808" className="block transition-colors hover:text-forest">
+                (940) 514-1808
+              </a>
               <p>Mon-Fri 9:30-7:30 · Sat 9-7 · Sun 11-5</p>
-              <p>@bellevanailsdenton</p>
+              <p className="flex flex-wrap items-center gap-x-2 pt-1 text-[11px] uppercase tracking-[1.5px] text-forest/60">
+                <a href="https://instagram.com/bellevanailsdenton" className="transition-colors hover:text-forest">Instagram</a>
+                <span className="text-gold">·</span>
+                <a href="#" className="transition-colors hover:text-forest">TikTok</a>
+                <span className="text-gold">·</span>
+                <a href="#" className="transition-colors hover:text-forest">Pinterest</a>
+                <span className="text-gold">·</span>
+                <a href="#" className="transition-colors hover:text-forest">Facebook</a>
+                <span className="text-gold">·</span>
+                <a href="#" className="transition-colors hover:text-forest">YouTube</a>
+              </p>
             </div>
           </div>
-          <a
-            href={BOOKING_URL}
-            className="inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
-          >
-            Book an appointment
-          </a>
+          <div className="flex flex-col items-start">
+            <a
+              href={BOOKING_URL}
+              className="inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
+            >
+              Book an appointment
+            </a>
+            <p className="mt-3 max-w-[260px] text-[11px] leading-relaxed text-muted-foreground">
+              Tell us your occasion in the Note box — we will take care of the rest.
+            </p>
+          </div>
         </div>
-        <div className="h-16 md:hidden" />
       </footer>
 
       {showBar && (
