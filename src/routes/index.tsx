@@ -392,6 +392,48 @@ function ServicesSection() {
           </div>
         </a>
 
+        <div className="mt-16">
+          <p className="font-sans text-[10px] uppercase tracking-[2px] text-gold">
+            The Edit
+          </p>
+          <div className="relative mt-5">
+            <div
+              className="-mx-6 flex gap-4 overflow-x-auto px-6 pb-4 md:-mx-12 md:px-12"
+              style={{ WebkitOverflowScrolling: "touch" }}
+            >
+              {[
+                { name: "Linen Bloom", price: 70 },
+                { name: "Star Porcelain", price: 75 },
+                { name: "Golden Flow", price: 65 },
+                { name: "Crimson Jewels", price: 60 },
+                { name: "Navy Starlet", price: 70 },
+                { name: "Pearl Veil", price: 70 },
+              ].map((card) => (
+                <a
+                  key={card.name}
+                  href={BOOKING_URL}
+                  className="w-[200px] shrink-0"
+                >
+                  <div className="aspect-[4/5] w-full overflow-hidden rounded-[10px] bg-forest/5">
+                    <img
+                      src={nailLibraryAsset.url}
+                      alt={card.name}
+                      className="h-full w-full object-cover object-center"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="mt-3 font-display text-[16px] leading-[1.2] text-forest">
+                    {card.name}
+                  </p>
+                  <p className="mt-1 font-sans text-[12px] text-muted-foreground">
+                    from ${card.price}
+                  </p>
+                </a>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-background via-background/60 to-transparent md:w-24" />
+          </div>
+        </div>
 
         <div className="mt-12">
           {indexItems.map((item) => (
