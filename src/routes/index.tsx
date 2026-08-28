@@ -10,7 +10,7 @@ import {
   type Design,
 } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
-import bridalNails from "@/assets/bridal-nails.jpg";
+import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
@@ -402,12 +402,12 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 w-full">
             <img
-              src={bridalNails}
+              src={bridalNailsAsset.url}
               alt="Elegant bridal nail set"
               className="aspect-[4/5] w-full rounded-[10px] object-cover object-center"
               loading="lazy"
-              width={1024}
-              height={1280}
+              width={896}
+              height={1200}
             />
           </div>
           <p className="eyebrow">BELLEVA BRIDAL</p>
