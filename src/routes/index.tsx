@@ -342,8 +342,6 @@ function Index() {
             >
               <Placeholder
                 tone={toneAt(i)}
-                src={nailLibraryAsset.url}
-                alt="Nail set by Belleva Nails"
               />
             </button>
           ))}
@@ -490,8 +488,6 @@ function Index() {
             <div className="mt-10">
               <Placeholder
                 tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
-                src={nailLibraryAsset.url}
-                alt="Nail set by Belleva Nails"
               />
             </div>
 
