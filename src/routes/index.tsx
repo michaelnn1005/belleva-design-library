@@ -157,6 +157,61 @@ function ComparisonRow() {
   );
 }
 
+function VisionReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setStarted(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const line = (delay: number, className: string, children: React.ReactNode) => (
+    <span
+      className={`block transition-all ease-out ${className} ${started ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
+      style={{
+        transitionDuration: started ? "800ms" : "0ms",
+        transitionDelay: started ? `${delay}s` : "0s",
+      }}
+    >
+      {children}
+    </span>
+  );
+
+  return (
+    <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
+      <div
+        ref={ref}
+        className="mx-auto flex max-w-3xl flex-col items-center text-center"
+      >
+        {line(0, "text-[10px] uppercase tracking-[2px] text-gold", "THE BELLEVA VISION")}
+        <span className="mt-8 block max-w-[320px]">
+          {line(0.8, "font-display text-[26px] italic leading-relaxed text-cream", "You spend your days caring for everyone else.")}
+          {line(1.15, "font-display text-[26px] italic leading-relaxed text-cream", "Here, someone cares")}
+          {line(1.5, "font-display text-[26px] italic leading-relaxed text-cream", "for you.")}
+        </span>
+        {line(1.85, "mt-10 block text-[11px] uppercase tracking-[2px] text-cream", "BELLEVA — DENTON, TX")}
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
@@ -164,7 +219,6 @@ function Index() {
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
-  const { ref: visionRef, visible: visionVisible } = useFadeIn();
 
   useEffect(() => {
     const onScroll = () => {
@@ -443,22 +497,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
-        <div
-          ref={visionRef}
-          className={`fade-up ${visionVisible ? "fade-in-visible" : ""} mx-auto flex max-w-3xl flex-col items-center text-center`}
-        >
-          <p className="text-[10px] uppercase tracking-[2px] text-gold">
-            THE BELLEVA VISION
-          </p>
-          <p className="mt-8 max-w-[320px] font-display text-[26px] italic leading-relaxed text-cream">
-            You spend your days caring for everyone else. Here, someone cares for you.
-          </p>
-          <p className="mt-10 text-[11px] uppercase tracking-[2px] text-cream">
-            BELLEVA — DENTON, TX
-          </p>
-        </div>
-      </section>
+      <VisionReveal />
 
       <footer className="border-t border-hairline bg-background px-6 py-24 md:px-12 md:py-56">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
