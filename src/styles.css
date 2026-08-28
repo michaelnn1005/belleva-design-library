@@ -201,7 +201,7 @@
 
 @utility marquee-track {
   width: max-content;
-  animation: marquee-x 60s linear infinite;
+  animation: marquee-x 30s linear infinite;
   will-change: transform;
 }
 
