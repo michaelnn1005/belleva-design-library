@@ -366,23 +366,21 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-24 md:px-12 md:py-80">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-[40px] text-forest md:text-[54px]">From our clients</h2>
-          <p className="mt-4 text-[13px] font-light text-muted-foreground">Real sets, real words.</p>
-          <div className="mt-12 grid gap-14 md:grid-cols-3 md:gap-10">
-            {CLIENT_QUOTES.map((quote, i) => (
-              <div key={quote.name}>
-                <Placeholder
-                  tone={toneAt(i + 2)}
-                  src={nailLibraryAsset.url}
-                  alt={`Nail set by Belleva Nails for ${quote.name}`}
-                />
-                <p className="mt-6 font-display text-[22px] italic leading-relaxed text-forest">
-                  {quote.text}
-                </p>
-                <p className="mt-3 text-xs text-muted-foreground">{quote.name}</p>
-              </div>
+      <section className="bg-cream py-24 md:py-28">
+        <p className="eyebrow px-6 md:px-12">From our clients</p>
+        <div
+          className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
+          onPointerDown={() => setQuotesPaused(true)}
+          onPointerUp={() => setQuotesPaused(false)}
+          onPointerCancel={() => setQuotesPaused(false)}
+          onPointerLeave={() => setQuotesPaused(false)}
+        >
+          <div className="marquee-track flex items-start gap-16 px-8">
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={quote.name} quote={quote} />
+            ))}
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={`${quote.name}-dup`} quote={quote} />
             ))}
           </div>
         </div>
