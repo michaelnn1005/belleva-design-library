@@ -147,7 +147,7 @@ function NailsSlideshow() {
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
-  "Browse real nail sets made in our Denton studio and book the design you love.";
+  "Browse real nail sets made in our Denton salon and book the design you love.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -163,26 +163,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function useFadeIn() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return { ref, visible };
-}
 
 const CLIENT_QUOTES: { name: string; text: string }[] = [
   {
@@ -449,31 +429,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-          heroPassed ? "bg-background" : "bg-transparent"
-        }`}
-      >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
-          <span
-            className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${
-              heroPassed ? "text-forest" : "text-background"
-            }`}
-          >
-            BELLEVA
-          </span>
-          <a
-            href={BOOKING_URL}
-            className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${
-              heroPassed
-                ? "border-gold text-gold hover:bg-cream"
-                : "border-background/70 text-background hover:bg-background/15"
-            }`}
-          >
-            Book
-          </a>
-        </div>
-      </header>
+      <SiteHeader heroPassed={heroPassed} />
 
       <section
         id="hero"
