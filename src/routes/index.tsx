@@ -376,7 +376,7 @@ function Index() {
           onPointerCancel={() => setQuotesPaused(false)}
           onPointerLeave={() => setQuotesPaused(false)}
         >
-          <div className="marquee-track flex items-start gap-16 px-8">
+          <div className="marquee-track flex items-start">
             {CLIENT_QUOTES.map((quote) => (
               <QuoteCard key={quote.name} quote={quote} />
             ))}
