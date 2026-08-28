@@ -75,7 +75,7 @@ const CLIENT_QUOTES: { name: string; text: string }[] = [
 
 function QuoteCard({ quote }: { quote: { name: string; text: string } }) {
   return (
-    <figure className="w-[280px] shrink-0">
+    <figure className="w-[280px] shrink-0 pr-16">
       <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
         {quote.text}
       </blockquote>
@@ -156,6 +156,7 @@ function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
+  const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
   const { ref: visionRef, visible: visionVisible } = useFadeIn();
