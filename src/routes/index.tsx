@@ -10,6 +10,7 @@ import {
   type Design,
 } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
+import bridalNails from "@/assets/bridal-nails.jpg";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
@@ -399,15 +400,41 @@ function Index() {
 
       <section className="bg-background px-6 py-24 md:px-12 md:py-28">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-10 w-full">
+            <img
+              src={bridalNails}
+              alt="Elegant bridal nail set"
+              className="aspect-[4/5] w-full rounded-[10px] object-cover object-center"
+              loading="lazy"
+              width={1024}
+              height={1280}
+            />
+          </div>
           <p className="eyebrow">BELLEVA BRIDAL</p>
           <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-forest">
             Joining costs nothing. You just get more.
           </h2>
           <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
-            Our bridal program is free to join — no packages, no fees. You get a trial set to lock
-            in your exact design, the same look recreated days before the wedding, a small care kit
-            to take with you, and a set guaranteed through your big day.
+            Our bridal program is free to join — no packages, no fees.
           </p>
+          <ul className="mt-5 max-w-[340px] space-y-5">
+            <li className="flex gap-3 text-[15px] text-forest">
+              <span className="text-gold">—</span>
+              <span>A trial set to lock in your exact design</span>
+            </li>
+            <li className="flex gap-3 text-[15px] text-forest">
+              <span className="text-gold">—</span>
+              <span>The same look recreated days before the wedding</span>
+            </li>
+            <li className="flex gap-3 text-[15px] text-forest">
+              <span className="text-gold">—</span>
+              <span>A small care kit to take home</span>
+            </li>
+            <li className="flex gap-3 text-[15px] text-forest">
+              <span className="text-gold">—</span>
+              <span>A set guaranteed through your big day</span>
+            </li>
+          </ul>
           <a
             href={BOOKING_URL}
             className="mt-8 inline-flex items-center gap-2 text-[13px] text-forest transition-colors hover:text-forest-soft"
