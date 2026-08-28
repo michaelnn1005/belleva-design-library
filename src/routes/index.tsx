@@ -210,7 +210,7 @@ function VisionReveal() {
 }
 
 function Index() {
-  const [filter, setFilter] = useState<string>("All");
+  const [selected, setSelected] = useState<Design | null>(null);
   const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
   const [quotesPaused, setQuotesPaused] = useState(false);
