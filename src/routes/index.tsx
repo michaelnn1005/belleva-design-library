@@ -53,17 +53,38 @@ function useFadeIn() {
 const CLIENT_QUOTES: { name: string; text: string }[] = [
   {
     name: "Sarah M.",
-    text: "Three weeks in and not a single chip. I've never had a set last like this.",
+    text: "I showed them one photo and they matched it exactly. Three weeks later it still looks like day one.",
   },
   {
-    name: "Ana R.",
-    text: "They treated my nails like a design project, not an appointment slot.",
+    name: "Amanda R.",
+    text: "The quietest, calmest salon experience I have had in Denton. My gel-x set got compliments all week.",
   },
   {
-    name: "Jill T.",
-    text: "Calm studio, honest pricing, and the cleanest linework I've seen in Denton.",
+    name: "Jessica T.",
+    text: "I chipped a nail after ten days and they fixed it free, no questions. That guarantee is real.",
+  },
+  {
+    name: "Lauren K.",
+    text: "Booked for my wedding day and the set was perfect with my dress. I nearly cried.",
+  },
+  {
+    name: "Megan D.",
+    text: "My tech remembered my last design and suggested the next one before I even asked.",
   },
 ];
+
+function QuoteCard({ quote }: { quote: { name: string; text: string } }) {
+  return (
+    <figure className="w-[280px] shrink-0 pr-16">
+      <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
+        {quote.text}
+      </blockquote>
+      <figcaption className="mt-4 text-[11px] uppercase tracking-[2px] text-forest">
+        {quote.name}
+      </figcaption>
+    </figure>
+  );
+}
 
 function Placeholder({
   tone,
@@ -135,6 +156,7 @@ function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
+  const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
   const { ref: visionRef, visible: visionVisible } = useFadeIn();
@@ -345,23 +367,21 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-24 md:px-12 md:py-80">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-[40px] text-forest md:text-[54px]">From our clients</h2>
-          <p className="mt-4 text-[13px] font-light text-muted-foreground">Real sets, real words.</p>
-          <div className="mt-12 grid gap-14 md:grid-cols-3 md:gap-10">
-            {CLIENT_QUOTES.map((quote, i) => (
-              <div key={quote.name}>
-                <Placeholder
-                  tone={toneAt(i + 2)}
-                  src={nailLibraryAsset.url}
-                  alt={`Nail set by Belleva Nails for ${quote.name}`}
-                />
-                <p className="mt-6 font-display text-[22px] italic leading-relaxed text-forest">
-                  {quote.text}
-                </p>
-                <p className="mt-3 text-xs text-muted-foreground">{quote.name}</p>
-              </div>
+      <section className="bg-cream py-24 md:py-28">
+        <p className="eyebrow px-6 md:px-12">From our clients</p>
+        <div
+          className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
+          onPointerDown={() => setQuotesPaused(true)}
+          onPointerUp={() => setQuotesPaused(false)}
+          onPointerCancel={() => setQuotesPaused(false)}
+          onPointerLeave={() => setQuotesPaused(false)}
+        >
+          <div className="marquee-track flex items-start">
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={quote.name} quote={quote} />
+            ))}
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={`${quote.name}-dup`} quote={quote} />
             ))}
           </div>
         </div>
