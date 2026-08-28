@@ -531,7 +531,7 @@ function Index() {
       <section className="relative bg-forest px-6 py-24 md:px-12 md:py-80">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-5 top-6 z-0 select-none font-display text-[180px] leading-none text-cream/8 md:-right-8 md:top-10 md:text-[260px]"
+          className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px]"
         >
           14
         </span>
