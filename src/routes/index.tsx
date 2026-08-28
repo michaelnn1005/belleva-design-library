@@ -10,7 +10,7 @@ import {
   type Design,
 } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
-import bridalNails from "@/assets/bridal-nails.jpg";
+import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
