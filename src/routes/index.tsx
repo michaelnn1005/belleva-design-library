@@ -592,7 +592,7 @@ function Index() {
             Joining costs nothing. You just get more.
           </h2>
           <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
-            Our bridal program is free to join — no packages, no fees.
+            No packages, no fees — just a bride who walks in calm, because everything about her nails was decided weeks ago.
           </p>
           <div className="mt-5 max-w-[340px] space-y-5">
             <p className="text-[15px] text-forest">
@@ -608,15 +608,17 @@ function Index() {
               <span className="text-gold">—</span> A set guaranteed through your big day
             </p>
           </div>
-          <a
-            href={BOOKING_URL}
-            className="mt-8 inline-flex items-center gap-2 text-[13px] text-forest transition-colors hover:text-forest-soft"
-          >
-            Book your trial — tell us your wedding date in the Note box.
-            <svg width="18" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-              <path d="M0 4h16M13 1l3 3-3 3" stroke="#8A7340" strokeWidth="1" />
-            </svg>
-          </a>
+          <div className="mt-8 max-w-[340px]">
+            <a
+              href={BOOKING_URL}
+              className="inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
+            >
+              Join the bridal program
+            </a>
+            <p className="mt-3 text-[12px] text-muted-foreground">
+              Free to join — tell us your wedding date in the Note box.
+            </p>
+          </div>
         </div>
       </section>
 
