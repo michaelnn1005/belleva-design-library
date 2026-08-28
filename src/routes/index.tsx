@@ -4,9 +4,6 @@ import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
-import servicesPedicure from "@/assets/services-pedicure.jpg";
-import servicesWaxing from "@/assets/services-waxing.jpg";
-import servicesLashes from "@/assets/services-lashes.jpg";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
