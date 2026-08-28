@@ -73,9 +73,15 @@ const CLIENT_QUOTES: { name: string; text: string }[] = [
   },
 ];
 
-function QuoteCard({ quote }: { quote: { name: string; text: string } }) {
+function QuoteCard({
+  quote,
+  offset,
+}: {
+  quote: { name: string; text: string };
+  offset?: boolean;
+}) {
   return (
-    <figure className="w-[280px] shrink-0 pr-16">
+    <figure className={`w-[280px] shrink-0 pr-16 ${offset ? "mt-6" : ""}`}>
       <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
         {quote.text}
       </blockquote>
