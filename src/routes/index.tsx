@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
-import servicesNails from "@/assets/services-nails.jpg";
+import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
 import servicesPedicure from "@/assets/services-pedicure.jpg";
 import servicesWaxing from "@/assets/services-waxing.jpg";
 import servicesLashes from "@/assets/services-lashes.jpg";
@@ -250,7 +250,7 @@ function ServicesSection() {
         >
           <div className="w-full overflow-hidden rounded-[10px]">
             <img
-              src={servicesNails}
+              src={servicesNailsAsset.url}
               alt="Nail services at Belleva Nails"
               className="aspect-[3/2] w-full object-cover object-center"
               loading="lazy"
