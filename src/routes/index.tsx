@@ -53,17 +53,38 @@ function useFadeIn() {
 const CLIENT_QUOTES: { name: string; text: string }[] = [
   {
     name: "Sarah M.",
-    text: "Three weeks in and not a single chip. I've never had a set last like this.",
+    text: "I showed them one photo and they matched it exactly. Three weeks later it still looks like day one.",
   },
   {
-    name: "Ana R.",
-    text: "They treated my nails like a design project, not an appointment slot.",
+    name: "Amanda R.",
+    text: "The quietest, calmest salon experience I have had in Denton. My gel-x set got compliments all week.",
   },
   {
-    name: "Jill T.",
-    text: "Calm studio, honest pricing, and the cleanest linework I've seen in Denton.",
+    name: "Jessica T.",
+    text: "I chipped a nail after ten days and they fixed it free, no questions. That guarantee is real.",
+  },
+  {
+    name: "Lauren K.",
+    text: "Booked for my wedding day and the set was perfect with my dress. I nearly cried.",
+  },
+  {
+    name: "Megan D.",
+    text: "My tech remembered my last design and suggested the next one before I even asked.",
   },
 ];
+
+function QuoteCard({ quote }: { quote: { name: string; text: string } }) {
+  return (
+    <figure className="w-[280px] shrink-0">
+      <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
+        {quote.text}
+      </blockquote>
+      <figcaption className="mt-4 text-[11px] uppercase tracking-[2px] text-forest">
+        {quote.name}
+      </figcaption>
+    </figure>
+  );
+}
 
 function Placeholder({
   tone,
