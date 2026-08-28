@@ -298,7 +298,6 @@ function Index() {
   const [showBar, setShowBar] = useState(false);
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
-  const servicesRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -313,7 +312,7 @@ function Index() {
   }, []);
 
   const scrollToServices = () => {
-    servicesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
