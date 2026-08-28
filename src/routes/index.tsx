@@ -477,7 +477,7 @@ function Index() {
           className="fixed inset-0 z-40 overflow-y-auto bg-background px-6 py-10 md:px-12"
           role="dialog"
           aria-modal="true"
-          aria-label={selected.name}
+          aria-label="Design detail"
         >
           <div className="mx-auto max-w-xl">
             <button
@@ -491,14 +491,10 @@ function Index() {
               <Placeholder
                 tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
                 src={nailLibraryAsset.url}
-                alt={selected.name}
+                alt="Nail set by Belleva Nails"
               />
             </div>
-            <p className="eyebrow mt-8">{selected.collection}</p>
-            <h2 className="mt-3 font-display text-[40px] text-forest">{selected.name}</h2>
-            <p className="mt-2 text-[13px] font-light text-muted-foreground">
-              from ${selected.price}
-            </p>
+
             <a
               href={BOOKING_URL}
               className="mt-10 inline-flex rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
