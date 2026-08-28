@@ -215,7 +215,7 @@ function Placeholder({
   alt?: string;
   className?: string;
 }) {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
   const light = tone !== "#3A5A4A";
   return (
     <div
@@ -243,7 +243,7 @@ function Placeholder({
 }
 
 function ComparisonRow() {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
   return (
     <div
       ref={ref}
@@ -326,7 +326,7 @@ function VisionReveal() {
 }
 
 function ServicesSection() {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
 
   const indexItems = [
     {
