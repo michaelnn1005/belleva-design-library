@@ -330,55 +330,26 @@ function Index() {
         </button>
       </section>
 
-      <div
-        ref={filterRef}
-        className="mx-auto max-w-6xl px-6 pb-32 pt-20 md:px-12"
-      >
-        <div>
-          <div>
-            <p className="mb-3 text-[10px] uppercase tracking-[2px] text-gold">
-              OCCASION
-            </p>
-            <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex w-max gap-2">
-                {OCCASION_FILTERS.map((chip) => {
-                  const active = chip === filter;
-                  return (
-                    <button
-                      key={chip}
-                      onClick={() => setFilter(chip)}
-                      className={`whitespace-nowrap rounded-full border px-[14px] py-2 text-[14px] transition-all duration-200 ${
-                        active
-                          ? "border-transparent bg-forest text-cream"
-                          : "border-hairline text-muted-foreground hover:border-gold"
-                      }`}
-                    >
-                      {chip}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div ref={filterRef} className="pt-20" />
 
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12 md:pb-80">
         <div className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 md:gap-x-10 md:gap-y-20">
-          {visible.map((design, i) => (
+          {DESIGNS.map((design, i) => (
             <button
               key={design.id}
               onClick={() => setSelected(design)}
               className="text-left"
             >
-              <Placeholder tone={toneAt(i)} src={nailLibraryAsset.url} alt={design.name} />
-              <p className="eyebrow mt-5">{design.collection}</p>
-              <h2 className="mt-2 font-display text-[22px] text-forest">{design.name}</h2>
-              <p className="mt-1 text-xs text-muted-foreground">from ${design.price}</p>
+              <Placeholder
+                tone={toneAt(i)}
+                src={nailLibraryAsset.url}
+                alt="Nail set by Belleva Nails"
+              />
             </button>
           ))}
         </div>
       </section>
+
 
       <section className="bg-forest px-6 py-24 md:px-12 md:py-80">
         <div className="mx-auto max-w-3xl">
