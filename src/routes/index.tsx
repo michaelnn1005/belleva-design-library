@@ -1,13 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import {
-  BOOKING_URL,
-  DESIGNS,
-  toneAt,
-  type Design,
-} from "@/lib/designs";
+import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
+import servicesNails from "@/assets/services-nails.jpg";
+import servicesPedicure from "@/assets/services-pedicure.jpg";
+import servicesWaxing from "@/assets/services-waxing.jpg";
+import servicesLashes from "@/assets/services-lashes.jpg";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
@@ -209,12 +208,107 @@ function VisionReveal() {
   );
 }
 
+function ServicesSection() {
+  const { ref, visible } = useFadeIn();
+
+  const smallTiles = [
+    {
+      name: "Pedicure",
+      line: "care and color, classic to deluxe",
+      image: servicesPedicure,
+      alt: "Pedicure service at Belleva Nails",
+    },
+    {
+      name: "Waxing",
+      line: "quick, clean, precise",
+      image: servicesWaxing,
+      alt: "Waxing service at Belleva Nails",
+    },
+    {
+      name: "Lashes",
+      line: "ask us when you book",
+      image: servicesLashes,
+      alt: "Lash service at Belleva Nails",
+    },
+  ];
+
+  return (
+    <section
+      id="services"
+      ref={ref}
+      className={`fade-up ${visible ? "fade-in-visible" : ""} bg-background px-6 py-20 md:px-12`}
+    >
+      <div className="mx-auto max-w-6xl">
+        <p className="eyebrow">Services</p>
+        <h2 className="mt-5 font-display text-[28px] leading-[1.2] text-forest">
+          What we do.
+        </h2>
+
+        <a
+          href={BOOKING_URL}
+          className="mt-10 block"
+        >
+          <div className="w-full overflow-hidden rounded-[10px]">
+            <img
+              src={servicesNails}
+              alt="Nail services at Belleva Nails"
+              className="aspect-[3/2] w-full object-cover object-center"
+              loading="lazy"
+              width={1200}
+              height={800}
+            />
+          </div>
+          <div className="mt-6">
+            <h3 className="font-display text-[26px] leading-[1.2] text-forest">
+              Nails
+            </h3>
+            <p className="mt-2 text-[12px] uppercase tracking-[1.5px] text-muted-foreground">
+              Gel-X · Builder gel · Acrylic · Dipping
+            </p>
+            <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
+              Sets and designs, built to last past week two.
+            </p>
+          </div>
+        </a>
+
+        <div className="mt-12 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-3 md:gap-10">
+          {smallTiles.map((tile) => (
+            <a
+              key={tile.name}
+              href={BOOKING_URL}
+              className="flex items-center gap-4"
+            >
+              <div className="shrink-0 overflow-hidden rounded-[10px]">
+                <img
+                  src={tile.image}
+                  alt={tile.alt}
+                  className="h-24 w-24 object-cover object-center"
+                  loading="lazy"
+                  width={800}
+                  height={800}
+                />
+              </div>
+              <div>
+                <h3 className="font-display text-[20px] leading-[1.2] text-forest">
+                  {tile.name}
+                </h3>
+                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
+                  {tile.line}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
-  const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
-  const filterRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -228,24 +322,9 @@ function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToLibrary = () => {
-    filterRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
-  useEffect(() => {
-    if (!selected) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelected(null);
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [selected]);
-
-  
 
   return (
     <div className="min-h-screen bg-background">
@@ -304,12 +383,12 @@ function Index() {
         </div>
 
         <button
-          onClick={scrollToLibrary}
+          onClick={scrollToServices}
           className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-background/90 transition-opacity hover:opacity-70 md:bottom-10"
-          aria-label="Scroll to design library"
+          aria-label="Scroll to services"
         >
           <span className="text-[10px] uppercase tracking-[0.2em]">
-            Browse the library
+            Explore services
           </span>
           <div className="flex flex-col items-center">
             <div className="h-10 w-px bg-background/60" />
@@ -330,24 +409,7 @@ function Index() {
         </button>
       </section>
 
-      <div ref={filterRef} className="pt-20" />
-
-      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-12 md:pb-80">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 md:gap-x-10 md:gap-y-20">
-          {DESIGNS.map((design, i) => (
-            <button
-              key={design.id}
-              onClick={() => setSelected(design)}
-              className="text-left"
-            >
-              <Placeholder
-                tone={toneAt(i)}
-              />
-            </button>
-          ))}
-        </div>
-      </section>
-
+      <ServicesSection />
 
       <section className="bg-forest px-6 py-24 md:px-12 md:py-80">
         <div className="mx-auto max-w-3xl">
@@ -468,41 +530,6 @@ function Index() {
             <path d="M0 4h16M13 1l3 3-3 3" stroke="#8A7340" strokeWidth="1" />
           </svg>
         </a>
-      )}
-
-      {selected && (
-        <div
-          className="fixed inset-0 z-40 overflow-y-auto bg-background px-6 py-10 md:px-12"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Design detail"
-        >
-          <div className="mx-auto max-w-xl">
-            <button
-              onClick={() => setSelected(null)}
-              className="eyebrow"
-              autoFocus
-            >
-              Close
-            </button>
-            <div className="mt-10">
-              <Placeholder
-                tone={toneAt(DESIGNS.findIndex((d) => d.id === selected.id))}
-              />
-            </div>
-
-            <a
-              href={BOOKING_URL}
-              className="mt-10 inline-flex rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
-            >
-              Book this design
-            </a>
-            <p className="mt-4 max-w-sm text-xs leading-relaxed text-muted-foreground">
-              On the last booking step, tell us your occasion in the Note box so we can prepare for
-              you.
-            </p>
-          </div>
-        </div>
       )}
     </div>
   );
