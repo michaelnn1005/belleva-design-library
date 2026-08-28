@@ -289,14 +289,14 @@ function Index() {
               OCCASION
             </p>
             <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex w-max gap-3">
+              <div className="flex w-max gap-2">
                 {OCCASION_FILTERS.map((chip) => {
                   const active = chip === filter;
                   return (
                     <button
                       key={chip}
                       onClick={() => setFilter(chip)}
-                      className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
+                      className={`whitespace-nowrap rounded-full border px-[14px] py-2 text-[14px] transition-all duration-200 ${
                         active
                           ? "border-transparent bg-forest text-cream"
                           : "border-hairline text-muted-foreground hover:border-gold"
@@ -314,14 +314,14 @@ function Index() {
               SERVICE
             </p>
             <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex w-max gap-3">
+              <div className="flex w-max gap-2">
                 {SERVICE_FILTERS.map((chip) => {
                   const active = chip === filter;
                   return (
                     <button
                       key={chip}
                       onClick={() => setFilter(chip)}
-                      className={`whitespace-nowrap rounded-full border px-5 py-2 text-xs transition-all duration-200 ${
+                      className={`whitespace-nowrap rounded-full border px-[14px] py-2 text-[14px] transition-all duration-200 ${
                         active
                           ? "border-transparent bg-forest text-cream"
                           : "border-hairline text-muted-foreground hover:border-gold"
