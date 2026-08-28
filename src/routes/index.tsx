@@ -110,9 +110,9 @@ function ComparisonRow() {
       ref={ref}
       className={`fade-up ${visible ? "fade-in-visible" : ""} my-12 flex items-center gap-6`}
     >
-      <span className="relative text-[13px] uppercase tracking-[2px] text-cream/45">
+      <span className="relative text-[13px] uppercase tracking-[2px] text-[rgba(245,240,232,0.45)]">
         7 DAYS
-        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-cream/45" />
+        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[rgba(245,240,232,0.45)]" />
       </span>
       <svg
         width="40"
