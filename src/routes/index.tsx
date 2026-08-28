@@ -245,7 +245,7 @@ function Index() {
     };
   }, [selected]);
 
-  const visible = DESIGNS.filter((d) => matchesFilter(d, filter));
+  
 
   return (
     <div className="min-h-screen bg-background">
