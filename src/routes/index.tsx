@@ -103,6 +103,34 @@ function Placeholder({
   );
 }
 
+function ComparisonRow() {
+  const { ref, visible } = useFadeIn();
+  return (
+    <div
+      ref={ref}
+      className={`fade-up ${visible ? "fade-in-visible" : ""} my-12 flex items-center gap-6`}
+    >
+      <span className="relative text-[13px] uppercase tracking-[2px] text-cream/45">
+        7 DAYS
+        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-cream/45" />
+      </span>
+      <svg
+        width="40"
+        height="8"
+        viewBox="0 0 40 8"
+        fill="none"
+        aria-hidden="true"
+        className="text-gold"
+      >
+        <path d="M0 4h38M34 1l4 3-4 3" stroke="currentColor" strokeWidth="1" />
+      </svg>
+      <span className="text-[13px] uppercase tracking-[2px] text-cream">
+        14 DAYS
+      </span>
+    </div>
+  );
+}
+
 function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
@@ -308,7 +336,8 @@ function Index() {
           <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream md:text-[58px]">
             The industry standard is a 7-day guarantee. Cute. Ours is 14.
           </h2>
-          <p className="mt-8 max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
+          <ComparisonRow />
+          <p className="max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
             Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
             we fix it free. No receipts argued, no questions asked.
           </p>
