@@ -4,7 +4,6 @@ import {
   BOOKING_URL,
   DESIGNS,
   OCCASION_FILTERS,
-  SERVICE_FILTERS,
   matchesFilter,
   toneAt,
   type Design,
@@ -14,7 +13,7 @@ import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
-  "Browse real nail sets made in our Denton studio, filter by service or occasion, and book the design you love.";
+  "Browse real nail sets made in our Denton studio, filter by occasion, and book the design you love.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -338,7 +337,7 @@ function Index() {
         ref={filterRef}
         className="mx-auto max-w-6xl px-6 pb-32 pt-20 md:px-12"
       >
-        <div className="space-y-3">
+        <div>
           <div>
             <p className="mb-3 text-[10px] uppercase tracking-[2px] text-gold">
               OCCASION
@@ -346,31 +345,6 @@ function Index() {
             <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex w-max gap-2">
                 {OCCASION_FILTERS.map((chip) => {
-                  const active = chip === filter;
-                  return (
-                    <button
-                      key={chip}
-                      onClick={() => setFilter(chip)}
-                      className={`whitespace-nowrap rounded-full border px-[14px] py-2 text-[14px] transition-all duration-200 ${
-                        active
-                          ? "border-transparent bg-forest text-cream"
-                          : "border-hairline text-muted-foreground hover:border-gold"
-                      }`}
-                    >
-                      {chip}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-          <div>
-            <p className="mb-3 text-[10px] uppercase tracking-[2px] text-gold">
-              SERVICE
-            </p>
-            <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="flex w-max gap-2">
-                {SERVICE_FILTERS.map((chip) => {
                   const active = chip === filter;
                   return (
                     <button
@@ -403,9 +377,7 @@ function Index() {
               <Placeholder tone={toneAt(i)} src={nailLibraryAsset.url} alt={design.name} />
               <p className="eyebrow mt-5">{design.collection}</p>
               <h2 className="mt-2 font-display text-[22px] text-forest">{design.name}</h2>
-              <p className="mt-1 text-xs text-muted-foreground">
-                {design.service} · from ${design.price}
-              </p>
+              <p className="mt-1 text-xs text-muted-foreground">from ${design.price}</p>
             </button>
           ))}
         </div>
@@ -557,7 +529,7 @@ function Index() {
             <p className="eyebrow mt-8">{selected.collection}</p>
             <h2 className="mt-3 font-display text-[40px] text-forest">{selected.name}</h2>
             <p className="mt-2 text-[13px] font-light text-muted-foreground">
-              {selected.service} · from ${selected.price}
+              from ${selected.price}
             </p>
             <a
               href={BOOKING_URL}
