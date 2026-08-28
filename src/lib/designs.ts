@@ -1,42 +1,25 @@
 export type Design = {
   id: string;
-  name: string;
-  collection: string;
-  tags: string[];
-  price: number;
 };
 
-export const OCCASION_FILTERS = [
-  "All",
-  "Wedding",
-  "Everyday",
-  "Date night",
-  "Holiday",
-] as const;
-
 export const DESIGNS: Design[] = [
-  { id: "linen-bloom", name: "Linen Bloom", collection: "SIGNATURE SET", tags: ["Wedding", "French"], price: 70 },
-  { id: "star-porcelain", name: "Star Porcelain", collection: "ART FOCUS", tags: ["Wedding", "Chrome"], price: 75 },
-  { id: "golden-flow", name: "Golden Flow", collection: "SIGNATURE SET", tags: ["Everyday", "Minimal"], price: 65 },
-  { id: "crimson-jewels", name: "Crimson Jewels", collection: "DETAIL EDIT", tags: ["Holiday"], price: 60 },
-  { id: "navy-starlet", name: "Navy Starlet", collection: "BELLEVA EDIT", tags: ["Date night"], price: 70 },
-  { id: "verdant-drift", name: "Verdant Drift", collection: "BELLEVA EDIT", tags: ["Everyday"], price: 65 },
-  { id: "balanced-form", name: "Balanced Form", collection: "SIGNATURE SET", tags: ["Minimal"], price: 65 },
-  { id: "playful-lines", name: "Playful Lines", collection: "BELLEVA EDIT", tags: ["Date night"], price: 70 },
-  { id: "orbit", name: "Orbit", collection: "ART FOCUS", tags: ["Chrome", "Holiday"], price: 75 },
-  { id: "midnight-ornament", name: "Midnight Ornament", collection: "DETAIL EDIT", tags: ["Holiday", "Date night"], price: 60 },
-  { id: "pearl-veil", name: "Pearl Veil", collection: "SIGNATURE SET", tags: ["Wedding", "Minimal"], price: 70 },
-  { id: "espresso-french", name: "Espresso French", collection: "BELLEVA EDIT", tags: ["Everyday", "French"], price: 65 },
+  { id: "linen-bloom" },
+  { id: "star-porcelain" },
+  { id: "golden-flow" },
+  { id: "crimson-jewels" },
+  { id: "navy-starlet" },
+  { id: "verdant-drift" },
+  { id: "balanced-form" },
+  { id: "playful-lines" },
+  { id: "orbit" },
+  { id: "midnight-ornament" },
+  { id: "pearl-veil" },
+  { id: "espresso-french" },
 ];
 
 export const BOOKING_URL = "https://bellevanail.com/booking";
 
 export const PLACEHOLDER_TONES: readonly [string, string, string, string] = ["#EAE4D8", "#3A5A4A", "#E3DACB", "#EFEAE0"];
-
-export function matchesFilter(design: Design, filter: string) {
-  if (filter === "All") return true;
-  return design.tags.includes(filter);
-}
 
 export function toneAt(index: number): string {
   return PLACEHOLDER_TONES[index % PLACEHOLDER_TONES.length] ?? "#EAE4D8";
