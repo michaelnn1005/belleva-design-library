@@ -397,6 +397,29 @@ function Index() {
         </div>
       </section>
 
+      <section className="bg-background px-6 py-24 md:px-12 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <p className="eyebrow">BELLEVA BRIDAL</p>
+          <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-forest">
+            Joining costs nothing. You just get more.
+          </h2>
+          <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
+            Our bridal program is free to join — no packages, no fees. You get a trial set to lock
+            in your exact design, the same look recreated days before the wedding, a small care kit
+            to take with you, and a set guaranteed through your big day.
+          </p>
+          <a
+            href={BOOKING_URL}
+            className="mt-8 inline-flex items-center gap-2 text-[13px] text-forest transition-colors hover:text-forest-soft"
+          >
+            Book your trial — tell us your wedding date in the Note box.
+            <svg width="18" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+              <path d="M0 4h16M13 1l3 3-3 3" stroke="#8A7340" strokeWidth="1" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
       <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
         <div
           ref={visionRef}
