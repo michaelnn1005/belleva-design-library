@@ -308,7 +308,8 @@ function Index() {
           <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream md:text-[58px]">
             The industry standard is a 7-day guarantee. Cute. Ours is 14.
           </h2>
-          <p className="mt-8 max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
+          <ComparisonRow />
+          <p className="max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
             Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
             we fix it free. No receipts argued, no questions asked.
           </p>
