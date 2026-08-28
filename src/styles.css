@@ -189,3 +189,22 @@
 @utility fade-in-visible {
   opacity: 1;
 }
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-track {
+  width: max-content;
+  animation: marquee-x 60s linear infinite;
+  will-change: transform;
+}
+
+.marquee-paused .marquee-track {
+  animation-play-state: paused;
+}
