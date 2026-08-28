@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   BOOKING_URL,
   DESIGNS,
-  OCCASION_FILTERS,
-  matchesFilter,
   toneAt,
   type Design,
 } from "@/lib/designs";
@@ -13,7 +11,7 @@ import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
-  "Browse real nail sets made in our Denton studio, filter by occasion, and book the design you love.";
+  "Browse real nail sets made in our Denton studio and book the design you love.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
