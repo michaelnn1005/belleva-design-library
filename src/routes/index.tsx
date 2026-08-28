@@ -37,7 +37,7 @@ function NailsSlideshow() {
   return (
     <div>
       <div
-        className="relative aspect-[3/2] w-full overflow-hidden rounded-[10px]"
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
         onTouchStart={(e) => {
           setPaused(true);
           touchX.current = e.touches[0]?.clientX ?? null;
