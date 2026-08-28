@@ -211,7 +211,6 @@ function VisionReveal() {
 
 function Index() {
   const [selected, setSelected] = useState<Design | null>(null);
-  const [selected, setSelected] = useState<Design | null>(null);
   const [showBar, setShowBar] = useState(false);
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
