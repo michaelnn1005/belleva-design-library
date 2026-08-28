@@ -238,21 +238,12 @@ function ServicesSection() {
           What we do.
         </h2>
 
-        <a
-          href={BOOKING_URL}
-          className="mt-10 block"
-        >
-          <div className="w-full overflow-hidden rounded-[10px]">
-            <img
-              src={servicesNailsAsset.url}
-              alt="Nail services at Belleva Nails"
-              className="aspect-[3/2] w-full object-cover object-center"
-              loading="lazy"
-              width={1200}
-              height={800}
-            />
-          </div>
-          <div className="mt-6">
+        <div className="mt-10">
+          <NailsSlideshow />
+        </div>
+
+        <a href={BOOKING_URL} className="mt-6 block">
+          <div>
             <h3 className="font-display text-[26px] leading-[1.2] text-forest">
               Nails
             </h3>
@@ -264,6 +255,7 @@ function ServicesSection() {
             </p>
           </div>
         </a>
+
 
         <div className="mt-12">
           {indexItems.map((item) => (
