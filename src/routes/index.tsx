@@ -371,6 +371,12 @@ function Index() {
         <p className="eyebrow px-6 md:px-12">From our clients</p>
         <div
           className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%)",
+          }}
           onPointerDown={() => setQuotesPaused(true)}
           onPointerUp={() => setQuotesPaused(false)}
           onPointerCancel={() => setQuotesPaused(false)}
