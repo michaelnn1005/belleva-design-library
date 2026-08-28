@@ -219,7 +219,6 @@ function Index() {
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
-  const { ref: visionRef, visible: visionVisible } = useFadeIn();
 
   useEffect(() => {
     const onScroll = () => {
