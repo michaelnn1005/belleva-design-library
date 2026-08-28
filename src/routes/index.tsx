@@ -208,24 +208,21 @@ function VisionReveal() {
 function ServicesSection() {
   const { ref, visible } = useFadeIn();
 
-  const smallTiles = [
+  const indexItems = [
     {
+      index: "01",
       name: "Pedicure",
       line: "care and color, classic to deluxe",
-      image: servicesPedicure,
-      alt: "Pedicure service at Belleva Nails",
     },
     {
+      index: "02",
       name: "Waxing",
       line: "quick, clean, precise",
-      image: servicesWaxing,
-      alt: "Waxing service at Belleva Nails",
     },
     {
+      index: "03",
       name: "Lashes",
       line: "ask us when you book",
-      image: servicesLashes,
-      alt: "Lash service at Belleva Nails",
     },
   ];
 
