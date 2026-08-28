@@ -3,7 +3,90 @@ import { useEffect, useRef, useState } from "react";
 import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
-import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
+import slide1 from "@/assets/nail-slide-1.png.asset.json";
+import slide2 from "@/assets/nail-slide-2.png.asset.json";
+import slide3 from "@/assets/nail-slide-3.png.asset.json";
+import slide4 from "@/assets/nail-slide-4.png.asset.json";
+import slide5 from "@/assets/nail-slide-5.png.asset.json";
+
+const NAIL_SLIDES = [slide1, slide2, slide3, slide4, slide5];
+
+function NailsSlideshow() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [reduced, setReduced] = useState(false);
+  const touchX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (paused || reduced) return;
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1) % NAIL_SLIDES.length),
+      5000,
+    );
+    return () => window.clearInterval(id);
+  }, [paused, reduced]);
+
+  return (
+    <div>
+      <div
+        className="relative aspect-[3/2] w-full overflow-hidden rounded-[10px]"
+        onTouchStart={(e) => {
+          setPaused(true);
+          touchX.current = e.touches[0]?.clientX ?? null;
+        }}
+        onTouchEnd={(e) => {
+          setPaused(false);
+          const start = touchX.current;
+          const end = e.changedTouches[0]?.clientX ?? null;
+          touchX.current = null;
+          if (start === null || end === null) return;
+          const dx = end - start;
+          if (Math.abs(dx) < 40) return;
+          setIndex((i) =>
+            dx < 0
+              ? (i + 1) % NAIL_SLIDES.length
+              : (i - 1 + NAIL_SLIDES.length) % NAIL_SLIDES.length,
+          );
+        }}
+      >
+        {NAIL_SLIDES.map((slide, i) => (
+          <img
+            key={slide.url}
+            src={slide.url}
+            alt="Nail set by Belleva Nails"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            style={{
+              opacity: i === index ? 1 : 0,
+              transition: reduced ? "none" : "opacity 1.2s ease-in-out",
+            }}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+      </div>
+      <div className="mt-3 flex items-center justify-center gap-[10px]">
+        {NAIL_SLIDES.map((slide, i) => (
+          <button
+            key={slide.url}
+            type="button"
+            aria-label={`Show nail photo ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className="h-[6px] w-[6px] rounded-full transition-colors duration-300"
+            style={{ backgroundColor: i === index ? "#8A7340" : "#CFC8BA" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
@@ -238,21 +321,12 @@ function ServicesSection() {
           What we do.
         </h2>
 
-        <a
-          href={BOOKING_URL}
-          className="mt-10 block"
-        >
-          <div className="w-full overflow-hidden rounded-[10px]">
-            <img
-              src={servicesNailsAsset.url}
-              alt="Nail services at Belleva Nails"
-              className="aspect-[3/2] w-full object-cover object-center"
-              loading="lazy"
-              width={1200}
-              height={800}
-            />
-          </div>
-          <div className="mt-6">
+        <div className="mt-10">
+          <NailsSlideshow />
+        </div>
+
+        <a href={BOOKING_URL} className="mt-6 block">
+          <div>
             <h3 className="font-display text-[26px] leading-[1.2] text-forest">
               Nails
             </h3>
@@ -264,6 +338,7 @@ function ServicesSection() {
             </p>
           </div>
         </a>
+
 
         <div className="mt-12">
           {indexItems.map((item) => (
