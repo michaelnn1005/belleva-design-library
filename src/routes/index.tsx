@@ -417,24 +417,20 @@ function Index() {
           <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
             Our bridal program is free to join — no packages, no fees.
           </p>
-          <ul className="mt-5 max-w-[340px] space-y-5">
-            <li className="flex gap-3 text-[15px] text-forest">
-              <span className="text-gold">—</span>
-              <span>A trial set to lock in your exact design</span>
-            </li>
-            <li className="flex gap-3 text-[15px] text-forest">
-              <span className="text-gold">—</span>
-              <span>The same look recreated days before the wedding</span>
-            </li>
-            <li className="flex gap-3 text-[15px] text-forest">
-              <span className="text-gold">—</span>
-              <span>A small care kit to take home</span>
-            </li>
-            <li className="flex gap-3 text-[15px] text-forest">
-              <span className="text-gold">—</span>
-              <span>A set guaranteed through your big day</span>
-            </li>
-          </ul>
+          <div className="mt-5 max-w-[340px] space-y-5">
+            <p className="text-[15px] text-forest">
+              <span className="text-gold">—</span> A trial set to lock in your exact design
+            </p>
+            <p className="text-[15px] text-forest">
+              <span className="text-gold">—</span> The same look, recreated before the wedding
+            </p>
+            <p className="text-[15px] text-forest">
+              <span className="text-gold">—</span> A small care kit to take home
+            </p>
+            <p className="text-[15px] text-forest">
+              <span className="text-gold">—</span> A set guaranteed through your big day
+            </p>
+          </div>
           <a
             href={BOOKING_URL}
             className="mt-8 inline-flex items-center gap-2 text-[13px] text-forest transition-colors hover:text-forest-soft"
