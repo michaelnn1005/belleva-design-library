@@ -75,13 +75,11 @@ const CLIENT_QUOTES: { name: string; text: string }[] = [
 
 function QuoteCard({
   quote,
-  offset,
 }: {
   quote: { name: string; text: string };
-  offset?: boolean;
 }) {
   return (
-    <figure className={`w-[280px] shrink-0 pr-16 ${offset ? "mt-6" : ""}`}>
+    <figure className="w-[280px] shrink-0 pr-16">
       <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
         {quote.text}
       </blockquote>
@@ -373,7 +371,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-cream pt-24 pb-[120px] md:pt-28 md:pb-[136px]">
+      <section className="bg-cream py-24 md:py-28">
         <p className="eyebrow px-6 md:px-12">From our clients</p>
         <div
           className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
@@ -389,11 +387,11 @@ function Index() {
           onPointerLeave={() => setQuotesPaused(false)}
         >
           <div className="marquee-track flex items-start">
-            {CLIENT_QUOTES.map((quote, i) => (
-              <QuoteCard key={quote.name} quote={quote} offset={i % 2 === 1} />
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={quote.name} quote={quote} />
             ))}
-            {CLIENT_QUOTES.map((quote, i) => (
-              <QuoteCard key={`${quote.name}-dup`} quote={quote} offset={i % 2 === 1} />
+            {CLIENT_QUOTES.map((quote) => (
+              <QuoteCard key={`${quote.name}-dup`} quote={quote} />
             ))}
           </div>
         </div>
