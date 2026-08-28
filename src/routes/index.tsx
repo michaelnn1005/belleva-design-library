@@ -103,6 +103,34 @@ function Placeholder({
   );
 }
 
+function ComparisonRow() {
+  const { ref, visible } = useFadeIn();
+  return (
+    <div
+      ref={ref}
+      className={`fade-up ${visible ? "fade-in-visible" : ""} my-12 flex items-center gap-6`}
+    >
+      <span className="relative text-[13px] uppercase tracking-[2px] text-cream/45">
+        7 DAYS
+        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-cream/45" />
+      </span>
+      <svg
+        width="40"
+        height="8"
+        viewBox="0 0 40 8"
+        fill="none"
+        aria-hidden="true"
+        className="text-gold"
+      >
+        <path d="M0 4h38M34 1l4 3-4 3" stroke="currentColor" strokeWidth="1" />
+      </svg>
+      <span className="text-[13px] uppercase tracking-[2px] text-cream">
+        14 DAYS
+      </span>
+    </div>
+  );
+}
+
 function Index() {
   const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Design | null>(null);
