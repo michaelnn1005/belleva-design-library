@@ -15,7 +15,18 @@ function NailsSlideshow() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const [tick, setTick] = useState(0);
   const touchX = useRef<number | null>(null);
+
+  const goNext = () => {
+    setIndex((i) => (i + 1) % NAIL_SLIDES.length);
+    setTick((t) => t + 1);
+  };
+
+  const goPrev = () => {
+    setIndex((i) => (i - 1 + NAIL_SLIDES.length) % NAIL_SLIDES.length);
+    setTick((t) => t + 1);
+  };
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -27,12 +38,9 @@ function NailsSlideshow() {
 
   useEffect(() => {
     if (paused || reduced) return;
-    const id = window.setInterval(
-      () => setIndex((i) => (i + 1) % NAIL_SLIDES.length),
-      5000,
-    );
+    const id = window.setInterval(goNext, 5000);
     return () => window.clearInterval(id);
-  }, [paused, reduced]);
+  }, [paused, reduced, tick]);
 
   return (
     <div>
@@ -50,11 +58,11 @@ function NailsSlideshow() {
           if (start === null || end === null) return;
           const dx = end - start;
           if (Math.abs(dx) < 40) return;
-          setIndex((i) =>
-            dx < 0
-              ? (i + 1) % NAIL_SLIDES.length
-              : (i - 1 + NAIL_SLIDES.length) % NAIL_SLIDES.length,
-          );
+          if (dx < 0) {
+            goNext();
+          } else {
+            goPrev();
+          }
         }}
       >
         {NAIL_SLIDES.map((slide, i) => (
@@ -70,6 +78,48 @@ function NailsSlideshow() {
             loading={i === 0 ? "eager" : "lazy"}
           />
         ))}
+
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label="Previous nail photo"
+          className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-70 transition-opacity active:opacity-100"
+        >
+          <svg
+            width="14"
+            height="28"
+            viewBox="0 0 14 28"
+            fill="none"
+            stroke="#F5F0E8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="11,2 3,14 11,26" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Next nail photo"
+          className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-70 transition-opacity active:opacity-100"
+        >
+          <svg
+            width="14"
+            height="28"
+            viewBox="0 0 14 28"
+            fill="none"
+            stroke="#F5F0E8"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="3,2 11,14 3,26" />
+          </svg>
+        </button>
       </div>
       <div className="mt-3 flex items-center justify-center gap-[10px]">
         {NAIL_SLIDES.map((slide, i) => (
@@ -77,7 +127,10 @@ function NailsSlideshow() {
             key={slide.url}
             type="button"
             aria-label={`Show nail photo ${i + 1}`}
-            onClick={() => setIndex(i)}
+            onClick={() => {
+              setIndex(i);
+              setTick((t) => t + 1);
+            }}
             className="h-[6px] w-[6px] rounded-full transition-colors duration-300"
             style={{ backgroundColor: i === index ? "#8A7340" : "#CFC8BA" }}
           />
