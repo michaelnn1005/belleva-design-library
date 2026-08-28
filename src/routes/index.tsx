@@ -265,33 +265,29 @@ function ServicesSection() {
           </div>
         </a>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-3 md:gap-10">
-          {smallTiles.map((tile) => (
+        <div className="mt-12">
+          {indexItems.map((item) => (
             <a
-              key={tile.name}
+              key={item.name}
               href={BOOKING_URL}
-              className="flex items-center gap-4"
+              className="block border-t border-[#E5DFD3] py-6 transition-colors hover:bg-cream/30"
             >
-              <div className="shrink-0 overflow-hidden rounded-[10px]">
-                <img
-                  src={tile.image}
-                  alt={tile.alt}
-                  className="h-24 w-24 object-cover object-center"
-                  loading="lazy"
-                  width={800}
-                  height={800}
-                />
-              </div>
-              <div>
-                <h3 className="font-display text-[20px] leading-[1.2] text-forest">
-                  {tile.name}
-                </h3>
-                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
-                  {tile.line}
-                </p>
+              <div className="flex items-start gap-4">
+                <span className="w-8 shrink-0 pt-1 font-sans text-[11px] uppercase tracking-[1px] text-gold">
+                  {item.index}
+                </span>
+                <div className="flex flex-col md:flex-row md:items-baseline md:gap-3">
+                  <h3 className="font-display text-[22px] leading-[1.2] text-forest">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground md:mt-0">
+                    {item.line}
+                  </p>
+                </div>
               </div>
             </a>
           ))}
+          <div className="border-b border-[#E5DFD3]" />
         </div>
       </div>
     </section>
