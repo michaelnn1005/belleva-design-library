@@ -20,7 +20,6 @@ export const SERVICE_FILTERS = [
   "Builder gel",
   "Dipping",
   "Acrylic",
-  "Regular gel",
 ] as const;
 
 export const FILTERS = [...OCCASION_FILTERS, ...SERVICE_FILTERS] as const;
