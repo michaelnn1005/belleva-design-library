@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { StickyBottomBar } from "@/components/StickyBottomBar";
+import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
