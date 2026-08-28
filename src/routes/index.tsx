@@ -528,8 +528,14 @@ function Index() {
 
       <ServicesSection />
 
-      <section className="bg-forest px-6 py-24 md:px-12 md:py-80">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative bg-forest px-6 py-24 md:px-12 md:py-80">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-5 top-6 z-0 select-none font-display text-[180px] leading-none text-cream/8 md:-right-8 md:top-10 md:text-[260px]"
+        >
+          14
+        </span>
+        <div className="relative z-10 mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream lining-nums md:text-[58px]">
             The industry standard is a 7-day guarantee. Cute. Ours is 14.
