@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { StickyBottomBar } from "@/components/StickyBottomBar";
+import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
@@ -143,7 +147,7 @@ function NailsSlideshow() {
 
 const TITLE = "Belleva Nails — Denton nail design library";
 const DESCRIPTION =
-  "Browse real nail sets made in our Denton studio and book the design you love.";
+  "Browse real nail sets made in our Denton salon and book the design you love.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -159,26 +163,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function useFadeIn() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return { ref, visible };
-}
 
 const CLIENT_QUOTES: { name: string; text: string }[] = [
   {
@@ -231,7 +215,7 @@ function Placeholder({
   alt?: string;
   className?: string;
 }) {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
   const light = tone !== "#3A5A4A";
   return (
     <div
@@ -259,7 +243,7 @@ function Placeholder({
 }
 
 function ComparisonRow() {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
   return (
     <div
       ref={ref}
@@ -342,7 +326,7 @@ function VisionReveal() {
 }
 
 function ServicesSection() {
-  const { ref, visible } = useFadeIn();
+  const { ref, visible } = useFadeUp();
 
   const indexItems = [
     {
@@ -445,31 +429,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-          heroPassed ? "bg-background" : "bg-transparent"
-        }`}
-      >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
-          <span
-            className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${
-              heroPassed ? "text-forest" : "text-background"
-            }`}
-          >
-            BELLEVA
-          </span>
-          <a
-            href={BOOKING_URL}
-            className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${
-              heroPassed
-                ? "border-gold text-gold hover:bg-cream"
-                : "border-background/70 text-background hover:bg-background/15"
-            }`}
-          >
-            Book
-          </a>
-        </div>
-      </header>
+      <SiteHeader heroPassed={heroPassed} />
 
       <section
         id="hero"
@@ -624,102 +584,9 @@ function Index() {
 
       <VisionReveal />
 
-      <footer className="border-t border-[#E5DFD3] bg-background px-6 pt-20 pb-12 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>
+      <SiteFooter />
 
-          <div className="mt-10 space-y-2 text-[13px] leading-relaxed text-muted-foreground">
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=2200%20W%20University%20Dr%2C%20Ste%20180%2C%20Denton%2C%20TX%2076201"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block transition-colors hover:text-forest"
-            >
-              2200 W University Dr, Ste 180, Denton, TX 76201
-            </a>
-            <a href="tel:+19405141808" className="block transition-colors hover:text-forest">
-              (940) 514-1808
-            </a>
-            <p>Mon-Fri 9:30-7:30 · Sat 9-7 · Sun 11-5</p>
-          </div>
-
-          <div className="mt-10">
-            <p className="flex flex-wrap gap-x-2 gap-y-1 text-[11px] uppercase tracking-[1px] text-forest/60">
-              <span className="whitespace-nowrap">
-                <a href="https://instagram.com/bellevanailsdenton" className="transition-colors hover:text-forest">Instagram</a>
-                <span className="mx-1 text-gold">·</span>
-              </span>
-              <span className="whitespace-nowrap">
-                <a href="#" className="transition-colors hover:text-forest">TikTok</a>
-                <span className="mx-1 text-gold">·</span>
-              </span>
-              <span className="whitespace-nowrap">
-                <a href="#" className="transition-colors hover:text-forest">Pinterest</a>
-                <span className="mx-1 text-gold">·</span>
-              </span>
-              <span className="whitespace-nowrap">
-                <a href="#" className="transition-colors hover:text-forest">Facebook</a>
-                <span className="mx-1 text-gold">·</span>
-              </span>
-              <span className="whitespace-nowrap">
-                <a href="#" className="transition-colors hover:text-forest">YouTube</a>
-              </span>
-            </p>
-          </div>
-
-          <div className="mt-12">
-            <p className="text-[10px] uppercase tracking-[2px] text-gold">Write to us</p>
-            <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                placeholder="Name"
-                className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-              />
-              <textarea
-                rows={3}
-                placeholder="Message"
-                className="w-full resize-none border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="mt-4 inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
-              >
-                Send
-              </button>
-            </form>
-            <p className="mt-3 text-[10px] italic text-muted-foreground">Demo form — not yet connected.</p>
-          </div>
-
-          <div className="mt-12">
-            <a
-              href={BOOKING_URL}
-              className="inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
-            >
-              Book an appointment
-            </a>
-            <p className="mt-3 max-w-[260px] text-[11px] leading-relaxed text-muted-foreground">
-              Tell us your occasion in the Note box — we will take care of the rest.
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {showBar && (
-        <a
-          href={BOOKING_URL}
-          className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-center gap-3 bg-forest px-6 py-4 text-sm text-cream md:hidden"
-        >
-          Book an appointment
-          <svg width="18" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-            <path d="M0 4h16M13 1l3 3-3 3" stroke="#8A7340" strokeWidth="1" />
-          </svg>
-        </a>
-      )}
+      <StickyBottomBar show={showBar} />
     </div>
   );
 }
