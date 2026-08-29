@@ -298,10 +298,10 @@ function StandardPage() {
               </div>
 
               <div className="mt-12 aspect-[3/2] w-full bg-cream/8">
-                <div
-                  aria-label="Disinfected tools laid out on a clean tray at Belleva Nails"
-                  role="img"
-                  className="h-full w-full bg-cream/8"
+                <img
+                  src={trayPhotoAsset.url}
+                  alt="Disinfected tools laid out on a clean tray at Belleva Nails"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </FadeUpSection>
