@@ -189,6 +189,74 @@ function StandardPage() {
             </FadeUpSection>
           </div>
         </section>
+
+        {/* YOUR APPOINTMENT */}
+        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                YOUR APPOINTMENT
+              </p>
+              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                What an hour here looks like.
+              </h2>
+            </FadeUpSection>
+
+            <StaggerFadeUp staggerMs={80} className="mt-12">
+              {[
+                {
+                  number: "01",
+                  title: "Check-in",
+                  description:
+                    "We read your Note before you sit down.",
+                },
+                {
+                  number: "02",
+                  title: "Consultation",
+                  description:
+                    "Shape, length, color, design. Nothing starts until you're happy.",
+                },
+                {
+                  number: "03",
+                  title: "Prep",
+                  description:
+                    "Done properly. This is where most sets fail, and where we don't rush.",
+                },
+                {
+                  number: "04",
+                  title: "The work",
+                  description:
+                    "With a technician matched to what you booked.",
+                },
+                {
+                  number: "05",
+                  title: "Finish",
+                  description:
+                    "A photo of your set if you'd like one, and your next slot held if you want it.",
+                },
+              ].map((step, i, arr) => (
+                <div
+                  key={step.number}
+                  className={`flex gap-4 py-6 ${
+                    i !== arr.length - 1 ? "border-b border-forest/12" : ""
+                  }`}
+                >
+                  <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold">
+                    {step.number}
+                  </span>
+                  <div>
+                    <p className="font-body text-[17px] font-medium text-forest">
+                      {step.title}
+                    </p>
+                    <p className="mt-1 text-[16px] leading-[1.6] text-forest/75">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </StaggerFadeUp>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
