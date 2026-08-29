@@ -123,7 +123,7 @@ function StandardPage() {
                 A nail salon that keeps its word.
               </h1>
               <p className="mt-8 max-w-[520px] text-[14px] font-light leading-relaxed text-forest">
-                Belleva Nails is a salon in Denton, Texas. We build sets that are meant to be worn, not babied — and we put our name on how long they last.
+                Belleva Nails is a salon in Denton, Texas, built around one idea: raise the standard — in the work, and in everything that touches your skin. Nail design first. Then the things most salons never mention: where the lotion comes from, where the CBD comes from, and whether anyone checked.
               </p>
             </FadeUpSection>
           </div>
