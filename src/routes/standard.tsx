@@ -44,6 +44,59 @@ function FadeUpSection({
   );
 }
 
+const WHAT_WE_DONT_DO_LINES = [
+  "We don't reuse a file. Ever.",
+  "We don't rush the last appointment of the day.",
+  "We don't sell you an add-on you didn't ask about.",
+  'We don\'t call a set "done" until we\'d wear it ourselves.',
+  "We don't argue about the 14 days.",
+];
+
+function StaggerFadeUpLines({
+  lines,
+  baseDelayMs = 80,
+}: {
+  lines: string[];
+  baseDelayMs?: number;
+}) {
+  const { ref, visible, reduced } = useFadeUp(0.25);
+
+  return (
+    <div ref={ref} className="mt-12 space-y-0">
+      {lines.map((line, i) => {
+        const isLast = i === lines.length - 1;
+        const delay = reduced ? 0 : i * baseDelayMs;
+        return (
+          <div
+            key={line}
+            className={`border-t border-gold/40 py-6 first:pt-0 ${
+              isLast ? "last:pb-0" : ""
+            }`}
+          >
+            <p
+              className={`fade-up font-display text-[22px] leading-[1.4] text-cream ${
+                visible ? "fade-in-visible" : ""
+              }`}
+              style={{
+                transitionDelay: reduced ? undefined : `${delay}ms`,
+              }}
+            >
+              {isLast ? (
+                <>
+                  We don&apos;t argue about the{" "}
+                  <span className="lining-nums">14</span> days.
+                </>
+              ) : (
+                line
+              )}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function StandardPage() {
   const [showBar, setShowBar] = useState(false);
 
@@ -119,6 +172,19 @@ function StandardPage() {
                 ))}
               </div>
             </FadeUpSection>
+          </div>
+        </section>
+
+        {/* WHAT WE DON'T DO */}
+        <section className="bg-forest px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-3xl">
+            <FadeUpSection>
+              <p className="eyebrow">What We Don&apos;t Do</p>
+              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-cream md:text-[42px]">
+                Some things we skip.
+              </h2>
+            </FadeUpSection>
+            <StaggerFadeUpLines lines={WHAT_WE_DONT_DO_LINES} />
           </div>
         </section>
 
