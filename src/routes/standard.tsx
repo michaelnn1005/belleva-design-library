@@ -345,7 +345,7 @@ function StandardPage() {
             </h2>
           </FadeUpSection>
 
-          <StaggerFadeUp staggerMs={60} className="mt-10">
+          <StaggerFadeUp staggerMs={60} className="mt-10 space-y-7">
             {[
               "No MMA acrylic. Ever.",
               "No reused files, buffers, or liners.",
@@ -353,13 +353,21 @@ function StandardPage() {
               "No upsell scripts at the chair.",
               "No hidden fees. You'll know the price before we start.",
               "No deposits.",
-            ].map((line) => (
-              <p
+            ].map((line, i) => (
+              <div
                 key={line}
-                className="text-[17px] leading-[1.6] text-forest md:text-[18px]"
+                className="flex items-start gap-4 md:gap-6"
               >
-                &mdash; {line}
-              </p>
+                <span
+                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 md:w-[88px] md:text-[64px]"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="pt-2 text-[17px] leading-[1.5] text-forest md:pt-3 md:text-[18px]">
+                  {line}
+                </p>
+              </div>
             ))}
           </StaggerFadeUp>
         </div>
