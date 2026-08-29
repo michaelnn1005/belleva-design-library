@@ -110,10 +110,10 @@ function StandardPage() {
                 THE BELLEVA STANDARD
               </p>
               <h1 className="mt-3 max-w-[640px] font-display text-[36px] leading-[1.1] text-[#FAF8F5] md:text-[56px]">
-                What you should expect from a nail salon. And what you get here.
+                The bare minimum. Done properly.
               </h1>
               <p className="mt-5 max-w-[480px] text-[17px] leading-[1.6] text-[#FAF8F5]/85">
-                Most of this should be normal. In this industry, it isn&apos;t.
+                Everything on this page should be normal. In this industry, it isn&apos;t.
               </p>
             </FadeUpSection>
           </div>
