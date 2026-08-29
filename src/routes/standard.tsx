@@ -94,20 +94,27 @@ function StandardPage() {
 
       <main>
         {/* OPENING */}
-        <section className="bg-background px-6 pt-20 pb-16 md:px-12 md:pt-30 md:pb-24">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
+        <section className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]">
+          {/* Background image placeholder */}
+          <div
+            className="absolute inset-0 bg-forest"
+            role="img"
+            aria-label="Technician's hands at the nail table at Belleva Nails"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-forest/45" />
+          {/* Content */}
+          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
+            <FadeUpSection className="w-full">
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
                 THE BELLEVA STANDARD
               </p>
-              <h1 className="mt-6 max-w-[640px] font-display text-[34px] leading-[1.1] text-forest md:text-[56px]">
+              <h1 className="mt-3 max-w-[640px] font-display text-[36px] leading-[1.1] text-[#FAF8F5] md:text-[56px]">
                 What you should expect from a nail salon. And what you get here.
               </h1>
-              <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
-                Most of this page should be normal. It isn&apos;t, in this
-                industry — which is why we wrote it down.
+              <p className="mt-5 max-w-[480px] text-[17px] leading-[1.6] text-[#FAF8F5]/85">
+                Most of this should be normal. In this industry, it isn&apos;t.
               </p>
-              <div className="mt-10 h-px w-16 bg-gold/40" />
             </FadeUpSection>
           </div>
         </section>
