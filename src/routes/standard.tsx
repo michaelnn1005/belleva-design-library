@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import trayPhotoAsset from "@/assets/tray-photo.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
@@ -297,10 +298,10 @@ function StandardPage() {
               </div>
 
               <div className="mt-12 aspect-[3/2] w-full bg-cream/8">
-                <div
-                  aria-label="Disinfected tools laid out on a clean tray at Belleva Nails"
-                  role="img"
-                  className="h-full w-full bg-cream/8"
+                <img
+                  src={trayPhotoAsset.url}
+                  alt="Disinfected tools laid out on a clean tray at Belleva Nails"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </FadeUpSection>
