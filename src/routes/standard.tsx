@@ -333,6 +333,38 @@ function StandardPage() {
             </div>
           </div>
         </section>
+      {/* WHAT WE DON'T DO */}
+      <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+        <div className="mx-auto max-w-[720px]">
+          <FadeUpSection>
+            <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+              WHAT WE DON&apos;T DO
+            </p>
+            <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+              A short list. On purpose.
+            </h2>
+          </FadeUpSection>
+
+          <StaggerFadeUp staggerMs={60} className="mt-10">
+            {[
+              "No MMA acrylic. Ever.",
+              "No reused files, buffers, or liners.",
+              "No rushing. Design appointments are booked with the time built in.",
+              "No upsell scripts at the chair.",
+              "No hidden fees. You'll know the price before we start.",
+              "No deposits.",
+            ].map((line) => (
+              <p
+                key={line}
+                className="text-[17px] leading-[1.6] text-forest md:text-[18px]"
+              >
+                &mdash; {line}
+              </p>
+            ))}
+          </StaggerFadeUp>
+        </div>
+      </section>
+
       </main>
 
       <SiteFooter />
