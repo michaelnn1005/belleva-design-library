@@ -307,6 +307,43 @@ function StandardPage() {
           </div>
         </section>
 
+        {/* WHAT TOUCHES YOUR HANDS */}
+        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
+            <div className="max-w-[520px]">
+              <FadeUpSection>
+                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                  WHAT TOUCHES YOUR HANDS
+                </p>
+                <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                  What we use, and why.
+                </h2>
+                <div className="mt-6 space-y-4">
+                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
+                    Our pedicure products come from FarmHouse Fresh, a Texas farm skincare brand — plant-based, made a few hours from here.
+                  </p>
+                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
+                    Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
+                  </p>
+                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
+                    Everything else is chosen the same way: because we&apos;d use it on our own hands.
+                  </p>
+                </div>
+              </FadeUpSection>
+            </div>
+
+            <div className="flex-1">
+              <FadeUpSection>
+                <div
+                  aria-label="FarmHouse Fresh pedicure products on the counter at Belleva Nails"
+                  role="img"
+                  className="aspect-[4/5] w-full bg-cream"
+                />
+              </FadeUpSection>
+            </div>
+          </div>
+        </section>
+
         {/* THINGS YOU'RE ALLOWED TO ASK */}
         <section className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[680px]">
@@ -335,11 +372,6 @@ function StandardPage() {
               ))}
             </StaggerFadeUp>
 
-            <FadeUpSection>
-              <p className="mt-10 max-w-[560px] text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
-              </p>
-            </FadeUpSection>
 
             <FadeUpSection>
               <p className="mt-10 text-[18px] font-medium text-gold">
