@@ -79,11 +79,45 @@ function StandardPage() {
           </div>
         </section>
 
-        {/* FUTURE SECTIONS CONTAINER */}
-        <section
-          className="min-h-[400px] bg-background"
-          aria-label="Future sections"
-        />
+        {/* GUARANTEE */}
+        <section className="relative bg-cream px-6 py-16 md:px-12 md:py-24">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-6 top-0 z-0 select-none font-display text-[200px] leading-none text-forest/6 md:-right-10 md:top-4 md:text-[320px]"
+          >
+            14
+          </span>
+          <div className="relative z-10 mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <h2 className="font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                Fourteen days. Not seven.
+              </h2>
+              <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
+                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we&apos;ll take a look.
+              </p>
+              <p className="mt-5 text-[15px] italic text-gold">
+                The industry standard is 7 days. Cute. Ours is 14.
+              </p>
+
+              <div className="mt-12">
+                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                  How to claim
+                </p>
+                <div className="mt-4 space-y-1">
+                  <p className="text-[17px] leading-[1.7] text-forest">
+                    — Book online and write &quot;Repair&quot; in the Note.
+                  </p>
+                  <p className="text-[17px] leading-[1.7] text-forest">
+                    — Or call us and ask to be transferred to the front desk.
+                  </p>
+                  <p className="text-[17px] leading-[1.7] text-forest">
+                    — Weekday repairs are the fastest. Weekends fill up.
+                  </p>
+                </div>
+              </div>
+            </FadeUpSection>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
