@@ -240,6 +240,25 @@ function StandardPage() {
           </div>
         </section>
 
+        {/* FROM THE FOUNDER */}
+        <section className="bg-cream px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-3xl">
+            <FadeUpSection>
+              <p className="eyebrow">From the founder</p>
+              <span className="mt-8 block font-display text-[80px] leading-none text-gold/40">
+                &ldquo;
+              </span>
+              <p className="max-w-[34ch] font-display text-[21px] font-normal leading-[1.55] text-forest">
+                &quot;Ten years in this industry taught me where it cuts corners. Most of it happens in the things you can&apos;t see — the bottle on the cart, the CBD with no paperwork behind it. So we changed what&apos;s on the cart. Our lotions come from FarmHouse Fresh, a farm-based skincare brand here in Texas. Our CBD is lab-tested, batch by batch, and the reports sit at the front desk. None of that is on a menu. It&apos;s just the standard we decided to keep — for every set you trust us to build.&quot;
+              </p>
+              <div className="mt-8 h-[48px] w-[140px] border-b border-gold bg-transparent" />
+              <p className="mt-2 text-[11px] uppercase tracking-[2px] text-gold">
+                Michael &middot; Founder
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="bg-cream px-6 py-24 md:px-12 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
