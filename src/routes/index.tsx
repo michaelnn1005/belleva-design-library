@@ -523,7 +523,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-background px-6 py-24 md:px-12 md:py-28">
+      <section id="bridal" className="bg-background px-6 py-24 md:px-12 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 w-full">
             <img
