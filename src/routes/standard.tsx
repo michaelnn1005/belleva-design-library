@@ -212,27 +212,27 @@ function StandardPage() {
                 },
                 {
                   number: "02",
-                  title: "Consultation",
+                  title: "Tell us",
                   description:
-                    "Shape, length, color, design. Nothing starts until you're happy.",
+                    "What you want, what you don't, anything specific. The more we know, the better this goes.",
                 },
                 {
                   number: "03",
-                  title: "Prep",
+                  title: "The match",
                   description:
-                    "Done properly. This is where most sets fail, and where we don't rush.",
+                    "We pair you with the technician whose strengths fit your request. Not whoever is free.",
                 },
                 {
                   number: "04",
-                  title: "The work",
+                  title: "Your feedback",
                   description:
-                    "With a technician matched to what you booked.",
+                    "Before you leave, we ask. Honestly. It's how we get better.",
                 },
                 {
                   number: "05",
-                  title: "Finish",
+                  title: "Your next visit",
                   description:
-                    "A photo of your set if you'd like one, and your next slot held if you want it.",
+                    "Held at the front desk, three to four weeks out, with the same technician when possible.",
                 },
               ].map((step, i, arr) => (
                 <div
@@ -255,6 +255,10 @@ function StandardPage() {
                 </div>
               ))}
             </StaggerFadeUp>
+
+            <p className="mt-10 max-w-[560px] text-[15px] italic leading-[1.6] text-forest/70">
+              Booked appointments get the most careful match. Walk-ins are welcome — we just have less time to plan.
+            </p>
           </div>
         </section>
       </main>
