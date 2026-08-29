@@ -220,7 +220,7 @@ function StandardPage() {
                 ))}
               </div>
               <div className="mt-12 aspect-square w-full rounded-[10px] bg-cream" />
-              <p className="mt-6 text-[11px] uppercase tracking-[0.1em] text-gold">
+              <p className="mt-6 text-[11px] uppercase tracking-[1px] text-gold">
                 No medical claims. Just what&apos;s in the bottle.
               </p>
             </FadeUpSection>
