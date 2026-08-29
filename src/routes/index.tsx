@@ -274,31 +274,40 @@ function VisionReveal() {
   const { ref, visible } = useFadeUp();
 
   return (
-    <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
+    <section className="bg-forest px-6 py-16 md:px-12 md:py-28">
       <div
         ref={ref}
-        className={`fade-up ${visible ? "fade-in-visible" : ""} mx-auto flex max-w-3xl flex-col items-center text-center`}
+        className={`fade-up ${visible ? "fade-in-visible" : ""} mx-auto flex max-w-[1200px] flex-col items-center gap-10 lg:flex-row lg:gap-20`}
       >
-        <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-          THE FOUNDER
-        </p>
-        <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-cream md:max-w-md">
-          Built by someone who sat at the table first.
-        </h2>
-        <div className="mt-8 w-full max-w-[560px] space-y-5 text-left">
-          <p className="text-[15px] font-light leading-relaxed text-cream/90">
-            Belleva was opened by someone who spent nearly ten years in this industry before opening the door — at the table, then managing a salon, then finally here.
-          </p>
-          <p className="text-[15px] font-light leading-relaxed text-cream/90">
-            That changes how we do everything. The full story, and the standard we hold ourselves to, is on the next page.
-          </p>
+        <div className="w-full flex-1">
+          <div
+            role="img"
+            aria-label="Michael, founder of Belleva Nails, at the nail table"
+            className="aspect-[4/5] w-full bg-cream"
+          />
         </div>
-        <Link
-          to="/standard"
-          className="mt-8 inline-flex min-h-[44px] items-center text-[15px] font-normal text-cream underline decoration-1 underline-offset-4 transition-colors hover:decoration-gold"
-        >
-          Read the Belleva Standard →
-        </Link>
+        <div className="flex w-full flex-1 flex-col items-start text-left">
+          <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+            THE FOUNDER
+          </p>
+          <h2 className="mt-6 max-w-[480px] font-display text-[28px] leading-[1.2] text-cream">
+            Built by someone who sat at the table first.
+          </h2>
+          <div className="mt-8 w-full max-w-[560px] space-y-5">
+            <p className="text-[15px] font-light leading-relaxed text-cream/90">
+              Belleva was opened by someone who spent nearly ten years in this industry before opening the door — at the table, then managing a salon, then finally here.
+            </p>
+            <p className="text-[15px] font-light leading-relaxed text-cream/90">
+              That changes how we do everything. The full story, and the standard we hold ourselves to, is on the next page.
+            </p>
+          </div>
+          <Link
+            to="/standard"
+            className="mt-8 inline-flex min-h-[44px] items-center text-[15px] font-normal text-cream underline decoration-1 underline-offset-4 transition-colors hover:decoration-gold"
+          >
+            Read the Belleva Standard →
+          </Link>
+        </div>
       </div>
     </section>
   );
