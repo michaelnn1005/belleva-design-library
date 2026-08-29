@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import trayPhotoAsset from "@/assets/tray-photo.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
