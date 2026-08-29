@@ -175,6 +175,58 @@ function StandardPage() {
           </div>
         </section>
 
+        {/* WHAT WE USE */}
+        <section className="bg-background px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-3xl">
+            <FadeUpSection>
+              <p className="eyebrow">What We Use</p>
+              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-forest md:text-[42px]">
+                What touches your hands.
+              </h2>
+              <div className="mt-12 space-y-0">
+                {[
+                  {
+                    num: "01",
+                    title: "Lab-tested CBD",
+                    desc: "Every batch comes with its own lab report. We keep them at the front desk — ask.",
+                  },
+                  {
+                    num: "02",
+                    title: "Organic lotions",
+                    desc: "Chosen for how they feel on skin, not how they sound on a label.",
+                  },
+                  {
+                    num: "03",
+                    title: "Professional gel systems",
+                    desc: "Gel-X, builder gel, dip — salon-grade brands, applied by people who use them every day.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.num}
+                    className="border-t border-hairline py-6 first:pt-0 last:pb-0"
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <span className="font-display text-[22px] leading-none text-gold lining-nums">
+                        {item.num}
+                      </span>
+                      <span className="font-display text-[24px] font-medium leading-[1.25] text-forest">
+                        {item.title}
+                      </span>
+                      <span className="text-[15px] leading-relaxed text-forest/80">
+                        {item.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-12 aspect-square w-full rounded-[10px] bg-cream" />
+              <p className="mt-6 text-[11px] uppercase tracking-[0.1em] text-gold">
+                No medical claims. Just what&apos;s in the bottle.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* WHAT WE DON'T DO */}
         <section className="bg-forest px-6 py-24 md:px-12 md:py-32">
           <div className="mx-auto max-w-3xl">
