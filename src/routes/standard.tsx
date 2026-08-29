@@ -192,73 +192,85 @@ function StandardPage() {
 
         {/* YOUR APPOINTMENT */}
         <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                YOUR APPOINTMENT
-              </p>
-              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                What an hour here looks like.
-              </h2>
-            </FadeUpSection>
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
+            <div className="max-w-[600px]">
+              <FadeUpSection>
+                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                  YOUR APPOINTMENT
+                </p>
+                <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                  What an hour here looks like.
+                </h2>
+              </FadeUpSection>
 
-            <StaggerFadeUp staggerMs={80} className="mt-12">
-              {[
-                {
-                  number: "01",
-                  title: "Check-in",
-                  description:
-                    "We read your Note before you sit down.",
-                },
-                {
-                  number: "02",
-                  title: "Tell us",
-                  description:
-                    "What you want, what you don't, anything specific. The more we know, the better this goes.",
-                },
-                {
-                  number: "03",
-                  title: "The match",
-                  description:
-                    "We pair you with the technician whose strengths fit your request. Not whoever is free.",
-                },
-                {
-                  number: "04",
-                  title: "Your feedback",
-                  description:
-                    "Before you leave, we ask. Honestly. It's how we get better.",
-                },
-                {
-                  number: "05",
-                  title: "Your next visit",
-                  description:
-                    "Held at the front desk, three to four weeks out, with the same technician when possible.",
-                },
-              ].map((step, i, arr) => (
-                <div
-                  key={step.number}
-                  className={`flex gap-4 py-6 ${
-                    i !== arr.length - 1 ? "border-b border-forest/12" : ""
-                  }`}
-                >
-                  <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold">
-                    {step.number}
-                  </span>
-                  <div>
-                    <p className="font-body text-[17px] font-medium text-forest">
-                      {step.title}
-                    </p>
-                    <p className="mt-1 text-[16px] leading-[1.6] text-forest/75">
-                      {step.description}
-                    </p>
+              <StaggerFadeUp staggerMs={80} className="mt-12">
+                {[
+                  {
+                    number: "01",
+                    title: "Check-in",
+                    description:
+                      "We read your Note before you sit down.",
+                  },
+                  {
+                    number: "02",
+                    title: "Tell us",
+                    description:
+                      "What you want, what you don't, anything specific. The more we know, the better this goes.",
+                  },
+                  {
+                    number: "03",
+                    title: "The match",
+                    description:
+                      "We pair you with the technician whose strengths fit your request. Not whoever is free.",
+                  },
+                  {
+                    number: "04",
+                    title: "Your feedback",
+                    description:
+                      "Before you leave, we ask. Honestly. It's how we get better.",
+                  },
+                  {
+                    number: "05",
+                    title: "Your next visit",
+                    description:
+                      "Held at the front desk, three to four weeks out, with the same technician when possible.",
+                  },
+                ].map((step, i, arr) => (
+                  <div
+                    key={step.number}
+                    className={`flex gap-4 py-6 ${
+                      i !== arr.length - 1 ? "border-b border-forest/12" : ""
+                    }`}
+                  >
+                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold">
+                      {step.number}
+                    </span>
+                    <div>
+                      <p className="font-body text-[17px] font-medium text-forest">
+                        {step.title}
+                      </p>
+                      <p className="mt-1 text-[16px] leading-[1.6] text-forest/75">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </StaggerFadeUp>
+                ))}
+              </StaggerFadeUp>
 
-            <p className="mt-10 max-w-[560px] text-[15px] italic leading-[1.6] text-forest/70">
-              Booked appointments get the most careful match. Walk-ins are welcome — we just have less time to plan.
-            </p>
+              <p className="mt-10 max-w-[560px] text-[15px] italic leading-[1.6] text-forest/70">
+                Booked appointments get the most careful match. Walk-ins are welcome — we just have less time to plan.
+              </p>
+            </div>
+
+            <div className="hidden flex-1 lg:block">
+              <div className="sticky top-[120px]">
+                <div
+                  aria-label="Front desk consultation at Belleva Nails"
+                  role="img"
+                  className="aspect-[3/4] w-full bg-forest/10"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
