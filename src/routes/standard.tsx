@@ -365,6 +365,52 @@ function StandardPage() {
         </div>
       </section>
 
+      {/* FOUNDER NOTE */}
+      <section className="bg-forest px-6 py-20 md:px-12 md:py-[120px]">
+        <div className="mx-auto max-w-[640px]">
+          <FadeUpSection>
+            <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+              A NOTE FROM THE FOUNDER
+            </p>
+            <div className="mt-6 space-y-[18px]">
+              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
+                I started in this industry nearly ten years ago, at the table, doing nails. Then managing a salon. Then opening my own. Everything you have read on this page comes from what I saw in those years, and from deciding Belleva would do it differently.
+              </p>
+              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
+                The people who sit in our chairs are usually the ones taking care of everyone else. This hour is the one they keep for themselves. We treat it that way.
+              </p>
+              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
+                We are still learning. Every note, every review, every &quot;this could be better&quot; has shaped how we work, and we are grateful for all of it. To the clients who gave us a second chance, thank you. To the ones who left, thank you too. You showed us what needed to change. And to those who have stayed year after year, Belleva is what it is because of you.
+              </p>
+              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
+                We don&apos;t take that trust for granted.
+              </p>
+            </div>
+
+            <div className="mt-10">
+              <p className="font-display text-[40px] italic leading-none text-background">
+                Michael
+              </p>
+              <p className="mt-2 text-[14px] text-background/70">
+                Founder, Belleva Nails
+              </p>
+            </div>
+
+            <a
+              href="https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26STD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-16 inline-flex min-h-[48px] items-center rounded-full border border-background bg-transparent px-8 py-3 text-[14px] text-background transition-all duration-300 hover:bg-background hover:text-forest"
+            >
+              Book an appointment
+            </a>
+            <p className="mt-4 text-[15px] text-background/70">
+              Write your occasion in the Note. We&apos;ll take care of it.
+            </p>
+          </FadeUpSection>
+        </div>
+      </section>
+
       </main>
 
       <SiteFooter />
