@@ -261,6 +261,39 @@ function StandardPage() {
             </p>
           </div>
         </section>
+
+        {/* THE TRAY */}
+        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                BETWEEN EVERY CLIENT
+              </p>
+              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-cream md:text-[48px]">
+                The tray.
+              </h2>
+              <div className="mt-6 space-y-4">
+                <p className="text-[17px] leading-[1.7] text-cream/90 md:text-[18px]">
+                  Every metal tool is washed, soaked in EPA-registered, hospital-grade disinfectant, and stored in a UV cabinet between clients.
+                </p>
+                <p className="text-[17px] leading-[1.7] text-cream/90 md:text-[18px]">
+                  Files, buffers, and wipes are used once and thrown away.
+                </p>
+                <p className="text-[17px] leading-[1.7] text-cream/90 md:text-[18px]">
+                  Every pedicure gets a new liner. Every time.
+                </p>
+              </div>
+
+              <div className="mt-12 aspect-[3/2] w-full bg-cream/8">
+                <div
+                  aria-label="Disinfected tools laid out on a clean tray at Belleva Nails"
+                  role="img"
+                  className="h-full w-full bg-cream/8"
+                />
+              </div>
+            </FadeUpSection>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
