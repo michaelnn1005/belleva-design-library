@@ -307,42 +307,39 @@ function StandardPage() {
           </div>
         </section>
 
-        {/* WHAT TOUCHES YOUR HANDS */}
+        {/* THINGS YOU'RE ALLOWED TO ASK */}
         <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
-            <div className="max-w-[520px]">
-              <FadeUpSection>
-                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                  WHAT TOUCHES YOUR HANDS
-                </p>
-                <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                  What we use, and why.
-                </h2>
-                <div className="mt-6 space-y-4">
-                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Our pedicure products come from FarmHouse Fresh, a Texas farm skincare brand — plant-based, made a few hours from here.
-                  </p>
-                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    The optional CBD upgrade is lab-tested, and we'll show you the report if you ask.
-                  </p>
-                  <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Everything else is chosen the same way: because we'd use it on our own hands.
-                  </p>
-                </div>
-              </FadeUpSection>
-            </div>
+          <div className="mx-auto max-w-[680px]">
+            <FadeUpSection>
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                THINGS YOU&apos;RE ALLOWED TO ASK
+              </p>
+              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                Ask. We&apos;d rather you did.
+              </h2>
+            </FadeUpSection>
 
-            <div className="flex-1">
-              <FadeUpSection>
-                <div className="aspect-[4/5] w-full bg-cream">
-                  <div
-                    aria-label="FarmHouse Fresh pedicure products on the counter at Belleva Nails"
-                    role="img"
-                    className="h-full w-full bg-cream"
-                  />
-                </div>
-              </FadeUpSection>
-            </div>
+            <StaggerFadeUp staggerMs={100} className="mt-10 space-y-[18px]">
+              {[
+                "Can I see the lab report?",
+                "Can you open the tool pouch in front of me?",
+                "Who's doing my nails, and why them?",
+                "It chipped on day 12. Is that still covered?",
+              ].map((line) => (
+                <p
+                  key={line}
+                  className="font-display text-[21px] leading-[1.4] italic text-forest md:text-[26px]"
+                >
+                  — &quot;{line}&quot;
+                </p>
+              ))}
+            </StaggerFadeUp>
+
+            <FadeUpSection>
+              <p className="mt-10 text-[18px] font-medium text-gold">
+                Yes. Yes. We&apos;ll tell you. And yes.
+              </p>
+            </FadeUpSection>
           </div>
         </section>
       {/* WHAT WE DON'T DO */}
