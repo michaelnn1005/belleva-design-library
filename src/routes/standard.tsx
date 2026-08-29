@@ -67,7 +67,7 @@ function StandardPage() {
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
                 THE BELLEVA STANDARD
               </p>
-              <h1 className="mt-6 max-w-[640px] font-display text-[38px] leading-[1.1] text-forest md:text-[56px]">
+              <h1 className="mt-6 max-w-[640px] font-display text-[34px] leading-[1.1] text-forest md:text-[56px]">
                 What you should expect from a nail salon. And what you get here.
               </h1>
               <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
