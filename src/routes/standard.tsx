@@ -118,6 +118,45 @@ function StandardPage() {
             </FadeUpSection>
           </div>
         </section>
+
+        {/* DAY 1 / 7 / 14 */}
+        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[1100px]">
+            <FadeUpSection>
+              <h2 className="max-w-[640px] font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                Same hands. Same set. Three photos.
+              </h2>
+
+              <div className="mt-12 flex flex-col gap-4 md:mt-12 md:flex-row md:gap-6">
+                {[
+                  { label: "DAY 1", alt: "Gel-X set, day 1" },
+                  { label: "DAY 7", alt: "Gel-X set, day 7" },
+                  { label: "DAY 14", alt: "Gel-X set, day 14" },
+                ].map((slot) => (
+                  <div key={slot.label} className="flex-1">
+                    <div className="aspect-[4/5] w-full bg-cream">
+                      <div
+                        aria-label={slot.alt}
+                        role="img"
+                        className="h-full w-full bg-cream"
+                      />
+                    </div>
+                    <p className="mt-3 text-[12px] uppercase tracking-[0.12em] text-gold">
+                      {slot.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-8 text-[15px] text-forest/70">
+                One Gel-X set, photographed by us. No retouching.
+              </p>
+              <p className="mt-4 text-[17px] text-forest md:text-[18px]">
+                This is what &quot;lasts two weeks&quot; is supposed to look like.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
