@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -271,55 +271,34 @@ function ComparisonRow() {
 }
 
 function VisionReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setStarted(true);
-      return;
-    }
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setStarted(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const line = (delay: number, className: string, children: React.ReactNode) => (
-    <span
-      className={`block transition-all ease-out ${className} ${started ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
-      style={{
-        transitionDuration: started ? "800ms" : "0ms",
-        transitionDelay: started ? `${delay}s` : "0s",
-      }}
-    >
-      {children}
-    </span>
-  );
+  const { ref, visible } = useFadeUp();
 
   return (
     <section className="bg-forest px-6 py-28 md:px-12 md:py-32">
       <div
         ref={ref}
-        className="mx-auto flex max-w-3xl flex-col items-center text-center"
+        className={`fade-up ${visible ? "fade-in-visible" : ""} mx-auto flex max-w-3xl flex-col items-center text-center`}
       >
-        {line(0, "text-[10px] uppercase tracking-[2px] text-gold", "THE BELLEVA VISION")}
-        <span className="mt-8 block max-w-[320px]">
-          {line(0.8, "font-display text-[26px] italic leading-relaxed text-cream", "You spend your days caring for everyone else.")}
-          {line(1.15, "font-display text-[26px] italic leading-relaxed text-cream", "Here, someone cares")}
-          {line(1.5, "font-display text-[26px] italic leading-relaxed text-cream", "for you.")}
-        </span>
-        {line(1.85, "mt-10 block text-[11px] uppercase tracking-[2px] text-cream", "BELLEVA — DENTON, TX")}
+        <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+          THE FOUNDER
+        </p>
+        <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-cream md:max-w-md">
+          Built by someone who sat at the table first.
+        </h2>
+        <div className="mt-8 w-full max-w-[560px] space-y-5 text-left">
+          <p className="text-[15px] font-light leading-relaxed text-cream/90">
+            Belleva was opened by someone who spent nearly ten years in this industry before opening the door — at the table, then managing a salon, then finally here.
+          </p>
+          <p className="text-[15px] font-light leading-relaxed text-cream/90">
+            That changes how we do everything. The full story, and the standard we hold ourselves to, is on the next page.
+          </p>
+        </div>
+        <Link
+          to="/standard"
+          className="mt-8 inline-flex min-h-[44px] items-center text-[15px] font-normal text-cream underline decoration-1 underline-offset-4 transition-colors hover:decoration-gold"
+        >
+          Read the Belleva Standard →
+        </Link>
       </div>
     </section>
   );
