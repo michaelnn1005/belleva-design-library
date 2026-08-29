@@ -372,11 +372,6 @@ function StandardPage() {
               ))}
             </StaggerFadeUp>
 
-            <FadeUpSection>
-              <p className="mt-10 max-w-[560px] text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
-              </p>
-            </FadeUpSection>
 
             <FadeUpSection>
               <p className="mt-10 text-[18px] font-medium text-gold">
