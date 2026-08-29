@@ -45,7 +45,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="mt-12">
+        <div id="contact" className="mt-12">
           <p className="text-[10px] uppercase tracking-[2px] text-gold">Write to us</p>
           <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
             <input

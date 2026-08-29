@@ -4,11 +4,10 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import { BOOKING_URL } from "@/lib/designs";
 
-const TITLE = "The Belleva Standard — About Belleva Nails";
+const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
-  "Belleva Nails is a nail salon in Denton, Texas. We guarantee every set for 14 days.";
+  "What you should expect from a nail salon — and what you get at Belleva Nails in Denton, Texas.";
 
 export const Route = createFileRoute("/standard")({
   head: () => ({
@@ -44,59 +43,6 @@ function FadeUpSection({
   );
 }
 
-const WHAT_WE_DONT_DO_LINES = [
-  "We don't reuse a file. Ever.",
-  "We don't rush the last appointment of the day.",
-  "We don't sell you an add-on you didn't ask about.",
-  'We don\'t call a set "done" until we\'d wear it ourselves.',
-  "We don't argue about the 14 days.",
-];
-
-function StaggerFadeUpLines({
-  lines,
-  baseDelayMs = 80,
-}: {
-  lines: string[];
-  baseDelayMs?: number;
-}) {
-  const { ref, visible, reduced } = useFadeUp(0.25);
-
-  return (
-    <div ref={ref} className="mt-12 space-y-0">
-      {lines.map((line, i) => {
-        const isLast = i === lines.length - 1;
-        const delay = reduced ? 0 : i * baseDelayMs;
-        return (
-          <div
-            key={line}
-            className={`border-t border-gold/40 py-6 first:pt-0 ${
-              isLast ? "last:pb-0" : ""
-            }`}
-          >
-            <p
-              className={`fade-up font-display text-[22px] leading-[1.4] text-cream ${
-                visible ? "fade-in-visible" : ""
-              }`}
-              style={{
-                transitionDelay: reduced ? undefined : `${delay}ms`,
-              }}
-            >
-              {isLast ? (
-                <>
-                  We don&apos;t argue about the{" "}
-                  <span className="lining-nums">14</span> days.
-                </>
-              ) : (
-                line
-              )}
-            </p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 function StandardPage() {
   const [showBar, setShowBar] = useState(false);
 
@@ -115,169 +61,29 @@ function StandardPage() {
 
       <main>
         {/* OPENING */}
-        <section className="bg-background px-6 pt-36 pb-24 md:px-12 md:pt-44 md:pb-32">
-          <div className="mx-auto max-w-3xl">
+        <section className="bg-background px-6 pt-20 pb-16 md:px-12 md:pt-30 md:pb-24">
+          <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <p className="eyebrow">The Belleva Standard</p>
-              <h1 className="mt-8 max-w-[320px] font-display text-[40px] leading-[1.15] text-forest md:max-w-md md:text-[58px]">
-                A nail salon that keeps its word.
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                THE BELLEVA STANDARD
+              </p>
+              <h1 className="mt-6 max-w-[640px] font-display text-[38px] leading-[1.1] text-forest md:text-[56px]">
+                What you should expect from a nail salon. And what you get here.
               </h1>
-              <p className="mt-8 max-w-[520px] text-[14px] font-light leading-relaxed text-forest">
-                Belleva Nails is a salon in Denton, Texas, built around one idea: raise the standard — in the work, and in everything that touches your skin. Nail design first. Then the things most salons never mention: where the lotion comes from, where the CBD comes from, and whether anyone checked.
+              <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
+                Most of this page should be normal. It isn&apos;t, in this
+                industry — which is why we wrote it down.
               </p>
+              <div className="mt-10 h-px w-16 bg-gold/40" />
             </FadeUpSection>
           </div>
         </section>
 
-        {/* GUARANTEE */}
-        <section className="relative bg-forest px-6 py-24 md:px-12 md:py-32">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px]"
-          >
-            14
-          </span>
-          <div className="relative z-10 mx-auto max-w-3xl">
-            <FadeUpSection>
-              <p className="eyebrow">14-Day Guarantee</p>
-              <h2 className="mt-8 max-w-[320px] font-display text-[40px] leading-[1.15] text-cream lining-nums md:max-w-md md:text-[58px]">
-                14 days. In writing.
-              </h2>
-              <p className="mt-8 max-w-[560px] text-[14px] font-light leading-relaxed text-cream/90">
-                If anything lifts, chips or breaks within 14 days of your appointment, come back and we fix it — free. The industry standard is 7 — we doubled it, because our work can take it.
-              </p>
-            </FadeUpSection>
-          </div>
-        </section>
-
-        {/* HYGIENE */}
-        <section className="bg-background px-6 py-24 md:px-12 md:py-32">
-          <div className="mx-auto max-w-3xl">
-            <FadeUpSection>
-              <p className="eyebrow">Hygiene</p>
-              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-forest md:text-[42px]">
-                What clean means here.
-              </h2>
-              <div className="mt-12 space-y-0">
-                {[
-                  "Tools sterilized between every client",
-                  "Single-use files and buffers, every visit",
-                  "Fresh liners for every pedicure",
-                ].map((line) => (
-                  <div key={line} className="border-t border-gold py-6 first:pt-0 last:pb-0">
-                    <p className="text-[15px] font-light leading-relaxed text-forest">
-                      {line}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </FadeUpSection>
-          </div>
-        </section>
-
-        {/* WHAT WE USE */}
-        <section className="bg-background px-6 py-24 md:px-12 md:py-32">
-          <div className="mx-auto max-w-3xl">
-            <FadeUpSection>
-              <p className="eyebrow">What We Use</p>
-              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-forest md:text-[42px]">
-                What touches your hands.
-              </h2>
-              <div className="mt-12 space-y-0">
-                {[
-                  {
-                    num: "01",
-                    title: "Lab-tested CBD",
-                    desc: "Every batch comes with its own lab report. We keep them at the front desk — ask.",
-                  },
-                  {
-                    num: "02",
-                    title: "Organic lotions",
-                    desc: "Chosen for how they feel on skin, not how they sound on a label.",
-                  },
-                  {
-                    num: "03",
-                    title: "Professional gel systems",
-                    desc: "Gel-X, builder gel, dip — salon-grade brands, applied by people who use them every day.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.num}
-                    className="border-t border-hairline py-6 first:pt-0 last:pb-0"
-                  >
-                    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                      <span className="font-display text-[22px] leading-none text-gold lining-nums">
-                        {item.num}
-                      </span>
-                      <span className="font-display text-[24px] font-medium leading-[1.25] text-forest">
-                        {item.title}
-                      </span>
-                      <span className="text-[15px] leading-relaxed text-forest/80">
-                        {item.desc}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-12 aspect-square w-full rounded-[10px] bg-cream" />
-              <p className="mt-6 text-[11px] uppercase tracking-[1px] text-gold">
-                No medical claims. Just what&apos;s in the bottle.
-              </p>
-            </FadeUpSection>
-          </div>
-        </section>
-
-        {/* WHAT WE DON'T DO */}
-        <section className="bg-forest px-6 py-24 md:px-12 md:py-32">
-          <div className="mx-auto max-w-3xl">
-            <FadeUpSection>
-              <p className="eyebrow">What We Don&apos;t Do</p>
-              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-cream md:text-[42px]">
-                Some things we skip.
-              </h2>
-            </FadeUpSection>
-            <StaggerFadeUpLines lines={WHAT_WE_DONT_DO_LINES} />
-          </div>
-        </section>
-
-        {/* FROM THE FOUNDER */}
-        <section className="bg-cream px-6 py-24 md:px-12 md:py-32">
-          <div className="mx-auto max-w-3xl">
-            <FadeUpSection>
-              <p className="eyebrow">From the founder</p>
-              <span className="mt-8 block font-display text-[80px] leading-none text-gold/40">
-                &ldquo;
-              </span>
-              <p className="max-w-[34ch] font-display text-[21px] font-normal leading-[1.55] text-forest">
-                &quot;Ten years in this industry taught me where it cuts corners. Most of it happens in the things you can&apos;t see — the bottle on the cart, the CBD with no paperwork behind it. So we changed what&apos;s on the cart. Our lotions come from FarmHouse Fresh, a farm-based skincare brand here in Texas. Our CBD is lab-tested, batch by batch, and the reports sit at the front desk. None of that is on a menu. It&apos;s just the standard we decided to keep — for every set you trust us to build.&quot;
-              </p>
-              <div className="mt-8 h-[48px] w-[140px] border-b border-gold bg-transparent" />
-              <p className="mt-2 text-[11px] uppercase tracking-[2px] text-gold">
-                Michael &middot; Founder
-              </p>
-            </FadeUpSection>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="bg-cream px-6 py-24 md:px-12 md:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <FadeUpSection>
-              <p className="font-display text-[26px] italic leading-[1.35] text-forest md:text-[34px]">
-                Come see it for yourself.
-              </p>
-              <a
-                href={BOOKING_URL}
-                className="mt-10 inline-flex rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
-              >
-                Book an appointment
-              </a>
-              <p className="mt-4 text-[12px] text-muted-foreground">
-                Tell us your occasion in the Note box — we&apos;ll take care of it.
-              </p>
-            </FadeUpSection>
-          </div>
-        </section>
+        {/* FUTURE SECTIONS CONTAINER */}
+        <section
+          className="min-h-[400px] bg-background"
+          aria-label="Future sections"
+        />
       </main>
 
       <SiteFooter />
