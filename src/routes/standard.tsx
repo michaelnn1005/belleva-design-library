@@ -175,6 +175,19 @@ function StandardPage() {
           </div>
         </section>
 
+        {/* WHAT WE DON'T DO */}
+        <section className="bg-forest px-6 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-3xl">
+            <FadeUpSection>
+              <p className="eyebrow">What We Don&apos;t Do</p>
+              <h2 className="mt-8 font-display text-[32px] leading-[1.2] text-cream md:text-[42px]">
+                Some things we skip.
+              </h2>
+            </FadeUpSection>
+            <StaggerFadeUpLines lines={WHAT_WE_DONT_DO_LINES} />
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="bg-cream px-6 py-24 md:px-12 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
