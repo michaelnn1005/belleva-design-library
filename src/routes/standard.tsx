@@ -43,6 +43,38 @@ function FadeUpSection({
   );
 }
 
+function StaggerFadeUp({
+  children,
+  staggerMs = 80,
+  className = "",
+}: {
+  children: React.ReactNode;
+  staggerMs?: number;
+  className?: string;
+}) {
+  const { ref, visible } = useFadeUp(0.2);
+  const items = Array.isArray(children) ? children : [children];
+  return (
+    <div ref={ref} className={className}>
+      {items.map((child, i) => (
+        <div
+          key={i}
+          className={`transform transition-all duration-700 ease-out ${
+            visible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-3 opacity-0"
+          }`}
+          style={{
+            transitionDelay: visible ? `${i * staggerMs}ms` : "0ms",
+          }}
+        >
+          {child}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function StandardPage() {
   const [showBar, setShowBar] = useState(false);
 
