@@ -351,7 +351,7 @@ function StandardPage() {
               "No reused files, buffers, or liners.",
               "No rushing. Design appointments are booked with the time built in.",
               "No upsell scripts at the chair.",
-              "No hidden fees. You&apos;ll know the price before we start.",
+              "No hidden fees. You'll know the price before we start.",
               "No deposits.",
             ].map((line) => (
               <p
