@@ -580,19 +580,23 @@ function Index() {
           <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
             No packages, no fees — just a bride who walks in calm, because everything about her nails was decided weeks ago.
           </p>
-          <div className="mt-5 max-w-[340px] space-y-5">
-            <p className="text-[15px] text-forest">
-              <span className="text-gold">—</span> A trial set to lock in your exact design
-            </p>
-            <p className="text-[15px] text-forest">
-              <span className="text-gold">—</span> The same look, recreated before the wedding
-            </p>
-            <p className="text-[15px] text-forest">
-              <span className="text-gold">—</span> A small care kit to take home
-            </p>
-            <p className="text-[15px] text-forest">
-              <span className="text-gold">—</span> A set guaranteed through your big day
-            </p>
+          <div className="mt-5 flex max-w-[340px] flex-col gap-6">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE TRIAL</p>
+              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A trial set to lock in your exact design.</p>
+            </div>
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE WEDDING SET</p>
+              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">The same look, recreated before the wedding.</p>
+            </div>
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE CARE KIT</p>
+              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A small kit to take home.</p>
+            </div>
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE GUARANTEE</p>
+              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A set guaranteed through your big day.</p>
+            </div>
           </div>
           <div className="mt-8 max-w-[340px]">
             <a
