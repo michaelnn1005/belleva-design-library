@@ -146,9 +146,13 @@ function ProofGallery() {
 
 function StandardPage() {
   const [showBar, setShowBar] = useState(false);
+  const [heroPassed, setHeroPassed] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero ? hero.offsetHeight - 20 : window.innerHeight - 20;
+      setHeroPassed(window.scrollY > threshold);
       setShowBar(window.scrollY > 120);
     };
     onScroll();
@@ -158,7 +162,7 @@ function StandardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader heroPassed />
+      <SiteHeader heroPassed={heroPassed} />
 
       <main>
         {/* OPENING */}
