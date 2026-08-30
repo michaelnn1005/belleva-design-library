@@ -79,6 +79,68 @@ function StaggerFadeUp({
   );
 }
 
+function HairlineLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative">
+      <div className="absolute inset-y-0 left-0 right-0 flex items-center">
+        <div className="h-px w-full bg-forest/15" />
+      </div>
+      <span className="relative bg-background pr-4 text-[12px] uppercase tracking-[0.14em] text-gold">
+        {children}
+      </span>
+    </div>
+  );
+}
+
+type BridalFaqItem = {
+  question: string;
+  answer: string;
+};
+
+function BridalAccordionItem({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: BridalFaqItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div className="border-b border-forest/12">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex min-h-[44px] w-full items-center justify-between py-[18px] text-left"
+        aria-expanded={isOpen}
+      >
+        <span className="font-display text-[19px] leading-[1.3] text-forest lining-nums md:text-[22px]">
+          {item.question}
+        </span>
+        <span
+          className={`ml-4 shrink-0 text-[22px] leading-none text-forest transition-transform duration-[250ms] ease-in-out md:text-[24px] ${
+            isOpen ? "rotate-45" : "rotate-0"
+          }`}
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </button>
+      <div
+        className={`grid transition-all duration-[250ms] ease-in-out ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="pb-[18px] text-[16px] leading-[1.65] text-forest/80">
+            {item.answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function BridalPage() {
   const [showBar, setShowBar] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
