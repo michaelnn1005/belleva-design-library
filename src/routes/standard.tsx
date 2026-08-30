@@ -199,7 +199,7 @@ function StandardPage() {
         <section className="relative bg-cream px-6 py-16 md:px-12 md:py-24">
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -right-6 top-0 z-0 select-none font-display text-[200px] leading-none text-forest/6 md:-right-10 md:top-4 md:text-[320px]"
+            className="pointer-events-none absolute right-0 top-0 z-0 h-[160px] select-none overflow-hidden font-display text-[160px] leading-none text-forest/6 md:-right-10 md:top-4 md:h-auto md:text-[320px]"
           >
             14
           </span>
