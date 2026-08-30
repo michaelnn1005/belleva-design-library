@@ -5,6 +5,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import trayPhotoAsset from "@/assets/tray-photo.png.asset.json";
+import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
+import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
+import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
