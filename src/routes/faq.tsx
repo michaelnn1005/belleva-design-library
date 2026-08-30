@@ -121,6 +121,74 @@ const FAQ_GROUPS: FaqGroup[] = [
       },
     ],
   },
+  {
+    eyebrow: "THE GUARANTEE",
+    items: [
+      {
+        question: "What does the 14-day guarantee cover?",
+        answer: (
+          <>
+            Chips, lifts, and breaks within 14 days — we fix them at no charge.
+            Book online with "Repair" in the Note, or call and ask for the front
+            desk. The full policy is on{" "}
+            <Link
+              to="/standard"
+              className="text-forest underline underline-offset-4 hover:text-forest/80"
+            >
+              The Belleva Standard page
+            </Link>
+            .
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    eyebrow: "HYGIENE & PRODUCTS",
+    items: [
+      {
+        question: "How do you clean your tools?",
+        answer:
+          "Metal tools are washed, soaked in EPA-registered hospital-grade disinfectant, and stored in a UV cabinet between clients. Files, buffers and wipes are used once. Every pedicure gets a new liner.",
+      },
+      {
+        question: "What products do you use?",
+        answer:
+          "FarmHouse Fresh for pedicures — a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
+      },
+    ],
+  },
+  {
+    eyebrow: "BRIDAL",
+    items: [
+      {
+        question: "Do you do bridal?",
+        answer: (
+          <>
+            Yes — trial set before the wedding, wedding set a few days out, and
+            your bridal party alongside you. The full program is on{" "}
+            <Link
+              to="/bridal"
+              className="text-forest underline underline-offset-4 hover:text-forest/80"
+            >
+              the Bridal page
+            </Link>
+            .
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    eyebrow: "GIFT CARDS",
+    items: [
+      {
+        question: "Do you sell gift cards?",
+        answer:
+          "Yes — at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
+      },
+    ],
+  },
 ];
 
 function AccordionItem({
