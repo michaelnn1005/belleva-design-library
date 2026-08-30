@@ -215,11 +215,14 @@ function StandardPage() {
                 The industry standard is 7 days. Cute. Ours is 14.
               </p>
 
-              <div className="mt-12">
-                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                  How to claim
-                </p>
-                <div className="mt-5 grid grid-cols-1 gap-7 lg:grid-cols-3 lg:gap-10">
+              <div className="mt-14 md:mt-16">
+                <div className="relative flex items-center">
+                  <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-[#2F4A3E]/15" aria-hidden="true" />
+                  <p className="relative bg-cream pr-4 text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
+                    HOW TO CLAIM
+                  </p>
+                </div>
+                <div className="mt-8 grid grid-cols-1 gap-7 lg:grid-cols-3 lg:gap-10">
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                       Online
