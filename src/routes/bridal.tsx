@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import bridalHeroAsset from "@/assets/bridal-hero.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -11,10 +12,6 @@ const DESCRIPTION =
 
 const BOOKING_URL =
   "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26BRD";
-
-const PLACEHOLDER_IMAGE = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><rect width="1" height="1" fill="#2F4A3E"/></svg>',
-)}`;
 
 export const Route = createFileRoute("/bridal")({
   head: () => ({
@@ -109,11 +106,11 @@ function BridalPage() {
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
           <img
-            src={PLACEHOLDER_IMAGE}
+            src={bridalHeroAsset.url}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-forest/35" />
+          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
 
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
