@@ -291,9 +291,64 @@ function BridalPage() {
           </div>
         </section>
 
-        {/* PLACEHOLDER FOR FINAL TWO SECTIONS */}
-        <section className="bg-background px-6 md:px-12">
-          <div className="mx-auto max-w-[720px]" />
+        {/* MINI-FAQ */}
+        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <HairlineLabel>COMMON QUESTIONS</HairlineLabel>
+            </FadeUpSection>
+
+            <FadeUpSection className="mt-6">
+              <div className="border-t border-forest/12">
+                {[
+                  {
+                    question: "When should I book my trial?",
+                    answer:
+                      "Two to four weeks before the wedding. It gives us time to order anything custom, and lets you live with the set before deciding.",
+                  },
+                  {
+                    question: "What if a nail chips before the wedding?",
+                    answer:
+                      "Call us. Bride repairs are same-day — your set is fixed before it's ever in a photo.",
+                  },
+                  {
+                    question: "Can my whole bridal party come together?",
+                    answer:
+                      "Yes. Write your party size in the booking Note and we'll call you the same day to set up chairs together.",
+                  },
+                ].map((item, i) => (
+                  <BridalAccordionItem
+                    key={i}
+                    item={item}
+                    isOpen={openFaqKey === `bridal-faq-${i}`}
+                    onToggle={() => toggleFaq(`bridal-faq-${i}`)}
+                  />
+                ))}
+              </div>
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-forest px-6 py-20 md:px-12 md:py-[120px]">
+          <div className="mx-auto max-w-[640px]">
+            <FadeUpSection>
+              <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
+                Book your trial.
+              </h2>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest"
+              >
+                Book your trial
+              </a>
+              <p className="mt-4 text-[15px] text-[#FAF8F5]/70">
+                Add &quot;wedding&quot; and your date in the Note — we&apos;ll take care of the rest.
+              </p>
+            </FadeUpSection>
+          </div>
         </section>
       </main>
 
