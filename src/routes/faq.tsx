@@ -167,12 +167,12 @@ const FAQ_GROUPS: FaqGroup[] = [
           <>
             Yes — trial set before the wedding, wedding set a few days out, and
             your bridal party alongside you. The full program is on{" "}
-            <Link
-              to="/bridal"
+            <a
+              href="/bridal"
               className="text-forest underline underline-offset-4 hover:text-forest/80"
             >
               the Bridal page
-            </Link>
+            </a>
             .
           </>
         ),
