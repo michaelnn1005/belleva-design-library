@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -58,7 +58,7 @@ function HairlineLabel({ children }: { children: React.ReactNode }) {
 
 type FaqItem = {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 };
 
 type FaqGroup = {
@@ -118,6 +118,74 @@ const FAQ_GROUPS: FaqGroup[] = [
         question: "How do I keep the same technician every visit?",
         answer:
           "Rebook at the front desk before you leave. Your technician and your usual timing are held — it's the one thing walk-ins can't get.",
+      },
+    ],
+  },
+  {
+    eyebrow: "THE GUARANTEE",
+    items: [
+      {
+        question: "What does the 14-day guarantee cover?",
+        answer: (
+          <>
+            Chips, lifts, and breaks within 14 days — we fix them at no charge.
+            Book online with "Repair" in the Note, or call and ask for the front
+            desk. The full policy is on{" "}
+            <Link
+              to="/standard"
+              className="text-forest underline underline-offset-4 hover:text-forest/80"
+            >
+              The Belleva Standard page
+            </Link>
+            .
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    eyebrow: "HYGIENE & PRODUCTS",
+    items: [
+      {
+        question: "How do you clean your tools?",
+        answer:
+          "Metal tools are washed, soaked in EPA-registered hospital-grade disinfectant, and stored in a UV cabinet between clients. Files, buffers and wipes are used once. Every pedicure gets a new liner.",
+      },
+      {
+        question: "What products do you use?",
+        answer:
+          "FarmHouse Fresh for pedicures — a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
+      },
+    ],
+  },
+  {
+    eyebrow: "BRIDAL",
+    items: [
+      {
+        question: "Do you do bridal?",
+        answer: (
+          <>
+            Yes — trial set before the wedding, wedding set a few days out, and
+            your bridal party alongside you. The full program is on{" "}
+            <a
+              href="/bridal"
+              className="text-forest underline underline-offset-4 hover:text-forest/80"
+            >
+              the Bridal page
+            </a>
+            .
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    eyebrow: "GIFT CARDS",
+    items: [
+      {
+        question: "Do you sell gift cards?",
+        answer:
+          "Yes — at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
       },
     ],
   },
@@ -245,9 +313,26 @@ function FaqPage() {
           />
         ))}
 
-        {/* Placeholder for remaining groups */}
-        <section className="px-6 md:px-12">
-          <div className="mx-auto max-w-[720px]" />
+        {/* Closing */}
+        <section className="px-6 pb-[120px] pt-24 md:px-12">
+          <div className="mx-auto max-w-[720px] text-center">
+            <FadeUpSection>
+              <p className="font-display text-[22px] leading-[1.3] text-forest lining-nums md:text-[28px]">
+                Still wondering? Book and write your question in the Note.
+              </p>
+              <a
+                href="https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26FAQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center rounded-full border border-gold px-6 py-3 text-[14px] font-medium uppercase tracking-[0.12em] text-forest transition-colors hover:bg-gold/10"
+              >
+                Book an appointment
+              </a>
+              <p className="mt-3.5 text-[15px] text-forest/70">
+                Rebook before you leave and your technician is held for next time.
+              </p>
+            </FadeUpSection>
+          </div>
         </section>
       </main>
 
