@@ -184,16 +184,16 @@ function StandardPage() {
 
               <div className="mt-12 flex flex-col gap-4 md:mt-12 md:flex-row md:gap-6">
                 {[
-                  { label: "DAY 1", alt: "Gel-X set, day 1" },
-                  { label: "DAY 7", alt: "Gel-X set, day 7" },
-                  { label: "DAY 14", alt: "Gel-X set, day 14" },
+                  { label: "DAY 1", alt: "Gel-X set, day 1", src: proofDay1Asset.url },
+                  { label: "DAY 7", alt: "Gel-X set, day 7", src: proofDay7Asset.url },
+                  { label: "DAY 14", alt: "Gel-X set, day 14", src: proofDay14Asset.url },
                 ].map((slot) => (
                   <div key={slot.label} className="flex-1">
                     <div className="aspect-[4/5] w-full bg-cream">
-                      <div
-                        aria-label={slot.alt}
-                        role="img"
-                        className="h-full w-full bg-cream"
+                      <img
+                        src={slot.src}
+                        alt={slot.alt}
+                        className="h-full w-full object-cover"
                       />
                     </div>
                     <p className="mt-3 text-[12px] uppercase tracking-[0.12em] text-gold">
