@@ -334,7 +334,7 @@ function BridalPage() {
           <div className="mx-auto max-w-[640px]">
             <FadeUpSection>
               <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
-                Book your trial.
+                The one thing already handled.
               </h2>
               <a
                 href={BOOKING_URL}
