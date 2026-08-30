@@ -8,6 +8,7 @@ import trayPhotoAsset from "@/assets/tray-photo.png.asset.json";
 import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
 import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
 import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
+import standardHeroFabricAsset from "@/assets/standard-hero-fabric.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
@@ -162,14 +163,15 @@ function StandardPage() {
       <main>
         {/* OPENING */}
         <section className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]">
-          {/* Background image placeholder */}
-          <div
-            className="absolute inset-0 bg-forest"
-            role="img"
-            aria-label="Technician's hands at the nail table at Belleva Nails"
+          {/* Background image */}
+          <img
+            src={standardHeroFabricAsset.url}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-forest/45" />
+          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
           {/* Content */}
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
