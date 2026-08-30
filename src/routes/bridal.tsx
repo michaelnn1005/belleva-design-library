@@ -175,7 +175,7 @@ function BridalPage() {
           <img
             src={bridalHeroAsset.url}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[60%_center]"
           />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
 
@@ -278,7 +278,7 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-cream px-6 py-12 md:px-12 md:py-[72px]">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
@@ -334,7 +334,7 @@ function BridalPage() {
           <div className="mx-auto max-w-[640px]">
             <FadeUpSection>
               <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
-                Book your trial.
+                The one thing already handled.
               </h2>
               <a
                 href={BOOKING_URL}
