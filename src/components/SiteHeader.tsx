@@ -10,7 +10,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Services", href: "/#services" },
   { label: "Standard", to: "/standard" },
   { label: "Bridal", href: "/#bridal" },
-  { label: "FAQ", href: "#faq", placeholder: true },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact", href: "/#contact" },
 ];
 
