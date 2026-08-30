@@ -189,7 +189,7 @@ function BridalPage() {
               <p className="mt-6 text-[17px] leading-[1.7] text-[#FAF8F5]/90">
                 Every set carries our 14-day guarantee, and your wedding set is done days before the ceremony — so it&apos;s covered through the wedding and well into the honeymoon.
               </p>
-              <p className="mt-6 text-[16px] text-gold">
+              <p className="mt-6 border-l-2 border-gold pl-4 text-[16px] font-medium text-[#FAF8F5]/95">
                 And if anything happens before the day itself, call us. Brides get same-day repairs. No queue.
               </p>
             </FadeUpSection>
