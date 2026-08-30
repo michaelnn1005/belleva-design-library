@@ -143,16 +143,31 @@ function StandardPage() {
                 <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
                   How to claim
                 </p>
-                <div className="mt-4 space-y-1">
-                  <p className="text-[17px] leading-[1.7] text-forest">
-                    — Book online and write &quot;Repair&quot; in the Note.
-                  </p>
-                  <p className="text-[17px] leading-[1.7] text-forest">
-                    — Or call us and ask to be transferred to the front desk.
-                  </p>
-                  <p className="text-[17px] leading-[1.7] text-forest">
-                    — Weekday repairs are the fastest. Weekends fill up.
-                  </p>
+                <div className="mt-5 grid grid-cols-1 gap-7 lg:grid-cols-3 lg:gap-10">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                      Online
+                    </p>
+                    <p className="mt-2 text-[17px] leading-[1.6] text-forest">
+                      Book as usual and write &quot;Repair&quot; in the Note.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                      By phone
+                    </p>
+                    <p className="mt-2 text-[17px] leading-[1.6] text-forest">
+                      Call us and ask to be transferred to the front desk.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                      Timing
+                    </p>
+                    <p className="mt-2 text-[17px] leading-[1.6] text-forest">
+                      Weekday repairs are the fastest. Weekends fill up.
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeUpSection>
