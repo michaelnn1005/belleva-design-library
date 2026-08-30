@@ -211,7 +211,7 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section className="bg-[#F5F0E8] px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
