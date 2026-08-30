@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import { BOOKING_URL } from "@/lib/designs";
 
 const TITLE = "FAQ — Belleva Nails";
 const DESCRIPTION =
@@ -43,6 +43,19 @@ function FadeUpSection({
   );
 }
 
+function HairlineLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative">
+      <div className="absolute inset-y-0 left-0 right-0 flex items-center">
+        <div className="h-px w-full bg-forest/15" />
+      </div>
+      <span className="relative bg-background pr-4 text-[12px] uppercase tracking-[0.14em] text-gold">
+        {children}
+      </span>
+    </div>
+  );
+}
+
 type FaqItem = {
   question: string;
   answer: string;
@@ -50,14 +63,12 @@ type FaqItem = {
 
 type FaqGroup = {
   eyebrow: string;
-  title: string;
   items: FaqItem[];
 };
 
 const FAQ_GROUPS: FaqGroup[] = [
   {
-    eyebrow: "Booking",
-    title: "Appointments, walk-ins, and changes",
+    eyebrow: "BOOKING",
     items: [
       {
         question: "Do I need to book, or can I walk in?",
@@ -76,7 +87,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "What should I write in the Note when I book?",
         answer:
-          "Anything that helps us prepare: the occasion, a design you have in mind, a technician you'd like, or \"I'm in a hurry.\" We read every Note before you arrive.",
+          'Anything that helps us prepare: the occasion, a design you have in mind, a technician you\'d like, or "I\'m in a hurry." We read every Note before you arrive.',
       },
       {
         question: "Can I book for a group?",
@@ -96,8 +107,7 @@ const FAQ_GROUPS: FaqGroup[] = [
     ],
   },
   {
-    eyebrow: "Design",
-    title: "Bringing an idea to life",
+    eyebrow: "DESIGN",
     items: [
       {
         question: "I have a design in mind — how do I make sure you can do it?",
@@ -111,152 +121,133 @@ const FAQ_GROUPS: FaqGroup[] = [
       },
     ],
   },
-  {
-    eyebrow: "The guarantee",
-    title: "Our 14-day promise",
-    items: [
-      {
-        question: "What does the 14-day guarantee cover?",
-        answer:
-          "Chips, lifts, and breaks within 14 days — we fix them at no charge. Book online with \"Repair\" in the Note, or call and ask for the front desk. The full policy is on The Belleva Standard page.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Hygiene & products",
-    title: "What touches your hands",
-    items: [
-      {
-        question: "How do you clean your tools?",
-        answer:
-          "Metal tools are washed, soaked in EPA-registered hospital-grade disinfectant, and stored in a UV cabinet between clients. Files, buffers and wipes are used once. Every pedicure gets a new liner.",
-      },
-      {
-        question: "What products do you use?",
-        answer:
-          "FarmHouse Fresh for pedicures — a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Bridal",
-    title: "Wedding-day nails",
-    items: [
-      {
-        question: "Do you do bridal?",
-        answer:
-          "Yes — trial set before the wedding, wedding set a few days out, and your bridal party alongside you. The full program is on the Bridal page.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Gift cards",
-    title: "Give an hour at Belleva",
-    items: [
-      {
-        question: "Do you sell gift cards?",
-        answer:
-          "Yes — at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
-      },
-    ],
-  },
 ];
 
-function FaqGroupSection({ group }: { group: FaqGroup }) {
+function AccordionItem({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: FaqItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <section className="border-t border-forest/12 px-6 py-16 md:px-12 md:py-24">
-      <div className="mx-auto max-w-[720px]">
-        <FadeUpSection>
-          <p className="text-[12px] uppercase tracking-[0.14em] text-gold">
-            {group.eyebrow}
+    <div className="border-b border-forest/12">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex min-h-[44px] w-full items-center justify-between py-[18px] text-left"
+        aria-expanded={isOpen}
+      >
+        <span className="font-display text-[19px] leading-[1.3] text-forest lining-nums md:text-[22px]">
+          {item.question}
+        </span>
+        <span
+          className={`ml-4 shrink-0 text-[22px] leading-none text-forest transition-transform duration-[250ms] ease-in-out md:text-[24px] ${
+            isOpen ? "rotate-45" : "rotate-0"
+          }`}
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </button>
+      <div
+        className={`grid transition-all duration-[250ms] ease-in-out ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="pb-[18px] text-[16px] leading-[1.65] text-forest/80">
+            {item.answer}
           </p>
-          <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-            {group.title}
-          </h2>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FaqGroupSection({
+  group,
+  openKey,
+  onToggle,
+  groupIndex,
+}: {
+  group: FaqGroup;
+  openKey: string | null;
+  onToggle: (key: string) => void;
+  groupIndex: number;
+}) {
+  return (
+    <section className="px-6 md:px-12">
+      <div className="mx-auto max-w-[720px]">
+        <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-[64px]"}>
+          <HairlineLabel>{group.eyebrow}</HairlineLabel>
         </FadeUpSection>
 
-        <div className="mt-10">
-          {group.items.map((item, i) => (
-            <FadeUpSection key={item.question}>
-              <div
-                className={`py-6 ${
-                  i !== group.items.length - 1 ? "border-b border-forest/12" : ""
-                }`}
-              >
-                <p className="font-sans text-[16px] font-medium leading-[1.5] text-forest md:text-[17px]">
-                  {item.question}
-                </p>
-                <p className="mt-3 text-[15px] leading-[1.7] text-forest/75 md:text-[16px]">
-                  {item.answer}
-                </p>
-              </div>
-            </FadeUpSection>
-          ))}
-        </div>
+        <FadeUpSection className="mt-6">
+          <div className="border-t border-forest/12">
+            {group.items.map((item, i) => {
+              const key = `${group.eyebrow}-${i}`;
+              return (
+                <AccordionItem
+                  key={key}
+                  item={item}
+                  isOpen={openKey === key}
+                  onToggle={() => onToggle(key)}
+                />
+              );
+            })}
+          </div>
+        </FadeUpSection>
       </div>
     </section>
   );
 }
 
 function FaqPage() {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+
+  const handleToggle = (key: string) => {
+    setOpenKey((current) => (current === key ? null : key));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader heroPassed={true} />
 
-      <main className="pt-[88px]">
-        {/* Page intro */}
-        <section className="px-6 pb-8 pt-8 md:px-12 md:pb-12 md:pt-12">
+      <main>
+        {/* Opening */}
+        <section className="px-6 pb-12 pt-[120px] md:px-12 md:pb-16 md:pt-[140px]">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <p className="text-[12px] uppercase tracking-[0.14em] text-gold">
-                FAQ
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                QUESTIONS
               </p>
-              <h1 className="mt-3 font-display text-[40px] leading-[1.05] text-forest md:text-[64px]">
-                Questions we get a lot.
+              <h1 className="mt-3 font-display text-[36px] leading-[1.05] text-forest lining-nums md:text-[56px]">
+                Asked and answered.
               </h1>
-              <p className="mt-5 max-w-[520px] text-[16px] leading-[1.6] text-forest/75 md:text-[17px]">
-                If you don't see what you're looking for, write to us or call the front desk — we'll answer honestly.
+              <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-forest/75">
+                If it isn't here, call us — a real person will pick up the phone.
               </p>
             </FadeUpSection>
           </div>
         </section>
 
         {/* FAQ groups */}
-        {FAQ_GROUPS.map((group) => (
-          <FaqGroupSection key={group.eyebrow} group={group} />
+        {FAQ_GROUPS.map((group, i) => (
+          <FaqGroupSection
+            key={group.eyebrow}
+            group={group}
+            groupIndex={i}
+            openKey={openKey}
+            onToggle={handleToggle}
+          />
         ))}
 
-        {/* Closing CTA */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
-                Still have a question?
-              </p>
-              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-cream md:text-[48px]">
-                Ask us directly.
-              </h2>
-              <p className="mt-5 max-w-[520px] text-[17px] leading-[1.7] text-cream/90 md:text-[18px]">
-                Call the salon, write to us through the contact form, or ask at the front desk during your next visit.
-              </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <a
-                  href="tel:+19405141808"
-                  className="inline-flex min-h-[48px] items-center rounded-full border border-background bg-transparent px-8 py-3 text-[14px] text-background transition-all duration-300 hover:bg-background hover:text-forest"
-                >
-                  Call (940) 514-1808
-                </a>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[48px] items-center rounded-full border border-background bg-transparent px-8 py-3 text-[14px] text-background transition-all duration-300 hover:bg-background hover:text-forest"
-                >
-                  Book an appointment
-                </a>
-              </div>
-            </FadeUpSection>
-          </div>
+        {/* Placeholder for remaining groups */}
+        <section className="px-6 md:px-12">
+          <div className="mx-auto max-w-[720px]" />
         </section>
       </main>
 
