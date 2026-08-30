@@ -270,6 +270,44 @@ function ComparisonRow() {
   );
 }
 
+function VisionQuote() {
+  const { ref, visible } = useFadeUp();
+
+  const lineClass =
+    "transition-all duration-700 ease-out " +
+    (visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0");
+
+  return (
+    <section className="bg-forest px-6 py-24 md:py-40">
+      <div
+        ref={ref}
+        className="mx-auto flex max-w-[320px] flex-col items-center text-center"
+      >
+        <p
+          className={`text-[11px] uppercase tracking-[2px] text-gold ${lineClass}`}
+          style={{ transitionDelay: "0ms" }}
+        >
+          THE BELLEVA VISION
+        </p>
+        <blockquote
+          className={`mt-8 font-display text-[26px] italic leading-[1.4] text-cream ${lineClass}`}
+          style={{ transitionDelay: "200ms" }}
+        >
+          <span className="block">You spend your days</span>
+          <span className="block">caring for everyone else.</span>
+          <span className="block">Here, someone cares for you.</span>
+        </blockquote>
+        <p
+          className={`mt-8 text-[10px] uppercase tracking-[2px] text-cream/80 ${lineClass}`}
+          style={{ transitionDelay: "500ms" }}
+        >
+          BELLEVA — DENTON, TX
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function VisionReveal() {
   const { ref, visible } = useFadeUp();
 
@@ -569,6 +607,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <VisionQuote />
 
       <VisionReveal />
 
