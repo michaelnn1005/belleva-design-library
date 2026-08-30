@@ -442,7 +442,7 @@ function StandardPage() {
               </h2>
             </FadeUpSection>
 
-            <StaggerFadeUp staggerMs={100} className="mt-10 space-y-[18px]">
+            <div className="mt-10 border-y border-forest/12">
               {[
                 "Can I see the lab report?",
                 "Can you open the tool pouch in front of me?",
@@ -451,16 +451,15 @@ function StandardPage() {
               ].map((line) => (
                 <p
                   key={line}
-                  className="font-display text-[21px] leading-[1.4] italic text-forest md:text-[26px]"
+                  className="border-b border-forest/12 py-5 font-display text-[21px] leading-[1.4] italic text-forest lining-nums last:border-b-0 md:text-[26px]"
                 >
-                  — &quot;{line}&quot;
+                  &quot;{line}&quot;
                 </p>
               ))}
-            </StaggerFadeUp>
-
+            </div>
 
             <FadeUpSection>
-              <p className="mt-10 text-[18px] font-medium text-gold">
+              <p className="mt-12 text-[18px] font-medium text-gold">
                 Yes. Yes. We&apos;ll tell you. And yes.
               </p>
             </FadeUpSection>
