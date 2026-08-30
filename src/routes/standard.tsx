@@ -166,7 +166,10 @@ function StandardPage() {
 
       <main>
         {/* OPENING */}
-        <section className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]">
+        <section
+          id="hero"
+          className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
+        >
           {/* Background image */}
           <img
             src={standardHeroFabricAsset.url}
@@ -179,13 +182,13 @@ function StandardPage() {
           {/* Content */}
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
-              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+              <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-gold">
                 THE BELLEVA STANDARD
               </p>
               <h1 className="mt-3 max-w-[640px] font-display text-[36px] leading-[1.1] text-[#FAF8F5] md:text-[56px]">
                 The bare minimum. Done properly.
               </h1>
-              <p className="mt-5 max-w-[480px] text-[17px] leading-[1.6] text-[#FAF8F5]/85">
+              <p className="mt-5 max-w-[480px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
                 Everything on this page should be normal. In this industry, it isn&apos;t.
               </p>
             </FadeUpSection>
