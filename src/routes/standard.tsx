@@ -79,6 +79,70 @@ function StaggerFadeUp({
   );
 }
 
+const PROOF_SLOTS = [
+  { label: "DAY 1", alt: "Gel-X set, day 1", src: proofDay1Asset.url },
+  { label: "DAY 7", alt: "Gel-X set, day 7", src: proofDay7Asset.url },
+  { label: "DAY 14", alt: "Gel-X set, day 14", src: proofDay14Asset.url },
+];
+
+function ProofGallery() {
+  const [active, setActive] = useState(0);
+
+  return (
+    <>
+      {/* Desktop: three in a row */}
+      <div className="mt-12 hidden gap-6 lg:flex">
+        {PROOF_SLOTS.map((slot) => (
+          <div key={slot.label} className="flex-1">
+            <div className="aspect-[4/5] w-full bg-cream">
+              <img
+                src={slot.src}
+                alt={slot.alt}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <p className="mt-3 text-[12px] uppercase tracking-[0.12em] text-gold">
+              {slot.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile: single image with toggles */}
+      <div className="mt-8 lg:hidden">
+        <div className="flex items-center gap-8">
+          {PROOF_SLOTS.map((slot, i) => (
+            <button
+              key={slot.label}
+              type="button"
+              onClick={() => setActive(i)}
+              className={`flex h-11 items-center border-b text-[12px] uppercase tracking-[0.12em] transition-colors ${
+                active === i
+                  ? "border-forest text-forest"
+                  : "border-transparent text-forest/45"
+              }`}
+            >
+              {slot.label}
+            </button>
+          ))}
+        </div>
+        <div className="relative mt-6 aspect-[4/5] w-full bg-cream">
+          {PROOF_SLOTS.map((slot, i) => (
+            <img
+              key={slot.label}
+              src={slot.src}
+              alt={slot.alt}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[250ms] ${
+                active === i ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
 function StandardPage() {
   const [showBar, setShowBar] = useState(false);
 
