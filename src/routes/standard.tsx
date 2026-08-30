@@ -182,7 +182,7 @@ function StandardPage() {
           {/* Content */}
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
-              <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-gold">
+              <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE BELLEVA STANDARD
               </p>
               <h1 className="mt-3 max-w-[640px] font-display text-[36px] leading-[1.1] text-[#FAF8F5] md:text-[56px]">
@@ -361,7 +361,7 @@ function StandardPage() {
         <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+              <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 BETWEEN EVERY CLIENT
               </p>
               <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-cream md:text-[48px]">
@@ -507,7 +507,7 @@ function StandardPage() {
       <section className="bg-forest px-6 py-20 md:px-12 md:py-[120px]">
         <div className="mx-auto max-w-[640px]">
           <FadeUpSection>
-            <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+            <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
               A NOTE FROM THE FOUNDER
             </p>
             <div className="mt-6 space-y-[18px]">
