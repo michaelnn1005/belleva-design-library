@@ -144,6 +144,11 @@ function BridalAccordionItem({
 function BridalPage() {
   const [showBar, setShowBar] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
+  const [openFaqKey, setOpenFaqKey] = useState<string | null>(null);
+
+  const toggleFaq = (key: string) => {
+    setOpenFaqKey((current) => (current === key ? null : key));
+  };
 
   useEffect(() => {
     const onScroll = () => {
