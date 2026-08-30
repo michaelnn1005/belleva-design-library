@@ -177,40 +177,24 @@ function StandardPage() {
           </div>
         </section>
 
-        {/* DAY 1 / 7 / 14 */}
+        {/* THE PROOF */}
         <section className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[1100px]">
             <FadeUpSection>
-              <h2 className="max-w-[640px] font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                Same hands. Same set. Three photos.
-              </h2>
-
-              <div className="mt-12 flex flex-col gap-4 md:mt-12 md:flex-row md:gap-6">
-                {[
-                  { label: "DAY 1", alt: "Gel-X set, day 1", src: proofDay1Asset.url },
-                  { label: "DAY 7", alt: "Gel-X set, day 7", src: proofDay7Asset.url },
-                  { label: "DAY 14", alt: "Gel-X set, day 14", src: proofDay14Asset.url },
-                ].map((slot) => (
-                  <div key={slot.label} className="flex-1">
-                    <div className="aspect-[4/5] w-full bg-cream">
-                      <img
-                        src={slot.src}
-                        alt={slot.alt}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <p className="mt-3 text-[12px] uppercase tracking-[0.12em] text-gold">
-                      {slot.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-8 text-[15px] text-forest/70">
-                One Gel-X set, photographed by us. No retouching.
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+                THE PROOF
               </p>
-              <p className="mt-4 text-[17px] text-forest md:text-[18px]">
-                This is what &quot;lasts two weeks&quot; is supposed to look like.
+              <h2 className="mt-3 max-w-[640px] font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                One set. Two weeks. No retouching.
+              </h2>
+              <p className="mt-4 max-w-[520px] text-[17px] text-forest/75">
+                Day 1 is what you&apos;d expect. Day 14 is the point.
+              </p>
+
+              <ProofGallery />
+
+              <p className="mt-5 text-[15px] text-forest/70">
+                Photographed by us, on a client, with her permission.
               </p>
             </FadeUpSection>
           </div>
