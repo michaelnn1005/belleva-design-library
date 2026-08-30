@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BridalRouteImport } from './routes/bridal'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as StandardRouteImport } from './routes/standard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BridalRoute = BridalRouteImport.update({
+  id: '/bridal',
+  path: '/bridal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -31,30 +37,34 @@ const StandardRoute = StandardRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bridal': typeof BridalRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bridal': typeof BridalRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bridal': typeof BridalRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faq' | '/standard'
+  fullPaths: '/' | '/bridal' | '/faq' | '/standard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faq' | '/standard'
-  id: '__root__' | '/' | '/faq' | '/standard'
+  to: '/' | '/bridal' | '/faq' | '/standard'
+  id: '__root__' | '/' | '/bridal' | '/faq' | '/standard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BridalRoute: typeof BridalRoute
   FaqRoute: typeof FaqRoute
   StandardRoute: typeof StandardRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bridal': {
+      id: '/bridal'
+      path: '/bridal'
+      fullPath: '/bridal'
+      preLoaderRoute: typeof BridalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BridalRoute: BridalRoute,
   FaqRoute: FaqRoute,
   StandardRoute: StandardRoute,
 }
