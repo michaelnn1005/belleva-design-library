@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import bridalHeroAsset from "@/assets/bridal-hero.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -11,10 +12,6 @@ const DESCRIPTION =
 
 const BOOKING_URL =
   "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26BRD";
-
-const PLACEHOLDER_IMAGE = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><rect width="1" height="1" fill="#2F4A3E"/></svg>',
-)}`;
 
 export const Route = createFileRoute("/bridal")({
   head: () => ({
