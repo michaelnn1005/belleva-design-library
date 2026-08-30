@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { BOOKING_URL } from "@/lib/designs";
 
 type NavItem =
-  | { label: string; to: "/standard" }
+  | { label: string; to: "/standard" | "/faq" }
   | { label: string; href: string; placeholder?: boolean };
 
 const NAV_ITEMS: NavItem[] = [
