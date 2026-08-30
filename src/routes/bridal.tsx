@@ -176,7 +176,55 @@ function BridalPage() {
           </div>
         </section>
 
-        {/* PLACEHOLDER FOR REMAINING SECTIONS */}
+        {/* GUARANTEE */}
+        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
+                THE GUARANTEE
+              </p>
+              <h2 className="mt-3 font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
+                Guaranteed through your big day.
+              </h2>
+              <p className="mt-6 text-[17px] leading-[1.7] text-[#FAF8F5]/90">
+                Every set carries our 14-day guarantee, and your wedding set is done days before the ceremony — so it&apos;s covered through the wedding and well into the honeymoon.
+              </p>
+              <p className="mt-6 text-[16px] text-gold">
+                And if anything happens before the day itself, call us. Brides get same-day repairs. No queue.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* BRIDAL PARTY */}
+        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
+                THE BRIDAL PARTY
+              </p>
+              <p className="mt-4 text-[17px] leading-[1.7] text-forest">
+                Bringing your bridesmaids? Book one appointment and write your party size in the Note. The front desk will call you the same day to arrange chairs side by side.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* JUST MARRIED */}
+        <section className="bg-[#F5F0E8] px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
+                JUST MARRIED
+              </p>
+              <p className="mt-4 text-[17px] leading-[1.7] text-forest">
+                Recently married? Ask the front desk about Just Married — a couples session before the honeymoon, and a little something reserved for your next visit.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* PLACEHOLDER FOR FINAL TWO SECTIONS */}
         <section className="bg-background px-6 md:px-12">
           <div className="mx-auto max-w-[720px]" />
         </section>
