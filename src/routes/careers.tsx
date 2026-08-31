@@ -351,7 +351,7 @@ function CareersPage() {
       </main>
 
       <SiteFooter />
-      <StickyBottomBar show={false} />
+      <StickyBottomBar show={true} />
     </div>
   );
 }
