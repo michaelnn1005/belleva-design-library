@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { BOOKING_URL } from "@/lib/designs";
 
 type NavItem =
-  | { label: string; to: "/standard" | "/faq" | "/bridal" }
+  | { label: string; to: "/standard" | "/faq" | "/bridal" | "/contact" }
   | { label: string; href: string; placeholder?: boolean };
 
 const NAV_ITEMS: NavItem[] = [
@@ -11,7 +11,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Standard", to: "/standard" },
   { label: "Bridal", to: "/bridal" },
   { label: "FAQ", to: "/faq" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
