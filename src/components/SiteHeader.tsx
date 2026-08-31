@@ -189,6 +189,9 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             >
               Book an appointment
             </a>
+            <p className="mt-3 font-body text-xs text-forest/70">
+              Tell us your occasion in the Note box.
+            </p>
             <Link
               to="/careers"
               onClick={() => setMenuOpen(false)}
