@@ -253,6 +253,16 @@ function BridalPage() {
           </div>
         </section>
 
+        <section className="bg-background px-6 py-2 md:px-12 md:py-4">
+          <div className="mx-auto max-w-[720px]">
+            <img
+              src={bridalBetweenStillAsset.url}
+              alt="Silk and eucalyptus detail"
+              className="aspect-[4/5] w-full object-cover"
+            />
+          </div>
+        </section>
+
         {/* GUARANTEE */}
         <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
