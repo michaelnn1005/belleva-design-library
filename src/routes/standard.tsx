@@ -295,7 +295,7 @@ function StandardPage() {
                     number: "01",
                     title: "Check-in",
                     description:
-                      "We read your Note before you sit down.",
+                      "We read your Note before you sit down. Coffee, tea, or something bubbly — drinks are on us.",
                   },
                   {
                     number: "02",
