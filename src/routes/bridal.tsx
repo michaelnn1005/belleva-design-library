@@ -176,7 +176,7 @@ function BridalPage() {
           <img
             src={bridalHeroAsset.url}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
-            className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[60%_center]"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[50%_20%]"
           />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
 
