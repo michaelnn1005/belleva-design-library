@@ -7,6 +7,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
 import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
 import bridalTrialStillAsset from "@/assets/bridal-trial-still.png.asset.json";
+import bridalBetweenStillAsset from "@/assets/bridal-between-still.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -249,6 +250,16 @@ function BridalPage() {
                 </p>
               </div>
             </StaggerFadeUp>
+          </div>
+        </section>
+
+        <section className="bg-background px-6 py-2 md:px-12 md:py-4">
+          <div className="mx-auto max-w-[720px]">
+            <img
+              src={bridalBetweenStillAsset.url}
+              alt="Silk and eucalyptus detail"
+              className="aspect-[4/5] w-full object-cover"
+            />
           </div>
         </section>
 
