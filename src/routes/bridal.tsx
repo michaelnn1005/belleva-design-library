@@ -8,6 +8,7 @@ import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
 import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
 import bridalTrialStillAsset from "@/assets/bridal-trial-still.png.asset.json";
 import bridalBetweenStillAsset from "@/assets/bridal-between-still.png.asset.json";
+import bridalJustMarriedAsset from "@/assets/bridal-just-married.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
