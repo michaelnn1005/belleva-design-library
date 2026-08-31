@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import bridalHeroAsset from "@/assets/bridal-hero.png.asset.json";
+import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
 import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
