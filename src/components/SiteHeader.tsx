@@ -195,9 +195,12 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             <Link
               to="/careers"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 text-[11px] uppercase tracking-[0.14em] text-gold"
+              className="mt-8 inline-block text-gold transition-colors hover:text-forest"
             >
-              Careers
+              <span className="font-body text-[11px] uppercase tracking-[2px]">Careers</span>
+              <span className="ml-1.5 font-body text-[11px] italic normal-case tracking-normal text-forest/60">
+                — We're hiring
+              </span>
             </Link>
           </nav>
         </div>

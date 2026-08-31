@@ -48,9 +48,12 @@ export function SiteFooter() {
           </p>
           <Link
             to="/careers"
-            className="mt-3 inline-block font-body text-[11px] uppercase tracking-[2px] text-gold transition-colors hover:text-forest"
+            className="mt-3 inline-block text-gold transition-colors hover:text-forest"
           >
-            Careers
+            <span className="font-body text-[11px] uppercase tracking-[2px]">Careers</span>
+            <span className="ml-1.5 font-body text-[11px] italic normal-case tracking-normal text-forest/60">
+              — We're hiring
+            </span>
           </Link>
         </div>
 
