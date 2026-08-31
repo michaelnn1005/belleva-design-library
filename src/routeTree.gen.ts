@@ -14,6 +14,7 @@ import { Route as BridalRouteImport } from './routes/bridal'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StandardRouteImport } from './routes/standard'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StandardRoute = StandardRouteImport.update({
   id: '/standard',
   path: '/standard',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bridal' | '/careers' | '/contact' | '/faq' | '/standard'
+  fullPaths:
+    | '/'
+    | '/bridal'
+    | '/careers'
+    | '/contact'
+    | '/faq'
+    | '/services'
+    | '/standard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bridal' | '/careers' | '/contact' | '/faq' | '/standard'
+  to:
+    | '/'
+    | '/bridal'
+    | '/careers'
+    | '/contact'
+    | '/faq'
+    | '/services'
+    | '/standard'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/faq'
+    | '/services'
     | '/standard'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  ServicesRoute: typeof ServicesRoute
   StandardRoute: typeof StandardRoute
 }
 
@@ -133,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/standard': {
       id: '/standard'
       path: '/standard'
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  ServicesRoute: ServicesRoute,
   StandardRoute: StandardRoute,
 }
 export const routeTree = rootRouteImport
