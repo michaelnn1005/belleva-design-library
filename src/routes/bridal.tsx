@@ -6,6 +6,7 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
 import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
+import bridalTrialStillAsset from "@/assets/bridal-trial-still.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -223,6 +224,13 @@ function BridalPage() {
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
                   Two to four weeks before the wedding, we build your set — shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
                 </p>
+              </div>
+              <div className="w-full">
+                <img
+                  src={bridalTrialStillAsset.url}
+                  alt="Bridal nail trial detail at Belleva Nails"
+                  className="aspect-[4/5] w-full rounded-[10px] object-cover"
+                />
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
