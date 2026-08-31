@@ -137,46 +137,47 @@ const PEDICURES: MenuItem[] = [
   {
     number: "01",
     title: "The Advance",
-    price: "$26 · 20 min",
-    description: "Trim, shape, cuticle care, polish. Clean and quick — in, out, done.",
+    price: "$26 · 20 mins",
+    description:
+      "No massage, no ceremony. Trim, shape, cuticle care, polish — twenty minutes and you're back to your day. We won't take it personally.",
   },
   {
     number: "02",
     title: "The Basic",
-    price: "$33 · 30 min",
+    price: "$33 · 30 mins",
     description:
-      "Adds foot scrub, mud mask, callus care, warm towels, and a massage with organic lotion.",
+      "You know this one. Foot scrub, mud mask, callus care, and a proper massage with organic lotion. A classic for a reason.",
   },
   {
     number: "03",
     title: "The Deluxe",
-    price: "$45 · 45 min",
+    price: "$45 · 45 mins",
     description:
-      "Hot stones, paraffin wax, and a 14-minute massage. Pick your scent: orange, pear, milk honey, or lavender.",
+      "Hot stones, paraffin wax, and a 13-minute massage with a scent we pick for you — trust the house. It hasn't missed yet.",
   },
   {
     number: "04",
     title: "The Elegant Belleva",
-    price: "$59 · 60 min",
+    price: "$59 · 60 mins",
     description:
-      "Starts with lab-tested CBD gummies or drops, ends with a 20-minute massage. Everything in between is the full treatment.",
+      "Lab-tested CBD gummies, drops, or tea to start. Then a 20-minute massage. Sixty minutes that feel like a long weekend.",
     cbd: true,
   },
   {
     number: "05",
     title: "The Belleva Special",
-    price: "$73 · 60 min",
+    price: "$73 · 60 mins",
     description:
-      "A 28-minute massage with CBD oil and steam therapy, plus paraffin, hot stones, and a lotion bag to take home.",
+      "A 28-minute massage with CBD oil and steam. Yes, we timed it. Paraffin, hot stones — and a small gift we refuse to describe.",
     cbd: true,
     note: "For every Special, we donate $1 to United Way of Denton County.",
   },
   {
     number: "06",
     title: "The Belleva Premium",
-    price: "$89 · 70–80 min",
+    price: "$89 · 70–80 mins",
     description:
-      "Our longest chair: a 40-minute CBD oil massage with neck and head work, steam, collagen sock treatment, and a lotion bag to go.",
+      "Opens with a jelly soak — pellets hit the water and turn the whole basin into wobble. Childish? Completely. Clients ask for it by name. Then a 36-minute massage, neck and head included, steam, your pick of collagen socks or paraffin. And yes — the secret gift gets an upgrade too.",
     cbd: true,
     note: "For every Premium, we donate $1 to United Way of Denton County.",
   },
@@ -186,20 +187,20 @@ const MANICURES: MenuItem[] = [
   {
     number: "01",
     title: "The Classic",
-    price: "$22 · 20 min",
-    description: "Trim, shape, cuticle care, massage with organic lotion, polish.",
+    price: "$22 · 20 mins",
+    description: "Trim, shape, cuticle care, lotion massage, polish. Simple, done right.",
   },
   {
     number: "02",
     title: "The Deluxe",
-    price: "$39 · 30 min",
+    price: "$39 · 30 mins",
     description: "Adds mud mask, paraffin wax, hot towels, and a 12-minute massage.",
   },
   {
     number: "03",
     title: "The Belleva Premium",
     price: "$52",
-    description: "CBD to start, an 18-minute massage, paraffin, and neck heat therapy.",
+    description: "CBD to start, an 18-minute massage, paraffin, neck heat. Your hands, but the upgraded version.",
     cbd: true,
   },
 ];
