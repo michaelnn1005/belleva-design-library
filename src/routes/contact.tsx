@@ -119,7 +119,7 @@ function ContactPage() {
                     href="https://maps.google.com/?q=Belleva+Nails+2200+W+University+Dr+Ste+180+Denton+TX+76201"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-block font-sans text-[14px] text-[#2F4A3E] underline-offset-4 hover:underline"
+                    className="mt-5 inline-block font-sans text-[14px] text-[#2F4A3E] underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest"
                   >
                     Open in Google Maps
                   </a>
@@ -135,7 +135,7 @@ function ContactPage() {
                       Phone:{" "}
                       <a
                         href="tel:+19405141808"
-                        className="underline-offset-4 hover:underline"
+                        className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest"
                       >
                         (940) 514-1808
                       </a>
@@ -144,7 +144,7 @@ function ContactPage() {
                       Email:{" "}
                       <a
                         href="mailto:bellevanailsdenton@gmail.com"
-                        className="underline-offset-4 hover:underline"
+                        className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest"
                       >
                         bellevanailsdenton@gmail.com
                       </a>
@@ -155,7 +155,7 @@ function ContactPage() {
                         href="https://instagram.com/bellevanailsdenton"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline-offset-4 hover:underline"
+                        className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest"
                       >
                         @bellevanailsdenton
                       </a>
