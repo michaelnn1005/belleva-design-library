@@ -337,7 +337,7 @@ function CareersPage() {
                 />
                 <button
                   type="submit"
-                  className="mt-2 inline-flex items-center rounded-full bg-forest px-7 py-3 text-[14px] text-cream transition-colors duration-300 hover:bg-forest-soft"
+                  className="mt-2 inline-flex items-center rounded-full border border-forest bg-forest px-5 py-2 text-xs text-cream transition-colors duration-300 hover:bg-forest-soft"
                 >
                   Send
                 </button>
