@@ -229,7 +229,7 @@ function BridalPage() {
                 <img
                   src={bridalTrialStillAsset.url}
                   alt="Bridal nail trial detail at Belleva Nails"
-                  className="aspect-[4/5] w-full rounded-[10px] object-cover"
+                  className="aspect-[4/5] w-full object-cover"
                 />
               </div>
               <div>
