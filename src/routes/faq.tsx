@@ -189,6 +189,16 @@ const FAQ_GROUPS: FaqGroup[] = [
       },
     ],
   },
+  {
+    eyebrow: "YOUR VISIT",
+    items: [
+      {
+        question: "Do you serve drinks?",
+        answer:
+          "Yes, and they're on us. Vietnamese coffee (iced or hot) is the one we're known for. There's also iced tea, sodas, juice, still or sparkling water — and a mimosa or champagne if you're 21+. Just ask at check-in.",
+      },
+    ],
+  },
 ];
 
 function AccordionItem({
