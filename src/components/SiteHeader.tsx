@@ -189,6 +189,13 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             >
               Book an appointment
             </a>
+            <Link
+              to="/careers"
+              onClick={() => setMenuOpen(false)}
+              className="mt-8 text-[11px] uppercase tracking-[0.14em] text-gold"
+            >
+              Careers
+            </Link>
           </nav>
         </div>
       )}
