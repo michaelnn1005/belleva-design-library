@@ -8,6 +8,7 @@ import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
 import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
 import bridalTrialStillAsset from "@/assets/bridal-trial-still.png.asset.json";
 import bridalBetweenStillAsset from "@/assets/bridal-between-still.png.asset.json";
+import bridalJustMarriedAsset from "@/assets/bridal-just-married.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -298,13 +299,22 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section className="bg-cream px-6 py-12 md:px-12 md:py-[72px]">
-          <div className="mx-auto max-w-[720px]">
+        <section
+          className="relative px-6 py-12 md:px-12 md:py-[72px]"
+          style={{
+            backgroundImage: `url(${bridalJustMarriedAsset.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: 0,
+          }}
+        >
+          <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)]" />
+          <div className="relative mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 JUST MARRIED
               </p>
-              <p className="mt-4 text-[17px] leading-[1.7] text-forest">
+              <p className="mt-4 text-[17px] leading-[1.7] text-cream">
                 Recently married? Ask the front desk about Just Married — a couples session before the honeymoon, and a little something reserved for your next visit.
               </p>
             </FadeUpSection>
