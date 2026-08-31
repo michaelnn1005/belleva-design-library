@@ -123,6 +123,12 @@ function ContactPage() {
                   >
                     Open in Google Maps
                   </a>
+
+                  <div className="relative mt-6 aspect-[3/2] w-full bg-[#2F4A3E]/8">
+                    <span className="absolute left-4 top-4 font-sans text-[11px] uppercase tracking-[0.14em] text-gold">
+                      Storefront
+                    </span>
+                  </div>
                 </div>
 
                 {/* Reach us */}
