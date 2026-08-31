@@ -222,7 +222,7 @@ function ContactPage() {
               <HairlineLabel bgClass="bg-[#FAF8F5]">Send a message</HairlineLabel>
 
               <form
-                className="mt-10 space-y-6"
+                className="mt-10 max-w-[560px] space-y-6"
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div>
