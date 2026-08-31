@@ -1,6 +1,9 @@
 import { BOOKING_URL } from "@/lib/designs";
+import { useLocation } from "@tanstack/react-router";
 
 export function SiteFooter() {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
   return (
     <footer className="border-t border-[#E5DFD3] bg-background px-6 pt-20 pb-12 md:px-12">
       <div className="mx-auto max-w-6xl">
