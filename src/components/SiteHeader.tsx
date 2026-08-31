@@ -3,11 +3,11 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { BOOKING_URL } from "@/lib/designs";
 
 type NavItem =
-  | { label: string; to: "/standard" | "/faq" | "/bridal" | "/contact" }
+  | { label: string; to: "/services" | "/standard" | "/faq" | "/bridal" | "/contact" }
   | { label: string; href: string; placeholder?: boolean };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Services", href: "/#services" },
+  { label: "Services", to: "/services" },
   { label: "Standard", to: "/standard" },
   { label: "Bridal", to: "/bridal" },
   { label: "FAQ", to: "/faq" },
