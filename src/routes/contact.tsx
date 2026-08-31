@@ -217,7 +217,7 @@ function ContactPage() {
 
         {/* MESSAGE FORM */}
         <section className="bg-[#FAF8F5] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[560px]">
+          <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <HairlineLabel bgClass="bg-[#FAF8F5]">Send a message</HairlineLabel>
 
