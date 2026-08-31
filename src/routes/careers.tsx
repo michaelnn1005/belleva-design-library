@@ -152,10 +152,7 @@ function CareersPage() {
                 Come build with us.
               </h1>
               <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
-                I was a nail tech for five years before I opened Belleva. I know
-                what it&apos;s like to be shorted, talked down to, or pushed aside
-                in a salon that didn&apos;t have your back. That&apos;s a big part
-                of why I built this one.
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I've seen this industry from every seat — including the ones where you get shorted, talked down to, or pushed aside. That's a big part of why I built this one.
               </p>
             </FadeUpSection>
           </div>
