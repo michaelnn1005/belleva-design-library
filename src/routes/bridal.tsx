@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import bridalHeroAsset from "@/assets/bridal-hero.png.asset.json";
+import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -330,8 +331,17 @@ function BridalPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-forest px-6 py-20 md:px-12 md:py-[120px]">
-          <div className="mx-auto max-w-[640px]">
+        <section
+          className="relative bg-forest px-6 py-20 md:px-12 md:py-[120px]"
+          style={{
+            backgroundImage: `url(${bridalCtaEucalyptusAsset.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "top center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
+          <div className="relative mx-auto max-w-[640px]">
             <FadeUpSection>
               <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
                 The one thing already handled.
