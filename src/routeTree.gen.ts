@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BridalRouteImport } from './routes/bridal'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as StandardRouteImport } from './routes/standard'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const BridalRoute = BridalRouteImport.update({
   id: '/bridal',
   path: '/bridal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -44,6 +50,7 @@ const StandardRoute = StandardRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bridal': typeof BridalRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bridal': typeof BridalRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
@@ -59,21 +67,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bridal': typeof BridalRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/standard': typeof StandardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bridal' | '/contact' | '/faq' | '/standard'
+  fullPaths: '/' | '/bridal' | '/careers' | '/contact' | '/faq' | '/standard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bridal' | '/contact' | '/faq' | '/standard'
-  id: '__root__' | '/' | '/bridal' | '/contact' | '/faq' | '/standard'
+  to: '/' | '/bridal' | '/careers' | '/contact' | '/faq' | '/standard'
+  id:
+    | '__root__'
+    | '/'
+    | '/bridal'
+    | '/careers'
+    | '/contact'
+    | '/faq'
+    | '/standard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BridalRoute: typeof BridalRoute
+  CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   StandardRoute: typeof StandardRoute
@@ -93,6 +110,13 @@ declare module '@tanstack/react-router' {
       path: '/bridal'
       fullPath: '/bridal'
       preLoaderRoute: typeof BridalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -122,6 +146,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BridalRoute: BridalRoute,
+  CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   StandardRoute: StandardRoute,

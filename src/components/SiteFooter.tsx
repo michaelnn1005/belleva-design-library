@@ -44,6 +44,10 @@ export function SiteFooter() {
             </span>
             <span className="whitespace-nowrap">
               <a href="#" className="transition-colors hover:text-forest">YouTube</a>
+              <span className="mx-1 text-gold">·</span>
+            </span>
+            <span className="whitespace-nowrap">
+              <a href="/careers" className="transition-colors hover:text-forest">Careers</a>
             </span>
           </p>
         </div>
