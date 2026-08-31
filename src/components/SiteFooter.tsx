@@ -1,6 +1,9 @@
 import { BOOKING_URL } from "@/lib/designs";
+import { useLocation } from "@tanstack/react-router";
 
 export function SiteFooter() {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
   return (
     <footer className="border-t border-[#E5DFD3] bg-background px-6 pt-20 pb-12 md:px-12">
       <div className="mx-auto max-w-6xl">
@@ -45,45 +48,49 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div id="contact" className="mt-12">
-          <p className="text-[10px] uppercase tracking-[2px] text-gold">Write to us</p>
-          <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-            />
-            <textarea
-              rows={3}
-              placeholder="Message"
-              className="w-full resize-none border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="mt-4 inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
-            >
-              Send
-            </button>
-          </form>
-          <p className="mt-3 text-[10px] italic text-muted-foreground">Demo form — not yet connected.</p>
-        </div>
+        {!isContactPage && (
+          <>
+            <div id="contact" className="mt-12">
+              <p className="text-[10px] uppercase tracking-[2px] text-gold">Write to us</p>
+              <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
+                />
+                <textarea
+                  rows={3}
+                  placeholder="Message"
+                  className="w-full resize-none border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="mt-4 inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
+                >
+                  Send
+                </button>
+              </form>
+              <p className="mt-3 text-[10px] italic text-muted-foreground">Demo form — not yet connected.</p>
+            </div>
 
-        <div className="mt-12">
-          <a
-            href={BOOKING_URL}
-            className="inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
-          >
-            Book an appointment
-          </a>
-          <p className="mt-3 max-w-[260px] text-[11px] leading-relaxed text-muted-foreground">
-            Tell us your occasion in the Note box — we will take care of the rest.
-          </p>
-        </div>
+            <div className="mt-12">
+              <a
+                href={BOOKING_URL}
+                className="inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors hover:bg-forest-soft"
+              >
+                Book an appointment
+              </a>
+              <p className="mt-3 max-w-[260px] text-[11px] leading-relaxed text-muted-foreground">
+                Tell us your occasion in the Note box — we will take care of the rest.
+              </p>
+            </div>
+          </>
+        )}
       </div>
     </footer>
   );
