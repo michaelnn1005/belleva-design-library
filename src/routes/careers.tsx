@@ -131,7 +131,7 @@ const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
     number: "03",
     title: "The business track",
     description:
-      "We're building a team to help this salon grow into more than one. Some of them started at the chair.",
+      "We're building a team to help this salon grow into more than one. If you can think past your own chair, there's a seat at that table.",
   },
 ];
 
