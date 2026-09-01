@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import trayPhotoAsset from "@/assets/tray-photo.png.asset.json";
+
 import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
 import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
 import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
@@ -382,13 +382,10 @@ function StandardPage() {
                 </p>
               </div>
 
-              <div className="mt-12 aspect-[3/2] w-full bg-cream/8">
-                <img
-                  src={trayPhotoAsset.url}
-                  alt="Disinfected tools laid out on a clean tray at Belleva Nails"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <div
+                className="mt-12 aspect-[4/5] w-full bg-cream rounded-none"
+                aria-hidden="true"
+              />
             </FadeUpSection>
           </div>
         </section>
