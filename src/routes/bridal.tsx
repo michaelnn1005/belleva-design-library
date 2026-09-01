@@ -300,21 +300,22 @@ function BridalPage() {
 
         {/* JUST MARRIED */}
         <section
-          className="relative rounded-none px-6 py-12 md:px-12 md:py-[72px]"
+          className="relative flex min-h-[560px] flex-col justify-start rounded-none px-6 py-24 md:px-12 md:py-24"
           style={{
             backgroundImage: `url(${bridalJustMarriedAsset.url})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "50% 100%",
+            backgroundRepeat: "no-repeat",
             borderRadius: 0,
           }}
         >
           <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)]" />
-          <div className="relative mx-auto max-w-[720px]">
+          <div className="relative mx-auto w-full max-w-[720px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 JUST MARRIED
               </p>
-              <p className="mt-4 text-[17px] leading-[1.7] text-cream">
+              <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-cream">
                 Recently married? Ask the front desk about Just Married — a couples session before the honeymoon, and a little something reserved for your next visit.
               </p>
             </FadeUpSection>
