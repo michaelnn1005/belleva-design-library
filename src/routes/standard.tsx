@@ -303,19 +303,19 @@ function StandardPage() {
                     number: "02",
                     title: "Tell us",
                     description:
-                      "What you want, what you don't, anything specific. The more we know, the better this goes.",
+                      "What you want, what you don’t, anything specific. The more we know, the better this goes.",
                   },
                   {
                     number: "03",
                     title: "The match",
                     description:
-                      "We pair you with the technician whose strengths fit your request — that's the whole system.",
+                      "We pair you with the technician whose strengths fit your request — that’s the whole system.",
                   },
                   {
                     number: "04",
                     title: "Your feedback",
                     description:
-                      "Before you leave, we ask. Honestly. It's how we get better.",
+                      "Before you leave, we ask. Honestly. It’s how we get better.",
                   },
                   {
                     number: "05",
