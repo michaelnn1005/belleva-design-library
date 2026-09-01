@@ -484,14 +484,20 @@ function Index() {
         </span>
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
-          <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream lining-nums md:text-[58px]">
-            The industry standard is a 7-day guarantee. Cute. Ours is 14.
+          <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
+            Things you're allowed to ask here.
           </h2>
-          <ComparisonRow />
-          <p className="max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
-            Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
-            we fix it free. No receipts argued, no questions asked.
-          </p>
+
+          <StaggeredAskLines />
+
+          <Link
+            to="/standard"
+            className="mt-7 inline-block text-[14px] text-cream no-underline transition-colors hover:underline"
+          >
+            Most salons hope you never ask. Our whole standard is in writing{" "}
+            <span className="text-gold">→</span>
+          </Link>
+
           <p className="mt-10 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
         </div>
       </section>
