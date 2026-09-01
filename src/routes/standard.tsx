@@ -531,7 +531,7 @@ function StandardPage() {
                 I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We&apos;d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
               </p>
               <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
-                To everyone who has trusted us with their hands these past two years: thank you. You&apos;re the reason we get to keep raising the bar.
+                To everyone who has trusted us with their hands these past two years: thank you. You&apos;re the reason we get to keep raising the bar. And to those who came once and didn&apos;t come back — thank you, too. You taught us things no compliment ever could.
               </p>
             </div>
 
