@@ -255,18 +255,24 @@ function StaggeredAskLines() {
       {lines.map((line, i) => {
         const animated = visible || reduced;
         return (
-          <div
+          <Link
             key={line}
-            className={`transition-all duration-700 ease-out ${
+            to="/standard"
+            className={`group block transition-all duration-700 ease-out ${
               animated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
             style={{ transitionDelay: reduced ? "0ms" : `${i * 80}ms` }}
           >
             <div className="h-px w-full bg-gold/40" />
-            <p className="mt-4 font-display text-[21px] font-normal leading-[1.4] text-cream">
-              {line}
-            </p>
-          </div>
+            <div className="flex items-baseline justify-between gap-4 pt-4">
+              <p className="font-display text-[21px] font-normal leading-[1.4] text-cream/80 transition-colors duration-200 group-hover:text-cream">
+                {line}
+              </p>
+              <span className="text-[16px] text-gold opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                →
+              </span>
+            </div>
+          </Link>
         );
       })}
     </div>
@@ -485,18 +491,23 @@ function Index() {
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
-            Things you're allowed to ask here.
+            Things you’re allowed to ask here.
           </h2>
 
           <StaggeredAskLines />
 
-          <Link
-            to="/standard"
-            className="mt-7 inline-block text-[14px] text-cream no-underline transition-colors hover:underline"
-          >
-            Most salons hope you never ask. Our whole standard is in writing{" "}
-            <span className="text-gold">→</span>
-          </Link>
+          <div className="mt-7">
+            <p className="text-[14px] text-cream/70">
+              Most salons hope you never ask.
+            </p>
+            <Link
+              to="/standard"
+              className="mt-2 inline-block text-[14px] text-cream underline decoration-gold decoration-1 underline-offset-4"
+            >
+              Read the whole standard{" "}
+              <span className="text-gold">→</span>
+            </Link>
+          </div>
 
           <p className="mt-10 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
         </div>
