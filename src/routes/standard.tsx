@@ -472,7 +472,7 @@ function StandardPage() {
         <div className="mx-auto max-w-[720px]">
           <FadeUpSection>
             <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-              WHAT WE DON&apos;T DO
+              WHAT WE DON’T DO
             </p>
             <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
               A short list. On purpose.
@@ -485,7 +485,7 @@ function StandardPage() {
               "No reused files, buffers, or liners.",
               "No rushing. Design appointments are booked with the time built in.",
               "No upsell scripts at the chair.",
-              "No hidden fees. You'll know the price before we start.",
+              "No hidden fees. You’ll know the price before we start.",
               "No deposits.",
             ].map((line, i) => (
               <div
@@ -493,7 +493,7 @@ function StandardPage() {
                 className="flex items-start gap-4 md:gap-6"
               >
                 <span
-                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 md:w-[88px] md:text-[64px]"
+                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 lining-nums md:w-[88px] md:text-[64px]"
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -528,10 +528,10 @@ function StandardPage() {
             </p>
             <div className="mt-6 space-y-5">
               <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
-                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We&apos;d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We’d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
               </p>
               <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
-                To everyone who has trusted us with their hands these past two years: thank you. You&apos;re the reason we get to keep raising the bar. And to those who came once and didn&apos;t come back — thank you, too. You taught us things no compliment ever could.
+                To everyone who has trusted us with their hands these past two years: thank you. You’re the reason we get to keep raising the bar. And to those who came once and didn’t come back — thank you, too. You taught us things no compliment ever could.
               </p>
             </div>
 
@@ -551,7 +551,7 @@ function StandardPage() {
               Book an appointment
             </a>
             <p className="mt-4 text-[15px] text-background/70">
-              Write your occasion in the Note. We&apos;ll take care of it.
+              Write your occasion in the Note. We’ll take care of it.
             </p>
           </FadeUpSection>
         </div>
