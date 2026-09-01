@@ -9,7 +9,7 @@ import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
 import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
 import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
 import standardFounderDeskAsset from "@/assets/standard-founder-desk.png.asset.json";
-import standardHeroFabricAsset from "@/assets/standard-hero-fabric.png.asset.json";
+import standardHeroSalonTableAsset from "@/assets/standard-hero-salon-table.png.asset.json";
 import standardTrayAsset from "@/assets/standard-tray.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
@@ -174,10 +174,10 @@ function StandardPage() {
         >
           {/* Background image */}
           <img
-            src={standardHeroFabricAsset.url}
+            src={standardHeroSalonTableAsset.url}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-bottom"
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
