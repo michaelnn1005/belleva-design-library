@@ -9,6 +9,7 @@ import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
 import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
 import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
 import standardHeroFabricAsset from "@/assets/standard-hero-fabric.png.asset.json";
+import standardTrayAsset from "@/assets/standard-tray.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
@@ -382,10 +383,13 @@ function StandardPage() {
                 </p>
               </div>
 
-              <div
-                className="mt-12 aspect-[4/5] w-full bg-cream rounded-none"
-                aria-hidden="true"
-              />
+              <div className="mt-12 aspect-[4/5] w-full rounded-none">
+                <img
+                  src={standardTrayAsset.url}
+                  alt="Sterilized tools and single-use files arranged on a clean steel tray at Belleva Nails"
+                  className="h-full w-full object-cover rounded-none"
+                />
+              </div>
             </FadeUpSection>
           </div>
         </section>
