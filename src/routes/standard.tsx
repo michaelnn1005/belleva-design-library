@@ -508,33 +508,37 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="bg-forest px-6 py-20 md:px-12 md:py-[120px]">
-        <div className="mx-auto max-w-[640px]">
+      <section
+        className="relative overflow-hidden rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]"
+        style={{
+          backgroundImage: `url(${standardFounderDeskAsset.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "scroll",
+        }}
+      >
+        <div
+          className="absolute inset-0 rounded-none bg-forest/45"
+          style={{ backgroundColor: "rgba(47,74,62,0.45)" }}
+        />
+        <div className="relative z-10 mx-auto max-w-[640px]">
           <FadeUpSection>
-            <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
+            <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER
             </p>
-            <div className="mt-6 space-y-[18px]">
-              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
-                I started in this industry nearly ten years ago, at the table, doing nails. Then managing a salon. Then opening my own. Everything you have read on this page comes from what I saw in those years, and from deciding Belleva would do it differently.
+            <div className="mt-6 space-y-5">
+              <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We&apos;d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
               </p>
-              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
-                The people who sit in our chairs are usually the ones taking care of everyone else. This hour is the one they keep for themselves. We treat it that way.
-              </p>
-              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
-                We are still learning. Every note, every review, every &quot;this could be better&quot; has shaped how we work, and we are grateful for all of it. To the clients who gave us a second chance, thank you. To the ones who left, thank you too. You showed us what needed to change. And to those who have stayed year after year, Belleva is what it is because of you.
-              </p>
-              <p className="text-[17px] leading-[1.75] text-background/90 md:text-[18px]">
-                We don&apos;t take that trust for granted.
+              <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
+                To everyone who has trusted us with their hands these past two years: thank you. You&apos;re the reason we get to keep raising the bar.
               </p>
             </div>
 
-            <div className="mt-10">
-              <p className="font-display text-[40px] italic leading-none text-background">
-                Michael
-              </p>
-              <p className="mt-2 text-[14px] text-background/70">
-                Founder, Belleva Nails
+            <div className="mt-8">
+              <div className="h-[48px] w-[140px] border-b border-gold bg-transparent" />
+              <p className="mt-2 text-[11px] font-medium uppercase tracking-[2px] text-gold">
+                MICHAEL · FOUNDER
               </p>
             </div>
 
