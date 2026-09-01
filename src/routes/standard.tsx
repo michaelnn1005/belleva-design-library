@@ -191,7 +191,7 @@ function StandardPage() {
                 The bare minimum. Done properly.
               </h1>
               <p className="mt-5 max-w-[480px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
-                Everything on this page should be normal. In this industry, it isn&apos;t.
+                Everything on this page should be normal. In this industry, it isn’t.
               </p>
             </FadeUpSection>
           </div>
@@ -211,7 +211,7 @@ function StandardPage() {
                 Fourteen days. Not seven.
               </h2>
               <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
-                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we&apos;ll take a look.
+                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we’ll take a look.
               </p>
               <p className="mt-5 text-[15px] italic text-gold">
                 The industry standard is 7 days. Cute. Ours is 14.
@@ -230,7 +230,7 @@ function StandardPage() {
                       Online
                     </p>
                     <p className="mt-2 text-[17px] leading-[1.6] text-forest">
-                      Book as usual and write &quot;Repair&quot; in the Note.
+                      Book as usual and write “Repair” in the Note.
                     </p>
                   </div>
                   <div>
@@ -266,7 +266,7 @@ function StandardPage() {
                 One set. Two weeks. No retouching.
               </h2>
               <p className="mt-4 max-w-[520px] text-[17px] text-forest/75">
-                Day 1 is what you&apos;d expect. Day 14 is the point.
+                Day 1 is what you’d expect. Day 14 is the point.
               </p>
 
               <ProofGallery />
@@ -303,19 +303,19 @@ function StandardPage() {
                     number: "02",
                     title: "Tell us",
                     description:
-                      "What you want, what you don't, anything specific. The more we know, the better this goes.",
+                      "What you want, what you don’t, anything specific. The more we know, the better this goes.",
                   },
                   {
                     number: "03",
                     title: "The match",
                     description:
-                      "We pair you with the technician whose strengths fit your request — that's the whole system.",
+                      "We pair you with the technician whose strengths fit your request — that’s the whole system.",
                   },
                   {
                     number: "04",
                     title: "Your feedback",
                     description:
-                      "Before you leave, we ask. Honestly. It's how we get better.",
+                      "Before you leave, we ask. Honestly. It’s how we get better.",
                   },
                   {
                     number: "05",
@@ -330,7 +330,7 @@ function StandardPage() {
                       i !== arr.length - 1 ? "border-b border-forest/12" : ""
                     }`}
                   >
-                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold">
+                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums">
                       {step.number}
                     </span>
                     <div>
@@ -414,7 +414,7 @@ function StandardPage() {
                     Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
                   </p>
                   <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Everything else is chosen the same way: because we&apos;d use it on our own hands.
+                    Everything else is chosen the same way: because we’d use it on our own hands.
                   </p>
                 </div>
               </FadeUpSection>
@@ -437,10 +437,10 @@ function StandardPage() {
           <div className="mx-auto max-w-[680px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                THINGS YOU&apos;RE ALLOWED TO ASK
+                THINGS YOU’RE ALLOWED TO ASK
               </p>
               <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                Ask. We&apos;d rather you did.
+                Ask. We’d rather you did.
               </h2>
             </FadeUpSection>
 
@@ -448,21 +448,21 @@ function StandardPage() {
               {[
                 "Can I see the lab report?",
                 "Can you open the tool pouch in front of me?",
-                "Who's doing my nails, and why them?",
+                "Who’s doing my nails, and why them?",
                 "It chipped on day 12. Is that still covered?",
               ].map((line) => (
                 <p
                   key={line}
                   className="border-b border-forest/12 py-5 font-display text-[21px] leading-[1.4] italic text-forest lining-nums last:border-b-0 md:text-[26px]"
                 >
-                  &quot;{line}&quot;
+                  “{line}”
                 </p>
               ))}
             </div>
 
             <FadeUpSection>
               <p className="mt-12 text-[18px] font-medium text-gold">
-                Yes. Yes. We&apos;ll tell you. And yes.
+                Yes. Yes. We’ll tell you. And yes.
               </p>
             </FadeUpSection>
           </div>
@@ -472,7 +472,7 @@ function StandardPage() {
         <div className="mx-auto max-w-[720px]">
           <FadeUpSection>
             <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-              WHAT WE DON&apos;T DO
+              WHAT WE DON’T DO
             </p>
             <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
               A short list. On purpose.
@@ -485,7 +485,7 @@ function StandardPage() {
               "No reused files, buffers, or liners.",
               "No rushing. Design appointments are booked with the time built in.",
               "No upsell scripts at the chair.",
-              "No hidden fees. You'll know the price before we start.",
+              "No hidden fees. You’ll know the price before we start.",
               "No deposits.",
             ].map((line, i) => (
               <div
@@ -493,7 +493,7 @@ function StandardPage() {
                 className="flex items-start gap-4 md:gap-6"
               >
                 <span
-                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 md:w-[88px] md:text-[64px]"
+                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 lining-nums md:w-[88px] md:text-[64px]"
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -528,10 +528,10 @@ function StandardPage() {
             </p>
             <div className="mt-6 space-y-5">
               <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
-                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We&apos;d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We’d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
               </p>
               <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
-                To everyone who has trusted us with their hands these past two years: thank you. You&apos;re the reason we get to keep raising the bar. And to those who came once and didn&apos;t come back — thank you, too. You taught us things no compliment ever could.
+                To everyone who has trusted us with their hands these past two years: thank you. You’re the reason we get to keep raising the bar. And to those who came once and didn’t come back — thank you, too. You taught us things no compliment ever could.
               </p>
             </div>
 
@@ -551,7 +551,7 @@ function StandardPage() {
               Book an appointment
             </a>
             <p className="mt-4 text-[15px] text-background/70">
-              Write your occasion in the Note. We&apos;ll take care of it.
+              Write your occasion in the Note. We’ll take care of it.
             </p>
           </FadeUpSection>
         </div>
