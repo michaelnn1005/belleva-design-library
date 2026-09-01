@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -242,30 +242,33 @@ function Placeholder({
   );
 }
 
-function ComparisonRow() {
-  const { ref, visible } = useFadeUp();
+function StaggeredAskLines() {
+  const { ref, visible, reduced } = useFadeUp();
+  const lines = [
+    "Ask to see the lab reports.",
+    "Ask us to open the tool pouch in front of you.",
+    "Ask why we chose your tech for you.",
+  ];
+
   return (
-    <div
-      ref={ref}
-      className={`fade-up ${visible ? "fade-in-visible" : ""} my-12 flex items-center gap-6`}
-    >
-      <span className="relative text-[13px] uppercase tracking-[2px] text-[rgba(245,240,232,0.45)]">
-        7 DAYS
-        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[rgba(245,240,232,0.45)]" />
-      </span>
-      <svg
-        width="40"
-        height="8"
-        viewBox="0 0 40 8"
-        fill="none"
-        aria-hidden="true"
-        className="text-gold"
-      >
-        <path d="M0 4h38M34 1l4 3-4 3" stroke="currentColor" strokeWidth="1" />
-      </svg>
-      <span className="text-[13px] uppercase tracking-[2px] text-cream">
-        14 DAYS
-      </span>
+    <div ref={ref} className="mt-10 flex flex-col gap-7">
+      {lines.map((line, i) => {
+        const animated = visible || reduced;
+        return (
+          <div
+            key={line}
+            className={`transition-all duration-700 ease-out ${
+              animated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+            }`}
+            style={{ transitionDelay: reduced ? "0ms" : `${i * 80}ms` }}
+          >
+            <div className="h-px w-full bg-gold/40" />
+            <p className="mt-4 font-display text-[21px] font-normal leading-[1.4] text-cream">
+              {line}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -481,14 +484,20 @@ function Index() {
         </span>
         <div className="relative z-10 mx-auto max-w-3xl">
           <p className="eyebrow">The Belleva standard</p>
-          <h2 className="mt-8 max-w-2xl font-display text-[40px] leading-[1.15] text-cream lining-nums md:text-[58px]">
-            The industry standard is a 7-day guarantee. Cute. Ours is 14.
+          <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
+            Things you're allowed to ask here.
           </h2>
-          <ComparisonRow />
-          <p className="max-w-[560px] text-[13px] font-light leading-relaxed text-cream/80">
-            Every set is guaranteed for 14 days. If anything chips, lifts, or breaks, come back and
-            we fix it free. No receipts argued, no questions asked.
-          </p>
+
+          <StaggeredAskLines />
+
+          <Link
+            to="/standard"
+            className="mt-7 inline-block text-[14px] text-cream no-underline transition-colors hover:underline"
+          >
+            Most salons hope you never ask. Our whole standard is in writing{" "}
+            <span className="text-gold">→</span>
+          </Link>
+
           <p className="mt-10 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
         </div>
       </section>
