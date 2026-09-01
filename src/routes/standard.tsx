@@ -414,7 +414,7 @@ function StandardPage() {
                     Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
                   </p>
                   <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Everything else is chosen the same way: because we&apos;d use it on our own hands.
+                    Everything else is chosen the same way: because we’d use it on our own hands.
                   </p>
                 </div>
               </FadeUpSection>
@@ -437,10 +437,10 @@ function StandardPage() {
           <div className="mx-auto max-w-[680px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                THINGS YOU&apos;RE ALLOWED TO ASK
+                THINGS YOU’RE ALLOWED TO ASK
               </p>
               <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                Ask. We&apos;d rather you did.
+                Ask. We’d rather you did.
               </h2>
             </FadeUpSection>
 
@@ -448,21 +448,21 @@ function StandardPage() {
               {[
                 "Can I see the lab report?",
                 "Can you open the tool pouch in front of me?",
-                "Who's doing my nails, and why them?",
+                "Who’s doing my nails, and why them?",
                 "It chipped on day 12. Is that still covered?",
               ].map((line) => (
                 <p
                   key={line}
                   className="border-b border-forest/12 py-5 font-display text-[21px] leading-[1.4] italic text-forest lining-nums last:border-b-0 md:text-[26px]"
                 >
-                  &quot;{line}&quot;
+                  “{line}”
                 </p>
               ))}
             </div>
 
             <FadeUpSection>
               <p className="mt-12 text-[18px] font-medium text-gold">
-                Yes. Yes. We&apos;ll tell you. And yes.
+                Yes. Yes. We’ll tell you. And yes.
               </p>
             </FadeUpSection>
           </div>
