@@ -309,7 +309,7 @@ function StandardPage() {
                     number: "03",
                     title: "The match",
                     description:
-                      "We pair you with the technician whose strengths fit your request. Not whoever is free.",
+                      "We pair you with the technician whose strengths fit your request — that's the whole system.",
                   },
                   {
                     number: "04",
