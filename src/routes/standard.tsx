@@ -238,7 +238,14 @@ function StandardPage() {
                       By phone
                     </p>
                     <p className="mt-2 text-[17px] leading-[1.6] text-forest">
-                      Call us and ask to be transferred to the front desk.
+                      Call{" "}
+                      <a
+                        href="tel:+19405141808"
+                        className="underline underline-offset-4 decoration-forest/30"
+                      >
+                        (940) 514-1808
+                      </a>{" "}
+                      and ask for the front desk.
                     </p>
                   </div>
                   <div>
