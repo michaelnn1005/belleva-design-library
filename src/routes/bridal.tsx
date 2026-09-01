@@ -179,7 +179,7 @@ function BridalPage() {
           <img
             src={bridalHeroAsset.url}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
-            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[50%_20%]"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[50%_20%] rounded-none"
           />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
 
@@ -227,11 +227,11 @@ function BridalPage() {
                   Two to four weeks before the wedding, we build your set — shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
                 </p>
               </div>
-              <div className="w-full">
+              <div className="w-full rounded-none">
                 <img
                   src={bridalTrialStillAsset.url}
                   alt="Bridal nail trial detail at Belleva Nails"
-                  className="aspect-[4/5] w-full object-cover"
+                  className="aspect-[4/5] w-full object-cover rounded-none"
                 />
               </div>
               <div>
@@ -254,12 +254,12 @@ function BridalPage() {
           </div>
         </section>
 
-        <section className="bg-background px-6 py-2 md:px-12 md:py-4">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-2 md:px-12 md:py-4 rounded-none">
+          <div className="mx-auto max-w-[720px] rounded-none">
             <img
               src={bridalBetweenStillAsset.url}
               alt="Silk and eucalyptus detail"
-              className="aspect-[4/5] w-full object-cover"
+              className="aspect-[4/5] w-full object-cover rounded-none"
             />
           </div>
         </section>
@@ -300,7 +300,7 @@ function BridalPage() {
 
         {/* JUST MARRIED */}
         <section
-          className="relative px-6 py-12 md:px-12 md:py-[72px]"
+          className="relative rounded-none px-6 py-12 md:px-12 md:py-[72px]"
           style={{
             backgroundImage: `url(${bridalJustMarriedAsset.url})`,
             backgroundSize: "cover",
@@ -361,7 +361,7 @@ function BridalPage() {
 
         {/* CTA */}
         <section
-          className="relative bg-forest px-6 py-20 md:px-12 md:py-[120px]"
+          className="relative rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]"
           style={{
             backgroundImage: `url(${bridalCtaEucalyptusAsset.url})`,
             backgroundSize: "cover",
