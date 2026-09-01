@@ -182,7 +182,7 @@ function StandardPage() {
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12">
+          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12 -translate-y-12 md:-translate-y-14">
             <FadeUpSection className="w-full">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE BELLEVA STANDARD
