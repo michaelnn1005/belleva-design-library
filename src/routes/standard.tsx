@@ -8,6 +8,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
 import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
 import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
+import standardFounderDeskAsset from "@/assets/standard-founder-desk.png.asset.json";
 import standardHeroFabricAsset from "@/assets/standard-hero-fabric.png.asset.json";
 import standardTrayAsset from "@/assets/standard-tray.png.asset.json";
 
