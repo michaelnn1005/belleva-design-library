@@ -191,7 +191,7 @@ function StandardPage() {
                 The bare minimum. Done properly.
               </h1>
               <p className="mt-5 max-w-[480px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
-                Everything on this page should be normal. In this industry, it isn&apos;t.
+                Everything on this page should be normal. In this industry, it isn’t.
               </p>
             </FadeUpSection>
           </div>
@@ -211,7 +211,7 @@ function StandardPage() {
                 Fourteen days. Not seven.
               </h2>
               <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
-                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we&apos;ll take a look.
+                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we’ll take a look.
               </p>
               <p className="mt-5 text-[15px] italic text-gold">
                 The industry standard is 7 days. Cute. Ours is 14.
@@ -230,7 +230,7 @@ function StandardPage() {
                       Online
                     </p>
                     <p className="mt-2 text-[17px] leading-[1.6] text-forest">
-                      Book as usual and write &quot;Repair&quot; in the Note.
+                      Book as usual and write “Repair” in the Note.
                     </p>
                   </div>
                   <div>
@@ -266,7 +266,7 @@ function StandardPage() {
                 One set. Two weeks. No retouching.
               </h2>
               <p className="mt-4 max-w-[520px] text-[17px] text-forest/75">
-                Day 1 is what you&apos;d expect. Day 14 is the point.
+                Day 1 is what you’d expect. Day 14 is the point.
               </p>
 
               <ProofGallery />
@@ -330,7 +330,7 @@ function StandardPage() {
                       i !== arr.length - 1 ? "border-b border-forest/12" : ""
                     }`}
                   >
-                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold">
+                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums">
                       {step.number}
                     </span>
                     <div>
