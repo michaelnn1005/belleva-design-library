@@ -515,8 +515,8 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="relative rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]">
-        <div className="relative z-10 mx-auto max-w-[640px]">
+      <section className="relative rounded-none bg-forest py-20 md:py-[120px]">
+        <div className="relative z-10 mx-auto max-w-[640px] px-6 md:px-12">
           <FadeUpSection>
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER
@@ -558,7 +558,7 @@ function StandardPage() {
           </FadeUpSection>
         </div>
 
-        <div className="relative -mx-6 mt-20 h-[240px] w-full overflow-hidden rounded-none md:-mx-12 md:mt-[120px] md:h-[320px]">
+        <div className="relative mt-20 h-[240px] w-full overflow-hidden rounded-none md:mt-[120px] md:h-[320px]">
           <img
             src={standardFounderDeskAsset.url}
             alt=""
