@@ -533,7 +533,7 @@ function StandardPage() {
               </p>
             </div>
 
-            <div className="mt-8">
+            <div>
               <div
                 className="h-[48px] w-[140px] bg-transparent"
                 aria-hidden="true"
@@ -560,7 +560,7 @@ function StandardPage() {
 
         <div className="relative mt-20 h-[240px] w-full overflow-hidden rounded-none md:mt-[120px] md:h-[320px]">
           <img
-            src={standardFounderDeskAsset.url}
+            src="/founder-notebook-PLACEHOLDER.jpg"
             alt=""
             aria-hidden="true"
             className="h-full w-full object-cover"
