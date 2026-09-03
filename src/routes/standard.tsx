@@ -515,20 +515,8 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section
-        className="relative overflow-hidden rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]"
-        style={{
-          backgroundImage: `url(${standardFounderDeskAsset.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "scroll",
-        }}
-      >
-        <div
-          className="absolute inset-0 rounded-none bg-forest/45"
-          style={{ backgroundColor: "rgba(47,74,62,0.45)" }}
-        />
-        <div className="relative z-10 mx-auto max-w-[640px]">
+      <section className="relative rounded-none bg-forest pt-20 md:pt-[120px]">
+        <div className="relative z-10 mx-auto max-w-[640px] px-6 md:px-12">
           <FadeUpSection>
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER
@@ -546,13 +534,11 @@ function StandardPage() {
             </div>
 
             <div className="mt-8">
-              <div className="flex h-[48px] w-[140px] items-end border-b border-gold bg-transparent">
-                <img
-                  src="/founder-signature-PLACEHOLDER.png"
-                  alt="Founder signature placeholder"
-                  className="h-full w-full object-contain object-bottom"
-                />
-              </div>
+              <div
+                className="h-[48px] w-[140px] bg-transparent"
+                aria-hidden="true"
+              />
+              <div className="h-px w-[140px] bg-gold" aria-hidden="true" />
               <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-gold">
                 Michael — Founder, Belleva Nails
               </p>
@@ -570,6 +556,19 @@ function StandardPage() {
               Write your occasion in the Note. We’ll take care of it.
             </p>
           </FadeUpSection>
+        </div>
+
+        <div className="relative mt-20 h-[240px] w-full overflow-hidden rounded-none md:mt-[120px] md:h-[320px]">
+          <img
+            src={standardFounderDeskAsset.url}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+          />
+          <div
+            className="absolute inset-0 rounded-none"
+            style={{ backgroundColor: "rgba(47,74,62,0.38)" }}
+          />
         </div>
       </section>
 
