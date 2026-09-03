@@ -515,7 +515,7 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="relative rounded-none bg-forest py-20 md:py-[120px]">
+      <section className="relative rounded-none bg-forest pt-20 md:pt-[120px]">
         <div className="relative z-10 mx-auto max-w-[640px] px-6 md:px-12">
           <FadeUpSection>
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
