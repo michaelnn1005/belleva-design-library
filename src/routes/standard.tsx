@@ -534,18 +534,27 @@ function StandardPage() {
               A NOTE FROM THE FOUNDER
             </p>
             <div className="mt-6 space-y-5">
-              <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
+              <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
                 I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We’d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
               </p>
-              <p className="text-[17px] leading-[1.75] text-cream md:text-[18px]">
+              <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
                 To everyone who has trusted us with their hands these past two years: thank you. You’re the reason we get to keep raising the bar. And to those who came once and didn’t come back — thank you, too. You taught us things no compliment ever could.
+              </p>
+              <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
+                We are not a perfect salon, and we won’t pretend to be one. What we can promise is simpler than that: we will show up for you with everything we have, and we will try to be a little better than we were the day before — every set, every visit, every year. That’s the whole plan.
               </p>
             </div>
 
             <div className="mt-8">
-              <div className="h-[48px] w-[140px] border-b border-gold bg-transparent" />
-              <p className="mt-2 text-[11px] font-medium uppercase tracking-[2px] text-gold">
-                MICHAEL · FOUNDER
+              <div className="flex h-[48px] w-[140px] items-end border-b border-gold bg-transparent">
+                <img
+                  src="/founder-signature-PLACEHOLDER.png"
+                  alt="Founder signature placeholder"
+                  className="h-full w-full object-contain object-bottom"
+                />
+              </div>
+              <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-gold">
+                Michael — Founder, Belleva Nails
               </p>
             </div>
 
