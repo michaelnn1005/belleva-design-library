@@ -381,25 +381,33 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
+              <p className="mt-4 max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
+                Every set below is guaranteed for 14 days. Designs go in the
+                Note when you book.
+              </p>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
                   <div
                     key={group.name}
-                    className={`py-6 ${i !== 0 ? "border-t border-[#E5DFD3]" : ""}`}
+                    className={`py-10 ${i !== 0 ? "border-t border-forest/12" : ""}`}
                   >
-                    <p className="text-[11px] uppercase tracking-[2px] text-gold">
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                       {group.name}
                     </p>
-                    <div className="mt-2 space-y-1">
-                      {group.lines.map((line) => (
-                        <p
-                          key={line}
-                          className="font-display text-[19px] font-normal leading-[1.5] text-forest lining-nums"
+                    <p className="mt-2 max-w-[560px] font-sans text-[15px] leading-[1.55] text-forest/70">
+                      {group.descriptor}
+                    </p>
+                    <div className="mt-4">
+                      {group.rows.map(([variant, price]) => (
+                        <div
+                          key={variant}
+                          className="flex h-10 items-center justify-between font-display text-[22px] leading-none text-forest lining-nums"
                         >
-                          {line}
-                        </p>
+                          <span>{variant}</span>
+                          <span>{price}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
