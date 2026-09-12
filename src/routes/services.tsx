@@ -412,7 +412,7 @@ function ServicesPage() {
                 Note when you book.
               </p>
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
+            <FadeUpSection className="mt-0 md:mt-4">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
                   <div
