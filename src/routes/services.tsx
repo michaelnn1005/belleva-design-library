@@ -206,20 +206,59 @@ const MANICURES: MenuItem[] = [
 ];
 
 
-const NAIL_SYSTEMS: { name: string; lines: string[] }[] = [
-  { name: "Gel-X", lines: ["Short $65 · Medium $70 · Long $75"] },
-  { name: "Builder gel", lines: ["Full set $55 · Fill $50"] },
+const NAIL_SYSTEMS: {
+  name: string;
+  descriptor: string;
+  rows: [string, string][];
+}[] = [
+  {
+    name: "Gel-X",
+    descriptor:
+      "Soft-gel extensions shaped to you, no drilling. The set most of our designs are built on.",
+    rows: [
+      ["Short", "$65"],
+      ["Medium", "$70"],
+      ["Long", "$75"],
+    ],
+  },
+  {
+    name: "Builder gel",
+    descriptor:
+      "A strengthening overlay on your natural nail, for growing length without extensions.",
+    rows: [
+      ["Full set", "$55"],
+      ["Fill", "$50"],
+    ],
+  },
   {
     name: "Dipping",
-    lines: ["Color $42+ · French $50+ · French color tips $55+ · Ombre $55+"],
+    descriptor:
+      "Powder, no UV, a hard finish that holds. Plus means the price rises with length and detail.",
+    rows: [
+      ["Color", "$42+"],
+      ["French", "$50+"],
+      ["French color tips", "$55+"],
+      ["Ombre", "$55+"],
+    ],
   },
-  { name: "Gel / Shellac", lines: ["Gel manicure $42 · Signature $52 · Belleva $65"] },
+  {
+    name: "Gel / Shellac",
+    descriptor:
+      "Gel polish over a full manicure, in three levels of care.",
+    rows: [
+      ["Gel manicure", "$42"],
+      ["Signature", "$52"],
+      ["Belleva", "$65"],
+    ],
+  },
   {
     name: "Acrylic",
-    lines: [
-      "Pink & white $65 (fill $55)",
-      "With gel polish $55 (fill $50)",
-      "With regular polish $45 (fill $40)",
+    descriptor:
+      "The classic structure. Fills every two to three weeks keep it clean.",
+    rows: [
+      ["Pink & white", "$65 (fill $55)"],
+      ["With gel polish", "$55 (fill $50)"],
+      ["With regular polish", "$45 (fill $40)"],
     ],
   },
 ];
@@ -342,25 +381,33 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
+              <p className="mt-4 max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
+                Every set below is guaranteed for 14 days. Designs go in the
+                Note when you book.
+              </p>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
                   <div
                     key={group.name}
-                    className={`py-6 ${i !== 0 ? "border-t border-[#E5DFD3]" : ""}`}
+                    className={`py-10 ${i !== 0 ? "border-t border-forest/12" : ""}`}
                   >
-                    <p className="text-[11px] uppercase tracking-[2px] text-gold">
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                       {group.name}
                     </p>
-                    <div className="mt-2 space-y-1">
-                      {group.lines.map((line) => (
-                        <p
-                          key={line}
-                          className="font-display text-[19px] font-normal leading-[1.5] text-forest lining-nums"
+                    <p className="mt-2 max-w-[560px] font-sans text-[15px] leading-[1.55] text-forest/70">
+                      {group.descriptor}
+                    </p>
+                    <div className="mt-4">
+                      {group.rows.map(([variant, price]) => (
+                        <div
+                          key={variant}
+                          className="flex h-10 items-center justify-between font-display text-[22px] leading-none text-forest lining-nums"
                         >
-                          {line}
-                        </p>
+                          <span>{variant}</span>
+                          <span>{price}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
