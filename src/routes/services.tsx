@@ -298,18 +298,30 @@ const WAXING: [string, string][] = [
   ["Brazilian", "from $62"],
 ];
 
-const LASHES: { style: string; prices: string }[] = [
+const LASHES: { label: string; rows: [string, string][] }[] = [
   {
-    style: "Classic",
-    prices: "Full set $130 · 2-week fill from $65 · 3-week fill from $75",
+    label: "Classic",
+    rows: [
+      ["Full set", "$130"],
+      ["2-week fill", "from $65"],
+      ["3-week fill", "from $75"],
+    ],
   },
   {
-    style: "Volume",
-    prices: "Full set $145 · 2-week fill from $70 · 3-week fill from $90",
+    label: "Volume",
+    rows: [
+      ["Full set", "$145"],
+      ["2-week fill", "from $70"],
+      ["3-week fill", "from $90"],
+    ],
   },
   {
-    style: "Mega Volume",
-    prices: "Full set $180 · 2-week fill from $90 · 3-week fill from $95",
+    label: "Mega Volume",
+    rows: [
+      ["Full set", "$180"],
+      ["2-week fill", "from $90"],
+      ["3-week fill", "from $95"],
+    ],
   },
 ];
 
