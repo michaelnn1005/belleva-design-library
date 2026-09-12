@@ -268,72 +268,25 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* MESSAGE FORM */}
-        <section className="bg-[#FAF8F5] px-6 py-16 md:px-12 md:py-24">
+        {/* PREFER TO WRITE */}
+        <section className="bg-[#FAF8F5] px-6 py-12 md:px-12 md:py-16">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <HairlineLabel bgClass="bg-[#FAF8F5]">Send a message</HairlineLabel>
-
-              <form
-                className="mt-10 max-w-[560px] space-y-6"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <div>
-                  <label className="block text-[11px] uppercase tracking-[0.14em] text-gold">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-2 w-full border border-[#2F4A3E]/30 bg-transparent px-0 py-3 font-sans text-[15px] text-[#2F4A3E] placeholder:text-[#2F4A3E]/35 focus:border-[#2F4A3E]/60 focus:outline-none"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[11px] uppercase tracking-[0.14em] text-gold">
-                    Phone
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-2 w-full border border-[#2F4A3E]/30 bg-transparent px-0 py-3 font-sans text-[15px] text-[#2F4A3E] placeholder:text-[#2F4A3E]/35 focus:border-[#2F4A3E]/60 focus:outline-none"
-                    placeholder="(940) 000-0000"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[11px] uppercase tracking-[0.14em] text-gold">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="mt-2 w-full border border-[#2F4A3E]/30 bg-transparent px-0 py-3 font-sans text-[15px] text-[#2F4A3E] placeholder:text-[#2F4A3E]/35 focus:border-[#2F4A3E]/60 focus:outline-none"
-                    placeholder="you@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[11px] uppercase tracking-[0.14em] text-gold">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="mt-2 w-full resize-none border border-[#2F4A3E]/30 bg-transparent px-0 py-3 font-sans text-[15px] text-[#2F4A3E] placeholder:text-[#2F4A3E]/35 focus:border-[#2F4A3E]/60 focus:outline-none"
-                    placeholder="How can we help?"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-2 inline-flex items-center bg-[#2F4A3E] px-8 py-4 font-sans text-[12px] uppercase tracking-[0.14em] text-[#FAF8F5] transition-colors hover:bg-[#3A5A4A]"
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                Prefer to write
+              </p>
+              <p className="mt-3 font-sans text-[17px] leading-[1.6] text-[#2F4A3E]">
+                Message us on{" "}
+                <a
+                  href="https://instagram.com/bellevanailsdenton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest"
                 >
-                  Send message
-                </button>
-
-                <p className="block pt-2 font-sans text-[13px] leading-[1.6] text-[#2F4A3E]/70">
-                  We reply during salon hours. If it&apos;s about today&apos;s
-                  appointment, please call.
-                </p>
-              </form>
+                  Instagram
+                </a>
+                .
+              </p>
             </FadeUpSection>
           </div>
         </section>
