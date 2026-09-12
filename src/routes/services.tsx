@@ -391,7 +391,7 @@ function ServicesPage() {
                 Hands, three ways.
               </h2>
             </FadeUpSection>
-            <FadeUpSection className="mt-0 md:mt-4">
+            <FadeUpSection className="mt-10">
               <MenuIndex items={MANICURES} variant="light" />
             </FadeUpSection>
           </div>
