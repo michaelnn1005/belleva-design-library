@@ -124,11 +124,10 @@ function ContactPage() {
                     Open in Google Maps
                   </a>
 
-                  <div className="relative mt-6 aspect-[3/2] w-full bg-[#2F4A3E]/8">
-                    <span className="absolute left-4 top-4 font-sans text-[11px] uppercase tracking-[0.14em] text-gold">
-                      Storefront
-                    </span>
-                  </div>
+                  <p className="mt-5 max-w-[280px] font-sans text-[15px] leading-[1.6] text-[#2F4A3E]/75">
+                    In the Rayzor Ranch center on University Drive, right next
+                    to Dutch Bros.
+                  </p>
                 </div>
 
                 {/* Reach us */}
