@@ -200,6 +200,54 @@ function ContactPage() {
           </div>
         </section>
 
+        {/* BEFORE YOU COME */}
+        <section className="bg-[#FAF8F5] px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                Before you come
+              </p>
+              <h2 className="mt-3 font-display text-[30px] leading-[1.1] text-[#2F4A3E] md:text-[40px] [font-variant-numeric:lining-nums]">
+                Three things people call to ask.
+              </h2>
+
+              <div className="mt-10 space-y-8">
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    Repairs
+                  </p>
+                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                    Anything wrong within 14 days, we fix it free. Book online
+                    with &quot;Repair&quot; in the Note, or call and ask for the
+                    front desk. Weekday repairs are the fastest.
+                  </p>
+                </div>
+
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    Groups & weddings
+                  </p>
+                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                    Booking for more than one? Put the number of people and the
+                    occasion in the Note. The front desk calls back the same day
+                    to set up chairs.
+                  </p>
+                </div>
+
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    Gift cards
+                  </p>
+                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                    At the front desk or by phone. We can hand it to you here or
+                    text you a photo of the card.
+                  </p>
+                </div>
+              </div>
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* NOTE LINE */}
         <section className="bg-[#2F4A3E] px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
