@@ -355,6 +355,31 @@ function ServicesPage() {
                 The build.
               </h2>
             </FadeUpSection>
+            <FadeUpSection className="mt-10 space-y-4">
+              <p className="font-sans text-[15px] leading-[1.7] text-forest">
+                <span className="font-medium">GUARANTEE —</span>{" "}
+                <span className="text-forest/85">
+                  Anything wrong within 14 days, we fix it free. Weekday
+                  repairs are the fastest.
+                </span>
+              </p>
+              <p className="font-sans text-[15px] leading-[1.7] text-forest">
+                <span className="font-medium">DESIGN —</span>{" "}
+                <span className="text-forest/85">
+                  Book ahead and put your design in the Note. We match you with
+                  a technician who does that kind of work.
+                </span>
+              </p>
+              <p className="font-sans text-[15px] leading-[1.7] text-forest">
+                <span className="font-medium">NOTE ON CBD —</span>{" "}
+                <span className="text-forest/85">
+                  CBD services are 18+ and not recommended during pregnancy or
+                  breastfeeding. Tell your tech about any allergies. Every batch
+                  is lab-tested; reports at the front desk and on
+                  bellevanail.com.
+                </span>
+              </p>
+            </FadeUpSection>
             <FadeUpSection className="mt-10">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
