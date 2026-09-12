@@ -90,11 +90,15 @@ function MenuIndex({
               className={`font-display text-[20px] font-medium leading-[1.3] md:text-[22px] ${titleColor}`}
             >
               {item.title}{" "}
-              <span className={`font-body text-[14px] ${priceColor} lining-nums`}>
+              <span className={`inline-block whitespace-nowrap font-body text-[14px] ${priceColor} lining-nums`}>
                 — {item.price}
               </span>
-              {item.cbd && <CbdTag />}
             </p>
+            {item.cbd && (
+              <p className="mt-1 text-[10px] uppercase tracking-[1.5px] text-gold">
+                Lab-tested CBD
+              </p>
+            )}
             <p className={`mt-1.5 text-[15px] leading-[1.6] ${descColor}`}>
               {item.description}
             </p>
@@ -408,7 +412,7 @@ function ServicesPage() {
                 Note when you book.
               </p>
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
+            <FadeUpSection className="mt-0 md:mt-4">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
                   <div
