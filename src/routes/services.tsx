@@ -206,20 +206,59 @@ const MANICURES: MenuItem[] = [
 ];
 
 
-const NAIL_SYSTEMS: { name: string; lines: string[] }[] = [
-  { name: "Gel-X", lines: ["Short $65 · Medium $70 · Long $75"] },
-  { name: "Builder gel", lines: ["Full set $55 · Fill $50"] },
+const NAIL_SYSTEMS: {
+  name: string;
+  descriptor: string;
+  rows: [string, string][];
+}[] = [
+  {
+    name: "Gel-X",
+    descriptor:
+      "Soft-gel extensions shaped to you, no drilling. The set most of our designs are built on.",
+    rows: [
+      ["Short", "$65"],
+      ["Medium", "$70"],
+      ["Long", "$75"],
+    ],
+  },
+  {
+    name: "Builder gel",
+    descriptor:
+      "A strengthening overlay on your natural nail, for growing length without extensions.",
+    rows: [
+      ["Full set", "$55"],
+      ["Fill", "$50"],
+    ],
+  },
   {
     name: "Dipping",
-    lines: ["Color $42+ · French $50+ · French color tips $55+ · Ombre $55+"],
+    descriptor:
+      "Powder, no UV, a hard finish that holds. Plus means the price rises with length and detail.",
+    rows: [
+      ["Color", "$42+"],
+      ["French", "$50+"],
+      ["French color tips", "$55+"],
+      ["Ombre", "$55+"],
+    ],
   },
-  { name: "Gel / Shellac", lines: ["Gel manicure $42 · Signature $52 · Belleva $65"] },
+  {
+    name: "Gel / Shellac",
+    descriptor:
+      "Gel polish over a full manicure, in three levels of care.",
+    rows: [
+      ["Gel manicure", "$42"],
+      ["Signature", "$52"],
+      ["Belleva", "$65"],
+    ],
+  },
   {
     name: "Acrylic",
-    lines: [
-      "Pink & white $65 (fill $55)",
-      "With gel polish $55 (fill $50)",
-      "With regular polish $45 (fill $40)",
+    descriptor:
+      "The classic structure. Fills every two to three weeks keep it clean.",
+    rows: [
+      ["Pink & white", "$65 (fill $55)"],
+      ["With gel polish", "$55 (fill $50)"],
+      ["With regular polish", "$45 (fill $40)"],
     ],
   },
 ];
