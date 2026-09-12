@@ -205,8 +205,6 @@ const MANICURES: MenuItem[] = [
   },
 ];
 
-const CBD_NOTE =
-  "CBD services are 18+ and not recommended during pregnancy or breastfeeding. Tell your tech about any allergies. Every batch is lab-tested — reports at the front desk and bellevanail.com.";
 
 const NAIL_SYSTEMS: { name: string; lines: string[] }[] = [
   { name: "Gel-X", lines: ["Short $65 · Medium $70 · Long $75"] },
