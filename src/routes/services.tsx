@@ -314,11 +314,6 @@ function ServicesPage() {
             <FadeUpSection className="mt-10">
               <MenuIndex items={PEDICURES} variant="dark" />
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
-              <p className="text-[13px] leading-[1.7] text-cream/70 lining-nums">
-                {CBD_NOTE}
-              </p>
-            </FadeUpSection>
           </div>
         </section>
 
