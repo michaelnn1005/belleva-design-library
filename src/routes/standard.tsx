@@ -469,7 +469,7 @@ function StandardPage() {
 
             <FadeUpSection>
               <p className="mt-12 text-[18px] font-medium text-gold">
-                Yes. Yes. We’ll tell you. And yes.
+                Yes — scan the QR code on the bottle. Yes. We'll tell you. And yes.
               </p>
             </FadeUpSection>
           </div>

@@ -156,6 +156,11 @@ const FAQ_GROUPS: FaqGroup[] = [
         answer:
           "FarmHouse Fresh for pedicures — a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
       },
+      {
+        question: "Can I see the lab report?",
+        answer:
+          "Yes — every CBD bottle in the salon has a QR code. Scan it and read the lab report yourself.",
+      },
     ],
   },
   {
