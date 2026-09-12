@@ -463,12 +463,15 @@ function ServicesPage() {
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Waxing
               </p>
+              <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-cream lining-nums md:text-[40px]">
+                Smooth, top to toe.
+              </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-8">
               <div>
                 {WAXING.map((group, i) => (
                   <div key={group.label} className={i !== 0 ? "mt-8" : ""}>
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {group.label}
                     </p>
                     <div className="mt-3">
@@ -483,13 +486,16 @@ function ServicesPage() {
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
               </p>
-              <div className="mt-8">
+              <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-cream lining-nums md:text-[40px]">
+                Lashes, three ways.
+              </h2>
+              <div>
                 {LASHES.map((lash, i) => (
                   <div
                     key={lash.label}
                     className={`py-8 ${i !== 0 ? "border-t border-cream/15" : "pt-0"}`}
                   >
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {lash.label}
                     </p>
                     <div className="mt-3">
