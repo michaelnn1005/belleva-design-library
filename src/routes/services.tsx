@@ -280,22 +280,32 @@ const A_LA_CARTE: [string, string][] = [
   ["Cat eye", "$20"],
 ];
 
-const WAXING: [string, string][] = [
-  ["Lip", "$10"],
-  ["Chin", "$10"],
-  ["Brow", "$12"],
-  ["Side burns", "$16"],
-  ["Full face", "from $42"],
-  ["Underarm", "from $26"],
-  ["Half arm", "from $26"],
-  ["Full arm", "from $36"],
-  ["Half legs", "from $42"],
-  ["Full legs", "from $62"],
-  ["Stomach", "from $25"],
-  ["Chest", "from $36"],
-  ["Back", "from $36"],
-  ["Bikini", "from $42"],
-  ["Brazilian", "from $62"],
+const WAXING: { label: string; entries: [string, string][] }[] = [
+  {
+    label: "Face",
+    entries: [
+      ["Lip", "$10"],
+      ["Chin", "$10"],
+      ["Brow", "$12"],
+      ["Side burns", "$16"],
+      ["Full face", "from $42"],
+    ],
+  },
+  {
+    label: "Body",
+    entries: [
+      ["Underarm", "from $26"],
+      ["Half arm", "from $26"],
+      ["Full arm", "from $36"],
+      ["Half legs", "from $42"],
+      ["Full legs", "from $62"],
+      ["Stomach", "from $25"],
+      ["Chest", "from $36"],
+      ["Back", "from $36"],
+      ["Bikini", "from $42"],
+      ["Brazilian", "from $62"],
+    ],
+  },
 ];
 
 const LASHES: { label: string; rows: [string, string][] }[] = [
@@ -455,20 +465,29 @@ function ServicesPage() {
               </p>
             </FadeUpSection>
             <FadeUpSection className="mt-8">
-              <PriceList entries={WAXING} variant="dark" />
+              <div>
+                {WAXING.map((group, i) => (
+                  <div key={group.label} className={i !== 0 ? "mt-8" : ""}>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                      {group.label}
+                    </p>
+                    <div className="mt-3">
+                      <PriceList entries={group.entries} variant="dark" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </FadeUpSection>
 
             <FadeUpSection className="mt-16">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
               </p>
-            </FadeUpSection>
-            <FadeUpSection className="mt-8">
-              <div>
+              <div className="mt-8">
                 {LASHES.map((lash, i) => (
                   <div
                     key={lash.label}
-                    className={`py-8 ${i !== 0 ? "border-t border-cream/15" : ""}`}
+                    className={`py-8 ${i !== 0 ? "border-t border-cream/15" : "pt-0"}`}
                   >
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                       {lash.label}
@@ -477,7 +496,7 @@ function ServicesPage() {
                       {lash.rows.map(([variant, price]) => (
                         <div
                           key={variant}
-                          className="flex h-10 items-center justify-between font-display text-[22px] leading-none text-cream lining-nums"
+                          className="flex h-9 items-center justify-between font-sans text-[17px] leading-none text-cream lining-nums"
                         >
                           <span>{variant}</span>
                           <span>{price}</span>
