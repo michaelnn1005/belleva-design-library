@@ -205,8 +205,6 @@ const MANICURES: MenuItem[] = [
   },
 ];
 
-const CBD_NOTE =
-  "CBD services are 18+ and not recommended during pregnancy or breastfeeding. Tell your tech about any allergies. Every batch is lab-tested — reports at the front desk and bellevanail.com.";
 
 const NAIL_SYSTEMS: { name: string; lines: string[] }[] = [
   { name: "Gel-X", lines: ["Short $65 · Medium $70 · Long $75"] },
@@ -314,11 +312,6 @@ function ServicesPage() {
             <FadeUpSection className="mt-10">
               <MenuIndex items={PEDICURES} variant="dark" />
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
-              <p className="text-[13px] leading-[1.7] text-cream/70 lining-nums">
-                {CBD_NOTE}
-              </p>
-            </FadeUpSection>
           </div>
         </section>
 
@@ -336,11 +329,6 @@ function ServicesPage() {
             <FadeUpSection className="mt-10">
               <MenuIndex items={MANICURES} variant="light" />
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
-              <p className="text-[13px] leading-[1.7] text-forest/70 lining-nums">
-                {CBD_NOTE}
-              </p>
-            </FadeUpSection>
           </div>
         </section>
 
@@ -354,31 +342,6 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
-            </FadeUpSection>
-            <FadeUpSection className="mt-10 space-y-4">
-              <p className="font-sans text-[15px] leading-[1.7] text-forest">
-                <span className="font-medium">GUARANTEE —</span>{" "}
-                <span className="text-forest/85">
-                  Anything wrong within 14 days, we fix it free. Weekday
-                  repairs are the fastest.
-                </span>
-              </p>
-              <p className="font-sans text-[15px] leading-[1.7] text-forest">
-                <span className="font-medium">DESIGN —</span>{" "}
-                <span className="text-forest/85">
-                  Book ahead and put your design in the Note. We match you with
-                  a technician who does that kind of work.
-                </span>
-              </p>
-              <p className="font-sans text-[15px] leading-[1.7] text-forest">
-                <span className="font-medium">NOTE ON CBD —</span>{" "}
-                <span className="text-forest/85">
-                  CBD services are 18+ and not recommended during pregnancy or
-                  breastfeeding. Tell your tech about any allergies. Every batch
-                  is lab-tested; reports at the front desk and on
-                  bellevanail.com.
-                </span>
-              </p>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <div>
@@ -456,6 +419,48 @@ function ServicesPage() {
                     </p>
                   </div>
                 ))}
+              </div>
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* GOOD TO KNOW */}
+        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                Good to know
+              </p>
+              <div className="mt-10 space-y-8">
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    Guarantee
+                  </p>
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                    Anything wrong within 14 days, we fix it free. Weekday
+                    repairs are the fastest.
+                  </p>
+                </div>
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    Design
+                  </p>
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                    Book ahead and put your design in the Note. We match you with
+                    a technician who does that kind of work.
+                  </p>
+                </div>
+                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                    On CBD
+                  </p>
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                    CBD services are 18+ and not recommended during pregnancy or
+                    breastfeeding. Tell your tech about any allergies. Every batch
+                    is lab-tested; reports at the front desk and on
+                    bellevanail.com.
+                  </p>
+                </div>
               </div>
             </FadeUpSection>
           </div>
