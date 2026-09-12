@@ -298,18 +298,30 @@ const WAXING: [string, string][] = [
   ["Brazilian", "from $62"],
 ];
 
-const LASHES: { style: string; prices: string }[] = [
+const LASHES: { label: string; rows: [string, string][] }[] = [
   {
-    style: "Classic",
-    prices: "Full set $130 · 2-week fill from $65 · 3-week fill from $75",
+    label: "Classic",
+    rows: [
+      ["Full set", "$130"],
+      ["2-week fill", "from $65"],
+      ["3-week fill", "from $75"],
+    ],
   },
   {
-    style: "Volume",
-    prices: "Full set $145 · 2-week fill from $70 · 3-week fill from $90",
+    label: "Volume",
+    rows: [
+      ["Full set", "$145"],
+      ["2-week fill", "from $70"],
+      ["3-week fill", "from $90"],
+    ],
   },
   {
-    style: "Mega Volume",
-    prices: "Full set $180 · 2-week fill from $90 · 3-week fill from $95",
+    label: "Mega Volume",
+    rows: [
+      ["Full set", "$180"],
+      ["2-week fill", "from $90"],
+      ["3-week fill", "from $95"],
+    ],
   },
 ];
 
@@ -455,15 +467,23 @@ function ServicesPage() {
               <div>
                 {LASHES.map((lash, i) => (
                   <div
-                    key={lash.style}
-                    className={`py-5 ${i !== 0 ? "border-t border-gold/40" : ""}`}
+                    key={lash.label}
+                    className={`py-8 ${i !== 0 ? "border-t border-cream/15" : ""}`}
                   >
-                    <p className="font-display text-[20px] font-normal leading-[1.4] text-cream">
-                      {lash.style}{" "}
-                      <span className="font-body text-[14px] text-cream/70 lining-nums">
-                        — {lash.prices}
-                      </span>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                      {lash.label}
                     </p>
+                    <div className="mt-3">
+                      {lash.rows.map(([variant, price]) => (
+                        <div
+                          key={variant}
+                          className="flex h-10 items-center justify-between font-display text-[22px] leading-none text-cream lining-nums"
+                        >
+                          <span>{variant}</span>
+                          <span>{price}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
