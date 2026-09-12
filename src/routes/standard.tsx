@@ -322,7 +322,7 @@ function StandardPage() {
                     number: "04",
                     title: "Your feedback",
                     description:
-                      "Before you leave, we ask. Honestly. It’s how we get better.",
+                      "There's a box at the front desk for you. Say what worked and what didn't; the honest ones help us most. Every month we draw a few cards and send a small gift. It's our way of saying thank you for helping us get better.",
                   },
                   {
                     number: "05",
