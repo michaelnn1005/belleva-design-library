@@ -5,7 +5,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
-import servicesHeroAsset from "@/assets/services-hero.png.asset.json";
+import servicesHeroDesktopAsset from "@/assets/services-hero-desktop.png.asset.json";
+import servicesHeroMobileAsset from "@/assets/services-hero-mobile.png.asset.json";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
