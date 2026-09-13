@@ -583,7 +583,7 @@ function ServicesPage() {
                 Good to know
               </p>
               <div className="mt-10 space-y-8">
-                <div className="border-t border-cream/12 pt-8">
+                <div className="pt-0">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Guarantee
                   </p>
