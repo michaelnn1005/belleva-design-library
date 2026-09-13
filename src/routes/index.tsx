@@ -364,7 +364,7 @@ function ServicesSection() {
               Gel-X · Builder gel · Acrylic · Dipping
             </p>
             <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
-              Sets and designs, built to last past week two.
+              Sets and designs, built to last two to three weeks.
             </p>
           </div>
         </a>
