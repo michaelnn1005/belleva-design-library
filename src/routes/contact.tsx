@@ -83,7 +83,7 @@ function ContactPage() {
 
       <main>
         {/* OPENING */}
-        <section className="bg-[#FAF8F5] px-6 pb-12 pt-32 md:px-12 md:pb-16 md:pt-36">
+        <section className="bg-[#FAF8F5] px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-20">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
