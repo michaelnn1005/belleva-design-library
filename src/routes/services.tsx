@@ -412,18 +412,18 @@ function ServicesPage() {
         </section>
 
         {/* PEDICURES */}
-        <section id="pedicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        <section id="pedicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Pedicures
               </p>
-              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
+              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 Six ways to sit back.
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
-              <MenuIndex items={PEDICURES} variant="dark" />
+              <MenuIndex items={PEDICURES} variant="light" />
               <p className="mt-6 text-[13px] leading-[1.6] text-gold">
                 For every Special or Premium, we donate $1 to United Way of Denton County.
               </p>
@@ -432,18 +432,18 @@ function ServicesPage() {
         </section>
 
         {/* MANICURES */}
-        <section id="manicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="manicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Manicures
               </p>
-              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
+              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
                 Hands, three ways.
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
-              <MenuIndex items={MANICURES} variant="light" />
+              <MenuIndex items={MANICURES} variant="dark" />
             </FadeUpSection>
           </div>
         </section>
