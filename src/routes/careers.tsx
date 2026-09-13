@@ -140,21 +140,62 @@ const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
 ];
 
 function CareersPage() {
+  const [heroPassed, setHeroPassed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero ? hero.offsetHeight - 20 : window.innerHeight - 20;
+      setHeroPassed(window.scrollY > threshold);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader heroPassed={true} />
+      <SiteHeader heroPassed={heroPassed} />
 
       <main>
+        {/* HERO */}
+        <section
+          id="hero"
+          className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
+        >
+          {/* Background image */}
+          <picture className="absolute inset-0">
+            <source
+              media="(min-width: 769px)"
+              srcSet={careersHeroDesktopAsset.url}
+            />
+            <img
+              src={careersHeroMobileAsset.url}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover object-center rounded-none"
+            />
+          </picture>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
+
+          {/* Content */}
+          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
+            <FadeUpSection className="w-full">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]">
+                Careers
+              </p>
+              <h1 className="mt-4 font-display text-[36px] font-medium leading-[1.05] text-[#FAF8F5] md:text-[56px]">
+                Come build with us.
+              </h1>
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* OPENING */}
         <section className="bg-background px-6 pb-16 pt-[120px] md:px-12 md:pb-24 md:pt-[140px]">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Careers
-              </p>
-              <h1 className="mt-4 font-display text-[36px] font-medium leading-[1.05] text-forest md:text-[56px]">
-                Come build with us.
-              </h1>
               <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
                 I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I've seen this industry from every seat — including the ones where you get shorted, talked down to, or pushed aside. That's a big part of why I built this one.
               </p>
