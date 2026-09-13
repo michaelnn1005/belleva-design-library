@@ -407,7 +407,7 @@ function ServicesPage() {
         </section>
 
         {/* PEDICURES */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        <section id="pedicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -424,7 +424,7 @@ function ServicesPage() {
         </section>
 
         {/* MANICURES */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="manicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -441,7 +441,7 @@ function ServicesPage() {
         </section>
 
         {/* NAIL SYSTEMS */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+        <section id="nail-systems" className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -487,7 +487,7 @@ function ServicesPage() {
         </section>
 
         {/* A LA CARTE */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="extras" className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -504,9 +504,9 @@ function ServicesPage() {
         </section>
 
         {/* WAXING & LASHES */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        <section id="waxing-lashes" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
+            <FadeUpSection id="waxing">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Waxing
               </p>
@@ -529,7 +529,7 @@ function ServicesPage() {
               </div>
             </FadeUpSection>
 
-            <FadeUpSection className="mt-16">
+            <FadeUpSection id="lashes" className="mt-16">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
               </p>
