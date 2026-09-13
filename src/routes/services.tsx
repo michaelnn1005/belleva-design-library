@@ -7,6 +7,9 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import servicesHeroDesktopAsset from "@/assets/services-hero-desktop.png.asset.json";
 import servicesHeroMobileAsset from "@/assets/services-hero-mobile.png.asset.json";
+import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
+import servicesManicuresAsset from "@/assets/services-manicures.png.asset.json";
+import servicesPedicuresAsset from "@/assets/services-pedicures.png.asset.json";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
