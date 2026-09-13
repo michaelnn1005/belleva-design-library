@@ -87,7 +87,7 @@ function MenuIndex({
           className={`flex gap-4 py-6 ${i !== 0 ? `border-t ${ruleColor}` : ""}`}
         >
           <span
-            className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums"
+            className="w-12 flex-shrink-0 font-display text-[24px] leading-none text-gold lining-nums md:w-14 md:text-[28px]"
           >
             {item.number}
           </span>
