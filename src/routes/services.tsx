@@ -149,14 +149,14 @@ const PEDICURES: MenuItem[] = [
     title: "The Advance",
     price: "$26 · 20 mins",
     description:
-      "No massage, no ceremony. Trim, shape, cuticle care, polish — twenty minutes and you're back to your day. We won't take it personally.",
+      "No massage, no ceremony. Trim, shape, cuticle care, polish, and you're back to your day. We won't take it personally.",
   },
   {
     number: "02",
     title: "The Basic",
     price: "$33 · 30 mins",
     description:
-      "You know this one. Foot scrub, mud mask, callus care, and a proper massage with organic lotion. A classic for a reason.",
+      "Foot scrub, mud mask, callus care, and a proper massage with organic lotion. A classic for a reason.",
   },
   {
     number: "03",
@@ -170,7 +170,7 @@ const PEDICURES: MenuItem[] = [
     title: "The Elegant Belleva",
     price: "$59 · 60 mins",
     description:
-      "Lab-tested CBD gummies, drops, or tea to start. Then a 20-minute massage. Sixty minutes that feel like a long weekend.",
+      "CBD gummies, drops or tea to start, then a 20-minute massage. Sixty minutes that feel like a long weekend.",
     cbd: true,
   },
   {
@@ -178,18 +178,16 @@ const PEDICURES: MenuItem[] = [
     title: "The Belleva Special",
     price: "$73 · 60 mins",
     description:
-      "A 28-minute massage with CBD oil and steam. Yes, we timed it. Paraffin, hot stones — and a small gift to take home.",
+      "A 28-minute massage with CBD oil and steam, paraffin, hot stones, and a small gift to take home.",
     cbd: true,
-    note: "For every Special, we donate $1 to United Way of Denton County.",
   },
   {
     number: "06",
     title: "The Belleva Premium",
     price: "$89 · 70–80 mins",
     description:
-      "Opens with a jelly soak — pellets hit the water and turn the whole basin into wobble. Childish? Completely. Clients ask for it by name. Then a 36-minute massage, neck and head included, steam, your pick of collagen socks or paraffin. And yes — the secret gift gets an upgrade too.",
+      "Opens with a jelly soak that turns the whole basin into wobble; clients ask for it by name. Then a 36-minute massage, neck and head included, steam, collagen socks or paraffin, and the gift gets an upgrade.",
     cbd: true,
-    note: "For every Premium, we donate $1 to United Way of Denton County.",
   },
 ];
 
@@ -426,6 +424,9 @@ function ServicesPage() {
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <MenuIndex items={PEDICURES} variant="dark" />
+              <p className="mt-6 text-[13px] leading-[1.6] text-gold">
+                For every Special or Premium, we donate $1 to United Way of Denton County.
+              </p>
             </FadeUpSection>
           </div>
         </section>
