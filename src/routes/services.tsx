@@ -87,7 +87,7 @@ function MenuIndex({
           className={`flex gap-4 py-6 ${i !== 0 ? `border-t ${ruleColor}` : ""}`}
         >
           <span
-            className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums"
+            className="w-12 flex-shrink-0 font-display text-[24px] leading-none text-gold lining-nums md:w-14 md:text-[28px]"
           >
             {item.number}
           </span>
@@ -553,10 +553,7 @@ function ServicesPage() {
             <FadeUpSection className="mt-0">
               <div>
                 {LASHES.map((lash, i) => (
-                  <div
-                    key={lash.label}
-                    className={`py-8 ${i !== 0 ? "border-t border-forest/12" : "pt-0"}`}
-                  >
+                  <div key={lash.label} className={i !== 0 ? "mt-8" : ""}>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {lash.label}
                     </p>
@@ -586,7 +583,7 @@ function ServicesPage() {
                 Good to know
               </p>
               <div className="mt-10 space-y-8">
-                <div className="border-t border-cream/12 pt-8">
+                <div className="pt-0">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Guarantee
                   </p>
