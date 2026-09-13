@@ -262,7 +262,7 @@ function FaqGroupSection({
   groupIndex: number;
 }) {
   return (
-    <section className="px-6 md:px-12">
+    <section className={`px-6 md:px-12 ${groupIndex === 0 ? "pt-12 md:pt-16" : ""}`}>
       <div className="mx-auto max-w-[720px]">
         <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-[64px]"}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
