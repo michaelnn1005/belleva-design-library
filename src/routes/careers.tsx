@@ -162,7 +162,7 @@ function CareersPage() {
         <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]">
                 What you get here
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
