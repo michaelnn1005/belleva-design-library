@@ -391,9 +391,9 @@ function ServicesPage() {
               </p>
               <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                 {[
-                  ["Pedicures", "#pedicures"],
-                  ["Manicures", "#manicures"],
                   ["Nail systems", "#nail-systems"],
+                  ["Manicures", "#manicures"],
+                  ["Pedicures", "#pedicures"],
                   ["Extras", "#extras"],
                   ["Waxing", "#waxing"],
                   ["Lashes", "#lashes"],
