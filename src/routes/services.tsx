@@ -372,10 +372,10 @@ function ServicesPage() {
             src={servicesHeroAsset.url}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[center_right] rounded-none"
+            className="absolute inset-0 h-full w-full object-cover object-[100%_25%] md:object-[center_right] rounded-none"
           />
-          <div className="absolute inset-0 bg-forest/35" />
-          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12">
+          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
+          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-14 md:items-center md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 Services
