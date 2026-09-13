@@ -540,7 +540,7 @@ function ServicesPage() {
         </section>
 
         {/* LASHES */}
-        <section id="lashes" className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="lashes" className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
