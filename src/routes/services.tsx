@@ -367,15 +367,18 @@ function ServicesPage() {
         {/* OPENING */}
         <section
           id="hero"
-          className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
+          className="relative h-[80vh] min-h-[520px] w-full md:h-[70vh] md:min-h-[520px]"
         >
-          <img
-            src={servicesHeroAsset.url}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[100%_25%] md:object-[center_right] rounded-none"
-          />
-          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
+          <picture className="absolute inset-0 h-full w-full">
+            <source media="(min-width: 769px)" srcSet={servicesHeroDesktopAsset.url} />
+            <img
+              src={servicesHeroMobileAsset.url}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover object-[center_top] md:object-[center_right] rounded-none"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-forest/35" />
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-14 md:items-center md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
