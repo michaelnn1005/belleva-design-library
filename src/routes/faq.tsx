@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
@@ -7,6 +7,8 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 
 import faqHeroDesktopAsset from "@/assets/faq-hero-desktop.png.asset.json";
 import faqHeroMobileAsset from "@/assets/faq-hero-mobile.png.asset.json";
+import faqHygieneProductsAsset from "@/assets/faq-hygiene-products.png.asset.json";
+
 
 
 const TITLE = "FAQ — Belleva Nails";
@@ -355,14 +357,32 @@ function FaqPage() {
 
         {/* FAQ groups */}
         {FAQ_GROUPS.map((group, i) => (
-          <FaqGroupSection
-            key={group.eyebrow}
-            group={group}
-            groupIndex={i}
-            openKey={openKey}
-            onToggle={handleToggle}
-          />
+          <Fragment key={group.eyebrow}>
+            <FaqGroupSection
+              group={group}
+              groupIndex={i}
+              openKey={openKey}
+              onToggle={handleToggle}
+            />
+            {i === 3 && (
+              <section className="mt-16 px-6 md:mt-[64px] md:px-12">
+                <div className="mx-auto max-w-[720px]">
+                  <FadeUpSection>
+                    <div className="aspect-[3/2] w-full overflow-hidden rounded-[10px]">
+                      <img
+                        src={faqHygieneProductsAsset.url}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                  </FadeUpSection>
+                </div>
+              </section>
+            )}
+          </Fragment>
         ))}
+
 
         {/* Closing */}
         <section className="px-6 pb-[120px] pt-24 md:px-12">
