@@ -424,6 +424,9 @@ function ServicesPage() {
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <MenuIndex items={PEDICURES} variant="dark" />
+              <p className="mt-6 text-[13px] leading-[1.6] text-gold">
+                For every Special or Premium, we donate $1 to United Way of Denton County.
+              </p>
             </FadeUpSection>
           </div>
         </section>
