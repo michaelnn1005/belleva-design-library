@@ -97,13 +97,15 @@ function EditorialIndex({
 const WHAT_YOU_GET_ITEMS: EditorialItem[] = [
   {
     number: "01",
-    title: "A clear, healthy floor",
-    description: "No favoritism, no bullying, no surprises on payday.",
+    title: "A floor we work to keep fair",
+    description:
+      "Turns are shared, problems get heard, and payday is exactly what you were told. We check ourselves on this every week.",
   },
   {
     number: "02",
-    title: "Income first",
-    description: "We don't grow by squeezing the people doing the work.",
+    title: "We grow your book with you",
+    description:
+      "Bring the effort and a goal you actually want. We bring the clients and the system to keep them — that part is ours to carry.",
   },
   {
     number: "03",
