@@ -540,7 +540,7 @@ function StandardPage() {
               />
               <div className="h-px w-[140px] bg-gold" aria-hidden="true" />
               <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-gold">
-                Michael — Founder, Belleva Nails
+                Michael Nguyen
               </p>
             </div>
 
