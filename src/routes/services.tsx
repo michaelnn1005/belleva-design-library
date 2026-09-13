@@ -10,6 +10,7 @@ import servicesHeroMobileAsset from "@/assets/services-hero-mobile.png.asset.jso
 import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
 import servicesManicuresAsset from "@/assets/services-manicures.png.asset.json";
 import servicesPedicuresAsset from "@/assets/services-pedicures.png.asset.json";
+import servicesCtaAsset from "@/assets/services-cta.png.asset.json";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
@@ -636,19 +637,26 @@ function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:pb-24 md:pt-20">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="font-display text-[24px] font-normal italic leading-[1.3] text-forest">
+        <section className="relative h-[55vh] min-h-[480px] w-full md:h-[60vh] md:min-h-[520px]">
+          <img
+            src={servicesCtaAsset.url}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[85%_center] md:object-[center_right] rounded-none"
+          />
+          <div className="absolute inset-0 bg-[#2F4A3E]/45" />
+          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12">
+            <FadeUpSection className="w-full">
+              <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5]">
                 Found yours?
               </p>
               <a
                 href={BOOKING_URL}
-                className="mt-6 inline-flex items-center rounded-full bg-forest px-8 py-3 text-sm text-cream transition-colors duration-300 hover:bg-forest-soft"
+                className="mt-6 inline-flex items-center rounded-full border border-[#FAF8F5]/70 bg-transparent px-5 py-2 text-xs text-[#FAF8F5] transition-all duration-300 hover:bg-[#FAF8F5] hover:text-forest"
               >
                 Book an appointment
               </a>
-              <p className="mt-4 text-[12px] text-forest/70">
+              <p className="mt-4 text-[12px] text-[#FAF8F5]/70">
                 Tell us your occasion in the Note box — we&apos;ll take care of
                 it.
               </p>
