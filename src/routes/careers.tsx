@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+
+import careersHeroDesktopAsset from "@/assets/careers-hero-desktop.png.asset.json";
+import careersHeroMobileAsset from "@/assets/careers-hero-mobile.png.asset.json";
 
 const TITLE = "Careers — Belleva Nails";
 const DESCRIPTION =
