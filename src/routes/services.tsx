@@ -30,13 +30,16 @@ export const Route = createFileRoute("/services")({
 function FadeUpSection({
   children,
   className = "",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   const { ref, visible } = useFadeUp(0.2);
   return (
     <div
+      id={id}
       ref={ref}
       className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}
     >
