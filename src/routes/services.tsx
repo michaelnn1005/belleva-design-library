@@ -411,43 +411,6 @@ function ServicesPage() {
           </div>
         </section>
 
-        {/* PEDICURES */}
-        <section id="pedicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Pedicures
-              </p>
-              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
-                Six ways to sit back.
-              </h2>
-            </FadeUpSection>
-            <FadeUpSection className="mt-10">
-              <MenuIndex items={PEDICURES} variant="light" />
-              <p className="mt-6 text-[13px] leading-[1.6] text-gold">
-                For every Special or Premium, we donate $1 to United Way of Denton County.
-              </p>
-            </FadeUpSection>
-          </div>
-        </section>
-
-        {/* MANICURES */}
-        <section id="manicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Manicures
-              </p>
-              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
-                Hands, three ways.
-              </h2>
-            </FadeUpSection>
-            <FadeUpSection className="mt-10">
-              <MenuIndex items={MANICURES} variant="dark" />
-            </FadeUpSection>
-          </div>
-        </section>
-
         {/* NAIL SYSTEMS */}
         <section id="nail-systems" className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
@@ -494,8 +457,45 @@ function ServicesPage() {
           </div>
         </section>
 
+        {/* MANICURES */}
+        <section id="manicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                Manicures
+              </p>
+              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
+                Hands, three ways.
+              </h2>
+            </FadeUpSection>
+            <FadeUpSection className="mt-10">
+              <MenuIndex items={MANICURES} variant="dark" />
+            </FadeUpSection>
+          </div>
+        </section>
+
+        {/* PEDICURES */}
+        <section id="pedicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                Pedicures
+              </p>
+              <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
+                Six ways to sit back.
+              </h2>
+            </FadeUpSection>
+            <FadeUpSection className="mt-10">
+              <MenuIndex items={PEDICURES} variant="light" />
+              <p className="mt-6 text-[13px] leading-[1.6] text-gold">
+                For every Special or Premium, we donate $1 to United Way of Denton County.
+              </p>
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* A LA CARTE */}
-        <section id="extras" className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="extras" className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -511,10 +511,10 @@ function ServicesPage() {
           </div>
         </section>
 
-        {/* WAXING & LASHES */}
-        <section id="waxing-lashes" className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        {/* WAXING */}
+        <section id="waxing" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
-            <FadeUpSection id="waxing">
+            <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Waxing
               </p>
@@ -536,19 +536,26 @@ function ServicesPage() {
                 ))}
               </div>
             </FadeUpSection>
+          </div>
+        </section>
 
-            <FadeUpSection id="lashes" className="mt-16">
+        {/* LASHES */}
+        <section id="lashes" className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
               </p>
-              <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-cream lining-nums md:text-[40px]">
+              <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-forest lining-nums md:text-[40px]">
                 Lashes, three ways.
               </h2>
+            </FadeUpSection>
+            <FadeUpSection className="mt-0">
               <div>
                 {LASHES.map((lash, i) => (
                   <div
                     key={lash.label}
-                    className={`py-8 ${i !== 0 ? "border-t border-cream/15" : "pt-0"}`}
+                    className={`py-8 ${i !== 0 ? "border-t border-forest/12" : "pt-0"}`}
                   >
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {lash.label}
@@ -557,7 +564,7 @@ function ServicesPage() {
                       {lash.rows.map(([variant, price]) => (
                         <div
                           key={variant}
-                          className="flex h-9 items-center justify-between font-sans text-[17px] leading-none text-cream lining-nums"
+                          className="flex h-9 items-center justify-between font-sans text-[17px] leading-none text-forest lining-nums"
                         >
                           <span>{variant}</span>
                           <span>{price}</span>
@@ -572,36 +579,36 @@ function ServicesPage() {
         </section>
 
         {/* GOOD TO KNOW */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Good to know
               </p>
               <div className="mt-10 space-y-8">
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                <div className="border-t border-cream/12 pt-8">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Guarantee
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
                     Anything wrong within 14 days, we fix it free. Weekday
                     repairs are the fastest.
                   </p>
                 </div>
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                <div className="border-t border-cream/12 pt-8">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Design
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
                     Book ahead and put your design in the Note. We match you with
                     a technician who does that kind of work.
                   </p>
                 </div>
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
+                <div className="border-t border-cream/12 pt-8">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     On CBD
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-forest/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
                     CBD services are 18+ and not recommended during pregnancy or
                     breastfeeding. Tell your tech about any allergies. Every batch
                     is lab-tested; reports at the front desk and on
