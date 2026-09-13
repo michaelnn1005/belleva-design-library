@@ -427,7 +427,7 @@ function ServicesPage() {
               <img
                 src={servicesNailsAsset.url}
                 alt="Powder, brush and tools on a cream towel"
-                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
               />
               <p className="max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
                 Every set below is guaranteed for 14 days. Designs go in the
@@ -478,7 +478,7 @@ function ServicesPage() {
               <img
                 src={servicesManicuresAsset.url}
                 alt="Paraffin and a folded towel on a dark tray"
-                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
               />
             </FadeUpSection>
             <FadeUpSection className="mt-10">
@@ -500,7 +500,7 @@ function ServicesPage() {
               <img
                 src={servicesPedicuresAsset.url}
                 alt="Pedicure basin with water and petals"
-                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
               />
             </FadeUpSection>
             <FadeUpSection className="mt-10">
