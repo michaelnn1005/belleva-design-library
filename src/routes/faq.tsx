@@ -5,11 +5,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 
-import faqHygieneProductsAsset from "@/assets/faq-hygiene-products.png.asset.json";
-
-
 import faqHeroDesktopAsset from "@/assets/faq-hero-desktop.png.asset.json";
 import faqHeroMobileAsset from "@/assets/faq-hero-mobile.png.asset.json";
+import faqHygieneProductsAsset from "@/assets/faq-hygiene-products.png.asset.json";
+
 
 
 const TITLE = "FAQ — Belleva Nails";
