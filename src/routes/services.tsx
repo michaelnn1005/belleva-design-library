@@ -553,10 +553,7 @@ function ServicesPage() {
             <FadeUpSection className="mt-0">
               <div>
                 {LASHES.map((lash, i) => (
-                  <div
-                    key={lash.label}
-                    className={`py-8 ${i !== 0 ? "border-t border-forest/12" : "pt-0"}`}
-                  >
+                  <div key={lash.label} className={i !== 0 ? "mt-8" : ""}>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {lash.label}
                     </p>
