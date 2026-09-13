@@ -5,6 +5,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 
+import faqHeroDesktopAsset from "@/assets/faq-hero-desktop.png.asset.json";
+import faqHeroMobileAsset from "@/assets/faq-hero-mobile.png.asset.json";
+
+
 const TITLE = "FAQ — Belleva Nails";
 const DESCRIPTION =
   "Answers about booking, walk-ins, cancellations, bridal, gift cards, and the Belleva Standard guarantee.";
@@ -317,8 +321,22 @@ function FaqPage() {
           id="hero"
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
-          {/* Placeholder background */}
-          <div className="absolute inset-0 bg-forest" aria-hidden="true" />
+          {/* Background image */}
+          <picture className="absolute inset-0">
+            <source
+              media="(min-width: 769px)"
+              srcSet={faqHeroDesktopAsset.url}
+            />
+            <img
+              src={faqHeroMobileAsset.url}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover object-center rounded-none"
+            />
+          </picture>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
+
           {/* Content */}
           <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
