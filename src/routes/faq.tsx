@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
@@ -262,7 +262,7 @@ function FaqGroupSection({
   groupIndex: number;
 }) {
   return (
-    <section className="px-6 md:px-12">
+    <section className={`px-6 md:px-12 ${groupIndex === 0 ? "pt-12 md:pt-16" : ""}`}>
       <div className="mx-auto max-w-[720px]">
         <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-[64px]"}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
@@ -290,6 +290,18 @@ function FaqGroupSection({
 
 function FaqPage() {
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const [heroPassed, setHeroPassed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero ? hero.offsetHeight - 20 : window.innerHeight - 20;
+      setHeroPassed(window.scrollY > threshold);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleToggle = (key: string) => {
     setOpenKey((current) => (current === key ? null : key));
@@ -297,20 +309,26 @@ function FaqPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader heroPassed={true} />
+      <SiteHeader heroPassed={heroPassed} />
 
       <main>
-        {/* Opening */}
-        <section className="px-6 pb-12 pt-[120px] md:px-12 md:pb-16 md:pt-[140px]">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+        {/* Hero */}
+        <section
+          id="hero"
+          className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
+        >
+          {/* Placeholder background */}
+          <div className="absolute inset-0 bg-forest" aria-hidden="true" />
+          {/* Content */}
+          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
+            <FadeUpSection className="w-full">
+              <p className="text-[12px] uppercase tracking-[0.12em] text-[#FAF8F5]/80">
                 QUESTIONS
               </p>
-              <h1 className="mt-3 font-display text-[36px] leading-[1.05] text-forest lining-nums md:text-[56px]">
+              <h1 className="mt-3 font-display text-[36px] leading-[1.05] text-[#FAF8F5] lining-nums md:text-[56px]">
                 Asked and answered.
               </h1>
-              <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-forest/75">
+              <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-[#FAF8F5]/75">
                 If it isn't here, call us — a real person will pick up the phone.
               </p>
             </FadeUpSection>
