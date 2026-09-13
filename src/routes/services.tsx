@@ -163,7 +163,7 @@ const PEDICURES: MenuItem[] = [
     title: "The Deluxe",
     price: "$45 · 45 mins",
     description:
-      "Hot stones, paraffin wax, and a 13-minute massage with a scent we pick for you — trust the house. It hasn't missed yet.",
+      "Hot stones, paraffin wax, and a 13-minute massage with a scent we pick for you.",
   },
   {
     number: "04",
@@ -178,7 +178,7 @@ const PEDICURES: MenuItem[] = [
     title: "The Belleva Special",
     price: "$73 · 60 mins",
     description:
-      "A 28-minute massage with CBD oil and steam. Yes, we timed it. Paraffin, hot stones — and a small gift we refuse to describe.",
+      "A 28-minute massage with CBD oil and steam. Yes, we timed it. Paraffin, hot stones — and a small gift to take home.",
     cbd: true,
     note: "For every Special, we donate $1 to United Way of Denton County.",
   },
