@@ -193,7 +193,7 @@ function CareersPage() {
         </section>
 
         {/* OPENING */}
-        <section className="bg-background px-6 pb-16 pt-[120px] md:px-12 md:pb-24 md:pt-[140px]">
+        <section className="bg-background px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-16">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
