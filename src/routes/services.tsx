@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
+import servicesHeroAsset from "@/assets/services-hero.png.asset.json";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
@@ -28,13 +30,16 @@ export const Route = createFileRoute("/services")({
 function FadeUpSection({
   children,
   className = "",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   const { ref, visible } = useFadeUp(0.2);
   return (
     <div
+      id={id}
       ref={ref}
       className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}
     >
@@ -340,31 +345,72 @@ const LASHES: { label: string; rows: [string, string][] }[] = [
 ];
 
 function ServicesPage() {
+  const [heroPassed, setHeroPassed] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero ? hero.offsetHeight - 20 : window.innerHeight - 20;
+      setHeroPassed(window.scrollY > threshold);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader heroPassed={true} />
+      <SiteHeader heroPassed={heroPassed} />
 
       <main>
         {/* OPENING */}
-        <section className="bg-background px-6 pb-16 pt-[120px] md:px-12 md:pb-24 md:pt-[140px]">
-          <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+        <section
+          id="hero"
+          className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
+        >
+          <img
+            src={servicesHeroAsset.url}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[center_right] rounded-none"
+          />
+          <div className="absolute inset-0 bg-forest/35" />
+          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12">
+            <FadeUpSection className="w-full">
+              <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 Services
               </p>
-              <h1 className="mt-4 font-display text-[36px] font-medium leading-[1.05] text-forest md:text-[56px]">
+              <h1 className="mt-3 max-w-[640px] font-display text-[36px] font-medium leading-[1.1] text-[#FAF8F5] md:text-[56px]">
                 The menu.
               </h1>
-              <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
+              <p className="mt-5 max-w-[560px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
                 Real prices, real times. Book online and tell us your occasion
                 in the Note box — we&apos;ll have everything ready.
               </p>
+              <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                {[
+                  ["Pedicures", "#pedicures"],
+                  ["Manicures", "#manicures"],
+                  ["Nail systems", "#nail-systems"],
+                  ["Extras", "#extras"],
+                  ["Waxing", "#waxing"],
+                  ["Lashes", "#lashes"],
+                ].map(([label, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="font-sans text-[12px] uppercase tracking-[0.12em] text-[#FAF8F5]/80 no-underline transition-colors hover:text-[#FAF8F5] hover:underline underline-offset-4"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </nav>
             </FadeUpSection>
           </div>
         </section>
 
         {/* PEDICURES */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        <section id="pedicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -381,7 +427,7 @@ function ServicesPage() {
         </section>
 
         {/* MANICURES */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="manicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -398,7 +444,7 @@ function ServicesPage() {
         </section>
 
         {/* NAIL SYSTEMS */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+        <section id="nail-systems" className="bg-cream px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -444,7 +490,7 @@ function ServicesPage() {
         </section>
 
         {/* A LA CARTE */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="extras" className="bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -461,9 +507,9 @@ function ServicesPage() {
         </section>
 
         {/* WAXING & LASHES */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
+        <section id="waxing-lashes" className="bg-forest px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
-            <FadeUpSection>
+            <FadeUpSection id="waxing">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Waxing
               </p>
@@ -486,7 +532,7 @@ function ServicesPage() {
               </div>
             </FadeUpSection>
 
-            <FadeUpSection className="mt-16">
+            <FadeUpSection id="lashes" className="mt-16">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
               </p>
