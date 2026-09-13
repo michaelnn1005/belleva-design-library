@@ -7,6 +7,9 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import servicesHeroDesktopAsset from "@/assets/services-hero-desktop.png.asset.json";
 import servicesHeroMobileAsset from "@/assets/services-hero-mobile.png.asset.json";
+import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
+import servicesManicuresAsset from "@/assets/services-manicures.png.asset.json";
+import servicesPedicuresAsset from "@/assets/services-pedicures.png.asset.json";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
@@ -421,7 +424,12 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
-              <p className="mt-4 max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
+              <img
+                src={servicesNailsAsset.url}
+                alt="Powder, brush and tools on a cream towel"
+                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+              />
+              <p className="max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
                 Every set below is guaranteed for 14 days. Designs go in the
                 Note when you book.
               </p>
@@ -467,6 +475,11 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
                 Hands, three ways.
               </h2>
+              <img
+                src={servicesManicuresAsset.url}
+                alt="Paraffin and a folded towel on a dark tray"
+                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+              />
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <MenuIndex items={MANICURES} variant="dark" />
@@ -484,6 +497,11 @@ function ServicesPage() {
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 Six ways to sit back.
               </h2>
+              <img
+                src={servicesPedicuresAsset.url}
+                alt="Pedicure basin with water and petals"
+                className="mt-4 block aspect-[3/2] w-full object-cover mb-10"
+              />
             </FadeUpSection>
             <FadeUpSection className="mt-10">
               <MenuIndex items={PEDICURES} variant="light" />
