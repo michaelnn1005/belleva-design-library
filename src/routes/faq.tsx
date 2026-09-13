@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+
+import faqHygieneProductsAsset from "@/assets/faq-hygiene-products.png.asset.json";
+
 
 import faqHeroDesktopAsset from "@/assets/faq-hero-desktop.png.asset.json";
 import faqHeroMobileAsset from "@/assets/faq-hero-mobile.png.asset.json";
