@@ -637,15 +637,18 @@ function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative h-[55vh] min-h-[480px] w-full md:h-[60vh] md:min-h-[520px]">
-          <img
-            src={servicesCtaAsset.url}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[85%_center] md:object-[center_right] rounded-none"
-          />
-          <div className="absolute inset-0 bg-[#2F4A3E]/45" />
-          <div className="relative mx-auto flex h-full max-w-[720px] items-center px-6 md:px-12">
+        <section className="relative h-[70vh] min-h-[480px] w-full md:h-[60vh] md:min-h-[520px]">
+          <picture className="absolute inset-0 h-full w-full">
+            <source media="(min-width: 769px)" srcSet={servicesCtaAsset.url} />
+            <img
+              src={servicesHeroMobileAsset.url}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover object-[center_top] md:object-[center_right] rounded-none"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-forest/40 md:bg-forest/45" />
+          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-14 md:items-center md:px-12 md:pb-16">
             <FadeUpSection className="w-full">
               <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5]">
                 Found yours?
