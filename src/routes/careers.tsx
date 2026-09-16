@@ -132,7 +132,7 @@ const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
     number: "03",
     title: "Investor",
     description:
-      "We're opening more locations and looking for the right partner to do it with. If you care about creating more value for people, you're already walking the same road we are. If you've read this far and think like an owner, let's talk.",
+      "We're opening more locations and looking for the right partner to do it with. But first, where we stand: a business is worth building when it makes people's lives better. Most of the people in our chairs are women — many of them mothers carrying a whole family. I'll say it plainly, because I love my own mother: they are who this work is for. If that's the kind of value you want your money to create, you're already walking the same road we are. Let's talk.",
   },
 ];
 
