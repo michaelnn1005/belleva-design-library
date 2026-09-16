@@ -109,11 +109,6 @@ const WHAT_YOU_GET_ITEMS: EditorialItem[] = [
   },
   {
     number: "03",
-    title: "Room to grow",
-    description: "In nails if that's your path, and beyond it if you want more.",
-  },
-  {
-    number: "04",
     title: "A team that's still climbing",
     description:
       "We stay small on purpose and hire for character and skill, not chair count.",
