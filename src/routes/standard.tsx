@@ -11,6 +11,7 @@ import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
 import standardFounderDeskAsset from "@/assets/standard-founder-desk.png.asset.json";
 import standardHeroSalonTableAsset from "@/assets/standard-hero-salon-table.png.asset.json";
 import standardTrayAsset from "@/assets/standard-tray.png.asset.json";
+import standardProductsAsset from "@/assets/standard-products.png.asset.json";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
@@ -429,10 +430,11 @@ function StandardPage() {
 
             <div className="flex-1">
               <FadeUpSection>
-                <div
-                  aria-label="FarmHouse Fresh pedicure products on the counter at Belleva Nails"
-                  role="img"
-                  className="aspect-[4/5] w-full bg-cream"
+                <img
+                  src={standardProductsAsset.url}
+                  alt="Fresh herbs and cotton on linen"
+                  className="aspect-[3/2] w-full rounded-none object-cover"
+                  loading="lazy"
                 />
               </FadeUpSection>
             </div>
