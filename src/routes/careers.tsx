@@ -123,21 +123,21 @@ const WHAT_YOU_GET_ITEMS: EditorialItem[] = [
 const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
   {
     number: "01",
-    title: "Master your craft",
+    title: "Nail technician",
     description:
-      "Design work, advanced systems, the sets that get photographed. We train for it — you don't figure it out alone.",
+      "Come if you want more than a chair. Put real work in, respect the people next to you, and keep the drama at the door. Attitude first — skill we build together. Our pedicure technicians currently earn $4,000–$5,000 a month before tips. Technicians who do design earn $6,000–$9,500 a month, before cash tips. Getting to the top of that range is a partnership: your hands, our marketing. There's room past the chair too — content, the desk, operations, and a seat at the table when the next location opens.",
   },
   {
     number: "02",
-    title: "Beyond the chair",
+    title: "Front desk",
     description:
-      "Content, front desk, operations. If you have a strength outside nails, we'd rather use it than waste it.",
+      "We're hiring experience here — you've run a front before. You're the one who actually likes talking to clients, likes helping people, and is curious about how a business works. The desk is where this salon grows next. It's not a waiting-room job.",
   },
   {
     number: "03",
-    title: "The business track",
+    title: "Investor",
     description:
-      "We're building a team to help this salon grow into more than one. If you can think past your own chair, there's a seat at that table.",
+      "We're opening more locations and looking for the right partner to do it with. If you care about creating more value for people, you're already walking the same road we are. If you've read this far and think like an owner, let's talk.",
   },
 ];
 
@@ -227,10 +227,10 @@ function CareersPage() {
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Where this can go
+                Who we&apos;re hiring
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
-                Three ways up.
+                Three seats.
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
