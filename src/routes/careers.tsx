@@ -120,7 +120,7 @@ const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
     number: "01",
     title: "Nail technician",
     description:
-      "Come if you want more than a chair. Put real work in, respect the people next to you, and keep the drama at the door. Attitude first — skill we build together. Our pedicure technicians currently earn $4,000–$5,000 a month before tips. Technicians who do design earn $6,000–$9,500 a month, before cash tips. Getting to the top of that range is a partnership: your hands, our marketing. There's room past the chair too — content, the desk, operations, and a seat at the table when the next location opens.",
+      "Come if you want more than a chair. Put real work in, respect the people next to you, and keep the drama at the door. Attitude and character come before skill here — every time. Skill we can teach; the rest you bring. Our pedicure technicians currently earn $4,000–$5,000 a month before tips. Technicians who do design earn $6,000–$9,500 a month, before cash tips. Getting to the top of that range is a partnership: your hands, our marketing. There's room past the chair too — content, the desk, operations, and a seat at the table when the next location opens.",
   },
   {
     number: "02",
