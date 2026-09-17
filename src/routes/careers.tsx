@@ -84,9 +84,15 @@ function EditorialIndex({
             >
               {item.title}
             </p>
-            <p className={`mt-1.5 text-[15px] leading-[1.6] ${descColor}`}>
-              {item.description}
-            </p>
+            <div
+              className={`mt-1.5 text-[15px] leading-[1.6] ${descColor}`}
+            >
+              {item.description.split("\n\n").map((para, pi) => (
+                <p key={pi} className={pi > 0 ? "mt-5" : ""}>
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       ))}
@@ -120,19 +126,19 @@ const WHERE_THIS_CAN_GO_ITEMS: EditorialItem[] = [
     number: "01",
     title: "Nail technician",
     description:
-      "Come if you want more than a chair. Put real work in, respect the people next to you, and keep the drama at the door. Attitude and character come before skill here — every time. Skill we can teach; the rest you bring. Our pedicure technicians currently earn $4,000–$5,000 a month before tips. Technicians who do design earn $6,000–$9,500 a month, before cash tips. Getting to the top of that range is a partnership: your hands, our marketing. There's room past the chair too — content, the desk, operations, and a seat at the table when the next location opens.",
+      "Come if you want more than a chair. Put real work in, respect the people next to you, and keep the drama at the door. Attitude and character come before skill here, every time. We'll teach the skill; we're asking you to bring the rest. Right now, our pedicure technicians typically take home $4,000–$5,000 a month before tips, and technicians who do design $6,000–$9,500 before cash tips. Reaching the top of that range is something we work toward together. And if the chair turns out to be just the start for you, there's room to grow into content, the desk, or operations as we do.",
   },
   {
     number: "02",
     title: "Front desk",
     description:
-      "We're hiring experience here — you've run a front before. You're the one who actually likes talking to clients, likes helping people, and is curious about how a business works. The desk is where this salon grows next. It's not a waiting-room job.",
+      "We're looking for someone who's run a front before. You genuinely like talking to clients, you like helping people, and you're curious about how a business works. We ask a lot of the desk, because it's where clients form their first and last impression of us. It's not a waiting-room job.",
   },
   {
     number: "03",
     title: "Investor",
     description:
-      "We're opening more locations and looking for the right partner to do it with. But first, where we stand: a business is worth building when it makes people's lives better. Most of the people in our chairs are women — many of them mothers carrying a whole family. I'll say it plainly, because I love my own mother: they are who this work is for. If that's the kind of value you want your money to create, you're already walking the same road we are. Let's talk.",
+      "I've spent nine years in this trade: first at a chair, then running the floor, now owning the salon. I learned the craft in the Vietnamese nail community, and I'm grateful for it. What I'm building at Belleva takes that craft and pairs it with a culture that sits in the middle, one that keeps the discipline and warmth we grew up with and lets the rest go. A team people are proud to be part of, where no one gets left behind, and clients can feel that the moment they sit down. That comes first, before growth.\n\nMost of the people in our chairs are women, many of them mothers carrying a whole family. I love my own mother, so I'll say it plainly: they are who this work is for.\n\nWe'd like to open more locations, and I'd rather do it with the right partner than alone. If this is the kind of value you'd want your money to create, I'd like to talk.",
   },
 ];
 
