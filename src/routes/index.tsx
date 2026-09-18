@@ -436,16 +436,18 @@ function Index() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(47,74,62,0.40)" }}
+          style={{ backgroundColor: "rgba(47,74,62,0.45)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-10 text-left md:px-16 md:pb-[72px]">
-          <div className="max-w-[340px] md:max-w-[640px]">
+        <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 text-left md:px-16">
+          <div className="max-w-[320px] md:max-w-[640px]">
             <p className="text-[11px] uppercase tracking-[0.18em] text-background">
               THE DESIGN LIBRARY — DENTON, TX
             </p>
             <h1 className="mt-3 font-display text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-background lining-nums md:text-[88px]">
-              Find your next set.
+              <span className="whitespace-nowrap">Find your</span>
+              <br />
+              <span className="whitespace-nowrap">next set.</span>
             </h1>
             <p className="mt-4 text-[16px] leading-[1.5] text-background/90 md:text-[18px]">
               Real designs, made in our salon. Book the one you love.
