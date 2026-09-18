@@ -426,57 +426,39 @@ function Index() {
 
       <section
         id="hero"
-        className="relative h-svh w-full overflow-hidden bg-forest"
+        className="relative h-svh w-full overflow-hidden bg-forest md:h-screen"
       >
         <img
           src={nailLibraryAsset.url}
           alt="Ink Veil nail design by Belleva Nails"
-          className="absolute inset-0 h-full w-full object-cover object-[center_55%] md:object-[center_82%]"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           loading="eager"
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(20,30,25,0.45)" }}
+          style={{ backgroundColor: "rgba(47,74,62,0.40)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-[16vh] text-center md:pt-[18vh]">
-          <p className="text-[11px] uppercase tracking-[2px] text-background/90">
-            THE DESIGN LIBRARY — DENTON, TX
-          </p>
-          <h1 className="mt-4 font-display text-[54px] leading-[1.05] text-background md:text-[86px]">
-            Find your
-            <br className="md:hidden" /> next set.
-          </h1>
-          <p className="mx-auto mt-6 max-w-[240px] text-[13px] font-light leading-relaxed text-background/90 md:max-w-md">
-            Real designs, made in our salon. Book the one you love.
-          </p>
-        </div>
-
-        <button
-          onClick={scrollToServices}
-          className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-background/90 transition-opacity hover:opacity-70 md:bottom-10"
-          aria-label="Scroll to services"
-        >
-          <span className="text-[10px] uppercase tracking-[0.2em]">
-            Explore services
-          </span>
-          <div className="flex flex-col items-center">
-            <div className="h-10 w-px bg-background/60" />
-            <svg
-              width="8"
-              height="5"
-              viewBox="0 0 8 5"
-              fill="none"
-              aria-hidden="true"
+        <div className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-10 text-left md:px-16 md:pb-[72px]">
+          <div className="max-w-[340px] md:max-w-[640px]">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-background">
+              THE DESIGN LIBRARY — DENTON, TX
+            </p>
+            <h1 className="mt-3 font-display text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-background lining-nums md:text-[88px]">
+              Find your next set.
+            </h1>
+            <p className="mt-4 text-[16px] leading-[1.5] text-background/90 md:text-[18px]">
+              Real designs, made in our salon. Book the one you love.
+            </p>
+            <button
+              onClick={scrollToServices}
+              className="mt-6 text-[11px] uppercase tracking-[0.18em] text-background transition-opacity hover:opacity-70"
+              aria-label="Scroll to services"
             >
-              <path
-                d="M1 1l3 3 3-3"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
+              EXPLORE SERVICES
+            </button>
           </div>
-        </button>
+        </div>
       </section>
 
       <ServicesSection />
