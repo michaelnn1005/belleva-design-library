@@ -394,7 +394,7 @@ function ServicesSection() {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
           <div className="border-b border-[#E5DFD3]" />
         </div>
