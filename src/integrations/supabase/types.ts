@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bridal_leads: {
+        Row: {
+          consent: boolean
+          created_at: string
+          first_name: string
+          id: string
+          note: string | null
+          party_size: number | null
+          phone: string
+          wedding_date: string
+        }
+        Insert: {
+          consent?: boolean
+          created_at?: string
+          first_name: string
+          id?: string
+          note?: string | null
+          party_size?: number | null
+          phone: string
+          wedding_date: string
+        }
+        Update: {
+          consent?: boolean
+          created_at?: string
+          first_name?: string
+          id?: string
+          note?: string | null
+          party_size?: number | null
+          phone?: string
+          wedding_date?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
