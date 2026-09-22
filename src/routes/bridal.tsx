@@ -147,6 +147,177 @@ function BridalAccordionItem({
   );
 }
 
+const CONSENT_TEXT =
+  "Yes, text me about my bridal appointments at Belleva Nails. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out.";
+
+function BridalJoinForm() {
+  const submitLead = useServerFn(submitBridalLead);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [error, setError] = useState<string | null>(null);
+  const [consent, setConsent] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const partyRaw = String(fd.get("partySize") ?? "").trim();
+    if (!consent) {
+      setError("Please check the box so we can text you about your appointments.");
+      return;
+    }
+    setStatus("submitting");
+    setError(null);
+    const result = await submitLead({
+      data: {
+        firstName: String(fd.get("firstName") ?? ""),
+        phone: String(fd.get("phone") ?? ""),
+        weddingDate: String(fd.get("weddingDate") ?? ""),
+        partySize: partyRaw ? Number(partyRaw) : null,
+        note: String(fd.get("note") ?? "") || null,
+        consent: true,
+      },
+    }).catch(() => ({
+      ok: false as const,
+      error: "Something went wrong sending your sign-up. Please call us instead.",
+    }));
+    if (result.ok) {
+      setStatus("success");
+gtform.reset();
+    } else {
+      setStatus("idle");
+      setError(result.error);
+    }
+  }
+
+  const inputClass =
+    "w-full rounded-none border border-forest/25 bg-transparent px-4 py-3 text-[16px] text-forest outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-gold";
+
+  if (status === "success") {
+    return (
+      <div className="mt-8 border-t border-forest/12 pt-8">
+        <p className="font-display text-[24px] leading-[1.3] text-forest md:text-[28px]">
+          Thank you — we&apos;ll text you shortly to set up your trial.
+        </p>
+        <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground">
+          Keep an eye on your phone. If anything changes, just tell us in a reply.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-8" noValidate={false}>
+      <div className="grid grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-2">
+        <div>
+          <label
+            htmlFor="bridal-first-name"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            First name *
+          </label>
+          <input
+            id="bridal-first-name"
+            name="firstName"
+            type="text"
+            required
+            maxLength={100}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="bridal-phone"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            Phone *
+          </label>
+          <input
+            id="bridal-phone"
+            name="phone"
+            type="tel"
+            required
+            maxLength={40}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="bridal-date"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            Wedding date *
+          </label>
+          <input
+            id="bridal-date"
+            name="weddingDate"
+            type="date"
+            required
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="bridal-party"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            Party size
+          </label>
+          <input
+            id="bridal-party"
+            name="partySize"
+            type="number"
+            min={1}
+            max={50}
+            className={inputClass}
+          />
+        </div>
+        <div className="md:col-span-2">
+          <label
+            htmlFor="bridal-note"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            Note
+          </label>
+          <textarea
+            id="bridal-note"
+            name="note"
+            rows={3}
+            maxLength={2000}
+            placeholder="Anything we should keep in mind - your dress, colors, a design you love, timing."
+            className={`${inputClass} resize-none`}
+          />
+        </div>
+      </div>
+
+      <label htmlFor="bridal-consent" className="mt-6 flex cursor-pointer items-start gap-3">
+        <input
+          id="bridal-consent"
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-[3px] h-4 w-4 shrink-0 accent-[#2F4A3E]"
+          required
+        />
+        <span className="text-[13px] leading-[1.6] text-forest/80">{CONSENT_TEXT}</span>
+      </label>
+
+      {error && (
+        <p className="mt-4 text-[14px] leading-[1.5] text-[#8A4B3A]" role="alert">
+          {error}
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-gold px-8 py-3 text-sm text-forest transition-colors hover:bg-forest hover:text-cream disabled:cursor-wait disabled:opacity-60"
+      >
+        {status === "submitting" ? "Sending…" : "Join the bridal program"}
+      </button>
+    </form>
+  );
+}
+
 function BridalPage() {
   const [showBar, setShowBar] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
