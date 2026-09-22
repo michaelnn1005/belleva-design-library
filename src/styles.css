@@ -160,6 +160,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    overflow-x: clip;
   }
 }
 
@@ -178,7 +179,7 @@
 
 @media (min-width: 768px) {
   main section p {
-    max-width: 65ch;
+    width: min(100%, 65ch);
   }
 }
 
