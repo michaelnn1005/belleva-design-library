@@ -352,12 +352,12 @@ function BridalPage() {
           <img
             src={bridalHeroAsset.url}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
-            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[50%_20%] rounded-none"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[58%_20%] lg:object-[50%_20%] rounded-none"
           />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
 
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
-            <FadeUpSection className="w-full">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+            <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 BELLEVA BRIDAL
               </p>
@@ -379,8 +379,8 @@ function BridalPage() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 HOW IT WORKS
@@ -426,8 +426,8 @@ function BridalPage() {
           </div>
         </section>
 
-        <section className="bg-background px-6 py-2 md:px-12 md:py-4 rounded-none">
-          <div className="mx-auto max-w-[720px] rounded-none">
+        <section className="bg-background px-6 py-2 md:px-10 lg:px-16 md:py-4 rounded-none">
+          <div className="mx-auto max-w-[1200px] rounded-none">
             <img
               src={bridalBetweenStillAsset.url}
               alt="Silk and eucalyptus detail"
@@ -437,8 +437,8 @@ function BridalPage() {
         </section>
 
         {/* GUARANTEE */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE GUARANTEE
@@ -457,8 +457,8 @@ function BridalPage() {
         </section>
 
         {/* BRIDAL PARTY */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 THE BRIDAL PARTY
@@ -472,7 +472,7 @@ function BridalPage() {
 
         {/* JUST MARRIED */}
         <section
-          className="relative flex min-h-[560px] flex-col justify-start rounded-none px-6 py-24 md:px-12 md:py-24"
+          className="relative flex min-h-[560px] flex-col justify-start rounded-none px-6 py-24 md:px-10 lg:px-16 md:py-20 lg:py-28"
           style={{
             backgroundImage: `url(${bridalJustMarriedAsset.url})`,
             backgroundSize: "cover",
@@ -482,7 +482,7 @@ function BridalPage() {
           }}
         >
           <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)]" />
-          <div className="relative mx-auto w-full max-w-[720px]">
+          <div className="relative mx-auto w-full max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 JUST MARRIED
@@ -495,8 +495,8 @@ function BridalPage() {
         </section>
 
         {/* MINI-FAQ */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <HairlineLabel>COMMON QUESTIONS</HairlineLabel>
             </FadeUpSection>
@@ -533,8 +533,8 @@ function BridalPage() {
         </section>
 
         {/* JOIN THE BRIDAL PROGRAM — SIGN-UP FORM */}
-        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <HairlineLabel>JOIN THE BRIDAL PROGRAM</HairlineLabel>
               <h2 className="mt-8 font-display lining-nums text-[32px] leading-[1.1] text-forest md:text-[44px]">
@@ -552,7 +552,7 @@ function BridalPage() {
 
         {/* CTA */}
         <section
-          className="relative rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]"
+          className="relative rounded-none bg-forest px-6 py-20 md:px-10 lg:px-16 md:py-20 lg:py-28"
           style={{
             backgroundImage: `url(${bridalCtaEucalyptusAsset.url})`,
             backgroundSize: "cover",
