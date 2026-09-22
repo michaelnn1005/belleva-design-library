@@ -16,33 +16,33 @@ export type Database = {
     Tables: {
       bridal_leads: {
         Row: {
-          consent: boolean
           created_at: string
           first_name: string
           id: string
           note: string | null
           party_size: number | null
           phone: string
+          sms_consent: boolean
           wedding_date: string
         }
         Insert: {
-          consent?: boolean
           created_at?: string
           first_name: string
           id?: string
           note?: string | null
           party_size?: number | null
           phone: string
+          sms_consent?: boolean
           wedding_date: string
         }
         Update: {
-          consent?: boolean
           created_at?: string
           first_name?: string
           id?: string
           note?: string | null
           party_size?: number | null
           phone?: string
+          sms_consent?: boolean
           wedding_date?: string
         }
         Relationships: []

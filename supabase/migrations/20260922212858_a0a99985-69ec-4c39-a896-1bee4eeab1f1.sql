@@ -1,0 +1,1 @@
+ALTER TABLE public.bridal_leads RENAME COLUMN consent TO sms_consent;

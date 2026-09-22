@@ -18,7 +18,7 @@ const bridalLeadSchema = z.object({
     .optional()
     .nullable(),
   note: z.string().trim().max(2000).optional().nullable(),
-  consent: z.literal(true, {
+  smsConsent: z.literal(true, {
     message: "Please agree so we can text you about your appointments.",
   }),
 });
@@ -55,7 +55,7 @@ export const submitBridalLead = createServerFn({ method: "POST" })
       wedding_date: data.weddingDate,
       party_size: data.partySize ?? null,
       note: data.note ? data.note : null,
-      consent: data.consent,
+      sms_consent: data.smsConsent,
     });
 
     if (error) {
