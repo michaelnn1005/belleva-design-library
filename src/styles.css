@@ -155,6 +155,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
@@ -178,8 +179,8 @@
 }
 
 @media (min-width: 768px) {
-  main section p {
-    width: min(100%, 65ch);
+  main section p:not([class*="max-w-"]) {
+    max-width: 65ch;
   }
 }
 
