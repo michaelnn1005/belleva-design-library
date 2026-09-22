@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { submitBridalLead } from "@/lib/bridal.functions";
@@ -367,14 +367,13 @@ function BridalPage() {
               <p className="mt-4 max-w-[480px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
                 We treat them that way.
               </p>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/bridal"
+                hash="join"
                 className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest"
               >
                 Book your trial
-              </a>
+              </Link>
             </FadeUpSection>
           </div>
         </section>
