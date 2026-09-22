@@ -326,16 +326,19 @@ function ServicesSection() {
       index: "01",
       name: "Pedicure",
       line: "care and color, classic to deluxe",
+      hash: "pedicures",
     },
     {
       index: "02",
       name: "Waxing",
       line: "quick, clean, precise",
+      hash: "waxing",
     },
     {
       index: "03",
       name: "Lashes",
       line: "ask us when you book",
+      hash: "lashes",
     },
   ];
 
@@ -355,7 +358,7 @@ function ServicesSection() {
           <NailsSlideshow />
         </div>
 
-        <a href={BOOKING_URL} className="mt-6 block">
+        <Link to="/services" hash="nail-systems" className="mt-6 block">
           <div>
             <h3 className="font-display text-[26px] leading-[1.2] text-forest">
               Nails
@@ -367,7 +370,7 @@ function ServicesSection() {
               Sets and designs, built to last two to three weeks.
             </p>
           </div>
-        </a>
+        </Link>
 
 
         <div className="mt-12">
