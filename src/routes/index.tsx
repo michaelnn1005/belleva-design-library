@@ -326,16 +326,19 @@ function ServicesSection() {
       index: "01",
       name: "Pedicure",
       line: "care and color, classic to deluxe",
+      hash: "pedicures",
     },
     {
       index: "02",
       name: "Waxing",
       line: "quick, clean, precise",
+      hash: "waxing",
     },
     {
       index: "03",
       name: "Lashes",
       line: "ask us when you book",
+      hash: "lashes",
     },
   ];
 
@@ -355,7 +358,7 @@ function ServicesSection() {
           <NailsSlideshow />
         </div>
 
-        <a href={BOOKING_URL} className="mt-6 block">
+        <Link to="/services" hash="nail-systems" className="mt-6 block">
           <div>
             <h3 className="font-display text-[26px] leading-[1.2] text-forest">
               Nails
@@ -367,14 +370,15 @@ function ServicesSection() {
               Sets and designs, built to last two to three weeks.
             </p>
           </div>
-        </a>
+        </Link>
 
 
         <div className="mt-12">
           {indexItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={BOOKING_URL}
+              to="/services"
+              hash={item.hash}
               className="block border-t border-[#E5DFD3] py-6 transition-colors hover:bg-cream/30"
             >
               <div className="flex items-start gap-4">
@@ -390,7 +394,7 @@ function ServicesSection() {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
           <div className="border-b border-[#E5DFD3]" />
         </div>
