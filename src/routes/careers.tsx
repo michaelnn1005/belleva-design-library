@@ -351,6 +351,8 @@ function CareersPage() {
                 </p>
 
               </div>
+            </FadeUpSection>
+
             <FadeUpSection className="mt-8">
               <a
                 href="mailto:michaelnn1005@gmail.com"
