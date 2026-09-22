@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 import slide1 from "@/assets/nail-slide-1.png.asset.json";
