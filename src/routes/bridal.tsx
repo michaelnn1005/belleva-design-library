@@ -174,7 +174,7 @@ function BridalJoinForm() {
         weddingDate: String(fd.get("weddingDate") ?? ""),
         partySize: partyRaw ? Number(partyRaw) : null,
         note: String(fd.get("note") ?? "") || null,
-        consent: true,
+        smsConsent: true,
       },
     }).catch(() => ({
       ok: false as const,
@@ -533,7 +533,7 @@ function BridalPage() {
         </section>
 
         {/* JOIN THE BRIDAL PROGRAM — SIGN-UP FORM */}
-        <section id="join" className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-12 md:py-24">
           <div className="mx-auto max-w-[720px]">
             <FadeUpSection>
               <HairlineLabel>JOIN THE BRIDAL PROGRAM</HairlineLabel>

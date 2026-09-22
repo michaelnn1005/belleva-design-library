@@ -572,7 +572,7 @@ function Index() {
               Join the bridal program
             </Link>
             <p className="mt-3 text-[12px] text-muted-foreground">
-              Free to join — leave your wedding date and we&apos;ll text you.
+              Free to join - leave your date, or book your trial if you are ready.
             </p>
           </div>
         </div>
