@@ -176,6 +176,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  main section p {
+    max-width: 65ch;
+  }
+}
+
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 10px;

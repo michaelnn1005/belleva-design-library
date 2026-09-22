@@ -7,7 +7,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-[#E5DFD3] bg-background px-6 pb-12 pt-20 md:px-10 lg:px-16">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-3 lg:gap-x-16">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-y-0 md:grid-cols-2 md:gap-x-12 md:gap-y-10 lg:grid-cols-3 lg:gap-x-16">
         <div>
           <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>
           <div className="mt-10 space-y-2 text-[13px] leading-relaxed text-muted-foreground">
@@ -18,12 +18,11 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div>
-          <p className="text-[11px] uppercase tracking-[1px] text-gold">Hours</p>
-          <p className="mt-4 text-[13px] leading-relaxed text-muted-foreground">Mon-Fri 9:30-7:30 · Sat 9-7 · Sun 11-5</p>
+        <div className="mt-2 md:mt-0">
+          <p className="text-[13px] leading-relaxed text-muted-foreground">Mon-Fri 9:30-7:30 · Sat 9-7 · Sun 11-5</p>
         </div>
 
-        <div className="md:col-span-2 lg:col-span-1">
+        <div className="mt-10 md:col-span-2 md:mt-0 lg:col-span-1">
           <p className="flex flex-wrap gap-x-2 gap-y-1 text-[11px] uppercase tracking-[1px] text-forest/60">
             {[["Instagram", "https://instagram.com/bellevanailsdenton"], ["TikTok", "#"], ["Pinterest", "#"], ["Facebook", "#"], ["YouTube", "#"]].map(([label, href], index, links) => (
               <span key={label} className="whitespace-nowrap">
