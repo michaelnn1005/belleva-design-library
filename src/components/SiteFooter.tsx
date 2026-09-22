@@ -59,33 +59,6 @@ export function SiteFooter() {
 
         {!isContactPage && (
           <>
-            <div id="contact" className="mt-12">
-              <p className="text-[10px] uppercase tracking-[2px] text-gold">Write to us</p>
-              <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <textarea
-                  rows={3}
-                  placeholder="Message"
-                  className="w-full resize-none border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="mt-4 inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
-                >
-                  Send
-                </button>
-              </form>
-              <p className="mt-3 text-[10px] italic text-muted-foreground">Demo form — not yet connected.</p>
-            </div>
 
             <div className="mt-12">
               <a

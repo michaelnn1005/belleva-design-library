@@ -343,54 +343,25 @@ function CareersPage() {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:michael@bellevanail.com"
+                    href="mailto:michaelnn1005@gmail.com"
                     className="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-gold"
                   >
-                    michael@bellevanail.com
+                    michaelnn1005@gmail.com
                   </a>
                 </p>
+
               </div>
-              <p className="mt-5 text-[16px] text-forest">
-                Or leave your details below — it goes straight to my inbox.
-              </p>
             </FadeUpSection>
 
             <FadeUpSection className="mt-8">
-              <form
-                className="space-y-5"
-                onSubmit={(e) => e.preventDefault()}
+              <a
+                href="mailto:michaelnn1005@gmail.com"
+                className="inline-flex items-center rounded-full border border-forest bg-forest px-7 py-3 text-sm text-cream transition-colors duration-300 hover:bg-forest-soft"
               >
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone"
-                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Years doing nails"
-                  className="w-full border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <textarea
-                  rows={3}
-                  placeholder="Message"
-                  className="w-full resize-none border-0 border-b border-[#CFC8BA] bg-transparent py-3 text-[14px] text-forest placeholder:text-forest/40 focus:border-gold focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="mt-2 inline-flex items-center rounded-full border border-forest bg-forest px-5 py-2 text-xs text-cream transition-colors duration-300 hover:bg-forest-soft"
-                >
-                  Send
-                </button>
-              </form>
-              <p className="mt-3 text-[12px] text-forest/60">
-                Demo form — not yet connected.
-              </p>
+                Email Michael
+              </a>
             </FadeUpSection>
+
           </div>
         </section>
       </main>
