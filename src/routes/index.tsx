@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 import slide1 from "@/assets/nail-slide-1.png.asset.json";
@@ -565,14 +564,15 @@ function Index() {
             </div>
           </div>
           <div className="mt-8 max-w-[340px]">
-            <a
-              href={BOOKING_URL}
+            <Link
+              to="/bridal"
+              hash="join"
               className="inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
             >
               Join the bridal program
-            </a>
+            </Link>
             <p className="mt-3 text-[12px] text-muted-foreground">
-              Free to join — tell us your wedding date in the Note box.
+              Free to join — leave your wedding date and we&apos;ll text you.
             </p>
           </div>
         </div>
