@@ -182,7 +182,7 @@ function BridalJoinForm() {
     }));
     if (result.ok) {
       setStatus("success");
-gtform.reset();
+      form.reset();
     } else {
       setStatus("idle");
       setError(result.error);
