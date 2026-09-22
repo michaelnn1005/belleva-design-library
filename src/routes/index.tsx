@@ -375,9 +375,10 @@ function ServicesSection() {
 
         <div className="mt-12">
           {indexItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={BOOKING_URL}
+              to="/services"
+              hash={item.hash}
               className="block border-t border-[#E5DFD3] py-6 transition-colors hover:bg-cream/30"
             >
               <div className="flex items-start gap-4">
