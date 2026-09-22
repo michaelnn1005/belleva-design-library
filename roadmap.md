@@ -8,3 +8,5 @@
 - [x] Rename bridal lead consent storage to sms_consent
 - [x] Verify one complete bridal test lead through the form, then delete it
 - [x] Keep homepage bridal button targeting /bridal#join, update helper copy, and offset the form anchor below the fixed header
+
+- [x] Apply shared tablet/desktop container, rhythm, hero, header, and footer layout system

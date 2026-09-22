@@ -178,13 +178,13 @@ function StandardPage() {
             src={standardHeroSalonTableAsset.url}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-bottom"
+            className="absolute inset-0 h-full w-full object-cover object-bottom md:object-[center_72%] lg:object-bottom"
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
-            <FadeUpSection className="w-full">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+            <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE BELLEVA STANDARD
               </p>
@@ -199,14 +199,14 @@ function StandardPage() {
         </section>
 
         {/* GUARANTEE */}
-        <section className="relative bg-cream px-6 py-16 md:px-12 md:py-24">
+        <section className="relative bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <span
             aria-hidden="true"
             className="pointer-events-none absolute right-0 top-0 z-0 h-[160px] select-none overflow-hidden font-display text-[160px] leading-none text-forest/6 md:-right-10 md:top-4 md:h-auto md:text-[320px]"
           >
             14
           </span>
-          <div className="relative z-10 mx-auto max-w-[720px]">
+          <div className="relative z-10 mx-auto max-w-[1200px]">
             <FadeUpSection>
               <h2 className="font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
                 Fourteen days. Not seven.
@@ -264,7 +264,7 @@ function StandardPage() {
         </section>
 
         {/* THE PROOF */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1100px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
@@ -287,7 +287,7 @@ function StandardPage() {
         </section>
 
         {/* YOUR APPOINTMENT */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
             <div className="max-w-[600px]">
               <FadeUpSection>
@@ -371,8 +371,8 @@ function StandardPage() {
         </section>
 
         {/* THE TRAY */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 BETWEEN EVERY CLIENT
@@ -404,7 +404,7 @@ function StandardPage() {
         </section>
 
         {/* WHAT TOUCHES YOUR HANDS */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
             <div className="max-w-[520px]">
               <FadeUpSection>
@@ -442,7 +442,7 @@ function StandardPage() {
         </section>
 
         {/* THINGS YOU'RE ALLOWED TO ASK */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[680px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
@@ -477,8 +477,8 @@ function StandardPage() {
           </div>
         </section>
       {/* WHAT WE DON'T DO */}
-      <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
-        <div className="mx-auto max-w-[720px]">
+      <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <div className="mx-auto max-w-[1200px]">
           <FadeUpSection>
             <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
               WHAT WE DON’T DO
@@ -517,8 +517,8 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="relative rounded-none bg-forest pt-20 md:pt-[120px]">
-        <div className="relative z-10 mx-auto max-w-[640px] px-6 md:px-12">
+      <section className="relative rounded-none bg-forest pt-20 md:pt-20 lg:pt-28">
+        <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
           <FadeUpSection>
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER

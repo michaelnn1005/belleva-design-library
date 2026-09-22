@@ -372,17 +372,17 @@ function ServicesPage() {
           className="relative h-[80vh] min-h-[520px] w-full md:h-[70vh] md:min-h-[520px]"
         >
           <picture className="absolute inset-0 h-full w-full">
-            <source media="(min-width: 769px)" srcSet={servicesHeroDesktopAsset.url} />
+            <source media="(min-width: 768px)" srcSet={servicesHeroDesktopAsset.url} />
             <img
               src={servicesHeroMobileAsset.url}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover object-[center_top] md:object-[center_right] rounded-none"
+              className="h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
             />
           </picture>
           <div className="absolute inset-0 bg-forest/35" />
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-14 md:items-center md:px-12 md:pb-16">
-            <FadeUpSection className="w-full">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
+            <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 Services
               </p>
@@ -416,8 +416,8 @@ function ServicesPage() {
         </section>
 
         {/* NAIL SYSTEMS */}
-        <section id="nail-systems" className="bg-cream px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="nail-systems" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Nail systems
@@ -467,8 +467,8 @@ function ServicesPage() {
         </section>
 
         {/* MANICURES */}
-        <section id="manicures" className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="manicures" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Manicures
@@ -489,8 +489,8 @@ function ServicesPage() {
         </section>
 
         {/* PEDICURES */}
-        <section id="pedicures" className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="pedicures" className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Pedicures
@@ -514,8 +514,8 @@ function ServicesPage() {
         </section>
 
         {/* A LA CARTE */}
-        <section id="extras" className="bg-cream px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="extras" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 A la carte
@@ -531,8 +531,8 @@ function ServicesPage() {
         </section>
 
         {/* WAXING */}
-        <section id="waxing" className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="waxing" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Waxing
@@ -559,8 +559,8 @@ function ServicesPage() {
         </section>
 
         {/* LASHES */}
-        <section id="lashes" className="bg-cream px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section id="lashes" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Lashes
@@ -595,8 +595,8 @@ function ServicesPage() {
         </section>
 
         {/* GOOD TO KNOW */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Good to know
@@ -639,16 +639,16 @@ function ServicesPage() {
         {/* CTA */}
         <section className="relative h-[70vh] min-h-[480px] w-full md:h-[60vh] md:min-h-[520px]">
           <picture className="absolute inset-0 h-full w-full">
-            <source media="(min-width: 769px)" srcSet={servicesCtaAsset.url} />
+            <source media="(min-width: 768px)" srcSet={servicesCtaAsset.url} />
             <img
               src={servicesHeroMobileAsset.url}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover object-[center_top] md:object-[center_right] rounded-none"
+              className="h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
             />
           </picture>
           <div className="absolute inset-0 bg-forest/40 md:bg-forest/45" />
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-14 md:items-center md:px-12 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full">
               <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5]">
                 Found yours?

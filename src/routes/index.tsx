@@ -286,7 +286,7 @@ function VisionQuote() {
     (visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0");
 
   return (
-    <section className="bg-forest px-6 py-24 md:py-40">
+    <section className="bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
       <div
         ref={ref}
         className="mx-auto flex max-w-[320px] flex-col items-center text-center"
@@ -345,7 +345,7 @@ function ServicesSection() {
     <section
       id="services"
       ref={ref}
-      className={`fade-up ${visible ? "fade-in-visible" : ""} bg-background px-6 py-20 md:px-12`}
+      className={`fade-up ${visible ? "fade-in-visible" : ""} bg-background px-6 py-20 md:px-10 md:py-20 lg:px-16 lg:py-28`}
     >
       <div className="mx-auto max-w-6xl">
         <p className="eyebrow">Services</p>
@@ -442,8 +442,8 @@ function Index() {
           style={{ backgroundColor: "rgba(47,74,62,0.45)" }}
         />
 
-        <div className="relative z-10 flex h-full flex-col items-start justify-center px-6 text-left md:px-16">
-          <div className="max-w-[320px] md:max-w-[640px]">
+        <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-center px-6 text-left md:px-10 lg:px-16">
+          <div className="max-w-[320px] md:max-w-[55%]">
             <p className="text-[11px] uppercase tracking-[0.18em] text-background">
               THE DESIGN LIBRARY — DENTON, TX
             </p>
@@ -468,14 +468,14 @@ function Index() {
 
       <ServicesSection />
 
-      <section className="relative bg-forest px-6 py-24 md:px-12 md:py-80">
+      <section className="relative bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px]"
         >
           14
         </span>
-        <div className="relative z-10 mx-auto max-w-3xl">
+        <div className="relative z-10 mx-auto max-w-[1200px]">
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
             Things you’re allowed to ask here.
@@ -500,8 +500,8 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-cream py-24 md:py-28">
-        <p className="eyebrow px-6 md:px-12">From our clients</p>
+      <section className="bg-cream py-24 md:py-20 lg:py-28">
+        <p className="eyebrow mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">From our clients</p>
         <div
           className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
           style={{
@@ -526,7 +526,7 @@ function Index() {
         </div>
       </section>
 
-      <section id="bridal" className="bg-background px-6 py-24 md:px-12 md:py-28">
+      <section id="bridal" className="bg-background px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 w-full">
             <img

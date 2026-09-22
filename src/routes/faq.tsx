@@ -268,9 +268,9 @@ function FaqGroupSection({
   groupIndex: number;
 }) {
   return (
-    <section className={`px-6 md:px-12 ${groupIndex === 0 ? "pt-12 md:pt-16" : ""}`}>
-      <div className="mx-auto max-w-[720px]">
-        <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-[64px]"}>
+    <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : ""}`}>
+      <div className="mx-auto max-w-[1200px]">
+        <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-20 lg:mt-28"}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
         </FadeUpSection>
 
@@ -326,22 +326,22 @@ function FaqPage() {
           {/* Background image */}
           <picture className="absolute inset-0">
             <source
-              media="(min-width: 769px)"
+              media="(min-width: 768px)"
               srcSet={faqHeroDesktopAsset.url}
             />
             <img
               src={faqHeroMobileAsset.url}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover object-center rounded-none"
+              className="h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
             />
           </picture>
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
-            <FadeUpSection className="w-full">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+            <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] uppercase tracking-[0.12em] text-[#FAF8F5]/80">
                 QUESTIONS
               </p>
@@ -365,8 +365,8 @@ function FaqPage() {
               onToggle={handleToggle}
             />
             {i === 3 && (
-              <section className="mt-16 px-6 md:mt-[64px] md:px-12">
-                <div className="mx-auto max-w-[720px]">
+              <section className="mt-16 px-6 md:mt-20 md:px-10 lg:px-16">
+                <div className="mx-auto max-w-[1200px]">
                   <FadeUpSection>
                     <div className="aspect-[3/2] w-full overflow-hidden rounded-[10px]">
                       <img
@@ -385,8 +385,8 @@ function FaqPage() {
 
 
         {/* Closing */}
-        <section className="px-6 pb-[120px] pt-24 md:px-12">
-          <div className="mx-auto max-w-[720px] text-center">
+        <section className="px-6 pb-[120px] pt-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
+          <div className="mx-auto max-w-[1200px] text-center">
             <FadeUpSection>
               <p className="font-display text-[22px] leading-[1.3] text-forest lining-nums md:text-[28px]">
                 Still wondering? Book and write your question in the Note.

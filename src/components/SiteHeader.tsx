@@ -44,7 +44,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
           scrolled ? "bg-background" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
           <Link
             to="/"
             className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${
@@ -54,7 +54,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             BELLEVA
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {NAV_ITEMS.map((item) => {
               if ("to" in item) {
                 const isActive = pathname === item.to;
@@ -90,7 +90,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
-              className={`md:hidden ${iconColor}`}
+              className={`lg:hidden ${iconColor}`}
             >
               <svg
                 width="24"
@@ -122,7 +122,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-background px-6 py-5 md:hidden">
+        <div className="fixed inset-0 z-[60] bg-background px-6 py-5 lg:hidden">
           <div className="flex items-center justify-between">
             <Link
               to="/"

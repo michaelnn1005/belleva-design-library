@@ -169,22 +169,22 @@ function CareersPage() {
           {/* Background image */}
           <picture className="absolute inset-0">
             <source
-              media="(min-width: 769px)"
+              media="(min-width: 768px)"
               srcSet={careersHeroDesktopAsset.url}
             />
             <img
               src={careersHeroMobileAsset.url}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover object-center rounded-none"
+              className="h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
             />
           </picture>
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[720px] items-end px-6 pb-10 md:px-12 md:pb-16">
-            <FadeUpSection className="w-full">
+          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+            <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]">
                 Careers
               </p>
@@ -196,8 +196,8 @@ function CareersPage() {
         </section>
 
         {/* OPENING */}
-        <section className="bg-background px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-16">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 pb-16 pt-12 md:px-10 lg:px-16 md:pb-20 md:pt-20 lg:pb-28 lg:pt-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
                 I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I've seen this industry from every seat — including the ones where you get shorted, talked down to, or pushed aside. That's a big part of why I built this one.
@@ -207,8 +207,8 @@ function CareersPage() {
         </section>
 
         {/* WHAT YOU GET HERE */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]">
                 What you get here
@@ -224,8 +224,8 @@ function CareersPage() {
         </section>
 
         {/* WHERE THIS CAN GO */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Who we&apos;re hiring
@@ -244,8 +244,8 @@ function CareersPage() {
         </section>
 
         {/* WHAT WE ASK */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 What we ask
@@ -277,8 +277,8 @@ function CareersPage() {
         </section>
 
         {/* WHO THIS IS FOR */}
-        <section className="bg-forest px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Who this is for
@@ -301,8 +301,8 @@ function CareersPage() {
         </section>
 
         {/* TWO YEARS, ONE TEAM */}
-        <section className="bg-background px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Two years, one team
@@ -324,8 +324,8 @@ function CareersPage() {
         </section>
 
         {/* HOW TO REACH ME */}
-        <section className="bg-cream px-6 py-16 md:px-12 md:pb-24 md:pt-20">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:pb-20 md:pt-20 lg:pb-28 lg:pt-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 How to reach me

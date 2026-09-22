@@ -83,8 +83,8 @@ function ContactPage() {
 
       <main>
         {/* OPENING */}
-        <section className="bg-[#FAF8F5] px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-20">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-[#FAF8F5] px-6 pb-16 pt-12 md:px-10 lg:px-16 md:pb-20 md:pt-20 lg:pb-28 lg:pt-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="mb-5 font-sans text-[12px] uppercase tracking-[0.12em] text-gold">
                 Contact
@@ -101,8 +101,8 @@ function ContactPage() {
         </section>
 
         {/* DETAILS */}
-        <section className="bg-[#F5F0E8] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[960px]">
+        <section className="bg-[#F5F0E8] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <div className="grid gap-12 md:grid-cols-3 md:gap-10">
                 {/* Visit */}
@@ -201,8 +201,8 @@ function ContactPage() {
         </section>
 
         {/* BEFORE YOU COME */}
-        <section className="bg-[#FAF8F5] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-[#FAF8F5] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Before you come
@@ -249,8 +249,8 @@ function ContactPage() {
         </section>
 
         {/* NOTE LINE */}
-        <section className="bg-[#2F4A3E] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-[#2F4A3E] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 When you book
@@ -269,8 +269,8 @@ function ContactPage() {
         </section>
 
         {/* PREFER TO WRITE */}
-        <section className="bg-[#FAF8F5] px-6 py-12 md:px-12 md:py-16">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-[#FAF8F5] px-6 py-12 md:px-10 lg:px-16 md:py-16">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Prefer to write
@@ -292,8 +292,8 @@ function ContactPage() {
         </section>
 
         {/* CLOSING CTA */}
-        <section className="bg-[#F5F0E8] px-6 py-16 md:px-12 md:py-24">
-          <div className="mx-auto max-w-[720px]">
+        <section className="bg-[#F5F0E8] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <h2 className="font-display text-[36px] leading-[1.1] text-[#2F4A3E] md:text-[48px] [font-variant-numeric:lining-nums]">
                 Ready when you are.

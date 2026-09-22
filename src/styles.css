@@ -155,11 +155,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    overflow-x: clip;
   }
 }
 
@@ -173,6 +175,12 @@
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 500;
+  }
+}
+
+@media (min-width: 768px) {
+  main section p:not([class*="max-w-"]) {
+    max-width: 65ch;
   }
 }
 
