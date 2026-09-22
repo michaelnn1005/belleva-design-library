@@ -533,6 +533,24 @@ function BridalPage() {
           </div>
         </section>
 
+        {/* JOIN THE BRIDAL PROGRAM — SIGN-UP FORM */}
+        <section id="join" className="bg-background px-6 py-16 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[720px]">
+            <FadeUpSection>
+              <HairlineLabel>JOIN THE BRIDAL PROGRAM</HairlineLabel>
+              <h2 className="mt-8 font-display lining-nums text-[32px] leading-[1.1] text-forest md:text-[44px]">
+                Save your wedding date.
+              </h2>
+              <p className="mt-4 max-w-[560px] text-[16px] leading-[1.6] text-muted-foreground">
+                Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join — no packages, no fees.
+              </p>
+            </FadeUpSection>
+            <FadeUpSection className="w-full">
+              <BridalJoinForm />
+            </FadeUpSection>
+          </div>
+        </section>
+
         {/* CTA */}
         <section
           className="relative rounded-none bg-forest px-6 py-20 md:px-12 md:py-[120px]"
