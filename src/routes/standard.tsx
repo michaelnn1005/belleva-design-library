@@ -473,6 +473,9 @@ function StandardPage() {
               <p className="mt-12 text-[18px] font-medium text-gold">
                 Yes — scan the QR code on the bottle. Yes. We'll tell you. And yes.
               </p>
+              <p className="mt-6 max-w-[65ch] text-[17px] leading-[1.6] text-forest/80">
+                How we match: detailed art goes to a design specialist. On a tight schedule? A tech who is quick and careful. Asked for someone by name in your Note? We book them, or offer a tech with the same skills, or another day.
+              </p>
             </FadeUpSection>
           </div>
         </section>
