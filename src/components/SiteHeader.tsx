@@ -146,7 +146,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
               </svg>
             </button>
           </div>
-          <nav className="mt-16 flex flex-col gap-8">
+          <nav className="mt-12 flex flex-col gap-5">
             {NAV_ITEMS.map((item) => {
               if ("to" in item) {
                 const isActive = pathname === item.to;
@@ -155,7 +155,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
                     key={item.label}
                     to={item.to}
                     onClick={() => setMenuOpen(false)}
-                    className={`font-display text-[32px] leading-none ${
+                    className={`font-display text-[34px] leading-[1.1] sm:text-[40px] ${
                       isActive ? "text-gold" : "text-forest"
                     }`}
                   >
@@ -171,7 +171,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
                     if (item.placeholder) e.preventDefault();
                     setMenuOpen(false);
                   }}
-                  className="font-display text-[32px] leading-none text-forest"
+                  className="font-display text-[34px] leading-[1.1] sm:text-[40px] text-forest"
                 >
                   {item.label}
                 </a>
@@ -180,24 +180,49 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             <a
               href={BOOKING_URL}
               onClick={() => setMenuOpen(false)}
-              className="mt-4 inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream"
+              className="mt-10 inline-flex w-fit rounded-full bg-forest px-8 py-3 text-sm text-cream"
             >
               Book an appointment
             </a>
-            <p className="mt-3 font-body text-xs text-forest/70">
+            <p className="mt-3 font-body text-sm text-forest/70">
               Tell us your occasion in the Note box.
             </p>
+          </nav>
+          <div className="mt-12 border-t border-forest/15 pb-8 pt-6 font-body text-sm leading-[1.6] text-forest">
+            <div>
+              <p className="font-body text-[11px] uppercase tracking-[0.2em] text-gold">
+                Visit
+              </p>
+              <p>
+                2200 W University Dr, Ste 180, Denton, TX 76201. Next to Dutch
+                Bros.
+              </p>
+            </div>
+            <div className="mt-4">
+              <p className="font-body text-[11px] uppercase tracking-[0.2em] text-gold">
+                Hours
+              </p>
+              <p>Mon-Fri 9:30am-7:30pm / Sat 9am-7pm / Sun 11am-5pm</p>
+            </div>
+            <div className="mt-4">
+              <p className="font-body text-[11px] uppercase tracking-[0.2em] text-gold">
+                Call
+              </p>
+              <a href="tel:+19405141808" className="underline decoration-1 underline-offset-[6px]">
+                (940) 514-1808
+              </a>
+            </div>
             <Link
               to="/careers"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 inline-block text-gold transition-colors hover:text-forest"
+              className="mt-4 inline-block text-gold transition-colors hover:text-forest"
             >
               <span className="font-body text-[11px] uppercase tracking-[2px]">Careers</span>
               <span className="ml-1.5 font-body text-[11px] italic normal-case tracking-normal text-forest/60">
                 — We're hiring
               </span>
             </Link>
-          </nav>
+          </div>
         </div>
       )}
     </>
