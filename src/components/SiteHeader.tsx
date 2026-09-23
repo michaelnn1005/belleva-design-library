@@ -117,7 +117,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-background px-6 py-5 lg:hidden">
+        <div className="fixed inset-0 z-[60] overflow-y-auto bg-background px-6 py-5 lg:hidden">
           <div className="flex items-center justify-between">
             <Link
               to="/"
