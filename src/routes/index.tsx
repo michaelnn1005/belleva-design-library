@@ -437,7 +437,7 @@ function Index() {
           className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-forest/40 lg:bg-forest/45" />
+        <div className="absolute inset-0 bg-forest/45" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
           <div className="max-w-[320px] md:max-w-[55%]">
@@ -446,15 +446,15 @@ function Index() {
               <br />
               <span className="whitespace-nowrap">next set.</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-[1.5] text-background/90 md:text-[18px]">
+            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px]">
               Real designs, made in our Denton salon. Book the one you love.
             </p>
             <button
               onClick={scrollToServices}
-              className="mt-7 text-[11px] uppercase tracking-[0.18em] text-background transition-opacity hover:opacity-70 lg:mt-6"
+              className="mt-7 inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15 lg:mt-6 lg:border-0 lg:px-0 lg:py-0 lg:text-[11px] lg:tracking-[0.18em] lg:transition-opacity lg:hover:bg-transparent lg:hover:opacity-70"
               aria-label="Scroll to services"
             >
-              EXPLORE SERVICES
+              Explore services
             </button>
           </div>
         </div>
