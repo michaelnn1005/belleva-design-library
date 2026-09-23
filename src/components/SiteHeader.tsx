@@ -47,7 +47,8 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             BELLEVA
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <div className="flex items-center gap-10">
+          <nav className="hidden items-center gap-9 lg:flex">
             {NAV_ITEMS.map((item) => {
               if ("to" in item) {
                 const isActive = pathname === item.to;
