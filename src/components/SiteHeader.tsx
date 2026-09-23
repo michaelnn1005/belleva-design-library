@@ -20,19 +20,12 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const baseLinkClass =
-    "text-[12px] uppercase tracking-[1.5px] transition-colors duration-300";
+    "font-body text-[15px] font-normal tracking-[0.02em] no-underline decoration-1 underline-offset-[6px] transition-colors duration-300";
 
   const desktopLinkClass = (isActive: boolean) => {
-    if (scrolled) {
-      return `${baseLinkClass} ${
-        isActive ? "text-gold" : "text-forest hover:text-gold"
-      }`;
-    }
-    return `${baseLinkClass} ${
-      isActive
-        ? "text-background"
-        : "text-background/90 hover:text-background"
-    }`;
+    const color = scrolled ? "text-forest" : "text-background";
+    const underline = isActive ? "underline" : "hover:underline";
+    return `${baseLinkClass} ${color} ${underline}`;
   };
 
   const iconColor = scrolled ? "text-forest" : "text-background";
@@ -54,7 +47,8 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             BELLEVA
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <div className="flex items-center gap-10">
+          <nav className="hidden items-center gap-9 lg:flex">
             {NAV_ITEMS.map((item) => {
               if ("to" in item) {
                 const isActive = pathname === item.to;
@@ -117,6 +111,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             >
               Book
             </a>
+          </div>
           </div>
         </div>
       </header>
