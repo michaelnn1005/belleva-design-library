@@ -13,11 +13,11 @@ Homepage có 3 dòng dẫn sang /standard:
 Trong `src/routes/standard.tsx`, section "THINGS YOU'RE ALLOWED TO ASK" (bg-background, max-w 680px):
 
 - Giữ nguyên heading, danh sách 4 câu hỏi, và dòng gold "Yes — scan the QR code on the bottle. Yes. We'll tell you. And yes."
-- Thêm **một đoạn ngắn ngay dưới dòng gold đó**, trả lời trực tiếp câu hỏi thứ ba:
+- Thêm **một đoạn ngay dưới dòng gold đó, margin-top 24px**, trả lời trực tiếp câu hỏi thứ ba. Văn bản gốc y nguyên, không thêm bớt:
 
-> Who's doing your nails, and why them: every technician here has a different strength — some live in detailed design work, some in structured gel, some in natural-nail care. We read your Note before you arrive and put you in the chair of the person whose strengths fit what you're asking for.
+> How we match: detailed art goes to a design specialist. On a tight schedule? A tech who is quick and careful. Asked for someone by name in your Note? We book them, or offer a tech with the same skills, or another day.
 
-- Style của đoạn mới: y hệt body copy hiện tại của trang (Inter, 17px, forest/80, max-w 65ch, căn trái, khoảng cách mt-6) — không thêm màu, font, icon, hay section mới.
+- Style của đoạn mới: y hệt body copy hiện tại của trang (Inter, 17px, forest ở 80% opacity, max-width 65ch, căn trái) — không thêm màu, font, icon, hay section mới.
 
 ## Không đổi
 
