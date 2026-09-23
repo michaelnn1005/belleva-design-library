@@ -112,6 +112,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
               Book
             </a>
           </div>
+          </div>
         </div>
       </header>
 
