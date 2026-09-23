@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { BOOKING_URL } from "@/lib/designs";
 import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
 import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
 import slide1 from "@/assets/nail-slide-1.png.asset.json";
@@ -419,49 +420,50 @@ function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToServices = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader heroPassed={heroPassed} />
 
       <section
         id="hero"
-        className="relative h-svh w-full overflow-hidden bg-forest md:h-screen"
+        className="relative w-full bg-forest lg:grid lg:h-svh lg:grid-cols-[58%_42%]"
       >
-        <img
-          src={nailLibraryAsset.url}
-          alt="Ink Veil nail design by Belleva Nails"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          loading="eager"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(47,74,62,0.45)" }}
-        />
+        <div className="relative h-[60svh] overflow-hidden lg:h-full">
+          <img
+            src={nailLibraryAsset.url}
+            alt="Ink Veil nail design by Belleva Nails"
+            className="h-full w-full object-cover object-[center_40%]"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-forest/35" />
+        </div>
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-center px-6 text-left md:px-10 lg:px-16">
-          <div className="max-w-[320px] md:max-w-[55%]">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-background">
+        <div className="flex bg-forest px-6 pb-14 pt-10 text-left lg:h-full lg:items-center lg:px-16 lg:py-0">
+          <div className="w-full lg:max-w-[440px]">
+            <p className="font-body text-[12px] uppercase tracking-[0.2em] text-background">
               THE DESIGN LIBRARY — DENTON, TX
             </p>
-            <h1 className="mt-3 font-display text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-background lining-nums md:text-[88px]">
-              <span className="whitespace-nowrap">Find your</span>
-              <br />
-              <span className="whitespace-nowrap">next set.</span>
+            <h1 className="mt-5 font-display text-[44px] font-normal leading-[1.05] text-background lining-nums lg:text-[64px]">
+              Find your next set.
             </h1>
-            <p className="mt-4 text-[16px] leading-[1.5] text-background/90 md:text-[18px]">
+            <p className="mt-5 max-w-[65ch] font-body text-[16px] leading-[1.55] text-background/85 lg:text-[17px]">
               Real designs, made in our salon. Book the one you love.
             </p>
-            <button
-              onClick={scrollToServices}
-              className="mt-6 text-[11px] uppercase tracking-[0.18em] text-background transition-opacity hover:opacity-70"
-              aria-label="Scroll to services"
+            <a
+              href={BOOKING_URL}
+              className="mt-8 inline-flex w-fit rounded-full bg-background px-7 py-3.5 font-body text-[14px] text-forest transition-opacity hover:opacity-85"
+            >
+              Book your set
+            </a>
+            <p className="mt-3 font-body text-[13px] text-background/70">
+              Tell us your occasion in the Note box.
+            </p>
+            <Link
+              to="/services"
+              className="mt-7 inline-block font-body text-[11px] uppercase tracking-[0.18em] text-background transition-opacity hover:opacity-70"
             >
               EXPLORE SERVICES
-            </button>
+            </Link>
           </div>
         </div>
       </section>
