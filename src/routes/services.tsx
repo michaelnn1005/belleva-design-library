@@ -5,12 +5,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
-import servicesHeroDesktopAsset from "@/assets/services-hero-desktop.png.asset.json";
-import servicesHeroMobileAsset from "@/assets/services-hero-mobile.png.asset.json";
-import servicesNailsAsset from "@/assets/services-nails.png.asset.json";
-import servicesManicuresAsset from "@/assets/services-manicures.png.asset.json";
-import servicesPedicuresAsset from "@/assets/services-pedicures.png.asset.json";
-import servicesCtaAsset from "@/assets/services-cta.png.asset.json";
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
+
+// Section photos: full width on phones/tablet, the 5/12 column on desktop.
+const SECTION_PHOTO_SIZES = "(min-width: 1024px) 480px, 100vw";
 
 const TITLE = "Services — Belleva Nails";
 const DESCRIPTION =
@@ -371,15 +370,14 @@ function ServicesPage() {
           id="hero"
           className="relative h-[80vh] min-h-[520px] w-full md:h-[70vh] md:min-h-[520px]"
         >
-          <picture className="absolute inset-0 h-full w-full">
-            <source media="(min-width: 768px)" srcSet={servicesHeroDesktopAsset.url} />
-            <img
-              src={servicesHeroMobileAsset.url}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
-            />
-          </picture>
+          <Img
+            image={IMAGES["services-hero-desktop"]}
+            mobile={IMAGES["services-hero-mobile"]}
+            alt=""
+            decorative
+            priority
+            className="absolute inset-0 h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
+          />
           <div className="absolute inset-0 bg-forest/35" />
           <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full md:max-w-[55%]">
@@ -417,25 +415,27 @@ function ServicesPage() {
 
         {/* NAIL SYSTEMS */}
         <section id="nail-systems" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
-            <FadeUpSection>
+          {/* Desktop: intro + photo stay left, price groups scroll on the right */}
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+            <FadeUpSection className="lg:sticky lg:top-[104px]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Nail systems
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
-              <img
-                src={servicesNailsAsset.url}
+              <Img
+                image={IMAGES["services-nails"]}
                 alt="Powder, brush and tools on a cream towel"
-                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
+                sizes={SECTION_PHOTO_SIZES}
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12 lg:mb-8"
               />
               <p className="max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
                 Every set below is guaranteed for 14 days. Designs go in the
                 Note when you book.
               </p>
             </FadeUpSection>
-            <FadeUpSection className="mt-0 md:mt-4">
+            <FadeUpSection className="mt-0 md:mt-4 lg:-mt-10">
               <div>
                 {NAIL_SYSTEMS.map((group, i) => (
                   <div
@@ -468,21 +468,22 @@ function ServicesPage() {
 
         {/* MANICURES */}
         <section id="manicures" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
-            <FadeUpSection>
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+            <FadeUpSection className="lg:sticky lg:top-[104px]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Manicures
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
                 Hands, three ways.
               </h2>
-              <img
-                src={servicesManicuresAsset.url}
+              <Img
+                image={IMAGES["services-manicures"]}
                 alt="Paraffin and a folded towel on a dark tray"
-                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
+                sizes={SECTION_PHOTO_SIZES}
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12 lg:mb-0"
               />
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
+            <FadeUpSection className="mt-10 lg:mt-0">
               <MenuIndex items={MANICURES} variant="dark" />
             </FadeUpSection>
           </div>
@@ -490,21 +491,22 @@ function ServicesPage() {
 
         {/* PEDICURES */}
         <section id="pedicures" className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
-            <FadeUpSection>
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+            <FadeUpSection className="lg:sticky lg:top-[104px]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Pedicures
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 Six ways to sit back.
               </h2>
-              <img
-                src={servicesPedicuresAsset.url}
+              <Img
+                image={IMAGES["services-pedicures"]}
                 alt="Pedicure basin with water and petals"
-                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12"
+                sizes={SECTION_PHOTO_SIZES}
+                className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12 lg:mb-0"
               />
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
+            <FadeUpSection className="mt-10 lg:mt-0">
               <MenuIndex items={PEDICURES} variant="light" />
               <p className="mt-6 text-[13px] leading-[1.6] text-gold">
                 For every Special or Premium, we donate $1 to United Way of Denton County.
@@ -524,7 +526,7 @@ function ServicesPage() {
                 Little extras.
               </h2>
             </FadeUpSection>
-            <FadeUpSection className="mt-10">
+            <FadeUpSection className="mt-10 lg:max-w-[800px]">
               <PriceList entries={A_LA_CARTE} variant="light" />
             </FadeUpSection>
           </div>
@@ -541,7 +543,7 @@ function ServicesPage() {
                 Smooth, top to toe.
               </h2>
             </FadeUpSection>
-            <FadeUpSection className="mt-8">
+            <FadeUpSection className="mt-8 lg:max-w-[800px]">
               <div>
                 {WAXING.map((group, i) => (
                   <div key={group.label} className={i !== 0 ? "mt-8" : ""}>
@@ -570,9 +572,10 @@ function ServicesPage() {
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-0">
-              <div>
+              {/* Tablet/desktop: the three lash tiers sit side by side */}
+              <div className="md:grid md:grid-cols-3 md:gap-10 lg:max-w-[960px] lg:gap-16">
                 {LASHES.map((lash, i) => (
-                  <div key={lash.label} className={i !== 0 ? "mt-8" : ""}>
+                  <div key={lash.label} className={i !== 0 ? "mt-8 md:mt-0" : ""}>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
                       {lash.label}
                     </p>
@@ -601,7 +604,8 @@ function ServicesPage() {
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Good to know
               </p>
-              <div className="mt-10 space-y-8">
+              {/* Desktop: three notes in a row, divided by hairlines */}
+              <div className="mt-10 space-y-8 lg:grid lg:grid-cols-3 lg:gap-12 lg:space-y-0">
                 <div className="pt-0">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Guarantee
@@ -611,7 +615,7 @@ function ServicesPage() {
                     repairs are the fastest.
                   </p>
                 </div>
-                <div className="border-t border-cream/12 pt-8">
+                <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Design
                   </p>
@@ -620,7 +624,7 @@ function ServicesPage() {
                     a technician who does that kind of work.
                   </p>
                 </div>
-                <div className="border-t border-cream/12 pt-8">
+                <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     On CBD
                   </p>
@@ -638,15 +642,13 @@ function ServicesPage() {
 
         {/* CTA */}
         <section className="relative h-[70vh] min-h-[480px] w-full md:h-[60vh] md:min-h-[520px]">
-          <picture className="absolute inset-0 h-full w-full">
-            <source media="(min-width: 768px)" srcSet={servicesCtaAsset.url} />
-            <img
-              src={servicesHeroMobileAsset.url}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
-            />
-          </picture>
+          <Img
+            image={IMAGES["services-cta"]}
+            mobile={IMAGES["services-hero-mobile"]}
+            alt=""
+            decorative
+            className="absolute inset-0 h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
+          />
           <div className="absolute inset-0 bg-forest/40 md:bg-forest/45" />
           <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full">

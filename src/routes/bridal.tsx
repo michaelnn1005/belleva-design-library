@@ -6,11 +6,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import bridalHeroAsset from "@/assets/bridal-hero-atmosphere.png.asset.json";
-import bridalCtaEucalyptusAsset from "@/assets/bridal-cta-eucalyptus.png.asset.json";
-import bridalTrialStillAsset from "@/assets/bridal-trial-still.png.asset.json";
-import bridalBetweenStillAsset from "@/assets/bridal-between-still.png.asset.json";
-import bridalJustMarriedAsset from "@/assets/bridal-just-married.png.asset.json";
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
 
 const TITLE = "Belleva Bridal — Belleva Nails";
 const DESCRIPTION =
@@ -57,10 +54,13 @@ function StaggerFadeUp({
   children,
   staggerMs = 80,
   className = "",
+  itemClassNames = [],
 }: {
   children: React.ReactNode;
   staggerMs?: number;
   className?: string;
+  /** Per-child classes on the animated wrapper, e.g. for grid placement. */
+  itemClassNames?: string[];
 }) {
   const { ref, visible } = useFadeUp(0.2);
   const items = Array.isArray(children) ? children : [children];
@@ -73,7 +73,7 @@ function StaggerFadeUp({
             visible
               ? "translate-y-0 opacity-100"
               : "translate-y-3 opacity-0"
-          }`}
+          } ${itemClassNames[i] ?? ""}`}
           style={{
             transitionDelay: visible ? `${i * staggerMs}ms` : "0ms",
           }}
@@ -349,9 +349,10 @@ function BridalPage() {
           id="hero"
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
-          <img
-            src={bridalHeroAsset.url}
+          <Img
+            image={IMAGES["bridal-hero-atmosphere"]}
             alt="Bridal nail set in soft neutral tones at Belleva Nails"
+            priority
             className="absolute inset-0 h-full w-full object-cover object-[50%_25%] md:object-[58%_20%] lg:object-[50%_20%] rounded-none"
           />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
@@ -390,7 +391,17 @@ function BridalPage() {
               </h2>
             </FadeUpSection>
 
-            <StaggerFadeUp staggerMs={80} className="mt-12 flex flex-col gap-8">
+            {/* Tablet/desktop: the three steps stack on the left, trial photo on the right */}
+            <StaggerFadeUp
+              staggerMs={80}
+              className="mt-12 flex flex-col gap-8 md:grid md:grid-cols-2 md:items-start md:gap-x-10 lg:gap-x-20"
+              itemClassNames={[
+                "md:col-start-1",
+                "md:col-start-2 md:row-span-3 md:row-start-1",
+                "md:col-start-1",
+                "md:col-start-1",
+              ]}
+            >
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                   THE TRIAL
@@ -400,9 +411,10 @@ function BridalPage() {
                 </p>
               </div>
               <div className="w-full rounded-none">
-                <img
-                  src={bridalTrialStillAsset.url}
+                <Img
+                  image={IMAGES["bridal-trial-still"]}
                   alt="Bridal nail trial detail at Belleva Nails"
+                  sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
                   className="aspect-[4/5] w-full object-cover rounded-none"
                 />
               </div>
@@ -428,10 +440,11 @@ function BridalPage() {
 
         <section className="bg-background px-6 py-2 md:px-10 lg:px-16 md:py-4 rounded-none">
           <div className="mx-auto max-w-[1200px] rounded-none">
-            <img
-              src={bridalBetweenStillAsset.url}
+            <Img
+              image={IMAGES["bridal-between-still"]}
               alt="Silk and eucalyptus detail"
-              className="aspect-[4/5] w-full object-cover rounded-none"
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="aspect-[4/5] w-full object-cover rounded-none md:aspect-[3/2] lg:aspect-[2/1]"
             />
           </div>
         </section>
@@ -471,16 +484,13 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section
-          className="relative flex min-h-[560px] flex-col justify-start rounded-none px-6 py-24 md:px-10 lg:px-16 md:py-20 lg:py-28"
-          style={{
-            backgroundImage: `url(${bridalJustMarriedAsset.url})`,
-            backgroundSize: "cover",
-            backgroundPosition: "50% 100%",
-            backgroundRepeat: "no-repeat",
-            borderRadius: 0,
-          }}
-        >
+        <section className="relative flex min-h-[560px] flex-col justify-start overflow-hidden rounded-none px-6 py-24 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <Img
+            image={IMAGES["bridal-just-married"]}
+            alt=""
+            decorative
+            className="absolute inset-0 h-full w-full object-cover object-[50%_100%]"
+          />
           <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)]" />
           <div className="relative mx-auto w-full max-w-[1200px]">
             <FadeUpSection>
@@ -544,22 +554,20 @@ function BridalPage() {
                 Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join — no packages, no fees.
               </p>
             </FadeUpSection>
-            <FadeUpSection className="w-full">
+            <FadeUpSection className="w-full lg:max-w-[800px]">
               <BridalJoinForm />
             </FadeUpSection>
           </div>
         </section>
 
         {/* CTA */}
-        <section
-          className="relative rounded-none bg-forest px-6 py-20 md:px-10 lg:px-16 md:py-20 lg:py-28"
-          style={{
-            backgroundImage: `url(${bridalCtaEucalyptusAsset.url})`,
-            backgroundSize: "cover",
-            backgroundPosition: "top center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+        <section className="relative overflow-hidden rounded-none bg-forest px-6 py-20 md:px-10 lg:px-16 md:py-20 lg:py-28">
+          <Img
+            image={IMAGES["bridal-cta-eucalyptus"]}
+            alt=""
+            decorative
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
           <div className="relative mx-auto max-w-[640px]">
             <FadeUpSection>

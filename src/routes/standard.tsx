@@ -4,14 +4,11 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
 
-import proofDay1Asset from "@/assets/proof-day1.jpg.asset.json";
-import proofDay7Asset from "@/assets/proof-day7.jpg.asset.json";
-import proofDay14Asset from "@/assets/proof-day14.jpg.asset.json";
-import standardFounderDeskAsset from "@/assets/standard-founder-desk.png.asset.json";
-import standardHeroSalonTableAsset from "@/assets/standard-hero-salon-table.png.asset.json";
-import standardTrayAsset from "@/assets/standard-tray.png.asset.json";
-import standardProductsAsset from "@/assets/standard-products.png.asset.json";
+// Text + photo pairs: full width on phones, half the row on tablet, capped on desktop.
+const SPLIT_SIZES = "(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw";
 
 const TITLE = "The Belleva Standard — Belleva Nails";
 const DESCRIPTION =
@@ -84,24 +81,26 @@ function StaggerFadeUp({
 }
 
 const PROOF_SLOTS = [
-  { label: "DAY 1", alt: "Gel-X set, day 1", src: proofDay1Asset.url },
-  { label: "DAY 7", alt: "Gel-X set, day 7", src: proofDay7Asset.url },
-  { label: "DAY 14", alt: "Gel-X set, day 14", src: proofDay14Asset.url },
+  { label: "DAY 1", alt: "Gel-X set, day 1", image: IMAGES["proof-day1"] },
+  { label: "DAY 7", alt: "Gel-X set, day 7", image: IMAGES["proof-day7"] },
+  { label: "DAY 14", alt: "Gel-X set, day 14", image: IMAGES["proof-day14"] },
 ];
+const PROOF_SIZES = "(min-width: 768px) 33vw, 100vw";
 
 function ProofGallery() {
   const [active, setActive] = useState(0);
 
   return (
     <>
-      {/* Desktop: three in a row */}
-      <div className="mt-12 hidden gap-6 lg:flex">
+      {/* Tablet/desktop: three in a row */}
+      <div className="mt-12 hidden gap-6 md:flex lg:gap-8">
         {PROOF_SLOTS.map((slot) => (
           <div key={slot.label} className="flex-1">
             <div className="aspect-[4/5] w-full bg-cream">
-              <img
-                src={slot.src}
+              <Img
+                image={slot.image}
                 alt={slot.alt}
+                sizes={PROOF_SIZES}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -113,7 +112,7 @@ function ProofGallery() {
       </div>
 
       {/* Mobile: single image with toggles */}
-      <div className="mt-8 lg:hidden">
+      <div className="mt-8 md:hidden">
         <div className="flex items-center gap-8">
           {PROOF_SLOTS.map((slot, i) => (
             <button
@@ -132,10 +131,11 @@ function ProofGallery() {
         </div>
         <div className="relative mt-6 aspect-[4/5] w-full bg-cream">
           {PROOF_SLOTS.map((slot, i) => (
-            <img
+            <Img
               key={slot.label}
-              src={slot.src}
+              image={slot.image}
               alt={slot.alt}
+              sizes={PROOF_SIZES}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[250ms] ${
                 active === i ? "opacity-100" : "opacity-0"
               }`}
@@ -174,10 +174,11 @@ function StandardPage() {
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
           {/* Background image */}
-          <img
-            src={standardHeroSalonTableAsset.url}
+          <Img
+            image={IMAGES["standard-hero-salon-table"]}
             alt=""
-            aria-hidden="true"
+            decorative
+            priority
             className="absolute inset-0 h-full w-full object-cover object-bottom md:object-[center_72%] lg:object-bottom"
           />
           {/* Overlay */}
@@ -265,7 +266,7 @@ function StandardPage() {
 
         {/* THE PROOF */}
         <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1100px]">
+          <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
                 THE PROOF
@@ -357,23 +358,15 @@ function StandardPage() {
                 Booked appointments get the most careful match. Walk-ins are welcome — we just have less time to plan.
               </p>
             </div>
-
-            <div className="hidden flex-1 lg:block">
-              <div className="sticky top-[120px]">
-                <div
-                  aria-label="Front desk consultation at Belleva Nails"
-                  role="img"
-                  className="aspect-[3/4] w-full bg-forest/10"
-                />
-              </div>
-            </div>
           </div>
         </section>
 
         {/* THE TRAY */}
         <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
-            <FadeUpSection>
+            {/* Tablet/desktop: text left, tray photo right */}
+            <FadeUpSection className="md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-20">
+              <div>
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 BETWEEN EVERY CLIENT
               </p>
@@ -391,11 +384,13 @@ function StandardPage() {
                   Every pedicure gets a new liner. Every time.
                 </p>
               </div>
+              </div>
 
-              <div className="mt-12 aspect-[4/5] w-full rounded-none">
-                <img
-                  src={standardTrayAsset.url}
+              <div className="mt-12 aspect-[4/5] w-full rounded-none md:mt-0">
+                <Img
+                  image={IMAGES["standard-tray"]}
                   alt="Sterilized tools and single-use files arranged on a clean steel tray at Belleva Nails"
+                  sizes={SPLIT_SIZES}
                   className="h-full w-full object-cover rounded-none"
                 />
               </div>
@@ -405,7 +400,7 @@ function StandardPage() {
 
         {/* WHAT TOUCHES YOUR HANDS */}
         <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-20">
             <div className="max-w-[520px]">
               <FadeUpSection>
                 <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
@@ -428,13 +423,13 @@ function StandardPage() {
               </FadeUpSection>
             </div>
 
-            <div className="flex-1">
+            <div>
               <FadeUpSection>
-                <img
-                  src={standardProductsAsset.url}
+                <Img
+                  image={IMAGES["standard-products"]}
                   alt="Fresh herbs and cotton on linen"
-                  className="aspect-[3/2] w-full rounded-none object-cover"
-                  loading="lazy"
+                  sizes={SPLIT_SIZES}
+                  className="aspect-[3/2] w-full rounded-none object-cover md:aspect-[4/5] lg:aspect-[3/2]"
                 />
               </FadeUpSection>
             </div>
@@ -491,7 +486,7 @@ function StandardPage() {
             </h2>
           </FadeUpSection>
 
-          <StaggerFadeUp staggerMs={60} className="mt-10 space-y-7">
+          <StaggerFadeUp staggerMs={60} className="mt-10 space-y-7 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 lg:space-y-0">
             {[
               "No MMA acrylic. Ever.",
               "No reused files, buffers, or liners.",

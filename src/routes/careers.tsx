@@ -4,9 +4,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-
-import careersHeroDesktopAsset from "@/assets/careers-hero-desktop.png.asset.json";
-import careersHeroMobileAsset from "@/assets/careers-hero-mobile.png.asset.json";
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
 
 const TITLE = "Careers — Belleva Nails";
 const DESCRIPTION =
@@ -167,18 +166,14 @@ function CareersPage() {
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
           {/* Background image */}
-          <picture className="absolute inset-0">
-            <source
-              media="(min-width: 768px)"
-              srcSet={careersHeroDesktopAsset.url}
-            />
-            <img
-              src={careersHeroMobileAsset.url}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
-            />
-          </picture>
+          <Img
+            image={IMAGES["careers-hero-desktop"]}
+            mobile={IMAGES["careers-hero-mobile"]}
+            alt=""
+            decorative
+            priority
+            className="absolute inset-0 h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
+          />
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 

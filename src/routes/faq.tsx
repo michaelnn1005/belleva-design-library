@@ -4,11 +4,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-
-import faqHeroDesktopAsset from "@/assets/faq-hero-desktop.png.asset.json";
-import faqHeroMobileAsset from "@/assets/faq-hero-mobile.png.asset.json";
-import faqHygieneProductsAsset from "@/assets/faq-hygiene-products.png.asset.json";
-
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
 
 
 const TITLE = "FAQ — Belleva Nails";
@@ -324,18 +321,14 @@ function FaqPage() {
           className="relative h-[60vh] min-h-[440px] w-full md:h-[70vh] md:min-h-[520px]"
         >
           {/* Background image */}
-          <picture className="absolute inset-0">
-            <source
-              media="(min-width: 768px)"
-              srcSet={faqHeroDesktopAsset.url}
-            />
-            <img
-              src={faqHeroMobileAsset.url}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
-            />
-          </picture>
+          <Img
+            image={IMAGES["faq-hero-desktop"]}
+            mobile={IMAGES["faq-hero-mobile"]}
+            alt=""
+            decorative
+            priority
+            className="absolute inset-0 h-full w-full object-cover object-center md:object-[58%_center] lg:object-center rounded-none"
+          />
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 
@@ -369,10 +362,11 @@ function FaqPage() {
                 <div className="mx-auto max-w-[1200px]">
                   <FadeUpSection>
                     <div className="aspect-[3/2] w-full overflow-hidden rounded-[10px]">
-                      <img
-                        src={faqHygieneProductsAsset.url}
+                      <Img
+                        image={IMAGES["faq-hygiene-products"]}
                         alt=""
-                        aria-hidden="true"
+                        decorative
+                        sizes="(min-width: 1280px) 1200px, 100vw"
                         className="h-full w-full object-cover object-center"
                       />
                     </div>

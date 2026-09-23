@@ -104,7 +104,7 @@ function ContactPage() {
         <section className="bg-[#F5F0E8] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <div className="grid gap-12 md:grid-cols-3 md:gap-10">
+              <div className="grid gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-3 lg:gap-12">
                 {/* Visit */}
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -211,7 +211,8 @@ function ContactPage() {
                 Three things people call to ask.
               </h2>
 
-              <div className="mt-10 space-y-8">
+              {/* Desktop: the three notes sit in a row under one shared hairline */}
+              <div className="mt-10 space-y-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:space-y-0">
                 <div className="border-t border-[#2F4A3E]/12 pt-8">
                   <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                     Repairs

@@ -1,0 +1,8 @@
+{
+  "name": "belleva-scripts",
+  "private": true,
+  "description": "One-off maintenance scripts; kept separate so the site has no extra dependencies.",
+  "dependencies": {
+    "sharp": "^0.35.4"
+  }
+}

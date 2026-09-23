@@ -4,15 +4,18 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
-import nailLibraryAsset from "@/assets/nail-library.jpg.asset.json";
-import bridalNailsAsset from "@/assets/bridal-nails.png.asset.json";
-import slide1 from "@/assets/nail-slide-1.png.asset.json";
-import slide2 from "@/assets/nail-slide-2.png.asset.json";
-import slide3 from "@/assets/nail-slide-3.png.asset.json";
-import slide4 from "@/assets/nail-slide-4.png.asset.json";
-import slide5 from "@/assets/nail-slide-5.png.asset.json";
+import { Img } from "@/components/Img";
+import { IMAGES } from "@/lib/images";
 
-const NAIL_SLIDES = [slide1, slide2, slide3, slide4, slide5];
+const NAIL_SLIDES = [
+  IMAGES["nail-slide-1"],
+  IMAGES["nail-slide-2"],
+  IMAGES["nail-slide-3"],
+  IMAGES["nail-slide-4"],
+  IMAGES["nail-slide-5"],
+];
+// Slideshow sits full-width on phones, then in the left column of the services grid.
+const SLIDE_SIZES = "(min-width: 1024px) 480px, (min-width: 768px) 50vw, 100vw";
 
 function NailsSlideshow() {
   const [index, setIndex] = useState(0);
@@ -69,16 +72,16 @@ function NailsSlideshow() {
         }}
       >
         {NAIL_SLIDES.map((slide, i) => (
-          <img
-            key={slide.url}
-            src={slide.url}
+          <Img
+            key={slide.name}
+            image={slide}
             alt="Nail set by Belleva Nails"
+            sizes={SLIDE_SIZES}
             className="absolute inset-0 h-full w-full object-cover object-center"
             style={{
               opacity: i === index ? 1 : 0,
               transition: reduced ? "none" : "opacity 1.2s ease-in-out",
             }}
-            loading={i === 0 ? "eager" : "lazy"}
           />
         ))}
 
@@ -127,7 +130,7 @@ function NailsSlideshow() {
       <div className="mt-3 flex items-center justify-center gap-[10px]">
         {NAIL_SLIDES.map((slide, i) => (
           <button
-            key={slide.url}
+            key={slide.name}
             type="button"
             aria-label={`Show nail photo ${i + 1}`}
             onClick={() => {
@@ -250,7 +253,7 @@ function StaggeredAskLines() {
   ];
 
   return (
-    <div ref={ref} className="mt-10 flex flex-col gap-7">
+    <div ref={ref} className="mt-10 flex flex-col gap-7 lg:max-w-[760px]">
       {lines.map((line, i) => {
         const animated = visible || reduced;
         return (
@@ -289,7 +292,7 @@ function VisionQuote() {
     <section className="bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
       <div
         ref={ref}
-        className="mx-auto flex max-w-[320px] flex-col items-center text-center"
+        className="mx-auto flex max-w-[320px] flex-col items-center text-center md:max-w-[560px]"
       >
         <p
           className={`text-[11px] uppercase tracking-[2px] text-gold ${lineClass}`}
@@ -298,7 +301,7 @@ function VisionQuote() {
           THE BELLEVA VISION
         </p>
         <blockquote
-          className={`mt-8 font-display text-[26px] italic leading-[1.4] text-cream ${lineClass}`}
+          className={`mt-8 font-display text-[26px] italic leading-[1.4] text-cream md:text-[34px] ${lineClass}`}
           style={{ transitionDelay: "200ms" }}
         >
           <span className="block">You spend your days</span>
@@ -347,19 +350,22 @@ function ServicesSection() {
       ref={ref}
       className={`fade-up ${visible ? "fade-in-visible" : ""} bg-background px-6 py-20 md:px-10 md:py-20 lg:px-16 lg:py-28`}
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1200px]">
         <p className="eyebrow">Services</p>
-        <h2 className="mt-5 font-display text-[28px] leading-[1.2] text-forest">
+        <h2 className="mt-5 font-display text-[28px] leading-[1.2] text-forest md:text-[40px] lg:text-[48px]">
           What we do.
         </h2>
 
+        {/* Tablet/desktop: slideshow left, nails + index right */}
+        <div className="md:grid md:grid-cols-2 md:items-start md:gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
         <div className="mt-10">
           <NailsSlideshow />
         </div>
 
-        <Link to="/services" hash="nail-systems" className="mt-6 block">
+        <div className="md:mt-10">
+        <Link to="/services" hash="nail-systems" className="mt-6 block md:mt-0">
           <div>
-            <h3 className="font-display text-[26px] leading-[1.2] text-forest">
+            <h3 className="font-display text-[26px] leading-[1.2] text-forest lg:text-[32px]">
               Nails
             </h3>
             <p className="mt-2 text-[12px] uppercase tracking-[1.5px] text-muted-foreground">
@@ -372,7 +378,7 @@ function ServicesSection() {
         </Link>
 
 
-        <div className="mt-12">
+        <div className="mt-12 md:mt-10">
           {indexItems.map((item) => (
             <Link
               key={item.name}
@@ -396,6 +402,8 @@ function ServicesSection() {
             </Link>
           ))}
           <div className="border-b border-[#E5DFD3]" />
+        </div>
+        </div>
         </div>
       </div>
     </section>
@@ -431,11 +439,11 @@ function Index() {
         id="hero"
         className="relative h-svh w-full overflow-hidden bg-forest md:h-screen"
       >
-        <img
-          src={nailLibraryAsset.url}
+        <Img
+          image={IMAGES["nail-library"]}
           alt="Ink Veil nail design by Belleva Nails"
+          priority
           className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:object-center"
-          loading="eager"
         />
         <div className="absolute inset-0 bg-forest/45" />
 
@@ -521,25 +529,25 @@ function Index() {
       </section>
 
       <section id="bridal" className="bg-background px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 w-full">
-            <img
-              src={bridalNailsAsset.url}
+        {/* Tablet/desktop: image left, text right */}
+        <div className="mx-auto max-w-[1200px] md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-16">
+          <div className="mb-10 w-full md:mb-0">
+            <Img
+              image={IMAGES["bridal-nails"]}
               alt="Elegant bridal nail set"
+              sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw"
               className="aspect-[4/5] w-full rounded-[10px] object-cover object-center"
-              loading="lazy"
-              width={896}
-              height={1200}
             />
           </div>
+          <div>
           <p className="eyebrow">BELLEVA BRIDAL</p>
-          <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-forest">
+          <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-forest md:text-[36px] lg:max-w-[460px] lg:text-[44px]">
             Joining costs nothing. You just get more.
           </h2>
-          <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground lg:max-w-[440px]">
             No packages, no fees — just a bride who walks in calm, because everything about her nails was decided weeks ago.
           </p>
-          <div className="mt-5 flex max-w-[340px] flex-col gap-6">
+          <div className="mt-5 flex max-w-[340px] flex-col gap-6 lg:max-w-[440px]">
             <div>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE TRIAL</p>
               <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A trial set to lock in your exact design.</p>
@@ -568,6 +576,7 @@ function Index() {
             <p className="mt-3 text-[12px] text-muted-foreground">
               Free to join - leave your date, or book your trial if you are ready.
             </p>
+          </div>
           </div>
         </div>
       </section>
