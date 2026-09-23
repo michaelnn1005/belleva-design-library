@@ -440,7 +440,8 @@ function Index() {
         className="relative h-svh w-full overflow-hidden bg-forest md:h-screen"
       >
         <Img
-          image={IMAGES["nail-library"]}
+          image={IMAGES["nail-library-hd"]}
+          mobile={IMAGES["nail-library"]}
           alt="Ink Veil nail design by Belleva Nails"
           priority
           className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:object-center"

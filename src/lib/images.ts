@@ -22,6 +22,7 @@ export const IMAGES = {
   "faq-hero-mobile": { name: "faq-hero-mobile", width: 753, height: 941, widths: [480, 753] },
   "faq-hygiene-products": { name: "faq-hygiene-products", width: 1536, height: 1024, widths: [480, 800, 1200, 1536] },
   "nail-library": { name: "nail-library", width: 1080, height: 1920, widths: [480, 800, 1080] },
+  "nail-library-hd": { name: "nail-library-hd", width: 2560, height: 4551, widths: [1440, 1920, 2560] },
   "nail-slide-1": { name: "nail-slide-1", width: 928, height: 1152, widths: [480, 800, 928] },
   "nail-slide-2": { name: "nail-slide-2", width: 896, height: 1200, widths: [480, 800, 896] },
   "nail-slide-3": { name: "nail-slide-3", width: 928, height: 1152, widths: [480, 800, 928] },

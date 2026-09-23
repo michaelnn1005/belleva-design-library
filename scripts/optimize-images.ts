@@ -21,6 +21,12 @@ const ORIGIN = "https://belleva-design-library.lovable.app";
 const WIDTHS = [480, 800, 1200, 1600];
 // Uploaded but not used anywhere on the site.
 const SKIP = new Set(["bridal-hero.png", "standard-hero-fabric.png", "tray-photo.png", "standard-founder-desk.png"]);
+// Full-bleed desktop photos whose originals are narrower than the screens they fill.
+// We pre-upscale these with Lanczos + light sharpening (much crisper than the browser's
+// own stretch) into a separate "<name>-hd" entry, used above 768px only.
+const HD_WIDTHS: Record<string, number[]> = {
+  "nail-library": [1440, 1920, 2560],
+};
 
 mkdirSync(OUT, { recursive: true });
 
@@ -45,6 +51,24 @@ for (const file of readdirSync(ASSETS).filter((f) => f.endsWith(".asset.json")).
   }
   manifest.push({ name, width: srcW, height: srcH, widths });
   console.log(`${name}: ${srcW}x${srcH} -> ${widths.join("/")} (${(bytes / 1024).toFixed(0)} KB all variants, original ${(buf.byteLength / 1024).toFixed(0)} KB)`);
+
+  const hdWidths = HD_WIDTHS[name];
+  if (hdWidths) {
+    const hdName = `${name}-hd`;
+    let hdBytes = 0;
+    for (const w of hdWidths) {
+      const upscaled = sharp(buf)
+        .rotate()
+        .resize({ width: w, kernel: "lanczos3" })
+        .sharpen({ sigma: 0.9, m1: 0.6, m2: 2.2 });
+      const avif = await upscaled.clone().avif({ quality: 70, effort: 5 }).toFile(`${OUT}/${hdName}-${w}.avif`);
+      const webp = await upscaled.clone().webp({ quality: 88 }).toFile(`${OUT}/${hdName}-${w}.webp`);
+      hdBytes += avif.size + webp.size;
+    }
+    const top = hdWidths.at(-1)!;
+    manifest.push({ name: hdName, width: top, height: Math.round((srcH * top) / srcW), widths: hdWidths });
+    console.log(`${hdName}: -> ${hdWidths.join("/")} (${(hdBytes / 1024).toFixed(0)} KB all variants)`);
+  }
 }
 
 await Bun.write(
