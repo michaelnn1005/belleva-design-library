@@ -446,7 +446,10 @@ function Index() {
           priority
           className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:object-center"
         />
-        <div className="absolute inset-0 bg-forest/45" />
+        {/* Shade only where text sits (header on top, headline bottom on phones / left on desktop)
+            so the photo keeps its true colours instead of a flat green wash. */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:bg-gradient-to-r lg:from-forest/70 lg:via-forest/35 lg:via-45% lg:to-transparent lg:to-80%" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
           <div className="max-w-[320px] md:max-w-[55%]">
