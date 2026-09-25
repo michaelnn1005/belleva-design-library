@@ -147,7 +147,7 @@ function NailsSlideshow() {
 }
 
 
-const TITLE = "Belleva Nails — Denton nail design library";
+const TITLE = "Belleva Nails · Denton nail design library";
 const DESCRIPTION =
   "Browse real nail sets made in our Denton salon and book the design you love.";
 
@@ -195,11 +195,11 @@ function QuoteCard({
   quote: { name: string; text: string };
 }) {
   return (
-    <figure className="w-[280px] shrink-0 pr-16">
-      <blockquote className="font-display text-[19px] italic leading-[1.5] text-forest">
+    <figure className="w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] shrink-0 pr-10 sm:pr-14 md:pr-16">
+      <blockquote className="font-display text-[18px] sm:text-[20px] lg:text-[22px] italic leading-[1.5] text-forest">
         {quote.text}
       </blockquote>
-      <figcaption className="mt-4 text-[11px] uppercase tracking-[2px] text-forest">
+      <figcaption className="mt-4 text-[11px] uppercase tracking-[2px] text-forest/80 font-medium">
         {quote.name}
       </figcaption>
     </figure>
@@ -312,7 +312,7 @@ function VisionQuote() {
           className={`mt-8 text-[10px] uppercase tracking-[2px] text-cream/80 ${lineClass}`}
           style={{ transitionDelay: "500ms" }}
         >
-          BELLEVA — DENTON, TX
+          BELLEVA · DENTON, TX
         </p>
       </div>
     </section>
@@ -452,13 +452,13 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:bg-gradient-to-r lg:from-forest/70 lg:via-forest/35 lg:via-45% lg:to-transparent lg:to-80%" />
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
-          <div className="max-w-[320px] md:max-w-[55%]">
-            <h1 className="font-display text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-background lining-nums md:text-[88px]">
+          <div className="max-w-[320px] md:max-w-[70%] lg:max-w-[55%]">
+            <h1 className="font-display text-[52px] font-normal leading-[1.05] tracking-[-0.01em] text-background lining-nums sm:text-[56px] md:text-[72px] lg:text-[88px] xl:text-[96px]">
               <span className="whitespace-nowrap">Find your</span>
               <br />
               <span className="whitespace-nowrap">next set.</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px]">
+            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px] lg:text-[20px]">
               Real designs, made in our Denton salon. Book the one you love.
             </p>
             <button
@@ -549,27 +549,27 @@ function Index() {
             Joining costs nothing. You just get more.
           </h2>
           <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground lg:max-w-[440px]">
-            No packages, no fees — just a bride who walks in calm, because everything about her nails was decided weeks ago.
+            No packages, no fees – just a bride who walks in calm, because everything about her nails was decided weeks ago.
           </p>
-          <div className="mt-5 flex max-w-[340px] flex-col gap-6 lg:max-w-[440px]">
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-[480px]">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE TRIAL</p>
-              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A trial set to lock in your exact design.</p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE TRIAL</p>
+              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A trial set to lock in your exact design.</p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE WEDDING SET</p>
-              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">The same look, recreated before the wedding.</p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE WEDDING SET</p>
+              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">The same look, recreated before the wedding.</p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE CARE KIT</p>
-              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A small kit to take home.</p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE CARE KIT</p>
+              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A small kit to take home.</p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">THE GUARANTEE</p>
-              <p className="mt-[6px] text-[17px] leading-[1.5] text-forest">A set guaranteed through your big day.</p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE GUARANTEE</p>
+              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A set guaranteed through your big day.</p>
             </div>
           </div>
-          <div className="mt-8 max-w-[340px]">
+          <div className="mt-8">
             <Link
               to="/bridal"
               hash="join"

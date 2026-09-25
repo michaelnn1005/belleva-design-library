@@ -7,7 +7,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
 
-const TITLE = "Careers — Belleva Nails";
+const TITLE = "Careers · Belleva Nails";
 const DESCRIPTION =
   "Come build with us at Belleva Nails in Denton, Texas. A salon built by a nail tech who knows what the floor is worth.";
 
@@ -110,7 +110,7 @@ const WHAT_YOU_GET_ITEMS: EditorialItem[] = [
     number: "02",
     title: "We grow your book with you",
     description:
-      "Bring the effort and a goal you actually want. We bring the clients and the system to keep them — that part is ours to carry.",
+      "Bring the effort and a goal you actually want. We bring the clients and the system to keep them – that part is ours to carry.",
   },
   {
     number: "03",
@@ -195,7 +195,7 @@ function CareersPage() {
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="mt-6 max-w-[560px] text-[16px] leading-[1.65] text-forest">
-                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I've seen this industry from every seat — including the ones where you get shorted, talked down to, or pushed aside. That's a big part of why I built this one.
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I've seen this industry from every seat – including the ones where you get shorted, talked down to, or pushed aside. That's a big part of why I built this one.
               </p>
             </FadeUpSection>
           </div>
@@ -265,7 +265,7 @@ function CareersPage() {
                 ))}
               </div>
               <p className="mt-5 text-[13px] text-forest/70">
-                That&apos;s it — and it&apos;s non-negotiable.
+                That&apos;s it – and it&apos;s non-negotiable.
               </p>
             </FadeUpSection>
           </div>
@@ -285,11 +285,11 @@ function CareersPage() {
               </p>
               <p className="mt-6 max-w-[34ch] font-display text-[22px] font-normal italic leading-[1.4] text-cream md:text-[24px]">
                 If you want a place that will push you further than you thought
-                you&apos;d go — come work with me. Helping you get there is my
+                you&apos;d go – come work with me. Helping you get there is my
                 job.
               </p>
               <p className="mt-6 text-[11px] uppercase tracking-[0.14em] text-gold">
-                — Michael
+                · Michael
               </p>
             </FadeUpSection>
           </div>
@@ -306,7 +306,7 @@ function CareersPage() {
                 <p className="font-display text-[20px] font-normal leading-[1.45] text-forest lining-nums md:text-[21px]">
                   In two years, this salon went from a{" "}
                   <span className="lining-nums">4.2</span> to a{" "}
-                  <span className="lining-nums">4.7</span> on Google — from a few
+                  <span className="lining-nums">4.7</span> on Google – from a few
                   hundred reviews to a thousand.
                 </p>
                 <p className="font-display text-[20px] font-normal leading-[1.45] text-forest md:text-[21px]">

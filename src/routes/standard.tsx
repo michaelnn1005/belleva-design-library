@@ -10,9 +10,9 @@ import { IMAGES } from "@/lib/images";
 // Text + photo pairs: full width on phones, half the row on tablet, capped on desktop.
 const SPLIT_SIZES = "(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw";
 
-const TITLE = "The Belleva Standard — Belleva Nails";
+const TITLE = "The Belleva Standard · Belleva Nails";
 const DESCRIPTION =
-  "What you should expect from a nail salon — and what you get at Belleva Nails in Denton, Texas.";
+  "What you should expect from a nail salon, and what you get at Belleva Nails in Denton, Texas.";
 
 export const Route = createFileRoute("/standard")({
   head: () => ({
@@ -213,7 +213,7 @@ function StandardPage() {
                 Fourteen days. Not seven.
               </h2>
               <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
-                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time — bring it in and we’ll take a look.
+                If your set chips, lifts, or breaks within 14 days, we fix it. No charge. Technical fault, obviously. Car door, most of the time – bring it in and we’ll take a look.
               </p>
               <p className="mt-5 text-[15px] italic text-gold">
                 The industry standard is 7 days. Cute. Ours is 14.
@@ -289,75 +289,75 @@ function StandardPage() {
 
         {/* YOUR APPOINTMENT */}
         <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-12 lg:flex-row lg:gap-20">
-            <div className="max-w-[600px]">
-              <FadeUpSection>
-                <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
-                  YOUR APPOINTMENT
-                </p>
-                <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
-                  What an hour here looks like.
-                </h2>
-              </FadeUpSection>
-
-              <StaggerFadeUp staggerMs={80} className="mt-12">
-                {[
-                  {
-                    number: "01",
-                    title: "Check-in",
-                    description:
-                      "We read your Note before you sit down. Coffee, tea, or something bubbly — drinks are on us.",
-                  },
-                  {
-                    number: "02",
-                    title: "Tell us",
-                    description:
-                      "What you want, what you don’t, anything specific. The more we know, the better this goes.",
-                  },
-                  {
-                    number: "03",
-                    title: "The match",
-                    description:
-                      "We pair you with the technician whose strengths fit your request — that’s the whole system.",
-                  },
-                  {
-                    number: "04",
-                    title: "Your feedback",
-                    description:
-                      "There's a box at the front desk for you. Say what worked and what didn't; the honest ones help us most. Every month we draw a few cards and send a small gift. It's our way of saying thank you for helping us get better.",
-                  },
-                  {
-                    number: "05",
-                    title: "Your next visit",
-                    description:
-                      "Held at the front desk, three to four weeks out, with the same technician when possible.",
-                  },
-                ].map((step, i, arr) => (
-                  <div
-                    key={step.number}
-                    className={`flex gap-4 py-6 ${
-                      i !== arr.length - 1 ? "border-b border-forest/12" : ""
-                    }`}
-                  >
-                    <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums">
-                      {step.number}
-                    </span>
-                    <div>
-                      <p className="font-body text-[17px] font-medium text-forest">
-                        {step.title}
-                      </p>
-                      <p className="mt-1 text-[16px] leading-[1.6] text-forest/75">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </StaggerFadeUp>
-
-              <p className="mt-10 max-w-[560px] text-[15px] italic leading-[1.6] text-forest/70">
-                Booked appointments get the most careful match. Walk-ins are welcome — we just have less time to plan.
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+            <FadeUpSection className="lg:sticky lg:top-[104px]">
+              <p className="text-[12px] uppercase tracking-[0.12em] text-gold font-medium">
+                YOUR APPOINTMENT
               </p>
-            </div>
+              <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
+                What an hour here looks like.
+              </h2>
+              <p className="mt-6 max-w-[480px] font-sans text-[16px] leading-[1.65] text-forest/75">
+                Every step is planned to make your visit smooth, calm, and predictable.
+              </p>
+              <p className="mt-8 max-w-[480px] text-[14px] italic leading-[1.6] text-gold font-medium">
+                Booked appointments get the most careful match. Walk-ins are welcome – we just have less time to plan.
+              </p>
+            </FadeUpSection>
+
+            <StaggerFadeUp staggerMs={80} className="mt-10 lg:mt-0">
+              {[
+                {
+                  number: "01",
+                  title: "Check-in",
+                  description:
+                    "We read your Note before you sit down. Coffee, tea, or something bubbly – drinks are on us.",
+                },
+                {
+                  number: "02",
+                  title: "Tell us",
+                  description:
+                    "What you want, what you don’t, anything specific. The more we know, the better this goes.",
+                },
+                {
+                  number: "03",
+                  title: "The match",
+                  description:
+                    "We pair you with the technician whose strengths fit your request, that’s the whole system.",
+                },
+                {
+                  number: "04",
+                  title: "Your feedback",
+                  description:
+                    "There's a box at the front desk for you. Say what worked and what didn't; the honest ones help us most. Every month we draw a few cards and send a small gift. It's our way of saying thank you for helping us get better.",
+                },
+                {
+                  number: "05",
+                  title: "Your next visit",
+                  description:
+                    "Held at the front desk, three to four weeks out, with the same technician when possible.",
+                },
+              ].map((step, i, arr) => (
+                <div
+                  key={step.number}
+                  className={`flex gap-5 py-6 ${
+                    i !== arr.length - 1 ? "border-b border-forest/12" : ""
+                  }`}
+                >
+                  <span className="w-14 flex-shrink-0 font-display text-[28px] leading-none text-gold lining-nums">
+                    {step.number}
+                  </span>
+                  <div>
+                    <p className="font-body text-[18px] font-medium text-forest">
+                      {step.title}
+                    </p>
+                    <p className="mt-1.5 text-[15px] leading-[1.65] text-forest/80">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </StaggerFadeUp>
           </div>
         </section>
 
@@ -411,10 +411,10 @@ function StandardPage() {
                 </h2>
                 <div className="mt-6 space-y-4">
                   <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Our pedicure products come from FarmHouse Fresh, a Texas farm skincare brand — plant-based, made a few hours from here.
+                    Our pedicure products come from FarmHouse Fresh, a Texas farm skincare brand. Plant-based, made a few hours from here.
                   </p>
                   <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
-                    Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask — though you can.
+                    Every CBD product we use, in a manicure or a pedicure, has a QR code on the back of the bottle. Scan it and read the lab report yourself. No need to ask, though you can.
                   </p>
                   <p className="text-[17px] leading-[1.7] text-forest/80 md:text-[18px]">
                     Everything else is chosen the same way: because we’d use it on our own hands.
@@ -466,7 +466,7 @@ function StandardPage() {
 
             <FadeUpSection>
               <p className="mt-12 text-[18px] font-medium text-gold">
-                Yes — scan the QR code on the bottle. Yes. We'll tell you. And yes.
+                Yes, scan the QR code on the bottle. Yes. We'll tell you. And yes.
               </p>
               <p className="mt-6 max-w-[65ch] text-[17px] leading-[1.6] text-forest/80">
                 How we match: detailed art goes to a design specialist. On a tight schedule? A tech who is quick and careful. Asked for someone by name in your Note? We book them, or offer a tech with the same skills, or another day.
@@ -478,7 +478,7 @@ function StandardPage() {
       <section className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
         <div className="mx-auto max-w-[1200px]">
           <FadeUpSection>
-            <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
+            <p className="text-[12px] uppercase tracking-[0.12em] text-gold font-medium">
               WHAT WE DON’T DO
             </p>
             <h2 className="mt-3 font-display text-[32px] leading-[1.1] text-forest md:text-[48px]">
@@ -486,7 +486,7 @@ function StandardPage() {
             </h2>
           </FadeUpSection>
 
-          <StaggerFadeUp staggerMs={60} className="mt-10 space-y-7 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 lg:space-y-0">
+          <StaggerFadeUp staggerMs={60} className="mt-10 grid grid-cols-1 gap-y-7 md:grid-cols-2 md:gap-x-12 md:gap-y-10">
             {[
               "No MMA acrylic. Ever.",
               "No reused files, buffers, or liners.",
@@ -497,15 +497,15 @@ function StandardPage() {
             ].map((line, i) => (
               <div
                 key={line}
-                className="flex items-start gap-4 md:gap-6"
+                className="flex items-start gap-4 md:gap-6 border-b border-forest/10 pb-6 md:border-b-0 md:pb-0"
               >
                 <span
-                  className="w-16 flex-shrink-0 font-display text-[44px] leading-none text-gold/35 lining-nums md:w-[88px] md:text-[64px]"
+                  className="w-12 flex-shrink-0 font-display text-[40px] leading-none text-gold/40 lining-nums md:w-[60px] md:text-[56px]"
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="pt-2 text-[17px] leading-[1.5] text-forest md:pt-3 md:text-[18px]">
+                <p className="pt-1.5 text-[16px] leading-[1.5] text-forest md:pt-2 md:text-[18px]">
                   {line}
                 </p>
               </div>
@@ -523,13 +523,13 @@ function StandardPage() {
             </p>
             <div className="mt-6 space-y-5">
               <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
-                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We’d rather ask you to wait for the right tech than hand you to the wrong one — so we stay small on purpose, and we hire slowly.
+                I spent six years at the chair, then ran the floor as a manager before I ever owned a salon. I know what a rushed set feels like from both sides of the table. Belleva runs on one rule that costs us money and we keep anyway: quality over volume. We’d rather ask you to wait for the right tech than hand you to the wrong one, so we stay small on purpose, and we hire slowly.
               </p>
               <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
-                To everyone who has trusted us with their hands these past two years: thank you. You’re the reason we get to keep raising the bar. And to those who came once and didn’t come back — thank you, too. You taught us things no compliment ever could.
+                To everyone who has trusted us with their hands these past two years: thank you. You’re the reason we get to keep raising the bar. And to those who came once and didn’t come back, thank you, too. You taught us things no compliment ever could.
               </p>
               <p className="font-display text-[19px] font-normal leading-[1.75] text-cream md:text-[20px]">
-                We are not a perfect salon, and we won’t pretend to be one. What we can promise is simpler than that: we will show up for you with everything we have, and we will try to be a little better than we were the day before — every set, every visit, every year. That’s the whole plan.
+                We are not a perfect salon, and we won’t pretend to be one. What we can promise is simpler than that: we will show up for you with everything we have, and we will try to be a little better than we were the day before: every set, every visit, every year. That’s the whole plan.
               </p>
             </div>
 

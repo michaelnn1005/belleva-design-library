@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 
-const TITLE = "Contact — Belleva Nails";
+const TITLE = "Contact · Belleva Nails";
 const DESCRIPTION =
   "Visit Belleva Nails in Denton, Texas. Book online, call, or send a message.";
 
@@ -204,42 +204,42 @@ function ContactPage() {
         <section className="bg-[#FAF8F5] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                 Before you come
               </p>
               <h2 className="mt-3 font-display text-[30px] leading-[1.1] text-[#2F4A3E] md:text-[40px] [font-variant-numeric:lining-nums]">
                 Three things people call to ask.
               </h2>
 
-              {/* Desktop: the three notes sit in a row under one shared hairline */}
-              <div className="mt-10 space-y-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:space-y-0">
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              {/* Tablet & desktop: 3 clean columns */}
+              <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8 lg:gap-10">
+                <div className="border-t border-[#2F4A3E]/12 pt-6">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                     Repairs
                   </p>
-                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                  <p className="mt-3 font-sans text-[15px] leading-[1.65] text-[#2F4A3E]/85">
                     Anything wrong within 14 days, we fix it free. Book online
                     with &quot;Repair&quot; in the Note, or call and ask for the
                     front desk. Weekday repairs are the fastest.
                   </p>
                 </div>
 
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                <div className="border-t border-[#2F4A3E]/12 pt-6">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                     Groups & weddings
                   </p>
-                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                  <p className="mt-3 font-sans text-[15px] leading-[1.65] text-[#2F4A3E]/85">
                     Booking for more than one? Put the number of people and the
                     occasion in the Note. The front desk calls back the same day
                     to set up chairs.
                   </p>
                 </div>
 
-                <div className="border-t border-[#2F4A3E]/12 pt-8">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                <div className="border-t border-[#2F4A3E]/12 pt-6">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                     Gift cards
                   </p>
-                  <p className="mt-3 font-sans text-[16px] leading-[1.6] text-[#2F4A3E]/85">
+                  <p className="mt-3 font-sans text-[15px] leading-[1.65] text-[#2F4A3E]/85">
                     At the front desk or by phone. We can hand it to you here or
                     text you a photo of the card.
                   </p>
@@ -261,7 +261,7 @@ function ContactPage() {
               </h2>
               <p className="mt-5 max-w-[640px] font-sans text-[16px] leading-[1.7] text-[#FAF8F5]/85">
                 Wedding, prom, birthday, a photoshoot, a specific design, or a
-                technician you&apos;d like to request — put it in the Note on the
+                technician you&apos;d like to request – put it in the Note on the
                 last page of booking. We read every one before you arrive, and
                 we plan around it.
               </p>

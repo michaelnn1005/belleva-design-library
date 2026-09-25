@@ -48,70 +48,70 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
           </Link>
 
           <div className="flex items-center gap-10">
-          <nav className="hidden items-center gap-9 lg:flex">
-            {NAV_ITEMS.map((item) => {
-              if ("to" in item) {
-                const isActive = pathname === item.to;
+            <nav className="hidden items-center gap-9 md:flex">
+              {NAV_ITEMS.map((item) => {
+                if ("to" in item) {
+                  const isActive = pathname === item.to;
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.to}
+                      className={desktopLinkClass(isActive)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
                 return (
-                  <Link
+                  <a
                     key={item.label}
-                    to={item.to}
-                    className={desktopLinkClass(isActive)}
+                    href={item.href}
+                    className={desktopLinkClass(false)}
+                    onClick={
+                      item.placeholder
+                        ? (e) => e.preventDefault()
+                        : undefined
+                    }
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 );
-              }
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={desktopLinkClass(false)}
-                  onClick={
-                    item.placeholder
-                      ? (e) => e.preventDefault()
-                      : undefined
-                  }
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
+              })}
+            </nav>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              className={`lg:hidden ${iconColor}`}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setMenuOpen(true)}
+                aria-label="Open menu"
+                className={`md:hidden ${iconColor}`}
               >
-                <line x1="4" y1="6" x2="20" y2="6" />
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <line x1="4" y1="18" x2="20" y2="18" />
-              </svg>
-            </button>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                >
+                  <line x1="4" y1="6" x2="20" y2="6" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="18" x2="20" y2="18" />
+                </svg>
+              </button>
 
-            <a
-              href={BOOKING_URL}
-              className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${
-                scrolled
-                  ? "border-gold text-gold hover:bg-cream"
-                  : "border-background/70 text-background hover:bg-background/15"
-              }`}
-            >
-              Book
-            </a>
-          </div>
+              <a
+                href={BOOKING_URL}
+                className={`rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-[0.1em] transition-all duration-300 ${
+                  scrolled
+                    ? "border-gold text-gold hover:bg-forest hover:text-cream"
+                    : "border-background/70 text-background hover:bg-background hover:text-forest"
+                }`}
+              >
+                Book
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -219,7 +219,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
             >
               <span className="font-body text-[11px] uppercase tracking-[2px]">Careers</span>
               <span className="ml-1.5 font-body text-[11px] italic normal-case tracking-normal text-forest/60">
-                — We're hiring
+                – We're hiring
               </span>
             </Link>
           </div>

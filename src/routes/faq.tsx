@@ -8,7 +8,7 @@ import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
 
 
-const TITLE = "FAQ — Belleva Nails";
+const TITLE = "FAQ · Belleva Nails";
 const DESCRIPTION =
   "Answers about booking, walk-ins, cancellations, bridal, gift cards, and the Belleva Standard guarantee.";
 
@@ -76,7 +76,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Do I need to book, or can I walk in?",
         answer:
-          "Walk-ins are welcome. Booking is better — it gives us time to match you with the right technician and prepare for what you want.",
+          "Walk-ins are welcome. Booking is better, it gives us time to match you with the right technician and prepare for what you want.",
       },
       {
         question: "Do you take a deposit?",
@@ -95,7 +95,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Can I book for a group?",
         answer:
-          "Yes — book one appointment and write the number of people in the Note. The front desk will call you the same day to arrange chairs and timing.",
+          "Yes, book one appointment and write the number of people in the Note. The front desk will call you the same day to arrange chairs and timing.",
       },
       {
         question: "Can I request a specific technician?",
@@ -105,7 +105,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "What if the technician I want is fully booked?",
         answer:
-          "The front desk will suggest someone whose strengths match — same skill, same standard. If no one fits, we'd rather move you to another day than hand you to whoever is free. Your set matters more than our schedule.",
+          "The front desk will suggest someone whose strengths match: same skill, same standard. If no one fits, we'd rather move you to another day than hand you to whoever is free. Your set matters more than our schedule.",
       },
     ],
   },
@@ -113,14 +113,14 @@ const FAQ_GROUPS: FaqGroup[] = [
     eyebrow: "DESIGN",
     items: [
       {
-        question: "I have a design in mind — how do I make sure you can do it?",
+        question: "I have a design in mind – how do I make sure you can do it?",
         answer:
           "Book ahead and describe it in the Note, or bring the photo with you. Design work is scheduled with a design technician and with the time built in, so it never gets rushed.",
       },
       {
         question: "How do I keep the same technician every visit?",
         answer:
-          "Rebook at the front desk before you leave. Your technician and your usual timing are held — it's the one thing walk-ins can't get.",
+          "Rebook at the front desk before you leave. Your technician and your usual timing are held: it's the one thing walk-ins can't get.",
       },
     ],
   },
@@ -131,7 +131,7 @@ const FAQ_GROUPS: FaqGroup[] = [
         question: "What does the 14-day guarantee cover?",
         answer: (
           <>
-            Chips, lifts, and breaks within 14 days — we fix them at no charge.
+            Chips, lifts, and breaks within 14 days, we fix them at no charge.
             Book online with "Repair" in the Note, or call and ask for the front
             desk. The full policy is on{" "}
             <Link
@@ -157,12 +157,12 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "What products do you use?",
         answer:
-          "FarmHouse Fresh for pedicures — a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
+          "FarmHouse Fresh for pedicures, a Texas farm skincare brand. Our CBD products carry a QR code on every bottle; scan it and read the lab report yourself.",
       },
       {
         question: "Can I see the lab report?",
         answer:
-          "Yes — every CBD bottle in the salon has a QR code. Scan it and read the lab report yourself.",
+          "Yes, every CBD bottle in the salon has a QR code. Scan it and read the lab report yourself.",
       },
     ],
   },
@@ -173,7 +173,7 @@ const FAQ_GROUPS: FaqGroup[] = [
         question: "Do you do bridal?",
         answer: (
           <>
-            Yes — trial set before the wedding, wedding set a few days out, and
+            Yes, trial set before the wedding, wedding set a few days out, and
             your bridal party alongside you. The full program is on{" "}
             <a
               href="/bridal"
@@ -193,7 +193,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Do you sell gift cards?",
         answer:
-          "Yes — at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
+          "Yes, at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
       },
     ],
   },
@@ -203,7 +203,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Do you serve drinks?",
         answer:
-          "Yes, and they're on us. Vietnamese coffee (iced or hot) is the one we're known for. There's also iced tea, sodas, juice, still or sparkling water — and a mimosa or champagne if you're 21+. Just ask at check-in.",
+          "Yes, and they're on us. Vietnamese coffee (iced or hot) is the one we're known for. There's also iced tea, sodas, juice, still or sparkling water, and a mimosa or champagne if you're 21+. Just ask at check-in.",
       },
     ],
   },
@@ -266,12 +266,12 @@ function FaqGroupSection({
 }) {
   return (
     <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : ""}`}>
-      <div className="mx-auto max-w-[1200px]">
-        <FadeUpSection className={groupIndex === 0 ? "" : "mt-16 md:mt-20 lg:mt-28"}>
+      <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[3fr_9fr] lg:items-start lg:gap-16">
+        <FadeUpSection className={`lg:sticky lg:top-[104px] ${groupIndex === 0 ? "" : "mt-16 md:mt-20 lg:mt-0"}`}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
         </FadeUpSection>
 
-        <FadeUpSection className="mt-6">
+        <FadeUpSection className="mt-6 lg:mt-0">
           <div className="border-t border-forest/12">
             {group.items.map((item, i) => {
               const key = `${group.eyebrow}-${i}`;
@@ -342,7 +342,7 @@ function FaqPage() {
                 Asked and answered.
               </h1>
               <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-[#FAF8F5]/75">
-                If it isn't here, call us — a real person will pick up the phone.
+                If it isn't here, call us – a real person will pick up the phone.
               </p>
             </FadeUpSection>
           </div>

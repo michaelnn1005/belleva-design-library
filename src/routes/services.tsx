@@ -11,9 +11,9 @@ import { IMAGES } from "@/lib/images";
 // Section photos: full width on phones/tablet, the 5/12 column on desktop.
 const SECTION_PHOTO_SIZES = "(min-width: 1024px) 480px, 100vw";
 
-const TITLE = "Services — Belleva Nails";
+const TITLE = "Services · Belleva Nails";
 const DESCRIPTION =
-  "The Belleva Nails menu: pedicures, manicures, nail systems, a la carte extras, waxing and lashes. Real prices, real times — Denton, Texas.";
+  "The Belleva Nails menu: pedicures, manicures, nail systems, a la carte extras, waxing and lashes. Real prices, real times · Denton, Texas.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -100,7 +100,7 @@ function MenuIndex({
             >
               {item.title}{" "}
               <span className={`inline-block whitespace-nowrap font-body text-[14px] ${priceColor} lining-nums`}>
-                — {item.price}
+                · {item.price}
               </span>
             </p>
             {item.cbd && (
@@ -389,7 +389,7 @@ function ServicesPage() {
               </h1>
               <p className="mt-5 max-w-[560px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
                 Real prices, real times. Book online and tell us your occasion
-                in the Note box — we&apos;ll have everything ready.
+                in the Note box – we&apos;ll have everything ready.
               </p>
               <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                 {[
@@ -519,15 +519,25 @@ function ServicesPage() {
         <section id="extras" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                 A la carte
               </p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 Little extras.
               </h2>
             </FadeUpSection>
-            <FadeUpSection className="mt-10 lg:max-w-[800px]">
-              <PriceList entries={A_LA_CARTE} variant="light" />
+            <FadeUpSection className="mt-10">
+              <ul className="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+                {A_LA_CARTE.map(([name, price]) => (
+                  <li
+                    key={name}
+                    className="flex items-baseline justify-between gap-4 border-b border-forest/10 pb-2 text-[14px] text-forest"
+                  >
+                    <span>{name}</span>
+                    <span className="font-medium lining-nums text-gold">{price}</span>
+                  </li>
+                ))}
+              </ul>
             </FadeUpSection>
           </div>
         </section>
@@ -536,21 +546,21 @@ function ServicesPage() {
         <section id="waxing" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">
                 Waxing
               </p>
               <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-cream lining-nums md:text-[40px]">
                 Smooth, top to toe.
               </h2>
             </FadeUpSection>
-            <FadeUpSection className="mt-8 lg:max-w-[800px]">
-              <div>
-                {WAXING.map((group, i) => (
-                  <div key={group.label} className={i !== 0 ? "mt-8" : ""}>
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-gold/70">
+            <FadeUpSection className="mt-8">
+              <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-16">
+                {WAXING.map((group) => (
+                  <div key={group.label}>
+                    <p className="border-b border-gold/30 pb-2 text-[12px] uppercase tracking-[0.14em] text-gold font-medium">
                       {group.label}
                     </p>
-                    <div className="mt-3">
+                    <div className="mt-4">
                       <PriceList entries={group.entries} variant="dark" />
                     </div>
                   </div>
@@ -662,7 +672,7 @@ function ServicesPage() {
                 Book an appointment
               </a>
               <p className="mt-4 text-[12px] text-[#FAF8F5]/70">
-                Tell us your occasion in the Note box — we&apos;ll take care of
+                Tell us your occasion in the Note box – we&apos;ll take care of
                 it.
               </p>
             </FadeUpSection>

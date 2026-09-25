@@ -9,7 +9,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
 
-const TITLE = "Belleva Bridal — Belleva Nails";
+const TITLE = "Belleva Bridal · Belleva Nails";
 const DESCRIPTION =
   "The Belleva Bridal program: a trial, a wedding-day set, and a guarantee through your big day.";
 
@@ -196,7 +196,7 @@ function BridalJoinForm() {
     return (
       <div className="mt-8 border-t border-forest/12 pt-8">
         <p className="font-display text-[24px] leading-[1.3] text-forest md:text-[28px]">
-          Thank you — we&apos;ll text you shortly to set up your trial.
+          Thank you – we&apos;ll text you shortly to set up your trial.
         </p>
         <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground">
           Keep an eye on your phone. If anything changes, just tell us in a reply.
@@ -407,7 +407,7 @@ function BridalPage() {
                   THE TRIAL
                 </p>
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
-                  Two to four weeks before the wedding, we build your set — shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
+                  Two to four weeks before the wedding, we build your set – shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
                 </p>
               </div>
               <div className="w-full rounded-none">
@@ -423,7 +423,7 @@ function BridalPage() {
                   THE WEDDING SET
                 </p>
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
-                  Three to five days before the big day, your trial technician — or one fully briefed on your exact set — recreates it. You leave with a small care kit from us.
+                  Three to five days before the big day, your trial technician – or one fully briefed on your exact set – recreates it. You leave with a small care kit from us.
                 </p>
               </div>
               <div>
@@ -460,7 +460,7 @@ function BridalPage() {
                 Guaranteed through your big day.
               </h2>
               <p className="mt-6 text-[17px] leading-[1.7] text-[#FAF8F5]/90">
-                Every set carries our 14-day guarantee, and your wedding set is done days before the ceremony — so it&apos;s covered through the wedding and well into the honeymoon.
+                Every set carries our 14-day guarantee, and your wedding set is done days before the ceremony – so it&apos;s covered through the wedding and well into the honeymoon.
               </p>
               <p className="mt-6 border-l-2 border-gold pl-4 text-[16px] font-medium text-[#FAF8F5]/95">
                 And if anything happens before the day itself, call us. Brides get same-day repairs. No queue.
@@ -498,7 +498,7 @@ function BridalPage() {
                 JUST MARRIED
               </p>
               <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-cream">
-                Recently married? Ask the front desk about Just Married — a couples session before the honeymoon, and a little something reserved for your next visit.
+                Recently married? Ask the front desk about Just Married – a couples session before the honeymoon, and a little something reserved for your next visit.
               </p>
             </FadeUpSection>
           </div>
@@ -522,7 +522,7 @@ function BridalPage() {
                   {
                     question: "What if a nail chips before the wedding?",
                     answer:
-                      "Call us. Bride repairs are same-day — your set is fixed before it's ever in a photo.",
+                      "Call us. Bride repairs are same-day – your set is fixed before it's ever in a photo.",
                   },
                   {
                     question: "Can my whole bridal party come together?",
@@ -542,7 +542,7 @@ function BridalPage() {
           </div>
         </section>
 
-        {/* JOIN THE BRIDAL PROGRAM — SIGN-UP FORM */}
+        {/* JOIN THE BRIDAL PROGRAM - SIGN-UP FORM */}
         <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
@@ -551,7 +551,7 @@ function BridalPage() {
                 Save your wedding date.
               </h2>
               <p className="mt-4 max-w-[560px] text-[16px] leading-[1.6] text-muted-foreground">
-                Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join — no packages, no fees.
+                Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join – no packages, no fees.
               </p>
             </FadeUpSection>
             <FadeUpSection className="w-full lg:max-w-[800px]">
@@ -583,7 +583,7 @@ function BridalPage() {
                 Book your trial
               </a>
               <p className="mt-4 text-[15px] text-[#FAF8F5]/70">
-                Add &quot;wedding&quot; and your date in the Note — we&apos;ll take care of the rest.
+                Add &quot;wedding&quot; and your date in the Note – we&apos;ll take care of the rest.
               </p>
             </FadeUpSection>
           </div>
