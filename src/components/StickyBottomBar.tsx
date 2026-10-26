@@ -9,7 +9,7 @@ export function StickyBottomBar({ show }: { show: boolean }) {
 
   return (
     <a
-      href={isCareersPage ? "sms:4693770984" : BOOKING_URL}
+      href={isCareersPage ? "sms:+14693770984" : BOOKING_URL}
       className="fixed inset-x-0 bottom-0 z-30 flex items-center justify-center gap-3 bg-forest px-6 py-4 text-sm text-cream md:hidden"
     >
       {isCareersPage ? "Text Michael" : "Book an appointment"}

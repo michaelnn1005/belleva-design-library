@@ -445,8 +445,8 @@ function StandardPage() {
           </div>
         </section>
 
-        {/* THINGS YOU'RE ALLOWED TO ASK */}
-        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        {/* THINGS YOU'RE ALLOWED TO ASK — linked from the home page as /standard#ask */}
+        <section id="ask" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[680px]">
             <FadeUpSection>
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">

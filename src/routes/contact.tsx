@@ -84,7 +84,8 @@ function ContactPage() {
       <main>
         {/* OPENING */}
         <section className="bg-[#FAF8F5] px-6 pb-16 pt-12 md:px-10 lg:px-16 md:pb-20 md:pt-20 lg:pb-28 lg:pt-28">
-          <div className="mx-auto max-w-[1200px]">
+          {/* Desktop: intro left, map right. Phone/tablet: map under the intro. */}
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-16">
             <FadeUpSection>
               <p className="mb-5 font-sans text-[12px] uppercase tracking-[0.12em] text-gold">
                 Contact
@@ -96,6 +97,18 @@ function ContactPage() {
                 Rayzor Ranch, on University Drive. Same salon, same hours, one
                 phone number.
               </p>
+            </FadeUpSection>
+            <FadeUpSection className="mt-10 lg:mt-0">
+              <div className="overflow-hidden rounded-[10px] border border-[#2F4A3E]/12 bg-[#F5F0E8]">
+                <iframe
+                  title="Map showing Belleva Nails at 2200 W University Dr, Ste 180, Denton, TX"
+                  src="https://maps.google.com/maps?q=Belleva%20Nails%2C%202200%20W%20University%20Dr%20Ste%20180%2C%20Denton%2C%20TX%2076201&z=16&output=embed"
+                  className="block h-[300px] w-full md:h-[360px] lg:h-[400px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </FadeUpSection>
           </div>
         </section>

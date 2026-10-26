@@ -30,9 +30,15 @@ export function SiteFooter() {
         <div>
           <p className="font-sans text-[11px] uppercase tracking-[0.14em] text-gold">Social</p>
           <p className="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-[12px] uppercase tracking-[1px] text-forest/70">
-            {[["Instagram", "https://instagram.com/bellevanailsdenton"], ["TikTok", "#"], ["Pinterest", "#"], ["Facebook", "#"], ["YouTube", "#"]].map(([label, href], index, links) => (
+            {[
+              ["Instagram", "https://www.instagram.com/bellevanailsdenton/"],
+              ["TikTok", "https://www.tiktok.com/@belleva.nail"],
+              ["Pinterest", "https://www.pinterest.com/bellevanailsdenton/"],
+              ["Facebook", "https://www.facebook.com/profile.php?id=61569011714593"],
+              ["YouTube", "https://www.youtube.com/@BellevaNail"],
+            ].map(([label, href], index, links) => (
               <span key={label} className="whitespace-nowrap">
-                <a href={href} className="transition-colors hover:text-forest">{label}</a>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-forest">{label}</a>
                 {index < links.length - 1 && <span className="mx-1.5 text-gold">·</span>}
               </span>
             ))}

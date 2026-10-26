@@ -261,6 +261,7 @@ function StaggeredAskLines() {
           <Link
             key={line}
             to="/standard"
+            hash="ask"
             className={`group block transition-all duration-700 ease-out ${
               animated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
@@ -503,7 +504,16 @@ function Index() {
             </Link>
           </div>
 
-          <p className="mt-10 text-xs text-gold">Find Belleva Nails on Google Maps.</p>
+          <p className="mt-10 text-xs text-gold">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Belleva+Nails,+2200+W+University+Dr+Ste+180,+Denton,+TX+76201"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-4 hover:underline"
+            >
+              Find Belleva Nails on Google Maps.
+            </a>
+          </p>
         </div>
       </section>
 
