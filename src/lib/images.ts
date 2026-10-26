@@ -13,6 +13,7 @@ export const IMAGES = {
   "bridal-between-still": { name: "bridal-between-still", width: 996, height: 1580, widths: [480, 800, 996] },
   "bridal-cta-eucalyptus": { name: "bridal-cta-eucalyptus", width: 1003, height: 1568, widths: [480, 800, 1003] },
   "bridal-hero-atmosphere": { name: "bridal-hero-atmosphere", width: 992, height: 1586, widths: [480, 800, 992] },
+  "bridal-hero": { name: "bridal-hero", width: 928, height: 1152, widths: [480, 800, 928] },
   "bridal-just-married": { name: "bridal-just-married", width: 1003, height: 1568, widths: [480, 800, 1003] },
   "bridal-nails": { name: "bridal-nails", width: 896, height: 1200, widths: [480, 800, 896] },
   "bridal-trial-still": { name: "bridal-trial-still", width: 1003, height: 1568, widths: [480, 800, 1003] },

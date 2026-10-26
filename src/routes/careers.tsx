@@ -250,8 +250,8 @@ function CareersPage() {
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
-              {/* Rows opt out of the global 65ch cap so they match the top rule; the list is capped as a whole instead. */}
-              <div className="border-t border-gold/40 md:max-w-[680px]">
+              {/* Desktop: rows drop the global 65ch cap so they match the top rule; the list is capped as a whole instead. */}
+              <div className="border-t border-gold/40 lg:max-w-[680px]">
                 {[
                   "Show up for the client.",
                   "Keep learning.",
@@ -259,7 +259,7 @@ function CareersPage() {
                 ].map((line) => (
                   <p
                     key={line}
-                    className="max-w-none border-b border-gold/40 py-5 font-display text-[21px] font-normal leading-[1.4] text-forest md:text-[22px]"
+                    className="border-b border-gold/40 py-5 md:max-w-[65ch] lg:max-w-none font-display text-[21px] font-normal leading-[1.4] text-forest md:text-[22px]"
                   >
                     {line}
                   </p>

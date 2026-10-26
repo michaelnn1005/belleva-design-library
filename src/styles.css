@@ -66,6 +66,7 @@
   --color-forest-soft: var(--forest-soft);
   --color-cream: var(--cream);
   --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
   --color-hairline: var(--hairline);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -77,6 +78,8 @@
   --forest-soft: oklch(0.432 0.043 158.9);
   --cream: oklch(0.955 0.014 84.6);
   --gold: oklch(0.573 0.068 82.5);
+  /* Gold for small text on forest backgrounds, where --gold is too dark to read. */
+  --gold-light: oklch(0.76 0.075 82.5);
   --hairline: oklch(0.888 0.011 79.5);
   --background: oklch(0.98 0.006 84.9);
   --foreground: oklch(0.379 0.043 158.2);

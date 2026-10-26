@@ -468,7 +468,7 @@ function ServicesPage() {
 
         {/* MANICURES */}
         <section id="manicures" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-16">
             <FadeUpSection className="lg:sticky lg:top-[104px]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
                 Manicures
@@ -611,34 +611,34 @@ function ServicesPage() {
         <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold lg:font-display lg:text-[48px] lg:font-medium lg:normal-case lg:leading-[1.1] lg:tracking-normal lg:text-cream">
                 Good to know
               </p>
               {/* Desktop: three notes in a row, divided by hairlines */}
-              <div className="mt-10 space-y-8 lg:grid lg:grid-cols-3 lg:gap-12 lg:space-y-0">
+              <div className="mt-10 space-y-8 lg:mt-14 lg:grid lg:grid-cols-3 lg:gap-12 lg:space-y-0">
                 <div className="pt-0">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold lg:text-[12px] lg:text-gold-light">
                     Guarantee
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
                     Anything wrong within 14 days, we fix it free. Weekday
                     repairs are the fastest.
                   </p>
                 </div>
                 <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold lg:text-[12px] lg:text-gold-light">
                     Design
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
                     Book ahead and put your design in the Note. We match you with
                     a technician who does that kind of work.
                   </p>
                 </div>
                 <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-gold lg:text-[12px] lg:text-gold-light">
                     On CBD
                   </p>
-                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85">
+                  <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
                     CBD services are 18+ and not recommended during pregnancy or
                     breastfeeding. Tell your tech about any allergies. Every batch
                     is lab-tested; reports at the front desk and on
@@ -659,19 +659,20 @@ function ServicesPage() {
             decorative
             className="absolute inset-0 h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
           />
-          <div className="absolute inset-0 bg-forest/40 md:bg-forest/45" />
+          <div className="absolute inset-0 bg-forest/40 md:bg-forest/45 lg:hidden" />
+          <div className="absolute inset-0 hidden bg-linear-to-r from-forest/85 via-forest/45 to-forest/0 lg:block" />
           <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full">
-              <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5]">
+              <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5] lg:text-[56px] lg:leading-[1.05]">
                 Found yours?
               </p>
               <a
                 href={BOOKING_URL}
-                className="mt-6 inline-flex items-center rounded-full border border-[#FAF8F5]/70 bg-transparent px-5 py-2 text-xs text-[#FAF8F5] transition-all duration-300 hover:bg-[#FAF8F5] hover:text-forest"
+                className="mt-6 inline-flex items-center rounded-full border border-[#FAF8F5]/70 bg-transparent px-5 py-2 text-xs text-[#FAF8F5] lg:mt-8 lg:min-h-[48px] lg:border-[#FAF8F5] lg:px-8 lg:py-3 lg:text-sm transition-all duration-300 hover:bg-[#FAF8F5] hover:text-forest"
               >
                 Book an appointment
               </a>
-              <p className="mt-4 text-[12px] text-[#FAF8F5]/70">
+              <p className="mt-4 text-[12px] text-[#FAF8F5]/70 lg:text-[15px] lg:text-[#FAF8F5]/85">
                 Tell us your occasion in the Note box – we&apos;ll take care of
                 it.
               </p>

@@ -20,7 +20,7 @@ const MANIFEST = `${ROOT}/src/lib/images.ts`;
 const ORIGIN = "https://belleva-design-library.lovable.app";
 const WIDTHS = [480, 800, 1200, 1600];
 // Uploaded but not used anywhere on the site.
-const SKIP = new Set(["bridal-hero.png", "standard-hero-fabric.png", "tray-photo.png", "standard-founder-desk.png"]);
+const SKIP = new Set(["standard-hero-fabric.png", "tray-photo.png", "standard-founder-desk.png"]);
 // Full-bleed desktop photos whose originals are narrower than the screens they fill.
 // We pre-upscale these with Lanczos + light sharpening (much crisper than the browser's
 // own stretch) into a separate "<name>-hd" entry, used above 768px only.

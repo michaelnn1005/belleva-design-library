@@ -303,6 +303,15 @@ function StandardPage() {
               <p className="mt-8 max-w-[480px] text-[14px] italic leading-[1.6] text-gold font-medium">
                 Booked appointments get the most careful match. Walk-ins are welcome – we just have less time to plan.
               </p>
+              {/* Desktop only: fills the left column beside the five steps. */}
+              <div className="mt-10 hidden lg:block">
+                <Img
+                  image={IMAGES["bridal-hero"]}
+                  alt="Freshly finished manicure resting on a stone tray at Belleva Nails"
+                  sizes="480px"
+                  className="aspect-[4/3] w-full rounded-[10px] object-cover object-[center_35%]"
+                />
+              </div>
             </FadeUpSection>
 
             <StaggerFadeUp staggerMs={80} className="mt-10 lg:mt-0">
