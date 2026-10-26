@@ -41,6 +41,10 @@ export const IMAGES = {
   "standard-hero-salon-table": { name: "standard-hero-salon-table", width: 1122, height: 1402, widths: [480, 800, 1122] },
   "standard-products": { name: "standard-products", width: 1536, height: 1024, widths: [480, 800, 1200, 1536] },
   "standard-tray": { name: "standard-tray", width: 1122, height: 1402, widths: [480, 800, 1122] },
+  "bridal-couple": { name: "bridal-couple", width: 1672, height: 941, widths: [480, 800, 1200, 1600, 1672] },
+  "bridal-guarantee": { name: "bridal-guarantee", width: 1122, height: 1402, widths: [480, 800, 1122] },
+  "bridal-party": { name: "bridal-party", width: 1536, height: 1024, widths: [480, 800, 1200, 1536] },
+  "bridal-save-the-date": { name: "bridal-save-the-date", width: 1122, height: 1402, widths: [480, 800, 1122] },
 } as const satisfies Record<string, OptimizedImage>;
 
 export type ImageName = keyof typeof IMAGES;

@@ -5,8 +5,8 @@
 // Run from the repo root:
 //   cd scripts && bun install && bun optimize-images.ts
 //
-// Add a new photo by uploading it in Lovable (which creates the .asset.json),
-// re-running this script, then using IMAGES["<file name without extension>"]
+// Add a new photo by uploading it in Lovable (which creates the .asset.json) or
+// dropping it into scripts/originals/, re-running this script, then using IMAGES["<file name without extension>"]
 // with the <Img> component. Sharp lives in scripts/package.json so the site
 // itself has no image-processing dependency.
 import sharp from "sharp";
@@ -16,6 +16,7 @@ const ROOT = `${import.meta.dir}/..`;
 const ASSETS = `${ROOT}/src/assets`;
 const OUT = `${ROOT}/public/img`;
 const MANIFEST = `${ROOT}/src/lib/images.ts`;
+const LOCAL_ORIGINALS = `${import.meta.dir}/originals`;
 // Originals are only served from the published site, not from the repo.
 const ORIGIN = "https://belleva-design-library.lovable.app";
 const WIDTHS = [480, 800, 1200, 1600];
@@ -33,12 +34,27 @@ mkdirSync(OUT, { recursive: true });
 type Entry = { name: string; width: number; height: number; widths: number[] };
 const manifest: Entry[] = [];
 
+// Two sources: photos uploaded in Lovable (src/assets/*.asset.json, served from
+// the published site) and photos added directly to the repo in scripts/originals/.
+const sources: { name: string; load: () => Promise<Buffer> }[] = [];
 for (const file of readdirSync(ASSETS).filter((f) => f.endsWith(".asset.json")).sort()) {
   const original = file.replace(/\.asset\.json$/, "");
   if (SKIP.has(original)) continue;
   const { url } = await Bun.file(`${ASSETS}/${file}`).json();
-  const buf = Buffer.from(await (await fetch(`${ORIGIN}${url}`)).arrayBuffer());
-  const name = original.replace(/\.(png|jpe?g)$/i, "");
+  sources.push({
+    name: original.replace(/\.(png|jpe?g)$/i, ""),
+    load: async () => Buffer.from(await (await fetch(`${ORIGIN}${url}`)).arrayBuffer()),
+  });
+}
+for (const file of readdirSync(LOCAL_ORIGINALS).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)).sort()) {
+  sources.push({
+    name: file.replace(/\.(png|jpe?g|webp)$/i, ""),
+    load: async () => Buffer.from(await Bun.file(`${LOCAL_ORIGINALS}/${file}`).arrayBuffer()),
+  });
+}
+
+for (const { name, load } of sources) {
+  const buf = await load();
   const meta = await sharp(buf).rotate().metadata();
   const srcW = meta.width!, srcH = meta.height!;
   const widths = [...WIDTHS.filter((w) => w < srcW), srcW];

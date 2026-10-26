@@ -464,7 +464,8 @@ function BridalPage() {
 
         {/* GUARANTEE */}
         <section className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
+          {/* Desktop: text left, bouquet photo right. */}
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-20">
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE GUARANTEE
@@ -479,17 +480,34 @@ function BridalPage() {
                 And if anything happens before the day itself, call us. Brides get same-day repairs. No queue.
               </p>
             </FadeUpSection>
+            <FadeUpSection className="hidden lg:block">
+              <Img
+                image={IMAGES["bridal-guarantee"]}
+                alt="Bride holding a bouquet of white roses, with a soft pink manicure and gold wedding band"
+                sizes="440px"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </FadeUpSection>
           </div>
         </section>
 
         {/* BRIDAL PARTY */}
         <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
+          {/* Desktop: bridesmaids' hands left, text right. */}
+          <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-16">
+            <FadeUpSection className="hidden lg:block">
+              <Img
+                image={IMAGES["bridal-party"]}
+                alt="Bride and bridesmaids' hands side by side with coordinated manicures"
+                sizes="640px"
+                className="aspect-[3/2] w-full object-cover"
+              />
+            </FadeUpSection>
             <FadeUpSection>
               <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
                 THE BRIDAL PARTY
               </p>
-              <p className="mt-4 text-[17px] leading-[1.7] text-forest">
+              <p className="mt-4 text-[17px] leading-[1.7] text-forest lg:font-display lg:text-[26px] lg:leading-[1.45]">
                 Bringing your bridesmaids? Book one appointment and write your party size in the Note. The front desk will call you the same day to arrange chairs side by side.
               </p>
             </FadeUpSection>
@@ -497,13 +515,23 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section className="relative flex min-h-[560px] flex-col justify-start overflow-hidden rounded-none px-6 py-24 md:px-10 lg:min-h-[480px] lg:justify-center lg:px-16 md:py-20 lg:py-28">
-          <Img
-            image={IMAGES["bridal-just-married"]}
-            alt=""
-            decorative
-            className="absolute inset-0 h-full w-full object-cover object-[50%_100%]"
-          />
+        <section className="relative flex min-h-[560px] flex-col justify-start overflow-hidden rounded-none px-6 py-24 md:px-10 lg:min-h-[600px] lg:justify-center lg:px-16 md:py-20 lg:py-28">
+          <div className="absolute inset-0 lg:hidden">
+            <Img
+              image={IMAGES["bridal-just-married"]}
+              alt=""
+              decorative
+              className="absolute inset-0 h-full w-full object-cover object-[50%_100%]"
+            />
+          </div>
+          <div className="absolute inset-0 hidden lg:block">
+            <Img
+              image={IMAGES["bridal-couple"]}
+              alt=""
+              decorative
+              className="absolute inset-0 h-full w-full object-cover object-[70%_40%]"
+            />
+          </div>
           <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)] lg:hidden" />
           <div className="absolute inset-0 hidden bg-linear-to-r from-forest/85 via-forest/50 to-forest/10 lg:block" />
           <div className="relative mx-auto w-full max-w-[1200px]">
@@ -519,7 +547,7 @@ function BridalPage() {
         </section>
 
         {/* MINI-FAQ */}
-        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:pb-16 lg:pt-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <HairlineLabel>COMMON QUESTIONS</HairlineLabel>
@@ -557,7 +585,7 @@ function BridalPage() {
         </section>
 
         {/* JOIN THE BRIDAL PROGRAM - SIGN-UP FORM */}
-        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:pb-28 lg:pt-12">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <HairlineLabel>JOIN THE BRIDAL PROGRAM</HairlineLabel>
@@ -568,35 +596,47 @@ function BridalPage() {
                 Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join – no packages, no fees.
               </p>
             </FadeUpSection>
-            <FadeUpSection className="w-full lg:max-w-[800px]">
-              <BridalJoinForm />
-            </FadeUpSection>
+            {/* Desktop: save-the-date photo left, form right. */}
+            <div className="lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
+              <FadeUpSection className="hidden lg:mt-8 lg:block">
+                <Img
+                  image={IMAGES["bridal-save-the-date"]}
+                  alt="Save-the-date card with a blush nail polish, nail swatches and a gold ring"
+                  sizes="460px"
+                  className="aspect-[4/5] w-full object-cover"
+                />
+              </FadeUpSection>
+              <FadeUpSection className="w-full">
+                <BridalJoinForm />
+              </FadeUpSection>
+            </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="relative overflow-hidden rounded-none bg-forest px-6 py-20 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section className="relative overflow-hidden rounded-none bg-forest px-6 py-20 md:px-10 lg:px-16 md:py-20 lg:py-36">
           <Img
             image={IMAGES["bridal-cta-eucalyptus"]}
             alt=""
             decorative
             className="absolute inset-0 h-full w-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
-          <div className="relative mx-auto max-w-[640px]">
+          <div className="absolute inset-0 bg-forest/45 md:bg-forest/35 lg:bg-forest/50" />
+          {/* Desktop: a centred closing statement across the full content width. */}
+          <div className="relative mx-auto max-w-[640px] lg:max-w-[1200px] lg:text-center">
             <FadeUpSection>
-              <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px]">
+              <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px] lg:text-[64px]">
                 The one thing already handled.
               </h2>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest"
+                className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest lg:mt-10 lg:px-10"
               >
                 Book your trial
               </a>
-              <p className="mt-4 text-[15px] text-[#FAF8F5]/70">
+              <p className="mt-4 text-[15px] text-[#FAF8F5]/70 lg:mx-auto lg:mt-5 lg:text-[16px] lg:text-[#FAF8F5]/85">
                 Add &quot;wedding&quot; and your date in the Note – we&apos;ll take care of the rest.
               </p>
             </FadeUpSection>
