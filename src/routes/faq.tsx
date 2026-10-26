@@ -265,7 +265,7 @@ function FaqGroupSection({
   groupIndex: number;
 }) {
   return (
-    <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : "lg:mt-14"}`}>
+    <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : group.items.length === 1 ? "lg:mt-8" : "lg:mt-14"}`}>
       <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[3fr_9fr] lg:items-start lg:gap-16">
         <FadeUpSection className={`lg:sticky lg:top-[104px] ${groupIndex === 0 ? "" : "mt-16 md:mt-20 lg:mt-0"}`}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
@@ -378,24 +378,32 @@ function FaqPage() {
         ))}
 
 
-        {/* Closing */}
-        <section className="px-6 pb-[120px] pt-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
-          <div className="mx-auto max-w-[1200px] text-center">
+        {/* Closing — desktop: forest band, text left and the check-in coffee photo right. */}
+        <section className="px-6 pb-[120px] pt-24 md:px-10 md:py-20 lg:mt-28 lg:bg-forest lg:px-16 lg:py-24">
+          <div className="mx-auto max-w-[1200px] text-center lg:grid lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-16 lg:text-left">
             <FadeUpSection>
-              <p className="font-display text-[22px] leading-[1.3] text-forest lining-nums md:text-[28px]">
+              <p className="font-display text-[22px] leading-[1.3] text-forest lining-nums md:text-[28px] lg:text-[44px] lg:leading-[1.15] lg:text-cream">
                 Still wondering? Book and write your question in the Note.
               </p>
               <a
                 href="https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26FAQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center rounded-full border border-gold px-6 py-3 text-[14px] font-medium uppercase tracking-[0.12em] text-forest transition-colors hover:bg-gold/10"
+                className="mt-6 inline-flex items-center justify-center rounded-full border border-gold px-6 py-3 text-[14px] font-medium uppercase tracking-[0.12em] text-forest transition-colors hover:bg-gold/10 lg:mt-8 lg:border-cream lg:text-cream lg:hover:bg-cream lg:hover:text-forest"
               >
                 Book an appointment
               </a>
-              <p className="mt-3.5 text-[15px] text-forest/70">
+              <p className="mt-3.5 text-[15px] text-forest/70 lg:mt-5 lg:text-cream/80">
                 Rebook before you leave and your technician is held for next time.
               </p>
+            </FadeUpSection>
+            <FadeUpSection className="hidden lg:block">
+              <Img
+                image={IMAGES["faq-coffee"]}
+                alt="Vietnamese iced coffee served at the front desk, next to a fresh nude manicure"
+                sizes="680px"
+                className="aspect-[3/2] w-full rounded-[10px] object-cover"
+              />
             </FadeUpSection>
           </div>
         </section>

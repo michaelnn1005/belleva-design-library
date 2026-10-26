@@ -166,26 +166,27 @@ export const Route = createFileRoute("/")({
 });
 
 
+// Verbatim excerpts from Belleva Nails' Google reviews.
 const CLIENT_QUOTES: { name: string; text: string }[] = [
   {
-    name: "Sarah M.",
-    text: "I showed them one photo and they matched it exactly. Three weeks later it still looks like day one.",
+    name: "Madelyn",
+    text: "Most places I feel rushed but here she didn’t rush. She took her time ensuring I like how my nails look EVERY step.",
   },
   {
-    name: "Amanda R.",
-    text: "The quietest, calmest salon experience I have had in Denton. My gel-x set got compliments all week.",
+    name: "Brooke W.",
+    text: "I had a difficult design as well as color request and he acted like it was the easiest request.",
   },
   {
-    name: "Jessica T.",
-    text: "I chipped a nail after ten days and they fixed it free, no questions. That guarantee is real.",
+    name: "Maritza D.",
+    text: "Customer service is amazing. They offer you drinks and make sure you’re OK. I loved how my nails turned out.",
   },
   {
-    name: "Lauren K.",
-    text: "Booked for my wedding day and the set was perfect with my dress. I nearly cried.",
+    name: "Kennady O.",
+    text: "Everyone is so friendly and welcoming every time I come in! They are perfectionists and that’s why I highly recommend them!",
   },
   {
-    name: "Megan D.",
-    text: "My tech remembered my last design and suggested the next one before I even asked.",
+    name: "Saraiyah E.",
+    text: "She made sure everything was good for me on every step of the process and was very gentle on my natural nails.",
   },
 ];
 
