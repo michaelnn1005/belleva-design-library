@@ -391,13 +391,15 @@ function BridalPage() {
               </h2>
             </FadeUpSection>
 
-            {/* Tablet/desktop: the three steps stack on the left, trial photo on the right */}
+            {/* Tablet: the three steps stack on the left, trial photo on the right.
+                Desktop: the photo column also holds the silk still (staggered), and a
+                trailing 1fr row soaks up its height so the steps stay packed together. */}
             <StaggerFadeUp
               staggerMs={80}
-              className="mt-12 flex flex-col gap-8 md:grid md:grid-cols-2 md:items-start md:gap-x-10 lg:gap-x-20"
+              className="mt-12 flex flex-col gap-8 md:grid md:grid-cols-2 md:items-start md:gap-x-10 lg:grid-cols-[5fr_7fr] lg:grid-rows-[auto_auto_auto_1fr] lg:gap-x-20 lg:gap-y-10"
               itemClassNames={[
                 "md:col-start-1",
-                "md:col-start-2 md:row-span-3 md:row-start-1",
+                "md:col-start-2 md:row-span-3 md:row-start-1 lg:row-span-4",
                 "md:col-start-1",
                 "md:col-start-1",
               ]}
@@ -410,13 +412,24 @@ function BridalPage() {
                   Two to four weeks before the wedding, we build your set – shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
                 </p>
               </div>
-              <div className="w-full rounded-none">
-                <Img
-                  image={IMAGES["bridal-trial-still"]}
-                  alt="Bridal nail trial detail at Belleva Nails"
-                  sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
-                  className="aspect-[4/5] w-full object-cover rounded-none"
-                />
+              <div className="w-full rounded-none lg:grid lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-6">
+                {/* Wrapped so the <picture> sources don't become grid cells. */}
+                <div>
+                  <Img
+                    image={IMAGES["bridal-trial-still"]}
+                    alt="Bridal nail trial detail at Belleva Nails"
+                    sizes="(min-width: 1280px) 400px, (min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
+                    className="aspect-[4/5] w-full object-cover rounded-none"
+                  />
+                </div>
+                <div className="hidden lg:mt-32 lg:block">
+                  <Img
+                    image={IMAGES["bridal-between-still"]}
+                    alt="Silk and eucalyptus detail"
+                    sizes="260px"
+                    className="aspect-[4/5] w-full object-cover rounded-none"
+                  />
+                </div>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -438,7 +451,7 @@ function BridalPage() {
           </div>
         </section>
 
-        <section className="bg-background px-6 py-2 md:px-10 lg:px-16 md:py-4 rounded-none">
+        <section className="bg-background px-6 py-2 md:px-10 lg:hidden md:py-4 rounded-none">
           <div className="mx-auto max-w-[1200px] rounded-none">
             <Img
               image={IMAGES["bridal-between-still"]}
@@ -484,20 +497,21 @@ function BridalPage() {
         </section>
 
         {/* JUST MARRIED */}
-        <section className="relative flex min-h-[560px] flex-col justify-start overflow-hidden rounded-none px-6 py-24 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section className="relative flex min-h-[560px] flex-col justify-start overflow-hidden rounded-none px-6 py-24 md:px-10 lg:min-h-[480px] lg:justify-center lg:px-16 md:py-20 lg:py-28">
           <Img
             image={IMAGES["bridal-just-married"]}
             alt=""
             decorative
             className="absolute inset-0 h-full w-full object-cover object-[50%_100%]"
           />
-          <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)]" />
+          <div className="absolute inset-0 bg-[rgba(47,74,62,0.55)] lg:hidden" />
+          <div className="absolute inset-0 hidden bg-linear-to-r from-forest/85 via-forest/50 to-forest/10 lg:block" />
           <div className="relative mx-auto w-full max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold">
+              <p className="text-[12px] font-normal uppercase tracking-[0.12em] text-gold lg:text-gold-light">
                 JUST MARRIED
               </p>
-              <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-cream">
+              <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-cream lg:max-w-[520px] lg:font-display lg:text-[28px] lg:leading-[1.4]">
                 Recently married? Ask the front desk about Just Married – a couples session before the honeymoon, and a little something reserved for your next visit.
               </p>
             </FadeUpSection>
