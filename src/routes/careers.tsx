@@ -178,7 +178,7 @@ function CareersPage() {
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[11px] uppercase tracking-[0.14em] text-[#FAF8F5]">
                 Careers
@@ -250,7 +250,8 @@ function CareersPage() {
               </h2>
             </FadeUpSection>
             <FadeUpSection className="mt-10">
-              <div className="border-t border-gold/40">
+              {/* Rows opt out of the global 65ch cap so they match the top rule; the list is capped as a whole instead. */}
+              <div className="border-t border-gold/40 md:max-w-[680px]">
                 {[
                   "Show up for the client.",
                   "Keep learning.",
@@ -258,7 +259,7 @@ function CareersPage() {
                 ].map((line) => (
                   <p
                     key={line}
-                    className="border-b border-gold/40 py-5 font-display text-[21px] font-normal leading-[1.4] text-forest md:text-[22px]"
+                    className="max-w-none border-b border-gold/40 py-5 font-display text-[21px] font-normal leading-[1.4] text-forest md:text-[22px]"
                   >
                     {line}
                   </p>

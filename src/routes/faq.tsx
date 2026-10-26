@@ -265,7 +265,7 @@ function FaqGroupSection({
   groupIndex: number;
 }) {
   return (
-    <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : ""}`}>
+    <section className={`px-6 md:px-10 lg:px-16 ${groupIndex === 0 ? "pt-12 md:pt-20 lg:pt-28" : "lg:mt-14"}`}>
       <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[3fr_9fr] lg:items-start lg:gap-16">
         <FadeUpSection className={`lg:sticky lg:top-[104px] ${groupIndex === 0 ? "" : "mt-16 md:mt-20 lg:mt-0"}`}>
           <HairlineLabel>{group.eyebrow}</HairlineLabel>
@@ -333,7 +333,7 @@ function FaqPage() {
           <div className="absolute inset-0 bg-forest/40" aria-hidden="true" />
 
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] uppercase tracking-[0.12em] text-[#FAF8F5]/80">
                 QUESTIONS

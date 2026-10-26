@@ -379,7 +379,7 @@ function ServicesPage() {
             className="absolute inset-0 h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
           />
           <div className="absolute inset-0 bg-forest/35" />
-          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 Services
@@ -660,7 +660,7 @@ function ServicesPage() {
             className="absolute inset-0 h-full w-full object-cover object-[center_top] md:object-[62%_center] lg:object-[center_right] rounded-none"
           />
           <div className="absolute inset-0 bg-forest/40 md:bg-forest/45" />
-          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-14 md:items-center md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full">
               <p className="font-display text-[24px] font-normal italic leading-[1.3] text-[#FAF8F5]">
                 Found yours?

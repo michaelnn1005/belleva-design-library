@@ -37,7 +37,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
           scrolled ? "bg-background" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-center justify-between px-6 py-5 md:px-10 lg:px-16">
           <Link
             to="/"
             className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${

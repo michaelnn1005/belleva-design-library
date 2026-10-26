@@ -451,7 +451,7 @@ function Index() {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest/45 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:bg-gradient-to-r lg:from-forest/70 lg:via-forest/35 lg:via-45% lg:to-transparent lg:to-80%" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
+        <div className="relative z-10 mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
           <div className="max-w-[320px] md:max-w-[70%] lg:max-w-[55%]">
             <h1 className="font-display text-[52px] font-normal leading-[1.05] tracking-[-0.01em] text-background lining-nums sm:text-[56px] md:text-[72px] lg:text-[88px] xl:text-[96px]">
               <span className="whitespace-nowrap">Find your</span>
@@ -507,7 +507,7 @@ function Index() {
       </section>
 
       <section className="bg-cream py-24 md:py-20 lg:py-28">
-        <p className="eyebrow mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">From our clients</p>
+        <p className="eyebrow mx-auto max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] px-6 md:px-10 lg:px-16">From our clients</p>
         <div
           className={`mt-12 overflow-hidden ${quotesPaused ? "marquee-paused" : ""}`}
           style={{

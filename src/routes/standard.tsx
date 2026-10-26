@@ -184,7 +184,7 @@ function StandardPage() {
           {/* Overlay */}
           <div className="absolute inset-0 bg-forest/45 md:bg-forest/35" />
           {/* Content */}
-          <div className="relative mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
+          <div className="relative mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] items-end px-6 pb-10 md:px-10 lg:px-16 md:pb-16">
             <FadeUpSection className="w-full md:max-w-[55%]">
               <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-[#FAF8F5]/80">
                 THE BELLEVA STANDARD
@@ -516,7 +516,7 @@ function StandardPage() {
 
       {/* FOUNDER NOTE */}
       <section className="relative rounded-none bg-forest pt-20 md:pt-20 lg:pt-28">
-        <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] px-6 md:px-10 lg:px-16">
           <FadeUpSection>
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER
