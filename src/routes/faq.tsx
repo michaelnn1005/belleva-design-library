@@ -361,12 +361,13 @@ function FaqPage() {
               <section className="mt-16 px-6 md:mt-20 md:px-10 lg:px-16">
                 <div className="mx-auto max-w-[1200px]">
                   <FadeUpSection>
-                    <div className="aspect-[3/2] w-full overflow-hidden rounded-[10px]">
+                    {/* Desktop: same width and left edge as the question column. */}
+                    <div className="aspect-[3/2] w-full overflow-hidden rounded-[10px] lg:ml-[calc((100%-4rem)*0.25+4rem)] lg:w-[calc((100%-4rem)*0.75)]">
                       <Img
                         image={IMAGES["faq-hygiene-products"]}
                         alt=""
                         decorative
-                        sizes="(min-width: 1280px) 1200px, 100vw"
+                        sizes="(min-width: 1280px) 900px, 100vw"
                         className="h-full w-full object-cover object-center"
                       />
                     </div>

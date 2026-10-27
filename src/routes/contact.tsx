@@ -282,8 +282,8 @@ function ContactPage() {
           </div>
         </section>
 
-        {/* PREFER TO WRITE */}
-        <section className="bg-[#FAF8F5] px-6 py-12 md:px-10 lg:px-16 md:py-16">
+        {/* PREFER TO WRITE — hidden on desktop, where "Reach us" already lists Instagram */}
+        <section className="bg-[#FAF8F5] px-6 py-12 md:px-10 lg:hidden md:py-16">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
@@ -307,20 +307,20 @@ function ContactPage() {
 
         {/* CLOSING CTA */}
         <section className="bg-[#F5F0E8] px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px]">
+          <div className="mx-auto max-w-[1200px] lg:text-center">
             <FadeUpSection>
-              <h2 className="font-display text-[36px] leading-[1.1] text-[#2F4A3E] md:text-[48px] [font-variant-numeric:lining-nums]">
+              <h2 className="font-display text-[36px] leading-[1.1] text-[#2F4A3E] md:text-[48px] lg:text-[56px] [font-variant-numeric:lining-nums]">
                 Ready when you are.
               </h2>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center bg-[#2F4A3E] px-8 py-4 font-sans text-[12px] uppercase tracking-[0.14em] text-[#FAF8F5] transition-colors hover:bg-[#3A5A4A]"
+                className="mt-8 inline-flex items-center rounded-full bg-[#2F4A3E] px-8 py-4 font-sans text-[12px] uppercase tracking-[0.14em] text-[#FAF8F5] transition-colors hover:bg-[#3A5A4A]"
               >
                 Book an appointment
               </a>
-              <p className="mt-4 font-display text-[17px] italic leading-[1.5] text-[#2F4A3E]/75">
+              <p className="mt-4 font-display text-[17px] italic leading-[1.5] text-[#2F4A3E]/75 lg:mx-auto">
                 Booked visits get the most careful technician match.
               </p>
             </FadeUpSection>

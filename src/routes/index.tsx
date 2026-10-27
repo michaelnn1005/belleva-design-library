@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
+import { BOOKING_URL } from "@/lib/designs";
 import { IMAGES, type OptimizedImage } from "@/lib/images";
 
 // Finished sets from the salon's own posts (photos in scripts/originals/gallery-*).
@@ -487,13 +488,22 @@ function Index() {
             <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px] lg:text-[20px]">
               Real designs, made in our Denton salon. Book the one you love.
             </p>
-            <button
-              onClick={scrollToServices}
-              className="mt-7 inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15 lg:mt-6 lg:border-0 lg:px-0 lg:py-0 lg:text-[11px] lg:tracking-[0.18em] lg:transition-opacity lg:hover:bg-transparent lg:hover:opacity-70"
-              aria-label="Scroll to services"
-            >
-              Explore services
-            </button>
+            {/* Desktop: Book first, Explore services as the secondary pill. */}
+            <div className="mt-7 flex items-center gap-3 lg:mt-9">
+              <a
+                href={BOOKING_URL}
+                className="hidden min-h-[48px] items-center rounded-full bg-cream px-8 py-3 text-[14px] uppercase tracking-[0.12em] text-forest transition-colors hover:bg-background lg:inline-flex"
+              >
+                Book an appointment
+              </a>
+              <button
+                onClick={scrollToServices}
+                className="inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15 lg:min-h-[48px] lg:px-8 lg:py-3"
+                aria-label="Scroll to services"
+              >
+                Explore services
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -503,11 +513,13 @@ function Index() {
       <section className="relative bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px]"
+          className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px] lg:hidden"
         >
           14
         </span>
-        <div className="relative z-10 mx-auto max-w-[1200px]">
+        {/* Desktop: the questions left, the sterilised tray they are about right. */}
+        <div className="relative z-10 mx-auto max-w-[1200px] lg:grid lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-16">
+          <div>
           <p className="eyebrow">The Belleva standard</p>
           <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
             Things you’re allowed to ask here.
@@ -538,6 +550,15 @@ function Index() {
               Find Belleva Nails on Google Maps.
             </a>
           </p>
+          </div>
+          <div className="hidden lg:block">
+            <Img
+              image={IMAGES["standard-tray"]}
+              alt="Sterilised tools and single-use files on a steel tray at Belleva Nails"
+              sizes="460px"
+              className="aspect-[4/5] w-full rounded-[10px] object-cover"
+            />
+          </div>
         </div>
       </section>
 

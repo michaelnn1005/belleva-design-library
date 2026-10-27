@@ -447,8 +447,9 @@ function StandardPage() {
 
         {/* THINGS YOU'RE ALLOWED TO ASK — linked from the home page as /standard#ask */}
         <section id="ask" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
-          <div className="mx-auto max-w-[680px]">
-            <FadeUpSection>
+          {/* Desktop: heading + questions left, the answers right, aligned with the page edge. */}
+          <div className="mx-auto max-w-[680px] lg:grid lg:max-w-[1200px] lg:grid-cols-2 lg:gap-x-20">
+            <FadeUpSection className="lg:col-start-1">
               <p className="text-[12px] uppercase tracking-[0.12em] text-gold">
                 THINGS YOU’RE ALLOWED TO ASK
               </p>
@@ -457,7 +458,7 @@ function StandardPage() {
               </h2>
             </FadeUpSection>
 
-            <div className="mt-10 border-y border-forest/12">
+            <div className="mt-10 border-y border-forest/12 lg:col-start-1">
               {[
                 "Can I see the lab report?",
                 "Can you open the tool pouch in front of me?",
@@ -473,8 +474,8 @@ function StandardPage() {
               ))}
             </div>
 
-            <FadeUpSection>
-              <p className="mt-12 text-[18px] font-medium text-gold">
+            <FadeUpSection className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
+              <p className="mt-12 text-[18px] font-medium text-gold lg:mt-0 lg:text-[22px] lg:leading-[1.45]">
                 Yes, scan the QR code on the bottle. Yes. We'll tell you. And yes.
               </p>
               <p className="mt-6 max-w-[65ch] text-[17px] leading-[1.6] text-forest/80">
@@ -526,7 +527,7 @@ function StandardPage() {
       {/* FOUNDER NOTE */}
       <section className="relative rounded-none bg-forest pt-20 md:pt-20 lg:pt-28">
         <div className="relative z-10 mx-auto max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] px-6 md:px-10 lg:px-16">
-          <FadeUpSection>
+          <FadeUpSection className="lg:mx-auto lg:max-w-[720px]">
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
               A NOTE FROM THE FOUNDER
             </p>
