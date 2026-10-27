@@ -5,15 +5,30 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, type OptimizedImage } from "@/lib/images";
 
-const NAIL_SLIDES = [
-  IMAGES["nail-slide-1"],
-  IMAGES["nail-slide-2"],
-  IMAGES["nail-slide-3"],
-  IMAGES["nail-slide-4"],
-  IMAGES["nail-slide-5"],
+// Finished sets from the salon's own posts (photos in scripts/originals/gallery-*).
+// Add a set: drop its photo there, run scripts/optimize-images.ts, add a line here.
+const NAIL_SLIDES: { image: OptimizedImage; name: string }[] = [
+  { image: IMAGES["gallery-01-rose-veil"], name: "Rosé Veil" },
+  { image: IMAGES["gallery-02-milky-orbit"], name: "Milky Orbit" },
+  { image: IMAGES["gallery-03-polished-charm"], name: "Polished Charm" },
+  { image: IMAGES["gallery-04-matcha-plaid-french"], name: "Matcha Plaid French" },
+  { image: IMAGES["gallery-05-linen-bloom"], name: "Linen Bloom" },
+  { image: IMAGES["gallery-06-sculpted-elegance"], name: "Sculpted Elegance" },
+  { image: IMAGES["gallery-07-verdant-drift"], name: "Verdant Drift" },
+  { image: IMAGES["gallery-08-lemon-meadow"], name: "Lemon Meadow" },
+  { image: IMAGES["gallery-09-balanced-form"], name: "Balanced Form" },
+  { image: IMAGES["gallery-10-darkly-iconic"], name: "Darkly Iconic" },
+  { image: IMAGES["gallery-11-turquoise-rodeo"], name: "Turquoise Rodeo" },
+  { image: IMAGES["gallery-12-shadow-web"], name: "Shadow Web" },
+  { image: IMAGES["gallery-13-iridescent-wings"], name: "Iridescent butterfly-wing set" },
+  { image: IMAGES["gallery-14-amber-foil"], name: "Amber gold-foil set" },
+  { image: IMAGES["gallery-15-harlequin-set"], name: "Harlequin Set" },
+  { image: IMAGES["gallery-16-shinobi-edge"], name: "Shinobi Edge" },
+  { image: IMAGES["gallery-17-thriller-set"], name: "Thriller Set" },
 ];
+const SLIDE_MS = 3000;
 // Slideshow sits full-width on phones, then in the left column of the services grid.
 const SLIDE_SIZES = "(min-width: 1024px) 480px, (min-width: 768px) 50vw, 100vw";
 
@@ -44,14 +59,16 @@ function NailsSlideshow() {
 
   useEffect(() => {
     if (paused || reduced) return;
-    const id = window.setInterval(goNext, 5000);
+    const id = window.setInterval(goNext, SLIDE_MS);
     return () => window.clearInterval(id);
   }, [paused, reduced, tick]);
 
   return (
     <div>
       <div
-        className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px] bg-cream"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
         onTouchStart={(e) => {
           setPaused(true);
           touchX.current = e.touches[0]?.clientX ?? null;
@@ -71,25 +88,32 @@ function NailsSlideshow() {
           }
         }}
       >
-        {NAIL_SLIDES.map((slide, i) => (
-          <Img
-            key={slide.name}
-            image={slide}
-            alt="Nail set by Belleva Nails"
-            sizes={SLIDE_SIZES}
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            style={{
-              opacity: i === index ? 1 : 0,
-              transition: reduced ? "none" : "opacity 1.2s ease-in-out",
-            }}
-          />
-        ))}
+        {NAIL_SLIDES.map((slide, i) => {
+          // Only the current slide and its neighbours are mounted, so the photo
+          // after the one on screen is already loaded and the rest wait their turn.
+          const n = NAIL_SLIDES.length;
+          const near = i === index || i === (index + 1) % n || i === (index - 1 + n) % n;
+          if (!near) return null;
+          return (
+            <Img
+              key={slide.name}
+              image={slide.image}
+              alt={`${slide.name} by Belleva Nails`}
+              sizes={SLIDE_SIZES}
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              style={{
+                opacity: i === index ? 1 : 0,
+                transition: reduced ? "none" : "opacity 0.9s ease-in-out",
+              }}
+            />
+          );
+        })}
 
         <button
           type="button"
           onClick={goPrev}
           aria-label="Previous nail photo"
-          className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-70 transition-opacity active:opacity-100"
+          className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] transition-opacity active:opacity-100"
         >
           <svg
             width="14"
@@ -110,7 +134,7 @@ function NailsSlideshow() {
           type="button"
           onClick={goNext}
           aria-label="Next nail photo"
-          className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-70 transition-opacity active:opacity-100"
+          className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center opacity-80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] transition-opacity active:opacity-100"
         >
           <svg
             width="14"
@@ -127,12 +151,12 @@ function NailsSlideshow() {
           </svg>
         </button>
       </div>
-      <div className="mt-3 flex items-center justify-center gap-[10px]">
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
         {NAIL_SLIDES.map((slide, i) => (
           <button
             key={slide.name}
             type="button"
-            aria-label={`Show nail photo ${i + 1}`}
+            aria-label={`Show ${slide.name}`}
             onClick={() => {
               setIndex(i);
               setTick((t) => t + 1);

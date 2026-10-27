@@ -47,6 +47,23 @@ export const IMAGES = {
   "bridal-save-the-date": { name: "bridal-save-the-date", width: 1122, height: 1402, widths: [480, 800, 1122] },
   "careers-craft": { name: "careers-craft", width: 1122, height: 1402, widths: [480, 800, 1122] },
   "faq-coffee": { name: "faq-coffee", width: 1536, height: 1024, widths: [480, 800, 1200, 1536] },
+  "gallery-01-rose-veil": { name: "gallery-01-rose-veil", width: 1086, height: 1448, widths: [480, 800, 1086] },
+  "gallery-02-milky-orbit": { name: "gallery-02-milky-orbit", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-03-polished-charm": { name: "gallery-03-polished-charm", width: 1122, height: 1402, widths: [480, 800, 1122] },
+  "gallery-04-matcha-plaid-french": { name: "gallery-04-matcha-plaid-french", width: 1122, height: 1402, widths: [480, 800, 1122] },
+  "gallery-05-linen-bloom": { name: "gallery-05-linen-bloom", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-06-sculpted-elegance": { name: "gallery-06-sculpted-elegance", width: 1086, height: 1448, widths: [480, 800, 1086] },
+  "gallery-07-verdant-drift": { name: "gallery-07-verdant-drift", width: 1086, height: 1448, widths: [480, 800, 1086] },
+  "gallery-08-lemon-meadow": { name: "gallery-08-lemon-meadow", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-09-balanced-form": { name: "gallery-09-balanced-form", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-10-darkly-iconic": { name: "gallery-10-darkly-iconic", width: 1086, height: 1448, widths: [480, 800, 1086] },
+  "gallery-11-turquoise-rodeo": { name: "gallery-11-turquoise-rodeo", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-12-shadow-web": { name: "gallery-12-shadow-web", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-13-iridescent-wings": { name: "gallery-13-iridescent-wings", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-14-amber-foil": { name: "gallery-14-amber-foil", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-15-harlequin-set": { name: "gallery-15-harlequin-set", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-16-shinobi-edge": { name: "gallery-16-shinobi-edge", width: 1200, height: 1500, widths: [480, 800, 1200] },
+  "gallery-17-thriller-set": { name: "gallery-17-thriller-set", width: 1200, height: 1500, widths: [480, 800, 1200] },
 } as const satisfies Record<string, OptimizedImage>;
 
 export type ImageName = keyof typeof IMAGES;
