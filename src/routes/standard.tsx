@@ -306,10 +306,10 @@ function StandardPage() {
               {/* Desktop only: fills the left column beside the five steps. */}
               <div className="mt-10 hidden lg:block">
                 <Img
-                  image={IMAGES["bridal-hero"]}
-                  alt="Freshly finished manicure resting on a stone tray at Belleva Nails"
+                  image={IMAGES["faq-coffee"]}
+                  alt="Vietnamese iced coffee and an appointment card at check-in"
                   sizes="480px"
-                  className="aspect-[4/3] w-full rounded-[10px] object-cover object-[center_35%]"
+                  className="aspect-[4/3] w-full rounded-[10px] object-cover"
                 />
               </div>
             </FadeUpSection>
@@ -525,7 +525,7 @@ function StandardPage() {
       </section>
 
       {/* FOUNDER NOTE */}
-      <section className="relative rounded-none bg-forest pt-20 md:pt-20 lg:pt-28">
+      <section className="relative rounded-none bg-forest pb-20 pt-20 md:pb-20 md:pt-20 lg:pb-28 lg:pt-28">
         <div className="relative z-10 mx-auto max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] px-6 md:px-10 lg:px-16">
           <FadeUpSection className="lg:mx-auto lg:max-w-[720px]">
             <p className="text-[12px] font-normal uppercase tracking-[0.14em] text-gold">
@@ -568,18 +568,6 @@ function StandardPage() {
           </FadeUpSection>
         </div>
 
-        <div className="relative mt-20 h-[240px] w-full overflow-hidden rounded-none md:mt-[120px] md:h-[320px]">
-          <img
-            src="/founder-notebook-PLACEHOLDER.jpg"
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover"
-          />
-          <div
-            className="absolute inset-0 rounded-none"
-            style={{ backgroundColor: "rgba(47,74,62,0.38)" }}
-          />
-        </div>
       </section>
 
       </main>
