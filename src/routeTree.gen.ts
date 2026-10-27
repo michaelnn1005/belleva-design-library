@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StandardRouteImport } from './routes/standard'
+import { Route as LabNailsHeroRouteImport } from './routes/lab.nails-hero'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const StandardRoute = StandardRouteImport.update({
   path: '/standard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LabNailsHeroRoute = LabNailsHeroRouteImport.update({
+  id: '/lab/nails-hero',
+  path: '/lab/nails-hero',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
+  '/lab/nails-hero': typeof LabNailsHeroRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
+  '/lab/nails-hero': typeof LabNailsHeroRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRoute
   '/standard': typeof StandardRoute
+  '/lab/nails-hero': typeof LabNailsHeroRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/services'
     | '/standard'
+    | '/lab/nails-hero'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/services'
     | '/standard'
+    | '/lab/nails-hero'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/services'
     | '/standard'
+    | '/lab/nails-hero'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   ServicesRoute: typeof ServicesRoute
   StandardRoute: typeof StandardRoute
+  LabNailsHeroRoute: typeof LabNailsHeroRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StandardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lab/nails-hero': {
+      id: '/lab/nails-hero'
+      path: '/lab/nails-hero'
+      fullPath: '/lab/nails-hero'
+      preLoaderRoute: typeof LabNailsHeroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   ServicesRoute: ServicesRoute,
   StandardRoute: StandardRoute,
+  LabNailsHeroRoute: LabNailsHeroRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
