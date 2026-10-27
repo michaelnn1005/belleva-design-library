@@ -97,8 +97,10 @@ async function openChrome(port: number) {
       await loaded;
       listeners.length = 0;
       // Freeze anything time-based (marquee, transitions) so both versions render identically.
+      // Embedded third-party content (the Google map) is hidden: its tiles change between loads,
+      // but its frame still takes up space, so layout shifts are still caught.
       await evaluate(`(() => { const s = document.createElement('style');
-        s.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
+        s.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}iframe{visibility:hidden!important}';
         document.head.appendChild(s); })()`);
       await Bun.sleep(1200);
       const docH: number = await evaluate("document.documentElement.scrollHeight");
