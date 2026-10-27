@@ -7,12 +7,15 @@ export function FinishPicker({
   onChange,
   tone,
   name,
+  compact = false,
 }: {
   options: FinishId[];
   value: FinishId;
   onChange: (id: FinishId) => void;
   tone: "dark" | "light";
   name: string;
+  /** Smaller chips that fit five on one row at desktop widths. */
+  compact?: boolean;
 }) {
   const chip =
     tone === "dark"
@@ -26,7 +29,7 @@ export function FinishPicker({
       >
         Choose a finish
       </legend>
-      <div className="mt-4 flex flex-wrap gap-2.5">
+      <div className={`mt-4 flex flex-wrap ${compact ? "gap-2 lg:flex-nowrap" : "gap-2.5"}`}>
         {options.map((id) => {
           const f = FINISHES[id];
           return (
@@ -40,11 +43,11 @@ export function FinishPicker({
                 className="peer sr-only"
               />
               <span
-                className={`inline-flex items-center gap-2.5 rounded-full border px-4 py-2 text-[13px] transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 ${chip}`}
+                className={`inline-flex items-center whitespace-nowrap rounded-full border transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 ${compact ? "gap-2 px-3 py-1.5 text-[12px]" : "gap-2.5 px-4 py-2 text-[13px]"} ${chip}`}
               >
                 <span
                   aria-hidden="true"
-                  className="h-3.5 w-3.5 rounded-full border border-black/10"
+                  className={`rounded-full border border-black/10 ${compact ? "h-3 w-3" : "h-3.5 w-3.5"}`}
                   style={{ background: f.swatch }}
                 />
                 {f.label}

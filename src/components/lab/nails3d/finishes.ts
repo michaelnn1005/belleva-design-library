@@ -43,5 +43,5 @@ export const FINISHES: Record<FinishId, Finish> = {
   },
 };
 
-export const FINISHES_A: FinishId[] = ["chrome", "cat-eye", "glazed", "french"];
+export const FINISHES_A: FinishId[] = ["chrome", "cat-eye", "glazed", "french", "pearl"];
 export const FINISHES_B: FinishId[] = ["pearl", "chrome", "cat-eye", "glazed", "french"];

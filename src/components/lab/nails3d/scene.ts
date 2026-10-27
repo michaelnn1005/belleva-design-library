@@ -10,7 +10,11 @@ import {
   Group,
   HemisphereLight,
   Mesh,
+  MeshBasicMaterial,
   MeshPhysicalMaterial,
+  BackSide,
+  BoxGeometry,
+  PlaneGeometry,
   PerspectiveCamera,
   PMREMGenerator,
   RepeatWrapping,
@@ -19,7 +23,6 @@ import {
   Vector2,
   WebGLRenderer,
 } from "three";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { FinishId } from "./finishes";
 
 export type SceneLayout = "cluster" | "single";
@@ -38,30 +41,35 @@ type Options = {
 // ---------------------------------------------------------------- geometry
 
 /**
- * Coffin (ballerina) nail as a smooth parametric shell: a dense top surface curved
- * across its width (C-curve) and along its length, a thinner underside, and a rim
- * joining them. The sides taper to a flat, slightly softened tip, which gives a
- * French tip a clean straight-across line.
+ * Coffin (ballerina) nail as a smooth parametric shell. The top surface is curved
+ * across its width (C-curve) and along its length; the underside sits below it by a
+ * thickness that thins toward the tip and closes to nothing at the side edges, so the
+ * edge reads as a rounded lip rather than a flat band. The cuticle edge is a soft U.
  * u runs across the nail (-1..1), v from the cuticle (0) to the tip (1).
  */
 function coffinGeometry(): BufferGeometry {
   const W = 0.5; // half width at the widest point
   const H = 1.9; // length
-  const U = 40;
-  const V = 80;
+  const U = 48;
+  const V = 96;
+  const T = 0.05; // thickness at the cuticle
   const smooth = (a: number, b: number, x: number) => {
     const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
     return t * t * (3 - 2 * t);
   };
-  // Widest just past the cuticle, tapering to a tip about 40% as wide; corners eased.
-  const halfWidth = (v: number) => W * (0.9 + 0.4 * v - 0.85 * v * v) * (1 - 0.08 * smooth(0.97, 1, v));
+  // Rounded shoulders at the cuticle, widest just past it, tapering to a tip ~40% as wide.
+  const halfWidth = (v: number) =>
+    W * (0.9 + 0.4 * v - 0.85 * v * v) * (0.82 + 0.18 * smooth(0, 0.14, v)) * (1 - 0.08 * smooth(0.97, 1, v));
+  // Thickness: thins toward the tip, closes at the side edges and eases in at the cuticle.
+  const thickness = (u: number, v: number) =>
+    T * (1 - 0.7 * v) * Math.sqrt(Math.max(0, 1 - u ** 8)) * (0.35 + 0.65 * smooth(0, 0.08, v));
   const surface = (u: number, v: number, under: boolean): [number, number, number] => {
     const x = u * halfWidth(v);
-    // Rounded cuticle edge; the tip edge stays straight (the C-curve gives it a soft arc).
-    const y = v * H - 0.14 * (1 - u * u) * (1 - v) ** 3;
-    let z = -0.6 * x * x - 0.06 * (y - H * 0.45) ** 2;
-    if (under) z -= 0.055 * (1 - 0.6 * v) * (1 - 0.85 * u * u);
-    return [x, y - H / 2, z];
+    // Soft U-shaped cuticle; the tip edge stays straight (the C-curve gives it a gentle arc).
+    const y = v * H - 0.17 * Math.pow(1 - u * u, 0.7) * (1 - v) ** 4;
+    const mid = -0.6 * x * x - 0.06 * (y - H * 0.45) ** 2;
+    const t = thickness(u, v);
+    return [x, y - H / 2, under ? mid - t / 2 : mid + t / 2];
   };
 
   const positions: number[] = [];
@@ -111,6 +119,33 @@ function coffinGeometry(): BufferGeometry {
   g.setIndex(index);
   g.computeVertexNormals();
   return g;
+}
+
+/**
+ * A dark studio with a few hard, very bright softboxes plus a forest-green and a cream
+ * panel. Baked through PMREM it gives chrome deep blacks, crisp highlights and a hint
+ * of the brand colours in its reflections; no HDR file needed.
+ */
+function studioScene() {
+  const studio = new Scene();
+  const room = new Mesh(new BoxGeometry(20, 12, 20), new MeshBasicMaterial({ color: "#3a433f", side: BackSide }));
+  studio.add(room);
+  const panel = (w: number, h: number, color: string, intensity: number, pos: [number, number, number], look: [number, number, number]) => {
+    const m = new Mesh(new PlaneGeometry(w, h), new MeshBasicMaterial({ color: new Color(color).multiplyScalar(intensity) }));
+    m.position.set(...pos);
+    m.lookAt(...look);
+    studio.add(m);
+  };
+  // Behind the camera (what a nail facing us mirrors): cream on one side, forest on the other.
+  panel(11, 8, "#f5f0e8", 1.9, [-1.5, 0.5, 9.5], [0, 0, 0]);
+  panel(3.2, 8, "#4b6458", 1.0, [6.2, 0.5, 9], [0, 0, 0]);
+  // Hard softboxes for crisp highlights along the curves.
+  panel(6, 1.0, "#ffffff", 10, [0, 5.5, 3], [0, 0, 0]); // overhead strip
+  panel(1.2, 7, "#ffffff", 8, [-6.5, 0.5, 2.5], [0, 0, 0]); // key strip, left
+  panel(0.9, 6, "#fff4e4", 5, [6.5, 0, 3.5], [0, 0, 0]); // warm rim, right
+  panel(10, 5, "#2f4a3e", 1.2, [0, -1, -9], [0, 0, 0]); // forest back wall
+  panel(8, 3, "#f5f0e8", 0.9, [0, -5.5, 2], [0, 0, 0]); // cream bounce from below
+  return studio;
 }
 
 // ---------------------------------------------------------------- textures
@@ -176,11 +211,11 @@ function makeMaterials() {
   const catEyeMap = catEyeTexture();
   const mats: Record<FinishId, MeshPhysicalMaterial> = {
     chrome: new MeshPhysicalMaterial({
-      color: new Color("#e9e9e7"),
+      color: new Color("#f4f4f2"),
       metalness: 1,
-      roughness: 0.06,
+      roughness: 0.025,
       clearcoat: 1,
-      clearcoatRoughness: 0.03,
+      clearcoatRoughness: 0.02,
     }),
     "cat-eye": new MeshPhysicalMaterial({
       color: new Color("#ffffff"),
@@ -232,11 +267,11 @@ function makeMaterials() {
 type NailSlot = { x: number; y: number; z: number; rz: number; scale: number };
 
 const CLUSTER: NailSlot[] = [
-  { x: -1.5, y: -0.35, z: -0.25, rz: 0.36, scale: 0.84 },
-  { x: -0.72, y: 0.22, z: 0.12, rz: 0.17, scale: 0.96 },
-  { x: 0.08, y: 0.45, z: 0.35, rz: 0, scale: 1.04 },
-  { x: 0.88, y: 0.2, z: 0.08, rz: -0.17, scale: 0.96 },
-  { x: 1.62, y: -0.38, z: -0.28, rz: -0.36, scale: 0.82 },
+  { x: -1.86, y: -0.42, z: -0.25, rz: 0.4, scale: 0.8 },
+  { x: -0.94, y: 0.18, z: 0.1, rz: 0.2, scale: 0.92 },
+  { x: 0.02, y: 0.42, z: 0.32, rz: 0, scale: 1 },
+  { x: 0.98, y: 0.16, z: 0.08, rz: -0.2, scale: 0.92 },
+  { x: 1.9, y: -0.44, z: -0.26, rz: -0.4, scale: 0.78 },
 ];
 const SINGLE: NailSlot[] = [{ x: 0, y: 0.05, z: 0, rz: -0.22, scale: 1.4 }];
 
@@ -265,11 +300,11 @@ export function createNailScene(canvas: HTMLCanvasElement, opts: Options): NailS
 
   const scene = new Scene();
   const pmrem = new PMREMGenerator(renderer);
-  const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
+  const envRT = pmrem.fromScene(studioScene(), 0.02);
   scene.environment = envRT.texture;
 
   const camera = new PerspectiveCamera(30, 1, 0.1, 50);
-  camera.position.set(0, 0, opts.layout === "single" ? 7.2 : 8.4);
+  camera.position.set(0, 0, opts.layout === "single" ? 7.2 : 9.2);
 
   scene.add(new HemisphereLight("#fff8f0", "#2f4a3e", 0.5));
   const key = new DirectionalLight("#ffffff", 2.2);
@@ -418,7 +453,14 @@ export function createNailScene(canvas: HTMLCanvasElement, opts: Options): NailS
     raf = requestAnimationFrame(frame);
   }
   if (opts.reducedMotion) window.addEventListener("pointermove", schedule, { passive: true });
-  schedule();
+  // Compile shaders off the main thread where the browser supports it, then start drawing.
+  let disposed = false;
+  renderer
+    .compileAsync(scene, camera)
+    .catch(() => undefined)
+    .then(() => {
+      if (!disposed) schedule();
+    });
 
   return {
     setFinish(id) {
@@ -434,6 +476,7 @@ export function createNailScene(canvas: HTMLCanvasElement, opts: Options): NailS
       schedule();
     },
     dispose() {
+      disposed = true;
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onPointer);
       window.removeEventListener("pointermove", schedule);

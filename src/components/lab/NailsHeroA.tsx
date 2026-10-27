@@ -28,23 +28,24 @@ export function NailsHeroA() {
             next set.
           </h1>
           <p
-            className="mt-5 min-h-[3.2em] text-[16px] leading-[1.6] text-cream/85 md:text-[17px]"
+            className="mt-4 min-h-[3.2em] text-[16px] leading-[1.6] text-cream/85 md:text-[17px]"
             aria-live="polite"
           >
             {FINISHES[finish].description}
           </p>
-          <div className="mt-8">
+          <div className="mt-5">
             <FinishPicker
               options={FINISHES_A}
               value={finish}
               onChange={setFinish}
               tone="dark"
               name="finish-a"
+              compact
             />
           </div>
           <a
             href={bookThisLookUrl(finish, "A")}
-            className="mt-9 inline-flex min-h-[48px] items-center gap-3 rounded-full bg-cream px-8 py-3 text-[14px] text-forest transition-colors hover:bg-background"
+            className="mt-7 inline-flex min-h-[48px] items-center gap-3 rounded-full bg-cream px-8 py-3 text-[14px] text-forest transition-colors hover:bg-background"
           >
             Book this look
             <span aria-hidden="true" className="text-gold">
@@ -65,7 +66,24 @@ export function NailsHeroA() {
               className="h-full w-full rounded-[10px] object-cover"
             />
           ) : (
-            <NailsCanvas layout="cluster" finish={finish} onUnavailable={() => setNo3d(true)} />
+            <>
+              {/* A faint cream glow behind the cluster and a soft contact shadow beneath it,
+                  so the nails lift off the forest background. */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(245,240,232,0.16)_0%,rgba(245,240,232,0.06)_42%,transparent_68%)]"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute bottom-[14%] left-1/2 h-[9%] w-[62%] -translate-x-1/2 rounded-[50%] bg-black/30 blur-2xl"
+              />
+              <NailsCanvas
+                layout="cluster"
+                finish={finish}
+                onUnavailable={() => setNo3d(true)}
+                className="relative"
+              />
+            </>
           )}
         </div>
       </div>

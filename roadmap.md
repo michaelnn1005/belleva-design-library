@@ -10,3 +10,7 @@
 - [x] Keep homepage bridal button targeting /bridal#join, update helper copy, and offset the form anchor below the fixed header
 
 - [x] Apply shared tablet/desktop container, rhythm, hero, header, and footer layout system
+
+## Ideas (not started)
+
+- [ ] Bridal page, tablet/desktop: reuse the 3D lab "Version B" idea (one large coffin nail the visitor turns by dragging, Bridal pearl finish first, then French) as a close-up "try your wedding set" moment near "How it works". Components already exist in src/components/lab/ (NailsHeroB, nails3d/*); keep the lazy three.js load, WebGL/reduced-motion fallbacks, and phone layout untouched.
