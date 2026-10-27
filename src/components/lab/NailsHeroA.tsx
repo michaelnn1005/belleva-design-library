@@ -7,7 +7,7 @@ import { NailsCanvas } from "./nails3d/NailsCanvas";
 import { bookThisLookUrl } from "./nails3d/booking";
 
 /**
- * Version A — the concept as briefed: a floating cluster of five almond nails on the
+ * Version A — the concept as briefed: a floating cluster of five coffin-shaped nails on the
  * right, copy + finish picker + Book on the left. Dark forest stage so chrome and
  * cat-eye read as jewellery. Below 768px (or without WebGL) a still photo stands in.
  */

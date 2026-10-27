@@ -38,20 +38,27 @@ type Options = {
 // ---------------------------------------------------------------- geometry
 
 /**
- * Almond nail as a smooth parametric shell: a dense top surface curved across its
- * width (C-curve) and along its length, a thinner underside, and a rim joining them.
+ * Coffin (ballerina) nail as a smooth parametric shell: a dense top surface curved
+ * across its width (C-curve) and along its length, a thinner underside, and a rim
+ * joining them. The sides taper to a flat, slightly softened tip, which gives a
+ * French tip a clean straight-across line.
  * u runs across the nail (-1..1), v from the cuticle (0) to the tip (1).
  */
-function almondGeometry(): BufferGeometry {
+function coffinGeometry(): BufferGeometry {
   const W = 0.5; // half width at the widest point
   const H = 1.9; // length
   const U = 40;
   const V = 80;
-  // Stays full width most of the way, then rounds into a soft almond point.
-  const halfWidth = (v: number) => W * Math.pow(1 - Math.pow(v, 2.4), 0.5) * (0.9 + 0.12 * v);
+  const smooth = (a: number, b: number, x: number) => {
+    const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
+    return t * t * (3 - 2 * t);
+  };
+  // Widest just past the cuticle, tapering to a tip about 40% as wide; corners eased.
+  const halfWidth = (v: number) => W * (0.9 + 0.4 * v - 0.85 * v * v) * (1 - 0.08 * smooth(0.97, 1, v));
   const surface = (u: number, v: number, under: boolean): [number, number, number] => {
     const x = u * halfWidth(v);
-    const y = v * H - 0.14 * (1 - u * u) * (1 - v) ** 3; // rounded cuticle edge
+    // Rounded cuticle edge; the tip edge stays straight (the C-curve gives it a soft arc).
+    const y = v * H - 0.14 * (1 - u * u) * (1 - v) ** 3;
     let z = -0.6 * x * x - 0.06 * (y - H * 0.45) ** 2;
     if (under) z -= 0.055 * (1 - 0.6 * v) * (1 - 0.85 * u * u);
     return [x, y - H / 2, z];
@@ -92,7 +99,11 @@ function almondGeometry(): BufferGeometry {
     rim(top + l + U + 1, top + l, bottom + l + U + 1, bottom + l); // left side
     rim(top + r, top + r + U + 1, bottom + r, bottom + r + U + 1); // right side
   }
-  for (let i = 0; i < U; i++) rim(top + i, top + i + 1, bottom + i, bottom + i + 1); // cuticle
+  const tipRow = V * (U + 1);
+  for (let i = 0; i < U; i++) {
+    rim(top + i, top + i + 1, bottom + i, bottom + i + 1); // cuticle
+    rim(top + tipRow + i + 1, top + tipRow + i, bottom + tipRow + i + 1, bottom + tipRow + i); // flat tip
+  }
 
   const g = new BufferGeometry();
   g.setAttribute("position", new Float32BufferAttribute(positions, 3));
@@ -124,8 +135,8 @@ function frenchTexture() {
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(n, 0);
-    ctx.lineTo(n, n * 0.24);
-    ctx.quadraticCurveTo(n / 2, n * 0.44, 0, n * 0.24);
+    ctx.lineTo(n, n * 0.2);
+    ctx.quadraticCurveTo(n / 2, n * 0.36, 0, n * 0.2);
     ctx.closePath();
     ctx.fill();
   });
@@ -266,7 +277,7 @@ export function createNailScene(canvas: HTMLCanvasElement, opts: Options): NailS
   scene.add(key);
 
   const { mats, catEyeMap } = makeMaterials();
-  const geometry = almondGeometry();
+  const geometry = coffinGeometry();
   const rig = new Group();
   scene.add(rig);
 
