@@ -402,8 +402,8 @@ function CareersPage() {
             </FadeUpSection>
             <FadeUpSection className="hidden lg:block">
               <Img
-                image={IMAGES["nail-slide-2"]}
-                alt="Nail art by a Belleva technician"
+                image={IMAGES["careers-craft"]}
+                alt="A Belleva technician painting fine nail art on a client's hand"
                 sizes="560px"
                 className="aspect-[4/5] w-full object-cover"
               />
