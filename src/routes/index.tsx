@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
-import { BOOKING_URL } from "@/lib/designs";
+import { LookbookHero } from "@/components/LookbookHero";
 import { IMAGES, type OptimizedImage } from "@/lib/images";
 
 // Finished sets from the salon's own posts (photos in scripts/originals/gallery-*).
@@ -460,45 +460,40 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader heroPassed={heroPassed} />
+      <SiteHeader heroPassed={heroPassed} lightHeroOnDesktop />
 
       <section
         id="hero"
-        className="relative h-svh w-full overflow-hidden bg-forest md:h-screen"
+        className="relative h-svh w-full overflow-hidden bg-forest md:h-screen lg:bg-cream"
       >
         <Img
           image={IMAGES["nail-library-hd"]}
           mobile={IMAGES["nail-library"]}
           alt="Ink Veil nail design by Belleva Nails"
           priority
-          className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:object-center"
+          skipOnDesktop
+          className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:hidden"
         />
-        {/* Shade only where text sits (header on top, headline bottom on phones / left on desktop)
+        {/* Shade only where text sits (header on top, headline at the bottom)
             so the photo keeps its true colours instead of a flat green wash. */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:bg-gradient-to-r lg:from-forest/70 lg:via-forest/35 lg:via-45% lg:to-transparent lg:to-80%" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest/45 to-transparent lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:hidden" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] lg:max-w-[1328px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:justify-center lg:px-16 lg:pb-0">
-          <div className="max-w-[320px] md:max-w-[70%] lg:max-w-[55%]">
-            <h1 className="font-display text-[52px] font-normal leading-[1.05] tracking-[-0.01em] text-background lining-nums sm:text-[56px] md:text-[72px] lg:text-[88px] xl:text-[96px]">
+        {/* Phones and tablets: photo hero. Desktop: the drifting lookbook. */}
+        <div className="relative z-10 mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:hidden">
+          <div className="max-w-[320px] md:max-w-[70%]">
+            <h1 className="font-display text-[52px] font-normal leading-[1.05] tracking-[-0.01em] text-background lining-nums sm:text-[56px] md:text-[72px]">
               <span className="whitespace-nowrap">Find your</span>
               <br />
               <span className="whitespace-nowrap">next set.</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px] lg:text-[20px]">
+            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px]">
               Real designs, made in our Denton salon. Book the one you love.
             </p>
-            {/* Desktop: Book first, Explore services as the secondary pill. */}
-            <div className="mt-7 flex items-center gap-3 lg:mt-9">
-              <a
-                href={BOOKING_URL}
-                className="hidden min-h-[48px] items-center rounded-full bg-cream px-8 py-3 text-[14px] uppercase tracking-[0.12em] text-forest transition-colors hover:bg-background lg:inline-flex"
-              >
-                Book an appointment
-              </a>
+            <div className="mt-7 flex items-center gap-3">
               <button
                 onClick={scrollToServices}
-                className="inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15 lg:min-h-[48px] lg:px-8 lg:py-3"
+                className="inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15"
                 aria-label="Scroll to services"
               >
                 Explore services
@@ -506,6 +501,8 @@ function Index() {
             </div>
           </div>
         </div>
+
+        <LookbookHero onExplore={scrollToServices} />
       </section>
 
       <ServicesSection />

@@ -230,3 +230,43 @@
 .marquee-paused .marquee-track {
   animation-play-state: paused;
 }
+
+/* Home hero, desktop only (the block is display:none below lg). */
+@keyframes lookbook-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes lookbook-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+@keyframes lookbook-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.lookbook-cols {
+  -webkit-mask-image: linear-gradient(transparent 0, transparent 9%, #000 19%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(transparent 0, transparent 9%, #000 19%, #000 88%, transparent 100%);
+}
+.lookbook-track {
+  animation: lookbook-up 52s linear infinite;
+  will-change: transform;
+}
+.lookbook-track.lookbook-down {
+  animation-name: lookbook-down;
+}
+.lookbook-cols:hover .lookbook-track {
+  animation-play-state: paused;
+}
+.lookbook-intro > * {
+  animation: lookbook-rise 1s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+}
+.lookbook-intro > :nth-child(2) { animation-delay: 0.1s; }
+.lookbook-intro > :nth-child(3) { animation-delay: 0.45s; }
+.lookbook-intro > :nth-child(4) { animation-delay: 0.6s; }
+@media (prefers-reduced-motion: reduce) {
+  .lookbook-track,
+  .lookbook-intro > * {
+    animation: none;
+  }
+}

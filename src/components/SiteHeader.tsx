@@ -14,7 +14,14 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
-export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
+export function SiteHeader({
+  heroPassed = true,
+  lightHeroOnDesktop = false,
+}: {
+  heroPassed?: boolean;
+  /** The page's hero is light at lg+, so the transparent header needs dark text there. */
+  lightHeroOnDesktop?: boolean;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = heroPassed;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -22,8 +29,11 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
   const baseLinkClass =
     "font-body text-[15px] font-normal tracking-[0.02em] no-underline decoration-1 underline-offset-[6px] transition-colors duration-300";
 
+  // Colour of logo and links while the header is transparent over the hero.
+  const overHero = lightHeroOnDesktop ? "text-background lg:text-forest" : "text-background";
+
   const desktopLinkClass = (isActive: boolean) => {
-    const color = scrolled ? "text-forest" : "text-background";
+    const color = scrolled ? "text-forest" : overHero;
     const underline = isActive ? "underline" : "hover:underline";
     return `${baseLinkClass} ${color} ${underline}`;
   };
@@ -41,7 +51,7 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
           <Link
             to="/"
             className={`font-display text-xl tracking-[0.3em] transition-colors duration-300 ${
-              scrolled ? "text-forest" : "text-background"
+              scrolled ? "text-forest" : overHero
             }`}
           >
             BELLEVA
@@ -106,7 +116,9 @@ export function SiteHeader({ heroPassed = true }: { heroPassed?: boolean }) {
                 className={`rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-[0.1em] transition-all duration-300 ${
                   scrolled
                     ? "border-gold text-gold hover:bg-forest hover:text-cream"
-                    : "border-background/70 text-background hover:bg-background hover:text-forest"
+                    : lightHeroOnDesktop
+                      ? "border-background/70 text-background hover:bg-background hover:text-forest lg:border-forest lg:text-forest lg:hover:bg-forest lg:hover:text-cream"
+                      : "border-background/70 text-background hover:bg-background hover:text-forest"
                 }`}
               >
                 Book

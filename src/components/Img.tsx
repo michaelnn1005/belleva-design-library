@@ -5,6 +5,9 @@ import type { OptimizedImage } from "@/lib/images";
 // The browser picks the smallest variant that covers the rendered width given in `sizes`.
 
 const MOBILE_QUERY = "(max-width: 767px)";
+const DESKTOP_QUERY = "(min-width: 1024px)";
+// 1x1 transparent GIF: lets a desktop-hidden image skip its download at lg+.
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 function variantUrl(image: OptimizedImage, width: number, format: "avif" | "webp") {
   return `/img/${image.name}-${width}.${format}`;
@@ -23,6 +26,7 @@ export function Img({
   style,
   priority = false,
   decorative = false,
+  skipOnDesktop = false,
 }: {
   image: OptimizedImage;
   /** Different crop to use below 768px (e.g. a portrait hero). */
@@ -36,11 +40,14 @@ export function Img({
   priority?: boolean;
   /** Purely visual image, hidden from assistive tech. */
   decorative?: boolean;
+  /** The image is hidden at lg+ (desktop); don't download it there. */
+  skipOnDesktop?: boolean;
 }) {
   const largest = image.widths.at(-1) ?? image.width;
 
   return (
     <picture className="contents">
+      {skipOnDesktop && <source media={DESKTOP_QUERY} srcSet={BLANK} />}
       {mobile && (
         <>
           <source media={MOBILE_QUERY} type="image/avif" srcSet={srcSetFor(mobile, "avif")} sizes={sizes} />
