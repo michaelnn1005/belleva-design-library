@@ -4,9 +4,9 @@
 // nothing from that service loads and nothing is sent, so the site behaves exactly as before.
 
 /** Google Analytics 4 measurement ID, e.g. "G-AB12CD34EF". */
-export const GA4_ID = "";
+export const GA4_ID = "G-PN0KN8NHXX";
 /** Meta Pixel ID (Facebook / Instagram ads), e.g. "123456789012345". */
-export const META_PIXEL_ID = "";
+export const META_PIXEL_ID = "4695550164054627";
 
 /** The site's public address, used for share images. Change when a custom domain is connected. */
 export const SITE_URL = "https://belleva-design-library.lovable.app";

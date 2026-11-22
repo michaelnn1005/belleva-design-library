@@ -24,6 +24,8 @@ Bước 2 và 3 chỉ chạy khi đã cài các khóa dưới đây. Nếu chưa
 
 1. Tạo một Google Sheet mới, đặt tên ví dụ "Belleva – Bridal", rồi chia sẻ cho team.
 2. **Extensions → Apps Script**. Xoá hết nội dung có sẵn, dán toàn bộ file `Code.gs` trong thư mục này vào → **Save**.
+   Nếu Google báo "unable to open the file" (thường gặp khi Chrome đăng nhập nhiều tài khoản), vào **script.google.com → New project**, dán `Code.gs` rồi điền ID của sheet vào `SPREADSHEET_ID` (ID là đoạn giữa `/d/` và `/edit` trong địa chỉ sheet).
+   *Đã làm ngày 22/11/2026:* sheet **"Belleva – Bridal"** và script **"Belleva Bridal pipeline"** trong Gmail tiệm, đã chạy `setup` và deploy web app. Còn thiếu: SECRET (bước 3) và 2 secret trong Lovable (bước 6).
 3. Bên trái chọn **Project Settings (bánh răng) → Script properties → Add script property**
    - Property: `SECRET`
    - Value: một chuỗi bí mật bất kỳ, ví dụ `belleva-bridal-2026-x7k`.

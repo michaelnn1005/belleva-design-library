@@ -8,6 +8,9 @@
  */
 
 const SHEET_NAME = "Bridal pipeline";
+// Only needed when this is a standalone script (not opened from the sheet's Extensions menu):
+// the ID from the sheet's address, docs.google.com/spreadsheets/d/<ID>/edit
+const SPREADSHEET_ID = "";
 const HEADERS = [
   "Received",
   "Name",
@@ -100,6 +103,8 @@ function setup() {
 }
 
 function getSheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
   return ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
 }
