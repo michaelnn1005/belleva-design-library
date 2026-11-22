@@ -7,6 +7,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
+import { shareMeta } from "@/lib/marketing";
 
 // Section photos: full width on phones/tablet, the 5/12 column on desktop.
 const SECTION_PHOTO_SIZES = "(min-width: 1024px) 480px, 100vw";
@@ -23,8 +24,8 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
       { name: "twitter:card", content: "summary_large_image" },
+      ...shareMeta("services", "/services"),
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
@@ -42,11 +43,7 @@ function FadeUpSection({
 }) {
   const { ref, visible } = useFadeUp(0.2);
   return (
-    <div
-      id={id}
-      ref={ref}
-      className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}
-    >
+    <div id={id} ref={ref} className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}>
       {children}
     </div>
   );
@@ -69,18 +66,11 @@ type MenuItem = {
   note?: string;
 };
 
-function MenuIndex({
-  items,
-  variant,
-}: {
-  items: MenuItem[];
-  variant: "dark" | "light";
-}) {
+function MenuIndex({ items, variant }: { items: MenuItem[]; variant: "dark" | "light" }) {
   const titleColor = variant === "dark" ? "text-cream" : "text-forest";
   const priceColor = variant === "dark" ? "text-cream/70" : "text-forest/70";
   const descColor = variant === "dark" ? "text-cream/80" : "text-forest/80";
-  const ruleColor =
-    variant === "dark" ? "border-gold/40" : "border-[#E5DFD3]";
+  const ruleColor = variant === "dark" ? "border-gold/40" : "border-[#E5DFD3]";
 
   return (
     <div>
@@ -89,9 +79,7 @@ function MenuIndex({
           key={item.number}
           className={`flex gap-4 py-6 ${i !== 0 ? `border-t ${ruleColor}` : ""}`}
         >
-          <span
-            className="w-12 flex-shrink-0 font-display text-[24px] leading-none text-gold lining-nums md:w-14 md:text-[28px]"
-          >
+          <span className="w-12 flex-shrink-0 font-display text-[24px] leading-none text-gold lining-nums md:w-14 md:text-[28px]">
             {item.number}
           </span>
           <div>
@@ -99,7 +87,9 @@ function MenuIndex({
               className={`font-display text-[20px] font-medium leading-[1.3] md:text-[22px] ${titleColor}`}
             >
               {item.title}{" "}
-              <span className={`inline-block whitespace-nowrap font-body text-[14px] ${priceColor} lining-nums`}>
+              <span
+                className={`inline-block whitespace-nowrap font-body text-[14px] ${priceColor} lining-nums`}
+              >
                 · {item.price}
               </span>
             </p>
@@ -108,14 +98,8 @@ function MenuIndex({
                 Lab-tested CBD
               </p>
             )}
-            <p className={`mt-1.5 text-[15px] leading-[1.6] ${descColor}`}>
-              {item.description}
-            </p>
-            {item.note && (
-              <p className="mt-2 text-[13px] leading-[1.6] text-gold">
-                {item.note}
-              </p>
-            )}
+            <p className={`mt-1.5 text-[15px] leading-[1.6] ${descColor}`}>{item.description}</p>
+            {item.note && <p className="mt-2 text-[13px] leading-[1.6] text-gold">{item.note}</p>}
           </div>
         </div>
       ))}
@@ -165,8 +149,7 @@ const PEDICURES: MenuItem[] = [
     number: "03",
     title: "The Deluxe",
     price: "$45 · 45 mins",
-    description:
-      "Hot stones, paraffin wax, and a 13-minute massage with a scent we pick for you.",
+    description: "Hot stones, paraffin wax, and a 13-minute massage with a scent we pick for you.",
   },
   {
     number: "04",
@@ -211,11 +194,11 @@ const MANICURES: MenuItem[] = [
     number: "03",
     title: "The Belleva Premium",
     price: "$52",
-    description: "CBD to start, an 18-minute massage, paraffin, neck heat. Your hands, but the upgraded version.",
+    description:
+      "CBD to start, an 18-minute massage, paraffin, neck heat. Your hands, but the upgraded version.",
     cbd: true,
   },
 ];
-
 
 const NAIL_SYSTEMS: {
   name: string;
@@ -254,8 +237,7 @@ const NAIL_SYSTEMS: {
   },
   {
     name: "Gel / Shellac",
-    descriptor:
-      "Gel polish over a full manicure, in three levels of care.",
+    descriptor: "Gel polish over a full manicure, in three levels of care.",
     rows: [
       ["Gel manicure", "$42"],
       ["Signature", "$52"],
@@ -264,8 +246,7 @@ const NAIL_SYSTEMS: {
   },
   {
     name: "Acrylic",
-    descriptor:
-      "The classic structure. Fills every two to three weeks keep it clean.",
+    descriptor: "The classic structure. Fills every two to three weeks keep it clean.",
     rows: [
       ["Pink & white", "$65 (fill $55)"],
       ["With gel polish", "$55 (fill $50)"],
@@ -388,8 +369,8 @@ function ServicesPage() {
                 The menu.
               </h1>
               <p className="mt-5 max-w-[560px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
-                Real prices, real times. Book online and tell us your occasion
-                in the Note box – we&apos;ll have everything ready.
+                Real prices, real times. Book online and tell us your occasion in the Note box –
+                we&apos;ll have everything ready.
               </p>
               <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                 {[
@@ -414,13 +395,14 @@ function ServicesPage() {
         </section>
 
         {/* NAIL SYSTEMS */}
-        <section id="nail-systems" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section
+          id="nail-systems"
+          className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28"
+        >
           {/* Desktop: intro + photo stay left, price groups scroll on the right */}
           <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
             <FadeUpSection className="lg:sticky lg:top-[104px]">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Nail systems
-              </p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">Nail systems</p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 The build.
               </h2>
@@ -431,8 +413,7 @@ function ServicesPage() {
                 className="mt-8 block aspect-[3/2] w-full object-cover mb-10 md:mb-12 lg:mb-8"
               />
               <p className="max-w-[560px] font-sans text-[17px] leading-[1.55] text-forest/75">
-                Every set below is guaranteed for 14 days. Designs go in the
-                Note when you book.
+                Every set below is guaranteed for 14 days. Designs go in the Note when you book.
               </p>
             </FadeUpSection>
             <FadeUpSection className="mt-0 md:mt-4 lg:-mt-10">
@@ -467,12 +448,13 @@ function ServicesPage() {
         </section>
 
         {/* MANICURES */}
-        <section id="manicures" className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section
+          id="manicures"
+          className="bg-forest px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-16">
             <FadeUpSection className="lg:sticky lg:top-[104px]">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Manicures
-              </p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">Manicures</p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-cream md:text-[48px]">
                 Hands, three ways.
               </h2>
@@ -490,12 +472,13 @@ function ServicesPage() {
         </section>
 
         {/* PEDICURES */}
-        <section id="pedicures" className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
+        <section
+          id="pedicures"
+          className="bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1200px] lg:grid lg:grid-cols-[5fr_7fr] lg:items-start lg:gap-16">
             <FadeUpSection className="lg:sticky lg:top-[104px]">
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Pedicures
-              </p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">Pedicures</p>
               <h2 className="mt-3 font-display text-[32px] font-medium leading-[1.1] text-forest md:text-[48px]">
                 Six ways to sit back.
               </h2>
@@ -574,9 +557,7 @@ function ServicesPage() {
         <section id="lashes" className="bg-cream px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                Lashes
-              </p>
+              <p className="text-[11px] uppercase tracking-[0.14em] text-gold">Lashes</p>
               <h2 className="mb-10 mt-3 font-display text-[30px] font-medium leading-[1.1] text-forest lining-nums md:text-[40px]">
                 Lashes, three ways.
               </h2>
@@ -621,8 +602,7 @@ function ServicesPage() {
                     Guarantee
                   </p>
                   <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
-                    Anything wrong within 14 days, we fix it free. Weekday
-                    repairs are the fastest.
+                    Anything wrong within 14 days, we fix it free. Weekday repairs are the fastest.
                   </p>
                 </div>
                 <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
@@ -630,8 +610,8 @@ function ServicesPage() {
                     Design
                   </p>
                   <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
-                    Book ahead and put your design in the Note. We match you with
-                    a technician who does that kind of work.
+                    Book ahead and put your design in the Note. We match you with a technician who
+                    does that kind of work.
                   </p>
                 </div>
                 <div className="border-t border-cream/12 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
@@ -639,10 +619,9 @@ function ServicesPage() {
                     On CBD
                   </p>
                   <p className="mt-2 font-sans text-[16px] leading-[1.6] text-cream/85 lg:mt-3 lg:text-[18px] lg:leading-[1.65] lg:text-cream/90">
-                    CBD services are 18+ and not recommended during pregnancy or
-                    breastfeeding. Tell your tech about any allergies. Every batch
-                    is lab-tested; reports at the front desk and on
-                    bellevanail.com.
+                    CBD services are 18+ and not recommended during pregnancy or breastfeeding. Tell
+                    your tech about any allergies. Every batch is lab-tested; reports at the front
+                    desk and on bellevanail.com.
                   </p>
                 </div>
               </div>
@@ -673,8 +652,7 @@ function ServicesPage() {
                 Book an appointment
               </a>
               <p className="mt-4 text-[12px] text-[#FAF8F5]/70 lg:text-[15px] lg:text-[#FAF8F5]/85">
-                Tell us your occasion in the Note box – we&apos;ll take care of
-                it.
+                Tell us your occasion in the Note box – we&apos;ll take care of it.
               </p>
             </FadeUpSection>
           </div>

@@ -6,7 +6,7 @@ export function SiteFooter() {
   const isContactPage = location.pathname === "/contact";
 
   return (
-    <footer className="border-t border-[#E5DFD3] bg-background px-6 pb-12 pt-20 md:px-10 lg:px-16">
+    <footer className="border-t border-[#E5DFD3] bg-background px-6 pb-28 pt-20 md:px-10 md:pb-12 lg:px-16">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4 lg:gap-x-12">
         <div>
           <p className="font-display text-xl tracking-[0.3em] text-forest">BELLEVA</p>

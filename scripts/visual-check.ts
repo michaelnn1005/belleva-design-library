@@ -94,7 +94,9 @@ async function openChrome(port: number) {
       await send("Emulation.setDeviceMetricsOverride", { width: vp.w, height: vp.h, deviceScaleFactor: 1, mobile: vp.mobile });
       const loaded = new Promise<void>((r) => listeners.push((e) => e.method === "Page.loadEventFired" && r()));
       await send("Page.navigate", { url });
-      await loaded;
+      // Don't hang forever if some request never finishes (seen on /bridal); the
+      // per-image waits below still let the page settle before each shot.
+      await Promise.race([loaded, Bun.sleep(15000)]);
       listeners.length = 0;
       // Freeze anything time-based (marquee, transitions) so both versions render identically.
       // Embedded third-party content (the Google map) is hidden: its tiles change between loads,

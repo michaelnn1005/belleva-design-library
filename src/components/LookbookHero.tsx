@@ -1,99 +1,39 @@
+import { useRef } from "react";
 import { Img } from "@/components/Img";
 import { BOOKING_URL } from "@/lib/designs";
-import { IMAGES, type OptimizedImage } from "@/lib/images";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
+import { NAIL_SETS, cropStyle, type NailSet } from "@/lib/nail-sets";
 
 // Desktop (lg+) home hero: copy on the left, three columns of real sets drifting
 // slowly in opposite directions on the right. Phones and tablets keep the photo hero.
 
-type Look = {
-  image: OptimizedImage;
-  name: string;
-  // The salon's photos are posters with the set name printed on them. Each one is
-  // zoomed to a window that shows only the nails: [scale, left, top] where left/top
-  // are the window's top-left corner as a fraction of the photo.
-  crop: [number, number, number];
-};
-
-const LOOKS = {
-  rose: { image: IMAGES["gallery-01-rose-veil"], name: "Rosé Veil", crop: [1.6, 0.19, 0.34] },
-  milky: { image: IMAGES["gallery-02-milky-orbit"], name: "Milky Orbit", crop: [1.55, 0, 0.32] },
-  charm: {
-    image: IMAGES["gallery-03-polished-charm"],
-    name: "Polished Charm",
-    crop: [1.7, 0.41, 0.12],
-  },
-  matcha: {
-    image: IMAGES["gallery-04-matcha-plaid-french"],
-    name: "Matcha Plaid French",
-    crop: [1.75, 0.43, 0.05],
-  },
-  linen: { image: IMAGES["gallery-05-linen-bloom"], name: "Linen Bloom", crop: [1.55, 0.17, 0.35] },
-  sculpt: {
-    image: IMAGES["gallery-06-sculpted-elegance"],
-    name: "Sculpted Elegance",
-    crop: [1.55, 0.1, 0.33],
-  },
-  verdant: {
-    image: IMAGES["gallery-07-verdant-drift"],
-    name: "Verdant Drift",
-    crop: [1.55, 0.3, 0],
-  },
-  lemon: { image: IMAGES["gallery-08-lemon-meadow"], name: "Lemon Meadow", crop: [1.5, 0.33, 0.3] },
-  balanced: {
-    image: IMAGES["gallery-09-balanced-form"],
-    name: "Balanced Form",
-    crop: [1.55, 0.35, 0.35],
-  },
-  darkly: {
-    image: IMAGES["gallery-10-darkly-iconic"],
-    name: "Darkly Iconic",
-    crop: [1.5, 0.33, 0.1],
-  },
-  turq: {
-    image: IMAGES["gallery-11-turquoise-rodeo"],
-    name: "Turquoise Rodeo",
-    crop: [1.5, 0.17, 0.27],
-  },
-  web: { image: IMAGES["gallery-12-shadow-web"], name: "Shadow Web", crop: [1.5, 0.33, 0.28] },
-  wings: {
-    image: IMAGES["gallery-13-iridescent-wings"],
-    name: "Iridescent Wings",
-    crop: [1.4, 0.15, 0.2],
-  },
-  amber: { image: IMAGES["gallery-14-amber-foil"], name: "Amber Foil", crop: [1.4, 0.15, 0.22] },
-  harle: { image: IMAGES["gallery-15-harlequin-set"], name: "Harlequin Set", crop: [1.5, 0, 0.27] },
-  shinobi: { image: IMAGES["gallery-16-shinobi-edge"], name: "Shinobi Edge", crop: [1.65, 0, 0.3] },
-  thriller: {
-    image: IMAGES["gallery-17-thriller-set"],
-    name: "Thriller Set",
-    crop: [1.72, 0.42, 0.3],
-  },
-} satisfies Record<string, Look>;
-
-const COLUMNS: (keyof typeof LOOKS)[][] = [
-  ["rose", "shinobi", "lemon", "amber", "milky", "balanced"],
-  ["darkly", "linen", "harle", "wings", "charm", "web"],
-  ["turq", "matcha", "thriller", "verdant", "sculpt"],
-];
-// Tiles are spaced with bottom padding (not gap) so two copies are exactly twice one
-// pass and the -50% loop is seamless.
-// Seconds for one full pass; the middle column runs downward.
-const DURATIONS = [52, 60, 56];
-
-function cropStyle([scale, left, top]: Look["crop"]) {
-  // transform-origin is the point that stays put while scaling, so the window
-  // starting at (left, top) of width 1/scale is reached from origin = left / (1 - 1/scale).
-  const k = 1 - 1 / scale;
-  return {
-    transform: `scale(${scale})`,
-    transformOrigin: `${((left / k) * 100).toFixed(1)}% ${((top / k) * 100).toFixed(1)}%`,
-  };
+// Fill the three columns automatically: each set goes to the column that is currently
+// shortest (tile height follows the photo's own proportions), so any mix of portrait,
+// square or landscape photos ends up with columns of roughly equal length.
+function balanceColumns(sets: NailSet[], count = 3): NailSet[][] {
+  const cols: NailSet[][] = Array.from({ length: count }, () => []);
+  const heights = new Array<number>(count).fill(0);
+  for (const set of sets) {
+    const i = heights.indexOf(Math.min(...heights));
+    cols[i]!.push(set);
+    // relative tile height for a unit-width column, plus room for the caption
+    heights[i]! += set.image.height / set.image.width + 0.15;
+  }
+  return cols;
 }
 
-function Tile({ look, copy }: { look: Look; copy: boolean }) {
+const COLUMNS = balanceColumns(NAIL_SETS);
+// Tiles are spaced with bottom padding (not gap) so two copies are exactly twice one
+// pass and the -50% loop is seamless.
+// Seconds for one full pass of a 6-tile column (scaled by column length so the drift
+// speed stays the same as sets are added); the middle column runs downward.
+const DURATIONS = [52, 60, 56];
+
+function Tile({ look, copy }: { look: NailSet; copy: boolean }) {
   return (
     <figure className="m-0 pb-[18px]">
-      {/* The tile keeps the photo's own proportions so the crop window above is exact. */}
+      {/* The tile keeps the photo's own proportions: plain photos are never cropped,
+          and the poster crop window above stays exact. */}
       <div
         className="overflow-hidden rounded-[10px] bg-[#e9e3d7] shadow-[0_14px_30px_-20px_rgba(0,0,0,0.4)]"
         style={{ aspectRatio: `${look.image.width} / ${look.image.height}` }}
@@ -114,9 +54,27 @@ function Tile({ look, copy }: { look: Look; copy: boolean }) {
   );
 }
 
+// While scrolling out of the hero, the copy drifts back and fades and the three
+// columns pull apart at different speeds (depth), on top of their own slow drift.
+const SHIFT = [-0.18, -0.42, -0.28];
+
 export function LookbookHero({ onExplore }: { onExplore: () => void }) {
+  const introRef = useRef<HTMLDivElement>(null);
+  const shiftRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rootRef = useScrollProgress<HTMLDivElement>(({ pass }) => {
+    const y = Math.max(0, (2 * pass - 1) * window.innerHeight); // px scrolled past the hero top
+    const fade = Math.min(1, y / window.innerHeight);
+    if (introRef.current) {
+      introRef.current.style.transform = `translateY(${(y * 0.35).toFixed(1)}px)`;
+      introRef.current.style.opacity = String(Math.max(0, 1 - fade * 1.3));
+    }
+    shiftRefs.current.forEach((el, i) => {
+      if (el) el.style.transform = `translateY(${(y * SHIFT[i]!).toFixed(1)}px)`;
+    });
+  });
+
   return (
-    <div className="absolute inset-0 hidden bg-cream lg:block">
+    <div ref={rootRef} className="absolute inset-0 hidden bg-cream lg:block">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -126,13 +84,21 @@ export function LookbookHero({ onExplore }: { onExplore: () => void }) {
         }}
       />
       <div className="relative mx-auto grid h-full max-w-[1328px] grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] grid-rows-[minmax(0,1fr)] px-16 lg:gap-10 xl:gap-20">
-        <div className="lookbook-intro flex flex-col justify-center">
+        <div
+          ref={introRef}
+          className="lookbook-intro flex flex-col justify-center will-change-transform"
+        >
           <p className="eyebrow text-[11px] tracking-[0.32em]">The Belleva lookbook</p>
+          {/* Each line rises from behind an invisible line, blurred to sharp; then every
+              ~7.5s a soft gold glint sweeps across the whole headline. */}
           <h1 className="mt-6 font-display text-[84px] font-normal leading-[0.98] tracking-[-0.01em] text-forest lining-nums xl:text-[100px]">
-            <span className="whitespace-nowrap">Find your</span>
-            <br />
-            <span className="whitespace-nowrap">
-              <i>next</i> set.
+            <span className="hero-line">
+              <span className="whitespace-nowrap">Find your</span>
+            </span>
+            <span className="hero-line">
+              <span className="whitespace-nowrap">
+                <i className="hero-next">next</i> set.
+              </span>
             </span>
           </h1>
           <p className="mt-6 max-w-[27rem] text-[19px] leading-[1.55] text-forest">
@@ -141,31 +107,45 @@ export function LookbookHero({ onExplore }: { onExplore: () => void }) {
           <div className="mt-9 flex items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="inline-flex min-h-[48px] items-center rounded-full bg-forest whitespace-nowrap px-5 py-3 text-[12px] uppercase tracking-[0.12em] xl:px-8 xl:text-[14px] text-cream transition-colors hover:bg-forest-soft"
+              className="hero-btn-book inline-flex min-h-[48px] items-center rounded-full bg-forest whitespace-nowrap px-5 py-3 text-[12px] uppercase tracking-[0.12em] xl:px-8 xl:text-[14px] text-cream"
             >
               Book an appointment
+              <span aria-hidden="true" className="hero-arrow">
+                →
+              </span>
             </a>
             <button
               type="button"
               onClick={onExplore}
-              className="inline-flex min-h-[48px] items-center rounded-full border border-forest whitespace-nowrap px-5 py-3 text-[12px] uppercase tracking-[0.12em] xl:px-8 xl:text-[14px] text-forest transition-colors hover:bg-forest/5"
+              className="hero-btn-ghost inline-flex min-h-[48px] items-center rounded-full border border-forest whitespace-nowrap px-5 py-3 text-[12px] uppercase tracking-[0.12em] xl:px-8 xl:text-[14px] text-forest"
               aria-label="Scroll to services"
             >
               Explore services
             </button>
           </div>
+          <p className="mt-7 flex items-center gap-3 text-[14px] text-forest/75">
+            <span aria-hidden="true" className="hero-live-dot" />
+            Real sets, all done by our own techs
+          </p>
         </div>
 
         <div className="lookbook-cols grid h-full grid-cols-3 grid-rows-[minmax(0,1fr)] gap-[18px]">
           {COLUMNS.map((col, i) => (
             <div key={i} className="overflow-hidden">
               <div
-                className={`lookbook-track flex flex-col ${i === 1 ? "lookbook-down" : ""}`}
-                style={{ animationDuration: `${DURATIONS[i]}s` }}
+                ref={(el) => {
+                  shiftRefs.current[i] = el;
+                }}
+                className="will-change-transform"
               >
-                {[false, true].map((copy) =>
-                  col.map((key) => <Tile key={`${key}-${copy}`} look={LOOKS[key]} copy={copy} />),
-                )}
+                <div
+                  className={`lookbook-track flex flex-col ${i === 1 ? "lookbook-down" : ""}`}
+                  style={{ animationDuration: `${((DURATIONS[i]! * col.length) / 6).toFixed(1)}s` }}
+                >
+                  {[false, true].map((copy) =>
+                    col.map((set) => <Tile key={`${set.key}-${copy}`} look={set} copy={copy} />),
+                  )}
+                </div>
               </div>
             </div>
           ))}

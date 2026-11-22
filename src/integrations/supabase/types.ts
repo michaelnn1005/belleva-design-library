@@ -17,31 +17,40 @@ export type Database = {
       bridal_leads: {
         Row: {
           created_at: string
+          design_idea: string | null
+          dress_color: string | null
           first_name: string
           id: string
           note: string | null
           party_size: number | null
           phone: string
+          preferred_visit_date: string | null
           sms_consent: boolean
           wedding_date: string
         }
         Insert: {
           created_at?: string
+          design_idea?: string | null
+          dress_color?: string | null
           first_name: string
           id?: string
           note?: string | null
           party_size?: number | null
           phone: string
+          preferred_visit_date?: string | null
           sms_consent?: boolean
           wedding_date: string
         }
         Update: {
           created_at?: string
+          design_idea?: string | null
+          dress_color?: string | null
           first_name?: string
           id?: string
           note?: string | null
           party_size?: number | null
           phone?: string
+          preferred_visit_date?: string | null
           sms_consent?: boolean
           wedding_date?: string
         }

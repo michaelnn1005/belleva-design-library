@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitBridalLead } from "@/lib/bridal.functions";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -8,13 +8,11 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
+import { shareMeta, track } from "@/lib/marketing";
 
 const TITLE = "Belleva Bridal · Belleva Nails";
 const DESCRIPTION =
   "The Belleva Bridal program: a trial, a wedding-day set, and a guarantee through your big day.";
-
-const BOOKING_URL =
-  "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26BRD";
 
 export const Route = createFileRoute("/bridal")({
   head: () => ({
@@ -24,8 +22,8 @@ export const Route = createFileRoute("/bridal")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/bridal" },
       { name: "twitter:card", content: "summary_large_image" },
+      ...shareMeta("bridal", "/bridal"),
     ],
     links: [{ rel: "canonical", href: "/bridal" }],
   }),
@@ -41,10 +39,7 @@ function FadeUpSection({
 }) {
   const { ref, visible } = useFadeUp(0.2);
   return (
-    <div
-      ref={ref}
-      className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}
-    >
+    <div ref={ref} className={`fade-up ${visible ? "fade-in-visible" : ""} ${className}`}>
       {children}
     </div>
   );
@@ -70,9 +65,7 @@ function StaggerFadeUp({
         <div
           key={i}
           className={`transform transition-all duration-700 ease-out ${
-            visible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-3 opacity-0"
+            visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
           } ${itemClassNames[i] ?? ""}`}
           style={{
             transitionDelay: visible ? `${i * staggerMs}ms` : "0ms",
@@ -138,9 +131,7 @@ function BridalAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <p className="pb-[18px] text-[16px] leading-[1.65] text-forest/80">
-            {item.answer}
-          </p>
+          <p className="pb-[18px] text-[16px] leading-[1.65] text-forest/80">{item.answer}</p>
         </div>
       </div>
     </div>
@@ -155,6 +146,12 @@ function BridalJoinForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [error, setError] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
+  // Coming from the home page's "Save my date": fill in the wedding date they picked.
+  const dateInput = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const d = new URLSearchParams(window.location.search).get("date");
+    if (d && /^\d{4}-\d{2}-\d{2}$/.test(d) && dateInput.current) dateInput.current.value = d;
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -172,6 +169,9 @@ function BridalJoinForm() {
         firstName: String(fd.get("firstName") ?? ""),
         phone: String(fd.get("phone") ?? ""),
         weddingDate: String(fd.get("weddingDate") ?? ""),
+        visitDate: String(fd.get("visitDate") ?? "") || null,
+        dressColor: String(fd.get("dressColor") ?? "").trim() || null,
+        designIdea: String(fd.get("designIdea") ?? "").trim() || null,
         partySize: partyRaw ? Number(partyRaw) : null,
         note: String(fd.get("note") ?? "") || null,
         smsConsent: true,
@@ -181,6 +181,7 @@ function BridalJoinForm() {
       error: "Something went wrong sending your sign-up. Please call us instead.",
     }));
     if (result.ok) {
+      track("bridal_lead", { form: "bridal" });
       setStatus("success");
       form.reset();
     } else {
@@ -196,10 +197,11 @@ function BridalJoinForm() {
     return (
       <div className="mt-8 border-t border-forest/12 pt-8">
         <p className="font-display text-[24px] leading-[1.3] text-forest md:text-[28px]">
-          Thank you – we&apos;ll text you shortly to set up your trial.
+          Thank you – your day is in good hands.
         </p>
         <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground">
-          Keep an eye on your phone. If anything changes, just tell us in a reply.
+          We&apos;ll match you with the nail artist whose work fits your look and text you shortly
+          to confirm your trial. If anything changes, just reply to that text.
         </p>
       </div>
     );
@@ -248,10 +250,39 @@ function BridalJoinForm() {
             Wedding date *
           </label>
           <input
+            ref={dateInput}
             id="bridal-date"
             name="weddingDate"
             type="date"
             required
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="bridal-visit"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            When would you like to come in?
+          </label>
+          <input id="bridal-visit" name="visitDate" type="date" className={inputClass} />
+          <p className="mt-1.5 text-[12px] leading-[1.5] text-muted-foreground">
+            For your trial – ideally 2 to 4 weeks before the wedding.
+          </p>
+        </div>
+        <div>
+          <label
+            htmlFor="bridal-dress"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            Dress colour
+          </label>
+          <input
+            id="bridal-dress"
+            name="dressColor"
+            type="text"
+            maxLength={100}
+            placeholder="Ivory, champagne, blush…"
             className={inputClass}
           />
         </div>
@@ -273,17 +304,33 @@ function BridalJoinForm() {
         </div>
         <div className="md:col-span-2">
           <label
+            htmlFor="bridal-look"
+            className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
+          >
+            The look you have in mind
+          </label>
+          <textarea
+            id="bridal-look"
+            name="designIdea"
+            rows={3}
+            maxLength={2000}
+            placeholder="Describe your dream set – shape, length, colours, details – or paste a Pinterest or Instagram link."
+            className={`${inputClass} resize-none`}
+          />
+        </div>
+        <div className="md:col-span-2">
+          <label
             htmlFor="bridal-note"
             className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-gold"
           >
-            Note
+            Anything else
           </label>
           <textarea
             id="bridal-note"
             name="note"
-            rows={3}
+            rows={2}
             maxLength={2000}
-            placeholder="Anything we should keep in mind - your dress, colors, a design you love, timing."
+            placeholder="Bridesmaids coming too, timing, anything we should know."
             className={`${inputClass} resize-none`}
           />
         </div>
@@ -312,7 +359,7 @@ function BridalJoinForm() {
         disabled={status === "submitting"}
         className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-gold px-8 py-3 text-sm text-forest transition-colors hover:bg-forest hover:text-cream disabled:cursor-wait disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Join the bridal program"}
+        {status === "submitting" ? "Sending…" : "Send my bridal request"}
       </button>
     </form>
   );
@@ -373,7 +420,7 @@ function BridalPage() {
                 hash="join"
                 className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest"
               >
-                Book your trial
+                Plan my bridal nails
               </Link>
             </FadeUpSection>
           </div>
@@ -406,18 +453,33 @@ function BridalPage() {
             >
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                  THE TRIAL
+                  01 · TELL US ABOUT YOUR DAY
                 </p>
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
-                  Two to four weeks before the wedding, we build your set – shade, shape and design matched to your dress. We photograph the final look and keep it on file, so nothing is left to memory.
+                  Fill in the short form below: your wedding date, when you&apos;d like to come in,
+                  your dress colour and the look you love. Rather text? Message us at{" "}
+                  <a
+                    href="sms:+19405141808"
+                    className="whitespace-nowrap underline decoration-gold decoration-1 underline-offset-4"
+                  >
+                    (940) 514-1808
+                  </a>
+                  .
+                </p>
+                <p className="mt-6 text-[11px] uppercase tracking-[0.14em] text-gold">
+                  02 · WE MATCH YOUR NAIL ARTIST
+                </p>
+                <p className="mt-2 text-[17px] leading-[1.65] text-forest">
+                  We pair you with the technician whose work fits your style, then text you to
+                  confirm a trial time that suits you.
                 </p>
               </div>
               <div className="w-full rounded-none lg:grid lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-6">
                 {/* Wrapped so the <picture> sources don't become grid cells. */}
                 <div>
                   <Img
-                    image={IMAGES["bridal-trial-still"]}
-                    alt="Bridal nail trial detail at Belleva Nails"
+                    image={IMAGES["bridal-step-match"]}
+                    alt="A Belleva nail artist matching polish shades to a bride's dress fabric"
                     sizes="(min-width: 1280px) 400px, (min-width: 1024px) 34vw, (min-width: 768px) 50vw, 100vw"
                     className="aspect-[4/5] w-full object-cover rounded-none"
                   />
@@ -432,19 +494,21 @@ function BridalPage() {
                 </div>
               </div>
               <div>
-                <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                  THE WEDDING SET
-                </p>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-gold">03 · YOUR TRIAL</p>
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
-                  Three to five days before the big day, your trial technician – or one fully briefed on your exact set – recreates it. You leave with a small care kit from us.
+                  Two to four weeks before the wedding, we build your set – shade, shape and design
+                  matched to your dress. We photograph the final look and keep it on file, so
+                  nothing is left to memory.
                 </p>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-gold">
-                  THE DAY
+                  04 · YOUR WEDDING SET
                 </p>
                 <p className="mt-2 text-[17px] leading-[1.65] text-forest">
-                  You don&apos;t think about your nails. That&apos;s the point.
+                  Three to five days before the big day, your trial technician – or one fully
+                  briefed on your exact set – recreates it, and you leave with a small care kit. On
+                  the day, you don&apos;t think about your nails. That&apos;s the point.
                 </p>
               </div>
             </StaggerFadeUp>
@@ -474,10 +538,12 @@ function BridalPage() {
                 Guaranteed through your big day.
               </h2>
               <p className="mt-6 text-[17px] leading-[1.7] text-[#FAF8F5]/90">
-                Every set carries our 14-day guarantee, and your wedding set is done days before the ceremony – so it&apos;s covered through the wedding and well into the honeymoon.
+                Every set carries our 14-day guarantee, and your wedding set is done days before the
+                ceremony – so it&apos;s covered through the wedding and well into the honeymoon.
               </p>
               <p className="mt-6 border-l-2 border-gold pl-4 text-[16px] font-medium text-[#FAF8F5]/95">
-                And if anything happens before the day itself, call us. Brides get same-day repairs. No queue.
+                And if anything happens before the day itself, call us. Brides get same-day repairs.
+                No queue.
               </p>
             </FadeUpSection>
             <FadeUpSection className="hidden lg:block">
@@ -508,7 +574,8 @@ function BridalPage() {
                 THE BRIDAL PARTY
               </p>
               <p className="mt-4 text-[17px] leading-[1.7] text-forest lg:font-display lg:text-[26px] lg:leading-[1.45]">
-                Bringing your bridesmaids? Book one appointment and write your party size in the Note. The front desk will call you the same day to arrange chairs side by side.
+                Bringing your bridesmaids? Add your party size to the form below, or simply text
+                us. We&apos;ll arrange chairs side by side so you&apos;re all done together.
               </p>
             </FadeUpSection>
           </div>
@@ -540,7 +607,8 @@ function BridalPage() {
                 JUST MARRIED
               </p>
               <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-cream lg:max-w-[520px] lg:font-display lg:text-[28px] lg:leading-[1.4]">
-                Recently married? Ask the front desk about Just Married – a couples session before the honeymoon, and a little something reserved for your next visit.
+                Recently married? Ask the front desk about Just Married – a couples session before
+                the honeymoon, and a little something reserved for your next visit.
               </p>
             </FadeUpSection>
           </div>
@@ -569,7 +637,7 @@ function BridalPage() {
                   {
                     question: "Can my whole bridal party come together?",
                     answer:
-                      "Yes. Write your party size in the booking Note and we'll call you the same day to set up chairs together.",
+                      "Yes. Add your party size to the bridal form, or text us at (940) 514-1808, and we'll arrange chairs side by side.",
                   },
                 ].map((item, i) => (
                   <BridalAccordionItem
@@ -585,15 +653,30 @@ function BridalPage() {
         </section>
 
         {/* JOIN THE BRIDAL PROGRAM - SIGN-UP FORM */}
-        <section id="join" className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:pb-28 lg:pt-12">
+        <section
+          id="join"
+          className="scroll-mt-20 bg-background px-6 py-16 md:px-10 lg:px-16 md:py-20 lg:pb-28 lg:pt-12"
+        >
           <div className="mx-auto max-w-[1200px]">
             <FadeUpSection>
               <HairlineLabel>JOIN THE BRIDAL PROGRAM</HairlineLabel>
               <h2 className="mt-8 font-display lining-nums text-[32px] leading-[1.1] text-forest md:text-[44px]">
-                Save your wedding date.
+                Plan your bridal nails.
               </h2>
               <p className="mt-4 max-w-[560px] text-[16px] leading-[1.6] text-muted-foreground">
-                Tell us when you&apos;re getting married and we&apos;ll text you to set up your trial. Free to join – no packages, no fees.
+                Tell us about your day – your date, your dress and the look you love. We&apos;ll
+                match you with the nail artist who fits your style and text you to confirm your
+                trial. Free to join – no packages, no fees.
+              </p>
+              <p className="mt-3 max-w-[560px] text-[16px] leading-[1.6] text-forest">
+                Rather talk it through? Text us at{" "}
+                <a
+                  href="sms:+19405141808"
+                  className="whitespace-nowrap underline decoration-gold decoration-1 underline-offset-4"
+                >
+                  (940) 514-1808
+                </a>{" "}
+                and we&apos;ll arrange everything for you.
               </p>
             </FadeUpSection>
             {/* Desktop: save-the-date photo left, form right. */}
@@ -628,16 +711,22 @@ function BridalPage() {
               <h2 className="font-display lining-nums text-[32px] leading-[1.1] text-[#FAF8F5] md:text-[48px] lg:text-[64px]">
                 The one thing already handled.
               </h2>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/bridal"
+                hash="join"
                 className="mt-8 inline-flex min-h-[48px] items-center rounded-full border border-[#FAF8F5] px-8 py-3 text-sm text-[#FAF8F5] transition-colors hover:bg-[#FAF8F5] hover:text-forest lg:mt-10 lg:px-10"
               >
-                Book your trial
-              </a>
+                Plan my bridal nails
+              </Link>
               <p className="mt-4 text-[15px] text-[#FAF8F5]/70 lg:mx-auto lg:mt-5 lg:text-[16px] lg:text-[#FAF8F5]/85">
-                Add &quot;wedding&quot; and your date in the Note – we&apos;ll take care of the rest.
+                A short form, or simply text{" "}
+                <a
+                  href="sms:+19405141808"
+                  className="whitespace-nowrap text-[#FAF8F5] underline decoration-gold-light underline-offset-4"
+                >
+                  (940) 514-1808
+                </a>{" "}
+                – we&apos;ll arrange the rest.
               </p>
             </FadeUpSection>
           </div>
@@ -645,7 +734,7 @@ function BridalPage() {
       </main>
 
       <SiteFooter />
-      <StickyBottomBar show={showBar} />
+      <StickyBottomBar show={showBar} bridal />
     </div>
   );
 }

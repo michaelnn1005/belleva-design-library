@@ -3,9 +3,16 @@ import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
+import { shareMeta } from "@/lib/marketing";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { LookbookHero } from "@/components/LookbookHero";
+import { ServiceBento } from "@/components/home/ServiceBento";
+import { RealRibbon } from "@/components/home/RealRibbon";
+import { RevealCta } from "@/components/home/RevealCta";
+import { AskChecklist, AskHeading, TrayEvidence } from "@/components/home/Standard";
+import { BridalStory } from "@/components/home/BridalStory";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 import { IMAGES, type OptimizedImage } from "@/lib/images";
 
 // Finished sets from the salon's own posts (photos in scripts/originals/gallery-*).
@@ -185,6 +192,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      ...shareMeta("home", "/"),
     ],
   }),
   component: Index,
@@ -315,8 +323,9 @@ function VisionQuote() {
     "transition-all duration-700 ease-out " +
     (visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0");
 
+  // Desktop shows this quote inside RevealCta instead, lit word by word.
   return (
-    <section className="bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
+    <section className="bg-forest px-6 py-24 md:px-10 md:py-20 lg:hidden lg:px-16 lg:py-28">
       <div
         ref={ref}
         className="mx-auto flex max-w-[320px] flex-col items-center text-center md:max-w-[560px]"
@@ -383,8 +392,13 @@ function ServicesSection() {
           What we do.
         </h2>
 
-        {/* Tablet/desktop: slideshow left, nails + index right */}
-        <div className="md:grid md:grid-cols-2 md:items-start md:gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
+        {/* Desktop: the services as a photo grid. */}
+        <div className="hidden lg:block">
+          <ServiceBento />
+        </div>
+
+        {/* Phones and tablets: slideshow, then nails + index */}
+        <div className="md:grid md:grid-cols-2 md:items-start md:gap-10 lg:hidden">
         <div className="mt-10">
           <NailsSlideshow />
         </div>
@@ -438,6 +452,15 @@ function ServicesSection() {
 }
 
 function Index() {
+  // Desktop: the Standard section's rounded top flattens as it slides up to the top of the screen.
+  const standardRef = useScrollProgress<HTMLElement>(() => {
+    const el = standardRef.current;
+    if (!el) return;
+    const k = Math.max(0, Math.min(1, el.getBoundingClientRect().top / window.innerHeight));
+    const r = `${(48 * k).toFixed(1)}px`;
+    el.style.borderTopLeftRadius = r;
+    el.style.borderTopRightRadius = r;
+  });
   const [showBar, setShowBar] = useState(false);
   const [quotesPaused, setQuotesPaused] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
@@ -507,7 +530,14 @@ function Index() {
 
       <ServicesSection />
 
-      <section className="relative bg-forest px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
+      <RealRibbon />
+
+      {/* Desktop: this section slides up over the pinned "real" band like a curtain, its
+          rounded top flattening as it reaches the top of the screen. */}
+      <section
+        ref={standardRef}
+        className="relative bg-forest px-6 py-24 md:px-10 md:py-20 lg:z-10 lg:-mt-[35vh] lg:rounded-t-[48px] lg:px-16 lg:py-28 lg:shadow-[0_-40px_80px_-40px_rgba(13,18,15,0.45)]"
+      >
         <span
           aria-hidden="true"
           className="pointer-events-none absolute -right-5 top-0 z-0 select-none font-display text-[180px] leading-none text-cream/7 md:-right-8 md:top-48 md:text-[260px] lg:hidden"
@@ -518,11 +548,19 @@ function Index() {
         <div className="relative z-10 mx-auto max-w-[1200px] lg:grid lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-16">
           <div>
           <p className="eyebrow">The Belleva standard</p>
-          <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px]">
+          <h2 className="mt-8 max-w-2xl font-display text-[40px] font-medium leading-[1.15] text-cream lining-nums md:text-[58px] lg:hidden">
             Things you’re allowed to ask here.
           </h2>
+          <div className="hidden lg:block">
+            <AskHeading />
+          </div>
 
-          <StaggeredAskLines />
+          <div className="lg:hidden">
+            <StaggeredAskLines />
+          </div>
+          <div className="hidden lg:block">
+            <AskChecklist />
+          </div>
 
           <div className="mt-7">
             <p className="text-[14px] text-cream/70">
@@ -549,12 +587,7 @@ function Index() {
           </p>
           </div>
           <div className="hidden lg:block">
-            <Img
-              image={IMAGES["standard-tray"]}
-              alt="Sterilised tools and single-use files on a steel tray at Belleva Nails"
-              sizes="460px"
-              className="aspect-[4/5] w-full rounded-[10px] object-cover"
-            />
+            <TrayEvidence />
           </div>
         </div>
       </section>
@@ -585,13 +618,13 @@ function Index() {
         </div>
       </section>
 
-      <section id="bridal" className="bg-background px-6 py-24 md:px-10 md:py-20 lg:px-16 lg:py-28">
+      <section id="bridal" className="bg-background px-6 py-24 md:px-10 md:py-20 lg:hidden lg:px-16 lg:py-28">
         {/* Tablet/desktop: image left, text right */}
         <div className="mx-auto max-w-[1200px] md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-16">
           <div className="mb-10 w-full md:mb-0">
             <Img
-              image={IMAGES["bridal-nails"]}
-              alt="Elegant bridal nail set"
+              image={IMAGES["bridal-step-trial"]}
+              alt="Bridal nail trial: sheer pink French set with gold star charms"
               sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw"
               className="aspect-[4/5] w-full rounded-[10px] object-cover object-center"
             />
@@ -638,7 +671,12 @@ function Index() {
         </div>
       </section>
 
+      {/* Desktop: the bridal program as a step-by-step story ending in a wedding-date picker. */}
+      <BridalStory />
+
       <VisionQuote />
+
+      <RevealCta />
 
       <SiteFooter />
 
