@@ -13,7 +13,7 @@ import { useScrollProgress } from "@/hooks/use-scroll-progress";
 //   4. the booking copy settles in beside it, straight on the forest background.
 // Scrolling back reverses everything.
 
-const DIRECTIONS =
+export const DIRECTIONS =
   "https://www.google.com/maps/dir/?api=1&destination=Belleva+Nails,+2200+W+University+Dr+Ste+180,+Denton,+TX+76201";
 const LINES = [
   { words: ["You", "spend", "your", "days"], gold: false },
@@ -22,7 +22,7 @@ const LINES = [
 ];
 const WORD_COUNT = LINES.reduce((n, l) => n + l.words.length, 0);
 // Real sets whose photos are 4:5 like the frame, so each poster crop lands exactly on the nails.
-const SETS = [
+export const CLOSING_SETS = [
   "amber",
   "gallery-20-emerald-serpent",
   "linen",
@@ -48,7 +48,7 @@ export function RevealCta() {
   // a new set every few seconds (skipped for visitors who prefer less motion)
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setShown((s) => (s + 1) % SETS.length), 3200);
+    const id = window.setInterval(() => setShown((s) => (s + 1) % CLOSING_SETS.length), 3200);
     return () => window.clearInterval(id);
   }, []);
 
@@ -141,7 +141,7 @@ export function RevealCta() {
           style={{ transform: "translate(-50%, -50%)" }}
         >
           <div className="relative h-full w-full overflow-hidden rounded-[16px] shadow-[0_50px_90px_-40px_rgba(0,0,0,0.75)]">
-            {SETS.map((set, i) => (
+            {CLOSING_SETS.map((set, i) => (
               <div
                 key={set.key}
                 className="absolute inset-0 overflow-hidden transition-opacity duration-[1200ms] ease-out"
@@ -161,7 +161,7 @@ export function RevealCta() {
           <p className="absolute left-0 top-full mt-4 flex items-center gap-3 whitespace-nowrap text-[11px] uppercase tracking-[0.2em] text-cream/75">
             <span className="h-px w-6 bg-gold-light" />
             <span key={shown} className="reveal-caption">
-              {SETS[shown]!.name} · a real Belleva set
+              {CLOSING_SETS[shown]!.name} · a real Belleva set
             </span>
           </p>
         </div>

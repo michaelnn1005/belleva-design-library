@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { shareMeta } from "@/lib/marketing";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { PhoneBridal, PhoneClosing, PhoneLookbook } from "@/components/home/PhoneHome";
 import { Img } from "@/components/Img";
 import { LookbookHero } from "@/components/LookbookHero";
 import { ServiceBento } from "@/components/home/ServiceBento";
@@ -487,43 +488,10 @@ function Index() {
 
       <section
         id="hero"
-        className="relative h-svh w-full overflow-hidden bg-forest md:h-screen lg:bg-cream"
+        className="relative min-h-svh w-full overflow-hidden bg-forest lg:h-screen lg:bg-cream"
       >
-        <Img
-          image={IMAGES["nail-library-hd"]}
-          mobile={IMAGES["nail-library"]}
-          alt="Ink Veil nail design by Belleva Nails"
-          priority
-          skipOnDesktop
-          className="absolute inset-0 h-full w-full object-cover object-[center_70%] lg:hidden"
-        />
-        {/* Shade only where text sits (header on top, headline at the bottom)
-            so the photo keeps its true colours instead of a flat green wash. */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-forest/45 to-transparent lg:hidden" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 via-45% to-transparent to-70% lg:hidden" />
-
-        {/* Phones and tablets: photo hero. Desktop: the drifting lookbook. */}
-        <div className="relative z-10 mx-auto flex h-full max-w-[1248px] md:max-w-[1280px] flex-col items-start justify-end px-6 pb-14 text-left md:px-10 lg:hidden">
-          <div className="max-w-[320px] md:max-w-[70%]">
-            <h1 className="font-display text-[52px] font-normal leading-[1.05] tracking-[-0.01em] text-background lining-nums sm:text-[56px] md:text-[72px]">
-              <span className="whitespace-nowrap">Find your</span>
-              <br />
-              <span className="whitespace-nowrap">next set.</span>
-            </h1>
-            <p className="mt-4 text-[16px] leading-[1.5] text-background md:text-[18px]">
-              Real designs, made in our Denton salon. Book the one you love.
-            </p>
-            <div className="mt-7 flex items-center gap-3">
-              <button
-                onClick={scrollToServices}
-                className="inline-flex items-center rounded-full border border-background px-6 py-2 text-[14px] uppercase tracking-[0.12em] text-background transition-colors hover:bg-background/15"
-                aria-label="Scroll to services"
-              >
-                Explore services
-              </button>
-            </div>
-          </div>
-        </div>
+        {/* Phones and tablets: a swipeable strip of real sets. Desktop: the drifting lookbook. */}
+        <PhoneLookbook onExplore={scrollToServices} />
 
         <LookbookHero onExplore={scrollToServices} />
       </section>
@@ -618,63 +586,14 @@ function Index() {
         </div>
       </section>
 
-      <section id="bridal" className="bg-background px-6 py-24 md:px-10 md:py-20 lg:hidden lg:px-16 lg:py-28">
-        {/* Tablet/desktop: image left, text right */}
-        <div className="mx-auto max-w-[1200px] md:grid md:grid-cols-2 md:items-center md:gap-10 lg:gap-16">
-          <div className="mb-10 w-full md:mb-0">
-            <Img
-              image={IMAGES["bridal-step-trial"]}
-              alt="Bridal nail trial: sheer pink French set with gold star charms"
-              sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw"
-              className="aspect-[4/5] w-full rounded-[10px] object-cover object-center"
-            />
-          </div>
-          <div>
-          <p className="eyebrow">BELLEVA BRIDAL</p>
-          <h2 className="mt-6 max-w-[340px] font-display text-[28px] leading-[1.2] text-forest md:text-[36px] lg:max-w-[460px] lg:text-[44px]">
-            Joining costs nothing. You just get more.
-          </h2>
-          <p className="mt-5 max-w-[340px] text-[15px] font-light leading-relaxed text-muted-foreground lg:max-w-[440px]">
-            No packages, no fees – just a bride who walks in calm, because everything about her nails was decided weeks ago.
-          </p>
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-[480px]">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE TRIAL</p>
-              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A trial set to lock in your exact design.</p>
-            </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE WEDDING SET</p>
-              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">The same look, recreated before the wedding.</p>
-            </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE CARE KIT</p>
-              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A small kit to take home.</p>
-            </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-gold font-medium">THE GUARANTEE</p>
-              <p className="mt-[6px] text-[16px] leading-[1.5] text-forest">A set guaranteed through your big day.</p>
-            </div>
-          </div>
-          <div className="mt-8">
-            <Link
-              to="/bridal"
-              hash="join"
-              className="inline-flex items-center rounded-full border border-gold bg-transparent px-7 py-3.5 text-[14px] text-forest transition-all duration-300 hover:bg-forest hover:text-cream active:bg-forest active:text-cream"
-            >
-              Join the bridal program
-            </Link>
-            <p className="mt-3 text-[12px] text-muted-foreground">
-              Free to join - leave your date, or book your trial if you are ready.
-            </p>
-          </div>
-          </div>
-        </div>
-      </section>
+      <PhoneBridal />
 
       {/* Desktop: the bridal program as a step-by-step story ending in a wedding-date picker. */}
       <BridalStory />
 
       <VisionQuote />
+
+      <PhoneClosing />
 
       <RevealCta />
 

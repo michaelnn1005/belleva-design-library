@@ -19,7 +19,7 @@ type Page = {
   sparks?: boolean;
 };
 
-const PAGES: Page[] = [
+export const PAGES: Page[] = [
   {
     image: IMAGES["bridal-step-tell"],
     num: "01",
