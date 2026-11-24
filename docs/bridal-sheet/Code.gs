@@ -62,7 +62,15 @@ function doPost(e) {
     "New",
   ]);
   const row = sheet.getLastRow();
-  sheet.getRange(row, 5).setFormulaR1C1('=IF(R[0]C[-1]="","",R[0]C[-1]-TODAY())');
+  // appendRow brings its own date formats, so set them again for the new row
+  sheet.getRange(row, 1).setNumberFormat("mmm d, h:mm am/pm");
+  sheet.getRange(row, 4).setNumberFormat("ddd mmm d, yyyy");
+  sheet.getRange(row, 6).setNumberFormat("ddd mmm d, yyyy");
+  // whole days from today (the sheet's own time zone) to the wedding day
+  sheet
+    .getRange(row, 5)
+    .setFormulaR1C1('=IF(R[0]C[-1]="","",INT(R[0]C[-1])-TODAY())')
+    .setNumberFormat("0");
   return ContentService.createTextOutput("ok");
 }
 
@@ -76,6 +84,8 @@ function setup() {
   sheet.getRange("F2:F").setNumberFormat("ddd mmm d, yyyy");
   sheet.getRange("M2:N").setNumberFormat("ddd mmm d, yyyy");
   sheet.getRange("E2:E").setNumberFormat("0");
+  // the day count uses the sheet's time zone, so keep it on the salon's
+  sheet.getParent().setSpreadsheetTimeZone("America/Chicago");
 
   // Status dropdown
   const statusRule = SpreadsheetApp.newDataValidation().requireValueInList(STATUSES, true).build();

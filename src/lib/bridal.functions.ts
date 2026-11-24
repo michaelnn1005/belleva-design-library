@@ -95,8 +95,12 @@ const escapeHtml = (v: string) =>
 function describeDate(iso: string) {
   const [y, m, d] = iso.split("-").map(Number) as [number, number, number];
   const wedding = Date.UTC(y, m - 1, d);
-  const now = new Date();
-  const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  // "today" in Denton, so a sign-up in the evening doesn't count from tomorrow (UTC)
+  const [ty, tm, td] = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" })
+    .format(new Date())
+    .split("-")
+    .map(Number) as [number, number, number];
+  const today = Date.UTC(ty, tm - 1, td);
   const days = Math.round((wedding - today) / 86_400_000);
   const pretty = new Date(wedding).toLocaleDateString("en-US", {
     weekday: "short",
