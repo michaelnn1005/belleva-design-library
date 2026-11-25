@@ -4,13 +4,14 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { GOOGLE_PROFILE_URL, SALON_TEL } from "@/lib/designs";
 
 const TITLE = "Contact · Belleva Nails";
 const DESCRIPTION =
   "Visit Belleva Nails in Denton, Texas. Book online, call, or send a message.";
 
 const BOOKING_URL =
-  "https://bellevanail.com/booking?utm_source=website&utm_medium=contact&utm_campaign=WEB26CT";
+  "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26CT";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -205,7 +206,11 @@ function ContactPage() {
                     </div>
                   </div>
                   <p className="mt-5 font-sans text-[13px] leading-[1.6] text-[#2F4A3E]/70">
-                    Central Time. Holiday hours are posted on Google.
+                    Central Time. Holiday hours are posted on{" "}
+                    <a href={GOOGLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                      Google
+                    </a>
+                    .
                   </p>
                 </div>
               </div>
@@ -231,9 +236,15 @@ function ContactPage() {
                     Repairs
                   </p>
                   <p className="mt-3 font-sans text-[15px] leading-[1.65] text-[#2F4A3E]/85">
-                    Anything wrong within 14 days, we fix it free. Book online
-                    with &quot;Repair&quot; in the Note, or call and ask for the
-                    front desk. Weekday repairs are the fastest.
+                    Anything wrong within 14 days, we fix it free.{" "}
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                      Book online
+                    </a>{" "}
+                    with &quot;Repair&quot; in the Note, or{" "}
+                    <a href={SALON_TEL} className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                      call
+                    </a>{" "}
+                    and ask for the front desk. Weekday repairs are the fastest.
                   </p>
                 </div>
 
@@ -253,8 +264,11 @@ function ContactPage() {
                     Gift cards
                   </p>
                   <p className="mt-3 font-sans text-[15px] leading-[1.65] text-[#2F4A3E]/85">
-                    At the front desk or by phone. We can hand it to you here or
-                    text you a photo of the card.
+                    At the front desk or{" "}
+                    <a href={SALON_TEL} className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                      by phone
+                    </a>
+                    . We can hand it to you here or text you a photo of the card.
                   </p>
                 </div>
               </div>

@@ -18,6 +18,10 @@ export const DESIGNS: Design[] = [
 ];
 
 export const BOOKING_URL = "https://bellevanail.com/booking";
+export const SALON_TEL = "tel:+19405141808";
+export const SALON_SMS = "sms:+19405141808";
+/** Belleva on Google: hours (including holiday hours), photos and reviews. */
+export const GOOGLE_PROFILE_URL = "https://www.google.com/search?q=Belleva+Nails+Denton+TX";
 
 export const PLACEHOLDER_TONES: readonly [string, string, string, string] = ["#EAE4D8", "#3A5A4A", "#E3DACB", "#EFEAE0"];
 

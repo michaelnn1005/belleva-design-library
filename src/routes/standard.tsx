@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -6,6 +6,9 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
+
+const STD_BOOKING_URL =
+  "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26STD";
 
 // Text + photo pairs: full width on phones, half the row on tablet, capped on desktop.
 const SPLIT_SIZES = "(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw";
@@ -232,7 +235,15 @@ function StandardPage() {
                       Online
                     </p>
                     <p className="mt-2 text-[17px] leading-[1.6] text-forest">
-                      Book as usual and write “Repair” in the Note.
+                      <a
+                        href={STD_BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 decoration-forest/30"
+                      >
+                        Book as usual
+                      </a>{" "}
+                      and write “Repair” in the Note.
                     </p>
                   </div>
                   <div>
@@ -517,6 +528,17 @@ function StandardPage() {
                 </span>
                 <p className="pt-1.5 text-[16px] leading-[1.5] text-forest md:pt-2 md:text-[18px]">
                   {line}
+                  {line.startsWith("No hidden fees") && (
+                    <>
+                      {" "}
+                      <Link
+                        to="/services"
+                        className="whitespace-nowrap underline underline-offset-4 decoration-forest/30"
+                      >
+                        See prices
+                      </Link>
+                    </>
+                  )}
                 </p>
               </div>
             ))}
@@ -555,7 +577,7 @@ function StandardPage() {
             </div>
 
             <a
-              href="https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26STD"
+              href={STD_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-16 inline-flex min-h-[48px] items-center rounded-full border border-background bg-transparent px-8 py-3 text-[14px] text-background transition-all duration-300 hover:bg-background hover:text-forest"

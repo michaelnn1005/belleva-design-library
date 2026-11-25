@@ -6,6 +6,10 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
+import { SALON_TEL } from "@/lib/designs";
+
+const FAQ_BOOKING_URL =
+  "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26FAQ";
 
 
 const TITLE = "FAQ · Belleva Nails";
@@ -131,9 +135,15 @@ const FAQ_GROUPS: FaqGroup[] = [
         question: "What does the 14-day guarantee cover?",
         answer: (
           <>
-            Chips, lifts, and breaks within 14 days, we fix them at no charge.
-            Book online with "Repair" in the Note, or call and ask for the front
-            desk. The full policy is on{" "}
+            Chips, lifts, and breaks within 14 days, we fix them at no charge.{" "}
+            <a href={FAQ_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-forest underline underline-offset-4 hover:text-forest/80">
+              Book online
+            </a>{" "}
+            with "Repair" in the Note, or{" "}
+            <a href={SALON_TEL} className="text-forest underline underline-offset-4 hover:text-forest/80">
+              call
+            </a>{" "}
+            and ask for the front desk. The full policy is on{" "}
             <Link
               to="/standard"
               className="text-forest underline underline-offset-4 hover:text-forest/80"
@@ -192,8 +202,16 @@ const FAQ_GROUPS: FaqGroup[] = [
     items: [
       {
         question: "Do you sell gift cards?",
-        answer:
-          "Yes, at the front desk, or by phone. Phone orders are paid by Zelle; pick the card up at the salon or we'll text you a photo of it, whichever you prefer.",
+        answer: (
+          <>
+            Yes, at the front desk, or{" "}
+            <a href={SALON_TEL} className="text-forest underline underline-offset-4 hover:text-forest/80">
+              by phone
+            </a>
+            . Phone orders are paid by Zelle; pick the card up at the salon or we&apos;ll text
+            you a photo of it, whichever you prefer.
+          </>
+        ),
       },
     ],
   },
@@ -342,7 +360,14 @@ function FaqPage() {
                 Asked and answered.
               </h1>
               <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-[#FAF8F5]/75">
-                If it isn't here, call us – a real person will pick up the phone.
+                If it isn&apos;t here,{" "}
+                <a
+                  href={SALON_TEL}
+                  className="whitespace-nowrap text-[#FAF8F5] underline decoration-gold-light underline-offset-4"
+                >
+                  call us
+                </a>{" "}
+                – a real person will pick up the phone.
               </p>
             </FadeUpSection>
           </div>
@@ -387,7 +412,7 @@ function FaqPage() {
                 Still wondering? Book and write your question in the Note.
               </p>
               <a
-                href="https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26FAQ"
+                href={FAQ_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center rounded-full border border-gold px-6 py-3 text-[14px] font-medium uppercase tracking-[0.12em] text-forest transition-colors hover:bg-gold/10 lg:mt-8 lg:border-cream lg:text-cream lg:hover:bg-cream lg:hover:text-forest"
@@ -411,7 +436,7 @@ function FaqPage() {
       </main>
 
       <SiteFooter />
-      <StickyBottomBar show={false} />
+      <StickyBottomBar show={heroPassed} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
+import { GOOGLE_PROFILE_URL } from "@/lib/designs";
 
 const TITLE = "Careers · Belleva Nails";
 const DESCRIPTION =
@@ -182,7 +183,17 @@ function GoogleStats() {
       </div>
       <div className="bg-background p-10">
         <p className="font-display text-[56px] leading-none text-forest lining-nums">1,100+</p>
-        <p className="mt-3 text-[13px] text-forest/70">Google reviews, up from a few hundred</p>
+        <p className="mt-3 text-[13px] text-forest/70">
+          <a
+            href={GOOGLE_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-forest/30 underline-offset-4 transition-colors hover:text-forest"
+          >
+            Google reviews
+          </a>
+          , up from a few hundred
+        </p>
       </div>
       <div className="bg-background p-10">
         <p className="font-display text-[56px] leading-none text-forest lining-nums">2</p>

@@ -9,6 +9,7 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
 import { shareMeta, track } from "@/lib/marketing";
+import { SALON_SMS, SALON_TEL } from "@/lib/designs";
 
 const TITLE = "Belleva Bridal · Belleva Nails";
 const DESCRIPTION =
@@ -93,7 +94,7 @@ function HairlineLabel({ children }: { children: React.ReactNode }) {
 
 type BridalFaqItem = {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 };
 
 function BridalAccordionItem({
@@ -542,7 +543,11 @@ function BridalPage() {
                 ceremony – so it&apos;s covered through the wedding and well into the honeymoon.
               </p>
               <p className="mt-6 border-l-2 border-gold pl-4 text-[16px] font-medium text-[#FAF8F5]/95">
-                And if anything happens before the day itself, call us. Brides get same-day repairs.
+                And if anything happens before the day itself,{" "}
+                <a href={SALON_TEL} className="whitespace-nowrap text-[#FAF8F5] underline decoration-gold-light underline-offset-4">
+                  call us
+                </a>
+                . Brides get same-day repairs.
                 No queue.
               </p>
             </FadeUpSection>
@@ -574,8 +579,11 @@ function BridalPage() {
                 THE BRIDAL PARTY
               </p>
               <p className="mt-4 text-[17px] leading-[1.7] text-forest lg:font-display lg:text-[26px] lg:leading-[1.45]">
-                Bringing your bridesmaids? Add your party size to the form below, or simply text
-                us. We&apos;ll arrange chairs side by side so you&apos;re all done together.
+                Bringing your bridesmaids? Add your party size to the form below, or simply{" "}
+                <a href={SALON_SMS} className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                  text us
+                </a>
+                . We&apos;ll arrange chairs side by side so you&apos;re all done together.
               </p>
             </FadeUpSection>
           </div>
@@ -631,13 +639,27 @@ function BridalPage() {
                   },
                   {
                     question: "What if a nail chips before the wedding?",
-                    answer:
-                      "Call us. Bride repairs are same-day – your set is fixed before it's ever in a photo.",
+                    answer: (
+                      <>
+                        <a href={SALON_TEL} className="underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                          Call us
+                        </a>
+                        . Bride repairs are same-day – your set is fixed before it&apos;s ever in a
+                        photo.
+                      </>
+                    ),
                   },
                   {
                     question: "Can my whole bridal party come together?",
-                    answer:
-                      "Yes. Add your party size to the bridal form, or text us at (940) 514-1808, and we'll arrange chairs side by side.",
+                    answer: (
+                      <>
+                        Yes. Add your party size to the bridal form, or text us at{" "}
+                        <a href={SALON_SMS} className="whitespace-nowrap underline decoration-forest/40 underline-offset-4 transition-colors hover:decoration-forest">
+                          (940) 514-1808
+                        </a>
+                        , and we&apos;ll arrange chairs side by side.
+                      </>
+                    ),
                   },
                 ].map((item, i) => (
                   <BridalAccordionItem

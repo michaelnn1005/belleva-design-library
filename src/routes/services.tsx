@@ -369,7 +369,16 @@ function ServicesPage() {
                 The menu.
               </h1>
               <p className="mt-5 max-w-[560px] font-sans text-[16px] leading-[1.6] text-[#FAF8F5]/75">
-                Real prices, real times. Book online and tell us your occasion in the Note box –
+                Real prices, real times.{" "}
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FAF8F5] underline decoration-gold-light underline-offset-4"
+                >
+                  Book online
+                </a>{" "}
+                and tell us your occasion in the Note box –
                 we&apos;ll have everything ready.
               </p>
               <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
