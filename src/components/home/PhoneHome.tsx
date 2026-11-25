@@ -155,6 +155,7 @@ export function PhoneLookbook({ onExplore }: { onExplore: () => void }) {
         </p>
         <h1 className="mt-3 font-display text-[46px] font-normal leading-[1.02] tracking-[-0.01em] text-cream lining-nums md:text-[64px]">
           Find your <i className="text-gold-light">next</i> set.
+          <span className="sr-only"> Belleva Nails, nail salon in Denton, Texas.</span>
         </h1>
         <p className="mt-3 max-w-[340px] text-[15px] leading-[1.5] text-cream/85 md:max-w-[460px] md:text-[17px]">
           Real designs, made in our Denton salon. Book the one you love.

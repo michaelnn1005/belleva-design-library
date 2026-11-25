@@ -1,3 +1,4 @@
+import { canonicalLink, canonicalUrl } from "@/lib/marketing";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -25,10 +26,10 @@ export const Route = createFileRoute("/standard")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/standard" },
+      { property: "og:url", content: canonicalUrl("/standard") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/standard" }],
+    links: [canonicalLink("/standard")],
   }),
   component: StandardPage,
 });

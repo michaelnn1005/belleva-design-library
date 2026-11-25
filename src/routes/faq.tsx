@@ -1,3 +1,4 @@
+import { canonicalLink, canonicalUrl } from "@/lib/marketing";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -12,7 +13,7 @@ const FAQ_BOOKING_URL =
   "https://bellevanail.com/booking?utm_source=web&utm_medium=site&utm_campaign=WEB26FAQ";
 
 
-const TITLE = "FAQ · Belleva Nails";
+const TITLE = "FAQ · Belleva Nails, Denton TX";
 const DESCRIPTION =
   "Answers about booking, walk-ins, cancellations, bridal, gift cards, and the Belleva Standard guarantee.";
 
@@ -24,10 +25,10 @@ export const Route = createFileRoute("/faq")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: canonicalUrl("/faq") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [canonicalLink("/faq")],
   }),
   component: FaqPage,
 });

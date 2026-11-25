@@ -7,14 +7,14 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { BOOKING_URL } from "@/lib/designs";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
-import { shareMeta } from "@/lib/marketing";
+import { canonicalLink, shareMeta } from "@/lib/marketing";
 
 // Section photos: full width on phones/tablet, the 5/12 column on desktop.
 const SECTION_PHOTO_SIZES = "(min-width: 1024px) 480px, 100vw";
 
-const TITLE = "Services · Belleva Nails";
+const TITLE = "Nail Services & Prices · Belleva Nails, Denton TX";
 const DESCRIPTION =
-  "The Belleva Nails menu: pedicures, manicures, nail systems, a la carte extras, waxing and lashes. Real prices, real times · Denton, Texas.";
+  "The Belleva Nails menu with real prices: pedicures, manicures, Gel-X, builder gel and acrylic, a la carte extras, waxing and lashes. Nail salon in Denton, Texas.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services")({
       { name: "twitter:card", content: "summary_large_image" },
       ...shareMeta("services", "/services"),
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [canonicalLink("/services")],
   }),
   component: ServicesPage,
 });

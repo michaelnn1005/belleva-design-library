@@ -8,12 +8,12 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
-import { shareMeta, track } from "@/lib/marketing";
+import { canonicalLink, shareMeta, track } from "@/lib/marketing";
 import { SALON_SMS, SALON_TEL } from "@/lib/designs";
 
-const TITLE = "Belleva Bridal · Belleva Nails";
+const TITLE = "Bridal Nails in Denton, TX · Belleva Nails";
 const DESCRIPTION =
-  "The Belleva Bridal program: a trial, a wedding-day set, and a guarantee through your big day.";
+  "Wedding nails in Denton, Texas: a trial, a wedding-day set, bridal party chairs side by side, and a guarantee through your big day.";
 
 export const Route = createFileRoute("/bridal")({
   head: () => ({
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/bridal")({
       { name: "twitter:card", content: "summary_large_image" },
       ...shareMeta("bridal", "/bridal"),
     ],
-    links: [{ rel: "canonical", href: "/bridal" }],
+    links: [canonicalLink("/bridal")],
   }),
   component: BridalPage,
 });

@@ -1,5 +1,6 @@
 import { MarketingTracker } from "@/components/MarketingTracker";
 import { shareMeta, trackingScripts } from "@/lib/marketing";
+import { schemaScript } from "@/lib/schema";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -79,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Belleva Nails · Denton" },
+      { title: "Belleva Nails · Nail Salon in Denton, TX" },
       {
         name: "description",
         content: "Real nail sets made in our Denton salon. Book the design you love.",
       },
       { name: "author", content: "Belleva Nails" },
-      { property: "og:title", content: "Belleva Nails · Denton" },
+      { property: "og:title", content: "Belleva Nails · Nail Salon in Denton, TX" },
       {
         property: "og:description",
         content: "Real nail sets made in our Denton salon. Book the design you love.",
@@ -94,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       ...shareMeta("home"),
     ],
-    scripts: trackingScripts(),
+    scripts: [schemaScript(), ...trackingScripts()],
     links: [
       {
         rel: "stylesheet",

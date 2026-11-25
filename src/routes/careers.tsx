@@ -1,3 +1,4 @@
+import { canonicalLink, canonicalUrl } from "@/lib/marketing";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -8,7 +9,7 @@ import { Img } from "@/components/Img";
 import { IMAGES } from "@/lib/images";
 import { GOOGLE_PROFILE_URL } from "@/lib/designs";
 
-const TITLE = "Careers · Belleva Nails";
+const TITLE = "Nail Tech Jobs in Denton, TX · Belleva Nails";
 const DESCRIPTION =
   "Come build with us at Belleva Nails in Denton, Texas. A salon built by a nail tech who knows what the floor is worth.";
 
@@ -20,10 +21,10 @@ export const Route = createFileRoute("/careers")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/careers" },
+      { property: "og:url", content: canonicalUrl("/careers") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/careers" }],
+    links: [canonicalLink("/careers")],
   }),
   component: CareersPage,
 });

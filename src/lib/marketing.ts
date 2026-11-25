@@ -8,11 +8,27 @@ export const GA4_ID = "G-PN0KN8NHXX";
 /** Meta Pixel ID (Facebook / Instagram ads), e.g. "123456789012345". */
 export const META_PIXEL_ID = "4695550164054627";
 
-/** The site's public address, used for share images. Change when a custom domain is connected. */
+/**
+ * Where share images are served from. Facebook, iMessage etc. need full URLs, and the images
+ * only exist on the new site, so this stays on the Lovable address until bellevanail.com
+ * points at the new site (cutover checklist: docs/chuyen-ten-mien.md), then becomes CANONICAL_ORIGIN.
+ */
 export const SITE_URL = "https://belleva-design-library.lovable.app";
+
+/**
+ * The salon's real address. Every page tells Google this is the one true URL
+ * (canonical + og:url), so test copies (lovable.app, workers.dev) never compete with it.
+ */
+export const CANONICAL_ORIGIN = "https://bellevanail.com";
 
 /** Absolute URL of a file in /public, for share previews (Facebook, iMessage, etc. need full URLs). */
 export const absoluteUrl = (path: string) => `${SITE_URL}${path}`;
+
+/** The page's address on bellevanail.com, e.g. canonicalUrl("/services"). */
+export const canonicalUrl = (path: string) => `${CANONICAL_ORIGIN}${path === "/" ? "/" : path}`;
+
+/** <link rel="canonical"> for a page. */
+export const canonicalLink = (path: string) => ({ rel: "canonical", href: canonicalUrl(path) });
 
 /** Share-preview meta tags for a page, using one of the 1200x630 images in /public/share. */
 export function shareMeta(image: string, path?: string) {
@@ -20,7 +36,7 @@ export function shareMeta(image: string, path?: string) {
     { property: "og:image", content: absoluteUrl(`/share/${image}.jpg`) },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
-    ...(path ? [{ property: "og:url", content: absoluteUrl(path) }] : []),
+    ...(path ? [{ property: "og:url", content: canonicalUrl(path) }] : []),
     { property: "og:site_name", content: "Belleva Nails" },
     { name: "twitter:image", content: absoluteUrl(`/share/${image}.jpg`) },
   ];

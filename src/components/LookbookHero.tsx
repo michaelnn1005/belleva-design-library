@@ -98,6 +98,9 @@ export function LookbookHero({ onExplore }: { onExplore: () => void }) {
             <span className="hero-line">
               <span className="whitespace-nowrap">
                 <i className="hero-next">next</i> set.
+                {/* for Google and screen readers: what and where, as the old site's headline
+                    said. Kept inside the line so .hero-line:first/last-child timings don't shift. */}
+                <span className="sr-only"> Belleva Nails, nail salon in Denton, Texas.</span>
               </span>
             </span>
           </h1>

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyBottomBar } from "@/components/StickyBottomBar";
-import { shareMeta } from "@/lib/marketing";
+import { canonicalLink, shareMeta } from "@/lib/marketing";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { PhoneBridal, PhoneClosing, PhoneLookbook } from "@/components/home/PhoneHome";
 import { Img } from "@/components/Img";
@@ -180,9 +180,9 @@ function NailsSlideshow() {
 }
 
 
-const TITLE = "Belleva Nails · Denton nail design library";
+const TITLE = "Belleva Nails · Nail Salon in Denton, TX";
 const DESCRIPTION =
-  "Browse real nail sets made in our Denton salon and book the design you love.";
+  "Nail salon in Denton, TX: Gel-X, builder gel, acrylic, pedicures, lashes and waxing. Browse real sets made in our salon and book the design you love.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -195,6 +195,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       ...shareMeta("home", "/"),
     ],
+    links: [canonicalLink("/")],
   }),
   component: Index,
 });

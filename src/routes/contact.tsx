@@ -1,3 +1,4 @@
+import { canonicalLink, canonicalUrl } from "@/lib/marketing";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -6,7 +7,7 @@ import { StickyBottomBar } from "@/components/StickyBottomBar";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { GOOGLE_PROFILE_URL, SALON_TEL } from "@/lib/designs";
 
-const TITLE = "Contact · Belleva Nails";
+const TITLE = "Contact & Hours · Belleva Nails, Denton TX";
 const DESCRIPTION =
   "Visit Belleva Nails in Denton, Texas. Book online, call, or send a message.";
 
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: canonicalUrl("/contact") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [canonicalLink("/contact")],
   }),
   component: ContactPage,
 });
